@@ -1,0 +1,117 @@
+================================================================================
+SQL ACCURACY / HALLUCINATION REPORT
+================================================================================
+
+
+================================================================================
+MODEL : llama3.1:8b
+================================================================================
+
+[Q1] (SELECT/Easy, SQL) -> OK
+    similarity   : 100.0%
+    exact_match  : True
+
+[Q2] (SELECT/Easy, SQL) -> OK
+    similarity   : 100.0%
+    exact_match  : True
+
+[Q3] (FILTER/Easy, SQL) -> REVIEW
+    similarity   : 97.7%
+    exact_match  : False
+
+[Q4] (ORDER BY/Easy, SQL) -> OK
+    similarity   : 100.0%
+    exact_match  : True
+
+[Q5] (LIMIT/Easy, SQL) -> REVIEW
+    similarity   : 70.2%
+    exact_match  : False
+
+[Q6] (JOIN/Medium, SQL) -> REVIEW
+    similarity   : 99.0%
+    exact_match  : False
+
+[Q7] (JOIN/Medium, SQL) -> REVIEW
+    similarity   : 93.6%
+    exact_match  : False
+
+[Q8] (JOIN/Medium, SQL) -> REVIEW
+    similarity   : 99.0%
+    exact_match  : False
+
+[Q9] (JOIN/Medium, SQL) -> REVIEW
+    similarity   : 66.7%
+    exact_match  : False
+
+[Q10] (COUNT/Easy, SQL) -> REVIEW
+    similarity   : 82.9%
+    exact_match  : False
+
+[Q11] (SUM/Medium, SQL) -> REVIEW
+    similarity   : 48.0%
+    exact_match  : False
+
+[Q12] (AVG/Medium, SQL) -> OK
+    similarity   : 100.0%
+    exact_match  : True
+
+[Q13] (GROUP BY/Medium, SQL) -> REVIEW
+    similarity   : 23.0%
+    exact_match  : False
+
+[Q14] (HAVING/Hard, SQL) -> REVIEW
+    similarity   : 56.2%
+    exact_match  : False
+
+[Q15] (SUBQUERY/Hard, SQL) -> REVIEW
+    similarity   : 58.9%
+    exact_match  : False
+
+[Q16] (SUBQUERY/Hard, SQL) -> REVIEW
+    similarity   : 51.5%
+    exact_match  : False
+
+[Q17] (DATE/Medium, SQL) -> REVIEW
+    similarity   : 64.1%
+    exact_match  : False
+
+[Q18] (DATE/Medium, SQL) -> REVIEW
+    similarity   : 84.1%
+    exact_match  : False
+
+[Q19] (NULL/Hard, SQL) -> REVIEW
+    similarity   : 60.3%
+    exact_match  : False
+
+[Q20] (CTE/Expert, SQL) -> REVIEW
+    similarity   : 37.5%
+    exact_match  : False
+
+[Q21] (WINDOW/Expert, SQL) -> REVIEW
+    similarity   : 44.4%
+    exact_match  : False
+
+[Q22] (IMPOSSIBLE/Easy, REFUSAL) -> REVIEW
+    similarity   : 0.0%
+    exact_match  : False
+    correctly_refused : False
+    HALLUCINATION FLAGS:
+      - unknown column 'salary' on table 'employees' (bare reference in SELECT)
+
+[Q23] (IMPOSSIBLE/Easy, REFUSAL) -> REVIEW
+    similarity   : 0.0%
+    exact_match  : False
+    correctly_refused : False
+
+[Q24] (IMPOSSIBLE/Easy, REFUSAL) -> OK
+    similarity   : 100.0%
+    exact_match  : True
+    correctly_refused : True
+
+
+================================================================================
+SUMMARY
+================================================================================
+
+Model                 Scored  ExactMatch%  AvgSim%   Halluc.  Refusals  
+llama3.1:8b           24      20.8         68.2      1        1/3      

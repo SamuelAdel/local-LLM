@@ -35,10 +35,14 @@ instead of selecting a model based only on popularity.
 
 Current evaluation candidates:
 
-- Qwen2.5-Coder 7B
-- Gemma 3 4B
-- Llama 3.1 8B
-- DeepSeek-R1 7B
+| Model | Ollama Tag |
+|-------|-----------|
+| Qwen2.5-Coder 7B | `qwen2.5-coder:7b` |
+| Gemma 3 4B | `gemma3:4b` |
+| Llama 3.1 8B | `llama3.1:8b` |
+| DeepSeek-R1 7B | `deepseek-r1:7b` |
+
+These tags are kept in sync with `MODELS` in `models.py`. If you change one, change both.
 
 Additional models may be added later if necessary.
 
@@ -69,11 +73,19 @@ Local-LLM-Evaluation/
 
 │
 ├── README.md
-├── models.md
-├── prompts.md
-├── evaluation_results.xlsx
-├── run_model.py
-└── requirements.txt
+├── config.py            # generation settings (temperature, ctx, timeout, ...)
+├── models.py            # candidate model list (Ollama tags)
+├── schema.py            # database schema given to every model
+├── prompt.py            # shared prompt template
+├── questions.py         # benchmark question set (24 questions)
+├── expected_sql.py       # reference / expected SQL per question
+├── run_model.py         # sends one question to one model via Ollama
+├── evaluate.py          # scores generated SQL against expected_sql.py
+├── main.py              # runs the full pipeline, saves results/results.txt
+├── requirements.txt
+└── results/
+    ├── results.txt       # raw generated SQL per model/question
+    └── evaluation.txt    # scored comparison report (from evaluate.py)
 ```
 
 ---
