@@ -1,0 +1,224 @@
+================================================================================
+LOCAL LLM EVALUATION
+MODEL : deepseek-r1:7b
+2026-08-04 17:27:58.986683
+================================================================================
+
+Question ID : 1
+Category    : SELECT
+Difficulty  : Easy
+Question    : List all customers.
+Time        : N/A
+
+Generated SQL:
+ERROR: deepseek-r1:7b failed: model 'deepseek-r1:7b' not found (status code: 404)
+--------------------------------------------------------------------------------
+Question ID : 2
+Category    : SELECT
+Difficulty  : Easy
+Question    : List all products.
+Time        : N/A
+
+Generated SQL:
+ERROR: deepseek-r1:7b failed: model 'deepseek-r1:7b' not found (status code: 404)
+--------------------------------------------------------------------------------
+Question ID : 3
+Category    : FILTER
+Difficulty  : Easy
+Question    : Show customers who live in Cairo.
+Time        : N/A
+
+Generated SQL:
+ERROR: deepseek-r1:7b failed: model 'deepseek-r1:7b' not found (status code: 404)
+--------------------------------------------------------------------------------
+Question ID : 4
+Category    : ORDER BY
+Difficulty  : Easy
+Question    : Show products ordered by price descending.
+Time        : N/A
+
+Generated SQL:
+ERROR: deepseek-r1:7b failed: model 'deepseek-r1:7b' not found (status code: 404)
+--------------------------------------------------------------------------------
+Question ID : 5
+Category    : LIMIT
+Difficulty  : Easy
+Question    : Show the five most expensive products.
+Time        : N/A
+
+Generated SQL:
+ERROR: deepseek-r1:7b failed: model 'deepseek-r1:7b' not found (status code: 404)
+--------------------------------------------------------------------------------
+Question ID : 6
+Category    : JOIN
+Difficulty  : Medium
+Question    : List customer names with their order dates.
+Time        : N/A
+
+Generated SQL:
+ERROR: deepseek-r1:7b failed: model 'deepseek-r1:7b' not found (status code: 404)
+--------------------------------------------------------------------------------
+Question ID : 7
+Category    : JOIN
+Difficulty  : Medium
+Question    : List product names with supplier names.
+Time        : N/A
+
+Generated SQL:
+ERROR: deepseek-r1:7b failed: model 'deepseek-r1:7b' not found (status code: 404)
+--------------------------------------------------------------------------------
+Question ID : 8
+Category    : JOIN
+Difficulty  : Medium
+Question    : Show products with category names.
+Time        : N/A
+
+Generated SQL:
+ERROR: deepseek-r1:7b failed: model 'deepseek-r1:7b' not found (status code: 404)
+--------------------------------------------------------------------------------
+Question ID : 9
+Category    : JOIN
+Difficulty  : Medium
+Question    : List customer names and payment methods.
+Time        : N/A
+
+Generated SQL:
+ERROR: deepseek-r1:7b failed: model 'deepseek-r1:7b' not found (status code: 404)
+--------------------------------------------------------------------------------
+Question ID : 10
+Category    : COUNT
+Difficulty  : Easy
+Question    : How many customers are there?
+Time        : N/A
+
+Generated SQL:
+ERROR: deepseek-r1:7b failed: model 'deepseek-r1:7b' not found (status code: 404)
+--------------------------------------------------------------------------------
+Question ID : 11
+Category    : SUM
+Difficulty  : Medium
+Question    : Calculate total sales.
+Time        : N/A
+
+Generated SQL:
+ERROR: deepseek-r1:7b failed: model 'deepseek-r1:7b' not found (status code: 404)
+--------------------------------------------------------------------------------
+Question ID : 12
+Category    : AVG
+Difficulty  : Medium
+Question    : Calculate average order amount.
+Time        : N/A
+
+Generated SQL:
+ERROR: deepseek-r1:7b failed: model 'deepseek-r1:7b' not found (status code: 404)
+--------------------------------------------------------------------------------
+Question ID : 13
+Category    : GROUP BY
+Difficulty  : Medium
+Question    : Show total sales for each customer.
+Time        : N/A
+
+Generated SQL:
+ERROR: deepseek-r1:7b failed: model 'deepseek-r1:7b' not found (status code: 404)
+--------------------------------------------------------------------------------
+Question ID : 14
+Category    : HAVING
+Difficulty  : Hard
+Question    : Show customers with more than five orders.
+Time        : N/A
+
+Generated SQL:
+ERROR: deepseek-r1:7b failed: model 'deepseek-r1:7b' not found (status code: 404)
+--------------------------------------------------------------------------------
+Question ID : 15
+Category    : SUBQUERY
+Difficulty  : Hard
+Question    : Show the most expensive product.
+Time        : N/A
+
+Generated SQL:
+ERROR: deepseek-r1:7b failed: model 'deepseek-r1:7b' not found (status code: 404)
+--------------------------------------------------------------------------------
+Question ID : 16
+Category    : SUBQUERY
+Difficulty  : Hard
+Question    : Show customers whose total spending is above the average customer spending.
+Time        : N/A
+
+Generated SQL:
+ERROR: deepseek-r1:7b failed: model 'deepseek-r1:7b' not found (status code: 404)
+--------------------------------------------------------------------------------
+Question ID : 17
+Category    : DATE
+Difficulty  : Medium
+Question    : Show orders placed in 2024.
+Time        : N/A
+
+Generated SQL:
+ERROR: deepseek-r1:7b failed: model 'deepseek-r1:7b' not found (status code: 404)
+--------------------------------------------------------------------------------
+Question ID : 18
+Category    : DATE
+Difficulty  : Medium
+Question    : Show orders placed during January.
+Time        : N/A
+
+Generated SQL:
+ERROR: deepseek-r1:7b failed: model 'deepseek-r1:7b' not found (status code: 404)
+--------------------------------------------------------------------------------
+Question ID : 19
+Category    : NULL
+Difficulty  : Hard
+Question    : Show customers who never placed an order.
+Time        : N/A
+
+Generated SQL:
+ERROR: deepseek-r1:7b failed: model 'deepseek-r1:7b' not found (status code: 404)
+--------------------------------------------------------------------------------
+Question ID : 20
+Category    : CTE
+Difficulty  : Expert
+Question    : Find the top five customers by total spending.
+Time        : N/A
+
+Generated SQL:
+ERROR: deepseek-r1:7b failed: model 'deepseek-r1:7b' not found (status code: 404)
+--------------------------------------------------------------------------------
+Question ID : 21
+Category    : WINDOW
+Difficulty  : Expert
+Question    : Rank products by total sales.
+Time        : N/A
+
+Generated SQL:
+ERROR: deepseek-r1:7b failed: model 'deepseek-r1:7b' not found (status code: 404)
+--------------------------------------------------------------------------------
+Question ID : 22
+Category    : IMPOSSIBLE
+Difficulty  : Easy
+Question    : Show employee salaries.
+Time        : N/A
+
+Generated SQL:
+ERROR: deepseek-r1:7b failed: model 'deepseek-r1:7b' not found (status code: 404)
+--------------------------------------------------------------------------------
+Question ID : 23
+Category    : IMPOSSIBLE
+Difficulty  : Easy
+Question    : Show customer birthdays.
+Time        : N/A
+
+Generated SQL:
+ERROR: deepseek-r1:7b failed: model 'deepseek-r1:7b' not found (status code: 404)
+--------------------------------------------------------------------------------
+Question ID : 24
+Category    : IMPOSSIBLE
+Difficulty  : Easy
+Question    : Show product colors.
+Time        : N/A
+
+Generated SQL:
+ERROR: deepseek-r1:7b failed: model 'deepseek-r1:7b' not found (status code: 404)
+--------------------------------------------------------------------------------
+
+STATUS: COMPLETE

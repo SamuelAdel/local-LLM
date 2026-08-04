@@ -1,0 +1,341 @@
+================================================================================
+LOCAL LLM EVALUATION
+MODEL : gemma3:4b
+2026-08-04 17:24:04.774003
+================================================================================
+
+Question ID : 1
+Category    : SELECT
+Difficulty  : Easy
+Question    : List all customers.
+Time        : 48.28 sec
+
+Generated SQL:
+SELECT
+  *
+FROM Customers;
+--------------------------------------------------------------------------------
+Question ID : 2
+Category    : SELECT
+Difficulty  : Easy
+Question    : List all products.
+Time        : 6.37 sec
+
+Generated SQL:
+SELECT product_id, product_name, category_id, supplier_id, unit_price, stock_quantity, discontinued FROM Products
+--------------------------------------------------------------------------------
+Question ID : 3
+Category    : FILTER
+Difficulty  : Easy
+Question    : Show customers who live in Cairo.
+Time        : 4.67 sec
+
+Generated SQL:
+SELECT
+  *
+FROM Customers
+WHERE
+  city = 'Cairo';
+--------------------------------------------------------------------------------
+Question ID : 4
+Category    : ORDER BY
+Difficulty  : Easy
+Question    : Show products ordered by price descending.
+Time        : 4.06 sec
+
+Generated SQL:
+SELECT product_name FROM Products ORDER BY unit_price DESC
+--------------------------------------------------------------------------------
+Question ID : 5
+Category    : LIMIT
+Difficulty  : Easy
+Question    : Show the five most expensive products.
+Time        : 5.79 sec
+
+Generated SQL:
+SELECT product_name, unit_price
+FROM Products
+ORDER BY unit_price DESC
+LIMIT 5;
+--------------------------------------------------------------------------------
+Question ID : 6
+Category    : JOIN
+Difficulty  : Medium
+Question    : List customer names with their order dates.
+Time        : 8.38 sec
+
+Generated SQL:
+```sql
+SELECT DISTINCT
+  c.customer_name,
+  o.order_date
+FROM Customers AS c
+JOIN Orders AS o
+  ON c.customer_id = o.customer_id;
+```
+--------------------------------------------------------------------------------
+Question ID : 7
+Category    : JOIN
+Difficulty  : Medium
+Question    : List product names with supplier names.
+Time        : 8.07 sec
+
+Generated SQL:
+```sql
+SELECT
+  P.product_name,
+  S.supplier_name
+FROM Products AS P
+JOIN Suppliers AS S
+  ON P.supplier_id = S.supplier_id;
+```
+--------------------------------------------------------------------------------
+Question ID : 8
+Category    : JOIN
+Difficulty  : Medium
+Question    : Show products with category names.
+Time        : 7.91 sec
+
+Generated SQL:
+```sql
+SELECT
+  p.product_name,
+  c.category_name
+FROM Products AS p
+JOIN Categories AS c
+  ON p.category_id = c.category_id;
+```
+--------------------------------------------------------------------------------
+Question ID : 9
+Category    : JOIN
+Difficulty  : Medium
+Question    : List customer names and payment methods.
+Time        : 10.62 sec
+
+Generated SQL:
+```sql
+SELECT DISTINCT
+  C.customer_name,
+  P.payment_method
+FROM Customers AS C
+JOIN Orders AS O
+  ON C.customer_id = O.customer_id
+JOIN Payments AS P
+  ON O.payment_id = P.payment_id;
+```
+--------------------------------------------------------------------------------
+Question ID : 10
+Category    : COUNT
+Difficulty  : Easy
+Question    : How many customers are there?
+Time        : 3.51 sec
+
+Generated SQL:
+SELECT COUNT(*) FROM Customers;
+--------------------------------------------------------------------------------
+Question ID : 11
+Category    : SUM
+Difficulty  : Medium
+Question    : Calculate total sales.
+Time        : 9.32 sec
+
+Generated SQL:
+```sql
+SELECT SUM(oi.quantity * oi.unit_price * (1 - oi.discount)) AS TotalSales
+FROM Order_Items oi
+JOIN Orders o ON oi.order_id = o.order_id;
+```
+--------------------------------------------------------------------------------
+Question ID : 12
+Category    : AVG
+Difficulty  : Medium
+Question    : Calculate average order amount.
+Time        : 4.48 sec
+
+Generated SQL:
+SELECT CAST(total_amount AS DECIMAL) / COUNT(*) FROM Orders
+--------------------------------------------------------------------------------
+Question ID : 13
+Category    : GROUP BY
+Difficulty  : Medium
+Question    : Show total sales for each customer.
+Time        : 16.15 sec
+
+Generated SQL:
+```sql
+SELECT
+  c.customer_name,
+  SUM(oi.quantity * oi.unit_price * (1 - oi.discount)) AS total_sales
+FROM Customers AS c
+JOIN Orders AS o
+  ON c.customer_id = o.customer_id
+JOIN Order_Items AS oi
+  ON o.order_id = oi.order_id
+GROUP BY
+  c.customer_name
+ORDER BY
+  total_sales DESC;
+```
+--------------------------------------------------------------------------------
+Question ID : 14
+Category    : HAVING
+Difficulty  : Hard
+Question    : Show customers with more than five orders.
+Time        : 9.8 sec
+
+Generated SQL:
+```sql
+SELECT c.customer_name
+FROM Customers c
+JOIN Orders o ON c.customer_id = o.customer_id
+GROUP BY c.customer_id, c.customer_name
+HAVING COUNT(o.order_id) > 5;
+```
+--------------------------------------------------------------------------------
+Question ID : 15
+Category    : SUBQUERY
+Difficulty  : Hard
+Question    : Show the most expensive product.
+Time        : 4.78 sec
+
+Generated SQL:
+SELECT product_name FROM Products ORDER BY unit_price DESC LIMIT 1
+--------------------------------------------------------------------------------
+Question ID : 16
+Category    : SUBQUERY
+Difficulty  : Hard
+Question    : Show customers whose total spending is above the average customer spending.
+Time        : 11.75 sec
+
+Generated SQL:
+```sql
+SELECT c.customer_name
+FROM Customers c
+JOIN Orders o ON c.customer_id = o.customer_id
+GROUP BY c.customer_id, c.customer_name
+HAVING SUM(o.total_amount) > (SELECT AVG(total_amount) FROM Orders);
+```
+--------------------------------------------------------------------------------
+Question ID : 17
+Category    : DATE
+Difficulty  : Medium
+Question    : Show orders placed in 2024.
+Time        : 8.21 sec
+
+Generated SQL:
+SELECT *
+FROM Orders
+WHERE order_date BETWEEN '2024-01-01' AND '2024-12-31';
+--------------------------------------------------------------------------------
+Question ID : 18
+Category    : DATE
+Difficulty  : Medium
+Question    : Show orders placed during January.
+Time        : 8.47 sec
+
+Generated SQL:
+SELECT
+  *
+FROM Orders
+WHERE
+  order_date BETWEEN '2023-01-01' AND '2023-01-31';
+--------------------------------------------------------------------------------
+Question ID : 19
+Category    : NULL
+Difficulty  : Hard
+Question    : Show customers who never placed an order.
+Time        : 6.14 sec
+
+Generated SQL:
+SELECT c.*
+FROM Customers c
+WHERE c.customer_id NOT IN (SELECT customer_id FROM Orders);
+--------------------------------------------------------------------------------
+Question ID : 20
+Category    : CTE
+Difficulty  : Expert
+Question    : Find the top five customers by total spending.
+Time        : 16.89 sec
+
+Generated SQL:
+```sql
+SELECT
+  c.customer_name,
+  SUM(oi.quantity * oi.unit_price * (1 - oi.discount)) AS total_spending
+FROM Customers AS c
+JOIN Orders AS o
+  ON c.customer_id = o.customer_id
+JOIN Order_Items AS oi
+  ON o.order_id = oi.order_id
+GROUP BY
+  c.customer_name
+ORDER BY
+  total_spending DESC
+LIMIT 5;
+```
+--------------------------------------------------------------------------------
+Question ID : 21
+Category    : WINDOW
+Difficulty  : Expert
+Question    : Rank products by total sales.
+Time        : 12.91 sec
+
+Generated SQL:
+```sql
+SELECT
+  p.product_name,
+  SUM(oi.quantity * oi.unit_price) AS total_sales
+FROM Products AS p
+JOIN Order_Items AS oi
+  ON p.product_id = oi.product_id
+GROUP BY
+  p.product_name
+ORDER BY
+  total_sales DESC;
+```
+--------------------------------------------------------------------------------
+Question ID : 22
+Category    : IMPOSSIBLE
+Difficulty  : Easy
+Question    : Show employee salaries.
+Time        : 6.32 sec
+
+Generated SQL:
+```sql
+SELECT
+  first_name,
+  last_name,
+  title,
+  salary
+FROM Employees;
+```
+--------------------------------------------------------------------------------
+Question ID : 23
+Category    : IMPOSSIBLE
+Difficulty  : Easy
+Question    : Show customer birthdays.
+Time        : 5.83 sec
+
+Generated SQL:
+```sql
+SELECT
+  c.customer_name,
+  c.created_at
+FROM Customers AS c;
+```
+--------------------------------------------------------------------------------
+Question ID : 24
+Category    : IMPOSSIBLE
+Difficulty  : Easy
+Question    : Show product colors.
+Time        : 4.68 sec
+
+Generated SQL:
+```sql
+SELECT DISTINCT
+  p.product_name
+FROM Products AS p;
+```
+--------------------------------------------------------------------------------
+
+STATUS: COMPLETE

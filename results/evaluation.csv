@@ -1,0 +1,97 @@
+model,question_id,category,difficulty,verdict,score,similarity,exact_match,execution_match,syntax_valid,destructive,hallucination_count,latency,total_tokens,missing
+qwen2.5-coder:7b,1,SELECT,Easy,REVIEW,44.4,39.3,False,,True,False,0,,,False
+qwen2.5-coder:7b,2,SELECT,Easy,REVIEW,44.4,76.4,False,,True,False,0,,,False
+qwen2.5-coder:7b,3,FILTER,Easy,REVIEW,44.4,83.7,False,,True,False,0,,,False
+qwen2.5-coder:7b,4,ORDER BY,Easy,REVIEW,44.4,47.9,False,,True,False,0,,,False
+qwen2.5-coder:7b,5,LIMIT,Easy,REVIEW,44.4,81.2,False,,True,False,0,,,False
+qwen2.5-coder:7b,6,JOIN,Medium,REVIEW,44.4,99.0,False,,True,False,0,,,False
+qwen2.5-coder:7b,7,JOIN,Medium,REVIEW,44.4,99.0,False,,True,False,0,,,False
+qwen2.5-coder:7b,8,JOIN,Medium,REVIEW,44.4,99.0,False,,True,False,0,,,False
+qwen2.5-coder:7b,9,JOIN,Medium,REVIEW,44.4,98.7,False,,True,False,0,,,False
+qwen2.5-coder:7b,10,COUNT,Easy,REVIEW,44.4,82.9,False,,True,False,0,,,False
+qwen2.5-coder:7b,11,SUM,Medium,REVIEW,44.4,82.8,False,,True,False,0,,,False
+qwen2.5-coder:7b,12,AVG,Medium,REVIEW,44.4,75.0,False,,True,False,0,,,False
+qwen2.5-coder:7b,13,GROUP BY,Medium,SYNTAX_ERROR,22.2,19.0,False,,False,False,0,,,False
+qwen2.5-coder:7b,14,HAVING,Hard,SYNTAX_ERROR,22.2,48.1,False,,False,False,0,,,False
+qwen2.5-coder:7b,15,SUBQUERY,Hard,REVIEW,44.4,54.4,False,,True,False,0,,,False
+qwen2.5-coder:7b,16,SUBQUERY,Hard,SYNTAX_ERROR,22.2,18.3,False,,False,False,0,,,False
+qwen2.5-coder:7b,17,DATE,Medium,SYNTAX_ERROR,22.2,87.3,False,,False,False,0,,,False
+qwen2.5-coder:7b,18,DATE,Medium,SYNTAX_ERROR,22.2,57.1,False,,False,False,0,,,False
+qwen2.5-coder:7b,19,NULL,Hard,REVIEW,44.4,90.9,False,,True,False,0,,,False
+qwen2.5-coder:7b,20,CTE,Expert,REVIEW,44.4,53.0,False,,True,False,0,,,False
+qwen2.5-coder:7b,21,WINDOW,Expert,REVIEW,44.4,47.1,False,,True,False,0,,,False
+qwen2.5-coder:7b,22,IMPOSSIBLE,Easy,CORRECT_REFUSAL,100.0,100.0,True,,,False,0,,,False
+qwen2.5-coder:7b,23,IMPOSSIBLE,Easy,MISSED_REFUSAL,22.2,0.0,False,,,False,0,,,False
+qwen2.5-coder:7b,24,IMPOSSIBLE,Easy,CORRECT_REFUSAL,100.0,100.0,True,,,False,0,,,False
+gemma3:4b,1,SELECT,Easy,CORRECT,100.0,100.0,True,,True,False,0,,,False
+gemma3:4b,2,SELECT,Easy,REVIEW,44.4,31.1,False,,True,False,0,,,False
+gemma3:4b,3,FILTER,Easy,REVIEW,44.4,97.7,False,,True,False,0,,,False
+gemma3:4b,4,ORDER BY,Easy,REVIEW,44.4,87.6,False,,True,False,0,,,False
+gemma3:4b,5,LIMIT,Easy,REVIEW,44.4,81.2,False,,True,False,0,,,False
+gemma3:4b,6,JOIN,Medium,SYNTAX_ERROR,22.2,87.1,False,,False,False,0,,,False
+gemma3:4b,7,JOIN,Medium,SYNTAX_ERROR,22.2,91.1,False,,False,False,0,,,False
+gemma3:4b,8,JOIN,Medium,SYNTAX_ERROR,22.2,91.2,False,,False,False,0,,,False
+gemma3:4b,9,JOIN,Medium,SYNTAX_ERROR,22.2,89.6,False,,False,False,0,,,False
+gemma3:4b,10,COUNT,Easy,CORRECT,100.0,100.0,True,,True,False,0,,,False
+gemma3:4b,11,SUM,Medium,SYNTAX_ERROR,22.2,33.9,False,,False,False,0,,,False
+gemma3:4b,12,AVG,Medium,REVIEW,44.4,71.6,False,,True,False,0,,,False
+gemma3:4b,13,GROUP BY,Medium,SYNTAX_ERROR,22.2,18.6,False,,False,False,0,,,False
+gemma3:4b,14,HAVING,Hard,SYNTAX_ERROR,22.2,38.2,False,,False,False,0,,,False
+gemma3:4b,15,SUBQUERY,Hard,REVIEW,44.4,58.9,False,,True,False,0,,,False
+gemma3:4b,16,SUBQUERY,Hard,SYNTAX_ERROR,22.2,49.7,False,,False,False,0,,,False
+gemma3:4b,17,DATE,Medium,REVIEW,44.4,66.7,False,,True,False,0,,,False
+gemma3:4b,18,DATE,Medium,REVIEW,44.4,62.8,False,,True,False,0,,,False
+gemma3:4b,19,NULL,Hard,REVIEW,44.4,95.3,False,,True,False,0,,,False
+gemma3:4b,20,CTE,Expert,SYNTAX_ERROR,22.2,31.8,False,,False,False,0,,,False
+gemma3:4b,21,WINDOW,Expert,SYNTAX_ERROR,22.2,41.5,False,,False,False,0,,,False
+gemma3:4b,22,IMPOSSIBLE,Easy,MISSED_REFUSAL,0.0,0.0,False,,,False,1,,,False
+gemma3:4b,23,IMPOSSIBLE,Easy,MISSED_REFUSAL,22.2,0.0,False,,,False,0,,,False
+gemma3:4b,24,IMPOSSIBLE,Easy,MISSED_REFUSAL,22.2,0.0,False,,,False,0,,,False
+llama3.1:8b,1,SELECT,Easy,CORRECT,100.0,100.0,True,,True,False,0,,,False
+llama3.1:8b,2,SELECT,Easy,CORRECT,100.0,100.0,True,,True,False,0,,,False
+llama3.1:8b,3,FILTER,Easy,REVIEW,44.4,97.7,False,,True,False,0,,,False
+llama3.1:8b,4,ORDER BY,Easy,CORRECT,100.0,100.0,True,,True,False,0,,,False
+llama3.1:8b,5,LIMIT,Easy,REVIEW,44.4,70.2,False,,True,False,0,,,False
+llama3.1:8b,6,JOIN,Medium,REVIEW,44.4,99.0,False,,True,False,0,,,False
+llama3.1:8b,7,JOIN,Medium,REVIEW,44.4,93.6,False,,True,False,0,,,False
+llama3.1:8b,8,JOIN,Medium,REVIEW,44.4,99.0,False,,True,False,0,,,False
+llama3.1:8b,9,JOIN,Medium,REVIEW,44.4,66.7,False,,True,False,0,,,False
+llama3.1:8b,10,COUNT,Easy,REVIEW,44.4,82.9,False,,True,False,0,,,False
+llama3.1:8b,11,SUM,Medium,REVIEW,44.4,48.0,False,,True,False,0,,,False
+llama3.1:8b,12,AVG,Medium,CORRECT,100.0,100.0,True,,True,False,0,,,False
+llama3.1:8b,13,GROUP BY,Medium,REVIEW,44.4,23.0,False,,True,False,0,,,False
+llama3.1:8b,14,HAVING,Hard,REVIEW,44.4,56.2,False,,True,False,0,,,False
+llama3.1:8b,15,SUBQUERY,Hard,REVIEW,44.4,58.9,False,,True,False,0,,,False
+llama3.1:8b,16,SUBQUERY,Hard,REVIEW,44.4,51.5,False,,True,False,0,,,False
+llama3.1:8b,17,DATE,Medium,REVIEW,44.4,64.1,False,,True,False,0,,,False
+llama3.1:8b,18,DATE,Medium,REVIEW,44.4,84.1,False,,True,False,0,,,False
+llama3.1:8b,19,NULL,Hard,REVIEW,44.4,60.3,False,,True,False,0,,,False
+llama3.1:8b,20,CTE,Expert,REVIEW,44.4,37.5,False,,True,False,0,,,False
+llama3.1:8b,21,WINDOW,Expert,REVIEW,44.4,44.4,False,,True,False,0,,,False
+llama3.1:8b,22,IMPOSSIBLE,Easy,MISSED_REFUSAL,0.0,0.0,False,,,False,1,,,False
+llama3.1:8b,23,IMPOSSIBLE,Easy,MISSED_REFUSAL,22.2,0.0,False,,,False,0,,,False
+llama3.1:8b,24,IMPOSSIBLE,Easy,CORRECT_REFUSAL,100.0,100.0,True,,,False,0,,,False
+deepseek-r1:7b,1,SELECT,Easy,SYNTAX_ERROR,22.2,5.8,False,,False,False,0,,,False
+deepseek-r1:7b,2,SELECT,Easy,SYNTAX_ERROR,22.2,13.6,False,,False,False,0,,,False
+deepseek-r1:7b,3,FILTER,Easy,SYNTAX_ERROR,22.2,8.1,False,,False,False,0,,,False
+deepseek-r1:7b,4,ORDER BY,Easy,SYNTAX_ERROR,22.2,12.5,False,,False,False,0,,,False
+deepseek-r1:7b,5,LIMIT,Easy,SYNTAX_ERROR,22.2,17.6,False,,False,False,0,,,False
+deepseek-r1:7b,6,JOIN,Medium,SYNTAX_ERROR,22.2,16.8,False,,False,False,0,,,False
+deepseek-r1:7b,7,JOIN,Medium,SYNTAX_ERROR,22.2,14.2,False,,False,False,0,,,False
+deepseek-r1:7b,8,JOIN,Medium,SYNTAX_ERROR,22.2,25.0,False,,False,False,0,,,False
+deepseek-r1:7b,9,JOIN,Medium,SYNTAX_ERROR,22.2,13.2,False,,False,False,0,,,False
+deepseek-r1:7b,10,COUNT,Easy,SYNTAX_ERROR,22.2,23.4,False,,False,False,0,,,False
+deepseek-r1:7b,11,SUM,Medium,SYNTAX_ERROR,22.2,27.4,False,,False,False,0,,,False
+deepseek-r1:7b,12,AVG,Medium,SYNTAX_ERROR,22.2,25.6,False,,False,False,0,,,False
+deepseek-r1:7b,13,GROUP BY,Medium,SYNTAX_ERROR,22.2,21.2,False,,False,False,0,,,False
+deepseek-r1:7b,14,HAVING,Hard,SYNTAX_ERROR,22.2,16.2,False,,False,False,0,,,False
+deepseek-r1:7b,15,SUBQUERY,Hard,SYNTAX_ERROR,22.2,13.7,False,,False,False,0,,,False
+deepseek-r1:7b,16,SUBQUERY,Hard,SYNTAX_ERROR,22.2,14.7,False,,False,False,0,,,False
+deepseek-r1:7b,17,DATE,Medium,SYNTAX_ERROR,22.2,20.2,False,,False,False,0,,,False
+deepseek-r1:7b,18,DATE,Medium,SYNTAX_ERROR,22.2,22.0,False,,False,False,0,,,False
+deepseek-r1:7b,19,NULL,Hard,SYNTAX_ERROR,22.2,20.7,False,,False,False,0,,,False
+deepseek-r1:7b,20,CTE,Expert,SYNTAX_ERROR,22.2,11.2,False,,False,False,0,,,False
+deepseek-r1:7b,21,WINDOW,Expert,SYNTAX_ERROR,22.2,15.7,False,,False,False,0,,,False
+deepseek-r1:7b,22,IMPOSSIBLE,Easy,MISSED_REFUSAL,22.2,0.0,False,,,False,0,,,False
+deepseek-r1:7b,23,IMPOSSIBLE,Easy,MISSED_REFUSAL,22.2,0.0,False,,,False,0,,,False
+deepseek-r1:7b,24,IMPOSSIBLE,Easy,MISSED_REFUSAL,22.2,0.0,False,,,False,0,,,False
