@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-
-=======
 # Local LLM Evaluation for Text-to-SQL
 
 ## Project Overview
@@ -174,4 +171,4 @@ The final report will include:
 - Strengths and weaknesses
 - Final selected model
 - Justification for selection
->>>>>>> d09c6abd6de21f3073a1120be4c07baf6e908b2f
+
