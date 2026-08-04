@@ -1,0 +1,1 @@
+SELECT SUM(order_items.unit_price * order_items.quantity) AS total_sales FROM Order_Items;

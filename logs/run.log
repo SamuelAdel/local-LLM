@@ -133,3 +133,65 @@
 2026-08-04 18:06:07,012 [ERROR] deepseek-r1:7b [24]: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
 2026-08-04 18:06:07,053 [INFO] deepseek-r1:7b: run finished, 24 questions this session, 0.3s elapsed, avg_latency=None
 2026-08-04 18:06:07,055 [INFO] === Evaluation run finished ===
+2026-08-04 18:36:13,494 [INFO] === Evaluation run started ===
+2026-08-04 18:36:13,495 [INFO] qwen2.5-coder:7b: skipped, already complete
+2026-08-04 18:36:13,495 [INFO] gemma3:4b: skipped, already complete
+2026-08-04 18:36:13,496 [INFO] llama3.1:8b: skipped, already complete
+2026-08-04 18:36:13,497 [INFO] deepseek-r1:7b: skipped, already complete
+2026-08-04 18:36:13,498 [INFO] === Evaluation run finished ===
+2026-08-04 18:37:54,665 [INFO] === Evaluation run started ===
+2026-08-04 18:37:54,667 [INFO] qwen2.5-coder:7b: skipped, already complete
+2026-08-04 18:37:54,669 [INFO] gemma3:4b: skipped, already complete
+2026-08-04 18:37:54,671 [INFO] llama3.1:8b: run started
+2026-08-04 18:38:39,507 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:38:44,513 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:38:52,383 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:38:59,572 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:39:10,290 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:39:25,539 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:39:41,422 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:39:56,482 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:40:16,580 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:40:22,444 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:40:30,830 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:40:36,837 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:41:10,843 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:41:31,127 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:41:40,820 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:42:04,755 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:42:19,848 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:42:31,393 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:42:48,476 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:43:19,952 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:43:42,546 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:43:47,083 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:43:55,945 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:43:59,804 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:43:59,807 [INFO] llama3.1:8b: run finished, 24 questions this session, 365.1s elapsed, avg_latency=15.21
+2026-08-04 18:43:59,808 [INFO] deepseek-r1:7b: run started
+2026-08-04 18:46:17,268 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:48:50,081 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:52:17,863 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:54:09,856 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:57:00,336 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:58:52,477 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 19:00:34,071 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 19:01:48,512 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 19:04:41,023 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 19:06:18,580 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 19:08:16,608 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 19:11:08,948 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 19:14:01,611 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 19:16:53,942 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 19:19:06,391 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 19:21:57,041 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 19:24:49,532 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 19:27:41,696 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 19:30:34,175 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 19:33:26,823 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 19:36:19,660 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 19:37:55,353 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 19:40:36,771 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 19:43:23,719 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 19:43:23,725 [INFO] deepseek-r1:7b: run finished, 24 questions this session, 3563.9s elapsed, avg_latency=148.49
+2026-08-04 19:43:23,727 [INFO] === Evaluation run finished ===

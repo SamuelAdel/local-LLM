@@ -1,0 +1,11 @@
+
+
+To calculate the average order amount using the provided database schema, we can directly use the "total_amount" column from the "Orders" table. This column likely already accounts for any discounts applied to each order.
+
+Here's the SQL query:
+
+```sql
+SELECT AVG(total_amount) AS average_order_amount FROM Orders;
+```
+
+This query selects the average of the total_amount across all orders, providing the desired result based on

@@ -1,0 +1,13 @@
+
+
+To retrieve the five most expensive products based on their unit prices, we can use a simple SQL query focusing solely on the Products table since it contains the necessary price information.
+
+```sql
+SELECT product_name, unit_price FROM Products ORDER BY unit_price DESC LIMIT 5;
+```
+
+This query selects the product names along with their unit prices from the Products table. It orders the results in descending order of the unit price to get the most expensive products first and limits the result set to five rows.
+
+Answer: 
+
+SELECT product_name, unit_price FROM Products ORDER BY unit_price DESC LIMIT 5;

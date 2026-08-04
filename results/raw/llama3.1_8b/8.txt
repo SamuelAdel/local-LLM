@@ -1,0 +1,3 @@
+SELECT p.product_name, c.category_name 
+FROM Products p 
+JOIN Categories c ON p.category_id = c.category_id;

@@ -1,0 +1,4 @@
+SELECT 
+  customer_name, 
+  created_at AS birthday
+FROM Customers;

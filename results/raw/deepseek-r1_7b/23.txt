@@ -1,0 +1,5 @@
+
+
+```sql
+SELECT customer_id, created_at FROM Customers WHERE created_at > '1980-01-01';
+```

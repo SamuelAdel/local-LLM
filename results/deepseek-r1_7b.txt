@@ -1,224 +1,283 @@
 ================================================================================
 LOCAL LLM EVALUATION
 MODEL : deepseek-r1:7b
-2026-08-04 18:06:06.808082
+2026-08-04 18:43:59.809819
 ================================================================================
 
 Question ID : 1
 Category    : SELECT
 Difficulty  : Easy
 Question    : List all customers.
-Time        : N/A
-
+Time : 137.46 sec
+Prompt Tokens : 467
+Completion Tokens : 188
 Generated SQL:
-ERROR: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
+SELECT customer_id, customer_name FROM Customers;
 --------------------------------------------------------------------------------
 Question ID : 2
 Category    : SELECT
 Difficulty  : Easy
 Question    : List all products.
-Time        : N/A
-
+Time : 152.81 sec
+Prompt Tokens : 467
+Completion Tokens : 299
 Generated SQL:
-ERROR: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
+SELECT product_id, product_name, category_id, supplier_id, unit_price, stock_quantity, discontinued FROM Products;
 --------------------------------------------------------------------------------
 Question ID : 3
 Category    : FILTER
 Difficulty  : Easy
 Question    : Show customers who live in Cairo.
-Time        : N/A
-
+Time : 207.77 sec
+Prompt Tokens : 470
+Completion Tokens : 512
 Generated SQL:
-ERROR: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
+To retrieve customers who live in Cairo
 --------------------------------------------------------------------------------
 Question ID : 4
 Category    : ORDER BY
 Difficulty  : Easy
 Question    : Show products ordered by price descending.
-Time        : N/A
-
+Time : 111.99 sec
+Prompt Tokens : 470
+Completion Tokens : 332
 Generated SQL:
-ERROR: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
+SELECT * FROM Products ORDER BY unit_price DESC;
 --------------------------------------------------------------------------------
 Question ID : 5
 Category    : LIMIT
 Difficulty  : Easy
 Question    : Show the five most expensive products.
-Time        : N/A
-
+Time : 170.48 sec
+Prompt Tokens : 470
+Completion Tokens : 506
 Generated SQL:
-ERROR: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
+SELECT product_name, unit_price FROM Products ORDER BY unit_price DESC LIMIT 5;
+
+
+This query selects the product names along with their unit prices from the Products table. It orders the results in descending order of the unit price to get the most expensive products first and limits the result set to five rows.
+
+Answer: 
+
+SELECT product_name, unit_price FROM Products ORDER BY unit_price DESC LIMIT 5;
 --------------------------------------------------------------------------------
 Question ID : 6
 Category    : JOIN
 Difficulty  : Medium
 Question    : List customer names with their order dates.
-Time        : N/A
-
+Time : 112.11 sec
+Prompt Tokens : 471
+Completion Tokens : 331
 Generated SQL:
-ERROR: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
+SELECT c.customer_name, o.order_date FROM Customers c JOIN Orders o ON c.customer_id = o.customer_id;
 --------------------------------------------------------------------------------
 Question ID : 7
 Category    : JOIN
 Difficulty  : Medium
 Question    : List product names with supplier names.
-Time        : N/A
-
+Time : 101.56 sec
+Prompt Tokens : 470
+Completion Tokens : 300
 Generated SQL:
-ERROR: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
+SELECT p.product_name, s.supplier_name FROM Products p JOIN Suppliers s ON p.supplier_id = s.supplier_id;
 --------------------------------------------------------------------------------
 Question ID : 8
 Category    : JOIN
 Difficulty  : Medium
 Question    : Show products with category names.
-Time        : N/A
-
+Time : 74.44 sec
+Prompt Tokens : 469
+Completion Tokens : 220
 Generated SQL:
-ERROR: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
+SELECT p.product_id, p.product_name, c.category_name FROM Products p INNER JOIN Categories c ON p.category_id = c.category_id;
 --------------------------------------------------------------------------------
 Question ID : 9
 Category    : JOIN
 Difficulty  : Medium
 Question    : List customer names and payment methods.
-Time        : N/A
-
+Time : 172.51 sec
+Prompt Tokens : 470
+Completion Tokens : 512
 Generated SQL:
-ERROR: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
+
 --------------------------------------------------------------------------------
 Question ID : 10
 Category    : COUNT
 Difficulty  : Easy
 Question    : How many customers are there?
-Time        : N/A
-
+Time : 97.56 sec
+Prompt Tokens : 469
+Completion Tokens : 288
 Generated SQL:
-ERROR: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
+SELECT COUNT(*) FROM Customers;
 --------------------------------------------------------------------------------
 Question ID : 11
 Category    : SUM
 Difficulty  : Medium
 Question    : Calculate total sales.
-Time        : N/A
-
+Time : 118.03 sec
+Prompt Tokens : 467
+Completion Tokens : 351
 Generated SQL:
-ERROR: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
+SELECT SUM(orders.total_amount) AS total_sales FROM orders;
 --------------------------------------------------------------------------------
 Question ID : 12
 Category    : AVG
 Difficulty  : Medium
 Question    : Calculate average order amount.
-Time        : N/A
-
+Time : 172.34 sec
+Prompt Tokens : 468
+Completion Tokens : 512
 Generated SQL:
-ERROR: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
+SELECT AVG(total_amount) AS average_order_amount FROM Orders;
+
+
+This query selects the average of the total_amount across all orders, providing the desired result based on
 --------------------------------------------------------------------------------
 Question ID : 13
 Category    : GROUP BY
 Difficulty  : Medium
 Question    : Show total sales for each customer.
-Time        : N/A
-
+Time : 172.66 sec
+Prompt Tokens : 470
+Completion Tokens : 512
 Generated SQL:
-ERROR: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
+
 --------------------------------------------------------------------------------
 Question ID : 14
 Category    : HAVING
 Difficulty  : Hard
 Question    : Show customers with more than five orders.
-Time        : N/A
-
+Time : 172.33 sec
+Prompt Tokens : 471
+Completion Tokens : 512
 Generated SQL:
-ERROR: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
+
 --------------------------------------------------------------------------------
 Question ID : 15
 Category    : SUBQUERY
 Difficulty  : Hard
 Question    : Show the most expensive product.
-Time        : N/A
-
+Time : 132.45 sec
+Prompt Tokens : 469
+Completion Tokens : 392
 Generated SQL:
-ERROR: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
+SELECT product_id, product_name, MAX(unit_price) AS most_expensive FROM Products;
 --------------------------------------------------------------------------------
 Question ID : 16
 Category    : SUBQUERY
 Difficulty  : Hard
 Question    : Show customers whose total spending is above the average customer spending.
-Time        : N/A
-
+Time : 170.65 sec
+Prompt Tokens : 475
+Completion Tokens : 512
 Generated SQL:
-ERROR: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
+WITH Total_Spending_PER_Customer AS (
+    SELECT 
+        c.customer_id,
+        SUM(oi.unit_price * oi.quantity) AS total_spending
+    FROM Customers c
+    LEFT JOIN Orders o ON c.customer_id = o.customer_id
+    LEFT JOIN Order_Items oi ON o.order_id = oi.order_id AND oi.product_id = oi.product_id
+    GROUP BY c.customer_id
+)
+SELECT 
+    tsc.customer_id,
+    tsc.total_spending
+FROM Total_Spending_PER_Customer tsc
+JOIN (
+    SELECT 
+        AVG(t
 --------------------------------------------------------------------------------
 Question ID : 17
 Category    : DATE
 Difficulty  : Medium
 Question    : Show orders placed in 2024.
-Time        : N/A
-
+Time : 172.49 sec
+Prompt Tokens : 473
+Completion Tokens : 512
 Generated SQL:
-ERROR: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
+SELECT * FROM Orders WHERE YEAR(order_date) =
 --------------------------------------------------------------------------------
 Question ID : 18
 Category    : DATE
 Difficulty  : Medium
 Question    : Show orders placed during January.
-Time        : N/A
-
+Time : 172.16 sec
+Prompt Tokens : 469
+Completion Tokens : 512
 Generated SQL:
-ERROR: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
+SELECT 
+    order_id,
+    customer_id,
+    employee_id,
+    shipper_id,
+    payment_id,
+    order_date
+FROM 
+    Orders
+WHERE 
+    order_date BETWEEN '20
 --------------------------------------------------------------------------------
 Question ID : 19
 Category    : NULL
 Difficulty  : Hard
 Question    : Show customers who never placed an order.
-Time        : N/A
-
+Time : 172.48 sec
+Prompt Tokens : 471
+Completion Tokens : 512
 Generated SQL:
-ERROR: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
+
 --------------------------------------------------------------------------------
 Question ID : 20
 Category    : CTE
 Difficulty  : Expert
 Question    : Find the top five customers by total spending.
-Time        : N/A
-
+Time : 172.65 sec
+Prompt Tokens : 472
+Completion Tokens : 512
 Generated SQL:
-ERROR: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
+
 --------------------------------------------------------------------------------
 Question ID : 21
 Category    : WINDOW
 Difficulty  : Expert
 Question    : Rank products by total sales.
-Time        : N/A
-
+Time : 172.84 sec
+Prompt Tokens : 469
+Completion Tokens : 512
 Generated SQL:
-ERROR: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
+
 --------------------------------------------------------------------------------
 Question ID : 22
 Category    : IMPOSSIBLE
 Difficulty  : Easy
 Question    : Show employee salaries.
-Time        : N/A
-
+Time : 95.69 sec
+Prompt Tokens : 467
+Completion Tokens : 284
 Generated SQL:
-ERROR: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
+CANNOT_GENERATE_SQL
 --------------------------------------------------------------------------------
 Question ID : 23
 Category    : IMPOSSIBLE
 Difficulty  : Easy
 Question    : Show customer birthdays.
-Time        : N/A
-
+Time : 161.44 sec
+Prompt Tokens : 467
+Completion Tokens : 480
 Generated SQL:
-ERROR: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
+SELECT customer_id, created_at FROM Customers WHERE created_at > '1980-01-01';
 --------------------------------------------------------------------------------
 Question ID : 24
 Category    : IMPOSSIBLE
 Difficulty  : Easy
 Question    : Show product colors.
-Time        : N/A
-
+Time : 166.92 sec
+Prompt Tokens : 467
+Completion Tokens : 495
 Generated SQL:
-ERROR: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
+CANNOT_GENERATE_SQL
 --------------------------------------------------------------------------------
 
 STATUS: COMPLETE

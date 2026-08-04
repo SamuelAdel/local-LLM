@@ -1,0 +1,19 @@
+
+
+```sql
+WITH Total_Spending_PER_Customer AS (
+    SELECT 
+        c.customer_id,
+        SUM(oi.unit_price * oi.quantity) AS total_spending
+    FROM Customers c
+    LEFT JOIN Orders o ON c.customer_id = o.customer_id
+    LEFT JOIN Order_Items oi ON o.order_id = oi.order_id AND oi.product_id = oi.product_id
+    GROUP BY c.customer_id
+)
+SELECT 
+    tsc.customer_id,
+    tsc.total_spending
+FROM Total_Spending_PER_Customer tsc
+JOIN (
+    SELECT 
+        AVG(t
