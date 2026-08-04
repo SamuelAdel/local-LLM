@@ -1,0 +1,14 @@
+```sql
+SELECT 
+    YEAR(order_date) AS order_year, 
+    MONTH(order_date) AS order_month, 
+    COUNT(order_id) AS number_of_orders
+FROM 
+    Orders
+GROUP BY 
+    YEAR(order_date), 
+    MONTH(order_date)
+ORDER BY 
+    order_year, 
+    order_month;
+```

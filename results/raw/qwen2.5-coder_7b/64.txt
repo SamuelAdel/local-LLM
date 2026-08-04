@@ -1,0 +1,1 @@
+SELECT DISTINCT c.customer_id, c.customer_name FROM Customers c JOIN Orders o ON c.customer_id = o.customer_id WHERE o.order_status = 'Completed'

@@ -1,0 +1,11 @@
+```sql
+SELECT 
+    o.order_id,
+    CASE 
+        WHEN o.total_amount > 1000 THEN 'Large'
+        WHEN o.total_amount BETWEEN 200 AND 1000 THEN 'Medium'
+        ELSE 'Small'
+    END AS order_size
+FROM 
+    Orders o;
+```

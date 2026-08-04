@@ -1,0 +1,14 @@
+```sql
+SELECT
+  S.company_name,
+  SUM(OI.quantity * O.total_amount / 100.0) AS TotalRevenue
+FROM Suppliers AS S
+JOIN Products AS P
+  ON S.supplier_id = P.supplier_id
+JOIN Order_Items AS OI
+  ON P.product_id = OI.product_id
+JOIN Orders AS O
+  ON OI.order_id = O.order_id
+GROUP BY
+  S.company_name;
+```

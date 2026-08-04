@@ -1,0 +1,7 @@
+```sql
+SELECT
+  O.order_id,
+  O.total_amount,
+  AVG(O.total_amount) OVER (PARTITION BY O.customer_id) AS avg_customer_order_amount
+FROM Orders AS O;
+```

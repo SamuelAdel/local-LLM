@@ -1,0 +1,6 @@
+SELECT
+  hire_date
+FROM Employees
+ORDER BY
+  hire_date ASC
+LIMIT 1;

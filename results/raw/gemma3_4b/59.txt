@@ -1,0 +1,9 @@
+SELECT
+  p.product_name
+FROM Products AS p
+WHERE
+  p.unit_price > (
+    SELECT
+      AVG(unit_price)
+    FROM Products
+  );

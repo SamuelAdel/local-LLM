@@ -1,0 +1,3 @@
+SELECT *
+FROM Orders
+WHERE order_date >= DATE('now', '-30 days');

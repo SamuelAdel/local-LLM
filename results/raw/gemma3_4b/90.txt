@@ -1,0 +1,10 @@
+```sql
+SELECT
+  p.product_name,
+  SUM(p.unit_price * i.quantity - (SELECT SUM(discount) FROM order_items WHERE order_items.product_id = p.product_id)) AS profit_margin
+FROM Products AS p
+JOIN Inventory AS i
+  ON p.product_id = i.product_id
+GROUP BY
+  p.product_name;
+```

@@ -1,0 +1,1 @@
+SELECT product_name FROM Products WHERE category_id IS NULL;

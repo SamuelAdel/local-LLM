@@ -1,0 +1,19 @@
+WITH EmployeeOrderValues AS (
+    SELECT
+        o.employee_id,
+        SUM(o.total_amount) AS total_order_value
+    FROM Orders o
+    JOIN Employees e ON o.employee_id = e.employee_id
+    GROUP BY
+        o.employee_id
+)
+SELECT
+    e.first_name,
+    e.last_name,
+    AVG(elv.total_order_value) AS average_order_value
+FROM Employees e
+JOIN EmployeeOrderValues elv ON e.employee_id = elv.employee_id
+GROUP BY
+    e.employee_id,
+    e.first_name,
+    e.last_name;

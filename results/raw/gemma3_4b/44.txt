@@ -1,0 +1,8 @@
+SELECT
+  p.product_name,
+  COUNT(r.review_id) AS review_count
+FROM Products AS p
+LEFT JOIN Reviews AS r
+  ON p.product_id = r.product_id
+GROUP BY
+  p.product_name;

@@ -1,0 +1,1 @@
+SELECT AVG(unit_price) FROM Products

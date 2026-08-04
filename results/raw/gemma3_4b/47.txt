@@ -1,0 +1,6 @@
+SELECT
+  warehouse,
+  SUM(quantity) AS total_inventory_quantity
+FROM Inventory
+GROUP BY
+  warehouse;

@@ -1,0 +1,1 @@
+SELECT * FROM Orders WHERE order_date >= CURRENT_DATE - INTERVAL '30' DAY;

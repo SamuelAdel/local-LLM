@@ -1,0 +1,1 @@
+SELECT product_name FROM Products WHERE product_id NOT IN (SELECT product_id FROM Order_Items);

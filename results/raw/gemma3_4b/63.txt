@@ -1,0 +1,5 @@
+```sql
+SELECT product_name
+FROM Products
+WHERE unit_price = (SELECT unit_price FROM Products WHERE unit_price >= (SELECT DISTINCT unit_price FROM Products ORDER BY unit_price DESC LIMIT 2 OFFSET 1))
+```

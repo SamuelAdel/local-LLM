@@ -1,0 +1,8 @@
+```sql
+SELECT
+  E.first_name,
+  E.last_name
+FROM Employees AS E
+JOIN Inventory AS I
+  ON E.employee_id = I.product_id;
+```

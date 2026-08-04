@@ -1,0 +1,1 @@
+SELECT MAX(total_amount) AS highest_order_total FROM Orders;

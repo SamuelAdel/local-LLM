@@ -1,0 +1,10 @@
+```sql
+SELECT
+  c.customer_name,
+  o.order_date
+FROM Customers AS c
+JOIN Orders AS o
+  ON c.customer_id = o.customer_id
+ORDER BY
+  o.order_date DESC;
+```

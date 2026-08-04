@@ -1,0 +1,18 @@
+WITH CustomerOrderTotals AS (
+  SELECT
+    o.customer_id,
+    SUM(oi.quantity * oi.unit_price * (1 - oi.discount)) AS total_spent
+  FROM Orders AS o
+  JOIN Order_Items AS oi
+    ON o.order_id = oi.order_id
+  GROUP BY
+    o.customer_id
+)
+SELECT
+  c.customer_name,
+  ct.total_spent
+FROM Customers AS c
+JOIN CustomerOrderTotals AS ct
+  ON c.customer_id = ct.customer_id
+WHERE
+  ct.total_spent > 2000;

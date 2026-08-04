@@ -1,0 +1,8 @@
+```sql
+SELECT o.order_id, o.order_date, c.customer_name, s.company_name AS shipper_name
+FROM Orders o
+JOIN Employees e ON o.employee_id = e.employee_id
+JOIN Shippers s ON o.ship_via = s.shipper_id
+JOIN Customers c ON o.customer_id = c.customer_id
+WHERE s.company_name IN ('Nile Express', 'Speedy Logistics');
+```

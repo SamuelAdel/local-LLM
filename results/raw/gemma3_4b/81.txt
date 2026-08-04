@@ -1,0 +1,3 @@
+SELECT *
+FROM Employees
+WHERE hire_date >= DATE('now', '-2 years');

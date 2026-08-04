@@ -1,0 +1,25 @@
+```sql
+WITH Customer_Spend AS (
+    SELECT 
+        c.customer_id,
+        SUM(oi.quantity * oi.unit_price) AS total_spent
+    FROM 
+        Customers c
+    JOIN 
+        Orders o ON c.customer_id = o.customer_id
+    JOIN 
+        Order_Items oi ON o.order_id = oi.order_id
+    GROUP BY 
+        c.customer_id
+)
+SELECT 
+    cs.customer_id,
+    c.customer_name,
+    cs.total_spent
+FROM 
+    Customer_Spend cs
+JOIN 
+    Customers c ON cs.customer_id = c.customer_id
+WHERE 
+    cs.total_spent > 2000;
+```

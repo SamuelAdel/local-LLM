@@ -706,6 +706,12 @@ def summarize(rows):
     exec_correct = sum(1 for r in exec_scored if r["execution_match"])
     canon_scored = [r for r in scored if r.get("canonical_match") is not None]
     canon_correct = sum(1 for r in canon_scored if r["canonical_match"])
+    # Rows that *could* have gotten an execution_match/canonical_match verdict
+    # (non-refusal, non-destructive, syntax-valid) -- used to tell "this run
+    # had nothing to match against" apart from "matching is disabled".
+    eligible_for_matching = [
+        r for r in scored if not r["expected_refusal"] and not r["destructive"] and r["syntax_valid"]
+    ]
     unsafe = sum(1 for r in scored if r["destructive"])
     syntax_checked = [r for r in scored if r["syntax_valid"] is not None]
     syntax_ok = sum(1 for r in syntax_checked if r["syntax_valid"])
@@ -758,6 +764,7 @@ def summarize(rows):
         "execution_scored_n": len(exec_scored),
         "canonical_match_rate": _pct(canon_correct, len(canon_scored)) if canon_scored else None,
         "canonical_scored_n": len(canon_scored),
+        "eligible_for_matching_n": len(eligible_for_matching),
         "syntax_valid_rate": _pct(syntax_ok, len(syntax_checked)) if syntax_checked else None,
         "hallucination_count": len(hallucinated_qs),
         "unsafe_sql_count": unsafe,
@@ -911,11 +918,52 @@ def build_recommendation(all_summaries, best_by_metric):
     return "\n".join(lines)
 
 
-def write_txt_report(all_rows, all_summaries):
+def write_txt_report(all_rows, all_summaries, db_configured=False):
     lines = []
     lines.append("=" * 80)
     lines.append("SQL ACCURACY / HALLUCINATION REPORT")
     lines.append("=" * 80 + "\n")
+
+    # --- Diagnostics: state plainly whether execution/canonical matching
+    # were even active this run, BEFORE any per-question results. A blank
+    # execution_match/canonical_match column is ambiguous on its own --
+    # it could mean "matching ran and found nothing" or "matching never
+    # ran at all". This section removes that ambiguity up front. ---
+    total_eligible = sum(s.get("eligible_for_matching_n", 0) for s in all_summaries.values() if s.get("n", 0) > 0)
+    total_exec_scored = sum(s.get("execution_scored_n", 0) for s in all_summaries.values() if s.get("n", 0) > 0)
+    total_canon_scored = sum(s.get("canonical_scored_n", 0) for s in all_summaries.values() if s.get("n", 0) > 0)
+
+    lines.append("DIAGNOSTICS (read this before the results below)")
+    lines.append("-" * 80)
+    if db_configured:
+        lines.append(f"  Execution matching : ACTIVE (--db was provided) -- {total_exec_scored}/{total_eligible} "
+                      f"eligible questions got an execution_match verdict.")
+        if total_eligible > 0 and total_exec_scored == 0:
+            lines.append("    ** WARNING: --db was provided but 0 questions were execution-scored. **")
+            lines.append("    ** Check that the DB file actually matches schema.py (table/column names). **")
+    else:
+        lines.append(f"  Execution matching : DISABLED -- no --db was passed this run, so execution_match")
+        lines.append(f"    is blank for all {total_eligible} eligible question(s). Run with")
+        lines.append(f"    `python evaluate.py --db path/to/database.sqlite` to enable it -- this is the")
+        lines.append(f"    strongest correctness signal and the one most REVIEW verdicts need.")
+
+    if _SQLGLOT_AVAILABLE:
+        lines.append(f"  Canonical matching  : ACTIVE (sqlglot installed) -- {total_canon_scored}/{total_eligible} "
+                      f"eligible questions got a canonical_match verdict.")
+        if total_eligible > 0 and total_canon_scored == 0:
+            lines.append("    ** WARNING: sqlglot is installed but 0 questions were canonical-scored. **")
+            lines.append("    ** Every eligible query failed to parse, or execution already resolved them. **")
+    else:
+        lines.append(f"  Canonical matching  : DISABLED -- `sqlglot` is not installed, so canonical_match is")
+        lines.append(f"    blank for all {total_eligible} eligible question(s). Run `pip install sqlglot` to")
+        lines.append(f"    enable it.")
+
+    if not db_configured and not _SQLGLOT_AVAILABLE and total_eligible > 0:
+        lines.append("")
+        lines.append("  => Neither signal is active this run. Every non-exact-match question below")
+        lines.append("     will show as REVIEW/blank regardless of whether the SQL is actually correct.")
+        lines.append("     The verdicts and score below are NOT yet the execution-based evaluation.")
+    lines.append("")
 
     for model, rows in all_rows.items():
         lines.append(f"\n{'=' * 80}")
@@ -1083,9 +1131,13 @@ def write_txt_report(all_rows, all_summaries):
     return report
 
 
-def write_json_report(all_rows, all_summaries):
+def write_json_report(all_rows, all_summaries, db_configured=False):
     best_by_metric = compute_best_by_metric(all_summaries)
     payload = {
+        "diagnostics": {
+            "db_configured": db_configured,
+            "sqlglot_available": _SQLGLOT_AVAILABLE,
+        },
         "summary": all_summaries,
         "questions": all_rows,
         # Same objective numbers shown in evaluation.txt's "BEST MODEL BY
@@ -1159,12 +1211,11 @@ def main():
         else:
             print(f"WARNING: --db path '{db_path}' does not exist; skipping execution accuracy.")
 
-    if not _SQLGLOT_AVAILABLE:
-        print(
-            "NOTE: `sqlglot` isn't installed -- canonical-form matching is disabled "
-            "(run `pip install sqlglot` to enable it). Falling back to exact-text "
-            "matching wherever execution match isn't available."
-        )
+    db_configured = conn is not None
+    print(f"Execution matching : {'ACTIVE (--db provided)' if db_configured else 'DISABLED (no --db passed)'}")
+    print(f"Canonical matching  : {'ACTIVE (sqlglot installed)' if _SQLGLOT_AVAILABLE else 'DISABLED (pip install sqlglot to enable)'}")
+    if not db_configured:
+        print("  -> without --db, most REVIEW verdicts below cannot be resolved to CORRECT/INCORRECT.")
 
     all_rows = {}
     all_summaries = {}
@@ -1181,8 +1232,8 @@ def main():
         conn.close()
 
     RESULTS_DIR.mkdir(exist_ok=True)
-    report = write_txt_report(all_rows, all_summaries)
-    write_json_report(all_rows, all_summaries)
+    report = write_txt_report(all_rows, all_summaries, db_configured=db_configured)
+    write_json_report(all_rows, all_summaries, db_configured=db_configured)
     write_csv_report(all_rows)
 
     print(report)

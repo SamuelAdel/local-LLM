@@ -1,0 +1,9 @@
+```sql
+SELECT
+  P.product_name
+FROM Products AS P
+JOIN Categories AS C
+  ON P.category_id = C.category_id
+WHERE
+  C.category_name IN ('Electronics', 'Books');
+```

@@ -1,0 +1,6 @@
+SELECT
+  S.supplier_name,
+  P.product_name
+FROM Suppliers AS S
+LEFT JOIN Products AS P
+  ON S.supplier_id = P.supplier_id;

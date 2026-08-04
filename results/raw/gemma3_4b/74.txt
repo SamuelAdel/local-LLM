@@ -1,0 +1,18 @@
+WITH OrderRevenue AS (
+    SELECT
+        oi.product_id,
+        SUM(oi.quantity * oi.unit_price * (1 - oi.discount)) AS revenue
+    FROM Order_Items AS oi
+    GROUP BY
+        oi.product_id
+)
+SELECT
+    c.category_name,
+    SUM(or.revenue) AS total_revenue
+FROM Categories AS c
+JOIN Products AS p
+    ON c.category_id = p.category_id
+JOIN OrderRevenue AS or
+    ON p.product_id = or.product_id
+GROUP BY
+    c.category_name;

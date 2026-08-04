@@ -1,0 +1,7 @@
+```sql
+SELECT
+  p.product_name,
+  p.unit_price,
+  RANK() OVER (PARTITION BY p.category_id ORDER BY p.unit_price) AS price_rank
+FROM Products AS p;
+```

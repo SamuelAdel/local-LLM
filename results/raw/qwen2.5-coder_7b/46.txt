@@ -1,0 +1,11 @@
+```sql
+SELECT 
+    s.company_name AS shipper_name, 
+    SUM(o.total_amount) AS total_revenue
+FROM 
+    Orders o
+JOIN 
+    Shippers s ON o.shipVia = s.shipper_id
+GROUP BY 
+    s.company_name;
+```

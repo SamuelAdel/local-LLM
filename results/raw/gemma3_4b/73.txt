@@ -1,0 +1,8 @@
+SELECT DISTINCT country
+FROM Customers
+UNION
+SELECT DISTINCT country
+FROM Suppliers
+UNION
+SELECT DISTINCT country
+FROM Addresses;

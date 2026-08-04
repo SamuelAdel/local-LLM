@@ -1,0 +1,9 @@
+```sql
+SELECT DISTINCT
+  C.*
+FROM Customers AS C
+JOIN Addresses AS A
+  ON C.customer_id = A.customer_id
+WHERE
+  A.country IN ('Egypt', 'UAE', 'Saudi Arabia');
+```

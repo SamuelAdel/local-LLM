@@ -1,0 +1,10 @@
+```sql
+SELECT 
+    p.product_name,
+    r.rating,
+    r.review_date
+FROM 
+    Products p
+LEFT JOIN 
+    Reviews r ON p.product_id = r.product_id;
+```

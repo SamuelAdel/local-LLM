@@ -1,0 +1,1 @@
+SELECT AVG(quantity) AS average_items_per_order FROM Order_Items;

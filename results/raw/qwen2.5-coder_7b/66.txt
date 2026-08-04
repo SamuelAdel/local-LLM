@@ -1,0 +1,1 @@
+SELECT DISTINCT s.supplier_name FROM Suppliers s JOIN Products p ON s.supplier_id = p.supplier_id WHERE p.discontinued = TRUE

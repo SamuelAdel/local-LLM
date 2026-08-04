@@ -1,0 +1,6 @@
+SELECT
+  country,
+  COUNT(customer_id) AS num_customers
+FROM Customers
+GROUP BY
+  country;

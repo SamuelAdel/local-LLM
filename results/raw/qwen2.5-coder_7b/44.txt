@@ -1,0 +1,1 @@
+SELECT product_id, COUNT(review_id) AS review_count FROM Reviews GROUP BY product_id;

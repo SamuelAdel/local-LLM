@@ -1,0 +1,7 @@
+```sql
+SELECT
+  CAST(SUM(oi.quantity) AS REAL) / COUNT(DISTINCT o.order_id) AS avg_items_per_order
+FROM Order_Items AS oi
+JOIN Orders AS o
+  ON oi.order_id = o.order_id;
+```

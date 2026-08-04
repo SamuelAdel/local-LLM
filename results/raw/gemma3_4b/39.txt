@@ -1,0 +1,11 @@
+```sql
+SELECT
+  T1.supplier_name
+FROM Suppliers AS T1
+INNER JOIN Products AS T2
+  ON T1.supplier_id = T2.supplier_id
+GROUP BY
+  T1.supplier_name
+HAVING
+  COUNT(T2.product_id) > 2;
+```

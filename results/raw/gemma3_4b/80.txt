@@ -1,0 +1,7 @@
+```sql
+SELECT
+  *
+FROM Orders
+WHERE
+  shipped_date >= order_date + 5;
+```

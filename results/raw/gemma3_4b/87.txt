@@ -1,0 +1,6 @@
+SELECT
+  employee_id,
+  COALESCE(employee_id, 'Unassigned') AS employee_id
+FROM Orders
+WHERE
+  employee_id IS NOT NULL;

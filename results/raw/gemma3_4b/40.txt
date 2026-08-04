@@ -1,0 +1,11 @@
+```sql
+SELECT
+  P.product_name
+FROM Products AS P
+JOIN Reviews AS R
+  ON P.product_id = R.product_id
+GROUP BY
+  P.product_name
+HAVING
+  AVG(R.rating) < 3;
+```

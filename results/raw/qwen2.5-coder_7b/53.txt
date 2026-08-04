@@ -1,0 +1,1 @@
+SELECT product_name, unit_price FROM Products ORDER BY unit_price ASC LIMIT 1

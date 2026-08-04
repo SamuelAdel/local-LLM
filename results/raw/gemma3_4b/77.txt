@@ -1,0 +1,16 @@
+```sql
+SELECT
+  c.customer_name,
+  o.order_date,
+  SUM(oi.unit_price * oi.quantity) AS total_spent
+FROM Customers AS c
+JOIN Orders AS o
+  ON c.customer_id = o.customer_id
+JOIN Order_Items AS oi
+  ON o.order_id = oi.order_id
+GROUP BY
+  c.customer_name,
+  o.order_date
+ORDER BY
+  o.order_date;
+```

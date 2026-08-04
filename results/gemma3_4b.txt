@@ -1,14 +1,14 @@
 ================================================================================
 LOCAL LLM EVALUATION
 MODEL : gemma3:4b
-2026-08-04 18:02:41.977551
+2026-08-05 00:36:54.021971
 ================================================================================
 
 Question ID : 1
 Category    : SELECT
 Difficulty  : Easy
 Question    : List all customers.
-Time : 39.58 sec
+Time : 33.99 sec
 Prompt Tokens : 611
 Completion Tokens : 10
 Generated SQL:
@@ -20,7 +20,7 @@ Question ID : 2
 Category    : SELECT
 Difficulty  : Easy
 Question    : List all products.
-Time : 5.35 sec
+Time : 6.44 sec
 Prompt Tokens : 611
 Completion Tokens : 30
 Generated SQL:
@@ -30,7 +30,7 @@ Question ID : 3
 Category    : FILTER
 Difficulty  : Easy
 Question    : Show customers who live in Cairo.
-Time : 4.29 sec
+Time : 5.12 sec
 Prompt Tokens : 614
 Completion Tokens : 18
 Generated SQL:
@@ -44,7 +44,7 @@ Question ID : 4
 Category    : ORDER BY
 Difficulty  : Easy
 Question    : Show products ordered by price descending.
-Time : 5.06 sec
+Time : 6.04 sec
 Prompt Tokens : 614
 Completion Tokens : 25
 Generated SQL:
@@ -56,7 +56,7 @@ Question ID : 5
 Category    : LIMIT
 Difficulty  : Easy
 Question    : Show the five most expensive products.
-Time : 5.32 sec
+Time : 5.91 sec
 Prompt Tokens : 614
 Completion Tokens : 25
 Generated SQL:
@@ -69,7 +69,7 @@ Question ID : 6
 Category    : JOIN
 Difficulty  : Medium
 Question    : List customer names with their order dates.
-Time : 7.58 sec
+Time : 11.1 sec
 Prompt Tokens : 615
 Completion Tokens : 48
 Generated SQL:
@@ -84,7 +84,7 @@ Question ID : 7
 Category    : JOIN
 Difficulty  : Medium
 Question    : List product names with supplier names.
-Time : 6.83 sec
+Time : 8.19 sec
 Prompt Tokens : 614
 Completion Tokens : 43
 Generated SQL:
@@ -99,7 +99,7 @@ Question ID : 8
 Category    : JOIN
 Difficulty  : Medium
 Question    : Show products with category names.
-Time : 7.62 sec
+Time : 8.29 sec
 Prompt Tokens : 613
 Completion Tokens : 47
 Generated SQL:
@@ -114,7 +114,7 @@ Question ID : 9
 Category    : JOIN
 Difficulty  : Medium
 Question    : List customer names and payment methods.
-Time : 9.45 sec
+Time : 10.58 sec
 Prompt Tokens : 614
 Completion Tokens : 67
 Generated SQL:
@@ -131,7 +131,7 @@ Question ID : 10
 Category    : COUNT
 Difficulty  : Easy
 Question    : How many customers are there?
-Time : 3.4 sec
+Time : 4.07 sec
 Prompt Tokens : 613
 Completion Tokens : 11
 Generated SQL:
@@ -143,7 +143,7 @@ Question ID : 11
 Category    : SUM
 Difficulty  : Medium
 Question    : Calculate total sales.
-Time : 8.03 sec
+Time : 9.07 sec
 Prompt Tokens : 611
 Completion Tokens : 51
 Generated SQL:
@@ -157,7 +157,7 @@ Question ID : 12
 Category    : AVG
 Difficulty  : Medium
 Question    : Calculate average order amount.
-Time : 5.38 sec
+Time : 6.43 sec
 Prompt Tokens : 612
 Completion Tokens : 28
 Generated SQL:
@@ -168,7 +168,7 @@ Question ID : 13
 Category    : GROUP BY
 Difficulty  : Medium
 Question    : Show total sales for each customer.
-Time : 14.39 sec
+Time : 16.39 sec
 Prompt Tokens : 614
 Completion Tokens : 105
 Generated SQL:
@@ -189,7 +189,7 @@ Question ID : 14
 Category    : HAVING
 Difficulty  : Hard
 Question    : Show customers with more than five orders.
-Time : 9.22 sec
+Time : 11.16 sec
 Prompt Tokens : 615
 Completion Tokens : 61
 Generated SQL:
@@ -203,7 +203,7 @@ Question ID : 15
 Category    : SUBQUERY
 Difficulty  : Hard
 Question    : Show the most expensive product.
-Time : 4.27 sec
+Time : 5.49 sec
 Prompt Tokens : 613
 Completion Tokens : 17
 Generated SQL:
@@ -213,7 +213,7 @@ Question ID : 16
 Category    : SUBQUERY
 Difficulty  : Hard
 Question    : Show customers whose total spending is above the average customer spending.
-Time : 10.74 sec
+Time : 12.01 sec
 Prompt Tokens : 619
 Completion Tokens : 69
 Generated SQL:
@@ -227,7 +227,7 @@ Question ID : 17
 Category    : DATE
 Difficulty  : Medium
 Question    : Show orders placed in 2024.
-Time : 5.06 sec
+Time : 5.69 sec
 Prompt Tokens : 617
 Completion Tokens : 25
 Generated SQL:
@@ -239,7 +239,7 @@ Question ID : 18
 Category    : DATE
 Difficulty  : Medium
 Question    : Show orders placed during January.
-Time : 7.08 sec
+Time : 7.81 sec
 Prompt Tokens : 613
 Completion Tokens : 42
 Generated SQL:
@@ -253,7 +253,7 @@ Question ID : 19
 Category    : NULL
 Difficulty  : Hard
 Question    : Show customers who never placed an order.
-Time : 5.13 sec
+Time : 5.95 sec
 Prompt Tokens : 615
 Completion Tokens : 26
 Generated SQL:
@@ -265,7 +265,7 @@ Question ID : 20
 Category    : CTE
 Difficulty  : Expert
 Question    : Find the top five customers by total spending.
-Time : 14.13 sec
+Time : 15.39 sec
 Prompt Tokens : 616
 Completion Tokens : 109
 Generated SQL:
@@ -287,7 +287,7 @@ Question ID : 21
 Category    : WINDOW
 Difficulty  : Expert
 Question    : Rank products by total sales.
-Time : 10.79 sec
+Time : 11.79 sec
 Prompt Tokens : 613
 Completion Tokens : 79
 Generated SQL:
@@ -306,7 +306,7 @@ Question ID : 22
 Category    : IMPOSSIBLE
 Difficulty  : Easy
 Question    : Show employee salaries.
-Time : 5.65 sec
+Time : 5.95 sec
 Prompt Tokens : 611
 Completion Tokens : 30
 Generated SQL:
@@ -321,7 +321,7 @@ Question ID : 23
 Category    : IMPOSSIBLE
 Difficulty  : Easy
 Question    : Show customer birthdays.
-Time : 5.45 sec
+Time : 5.6 sec
 Prompt Tokens : 611
 Completion Tokens : 28
 Generated SQL:
@@ -334,13 +334,1051 @@ Question ID : 24
 Category    : IMPOSSIBLE
 Difficulty  : Easy
 Question    : Show product colors.
-Time : 4.46 sec
+Time : 4.88 sec
 Prompt Tokens : 611
 Completion Tokens : 21
 Generated SQL:
 SELECT DISTINCT
   p.product_name
 FROM Products AS p;
+--------------------------------------------------------------------------------
+Question ID : 25
+Category    : DISTINCT
+Difficulty  : Easy
+Question    : List all distinct cities where customers live.
+Time : 3.31 sec
+Prompt Tokens : 615
+Completion Tokens : 7
+Generated SQL:
+SELECT DISTINCT city FROM Customers
+--------------------------------------------------------------------------------
+Question ID : 26
+Category    : DISTINCT
+Difficulty  : Medium
+Question    : List all distinct countries suppliers come from.
+Time : 3.87 sec
+Prompt Tokens : 615
+Completion Tokens : 11
+Generated SQL:
+SELECT DISTINCT
+  country
+FROM Suppliers;
+--------------------------------------------------------------------------------
+Question ID : 27
+Category    : DISTINCT
+Difficulty  : Medium
+Question    : List the distinct order statuses used in the Orders table.
+Time : 3.76 sec
+Prompt Tokens : 618
+Completion Tokens : 9
+Generated SQL:
+SELECT DISTINCT order_status FROM Orders
+--------------------------------------------------------------------------------
+Question ID : 28
+Category    : LEFT JOIN
+Difficulty  : Medium
+Question    : List all customers with their orders, including customers who have no orders.
+Time : 6.97 sec
+Prompt Tokens : 621
+Completion Tokens : 37
+Generated SQL:
+SELECT DISTINCT
+  C.*
+FROM Customers AS C
+JOIN Orders AS O
+  ON C.customer_id = O.customer_id;
+--------------------------------------------------------------------------------
+Question ID : 29
+Category    : LEFT JOIN
+Difficulty  : Medium
+Question    : List all products with their reviews, including products with no reviews.
+Time : 8.64 sec
+Prompt Tokens : 620
+Completion Tokens : 54
+Generated SQL:
+SELECT
+  p.product_name,
+  r.rating,
+  r.review_date
+FROM Products AS p
+LEFT JOIN Reviews AS r
+  ON p.product_id = r.product_id;
+--------------------------------------------------------------------------------
+Question ID : 30
+Category    : LEFT JOIN
+Difficulty  : Medium
+Question    : Show all suppliers along with their products, including suppliers with no products.
+Time : 7.47 sec
+Prompt Tokens : 621
+Completion Tokens : 44
+Generated SQL:
+SELECT
+  S.supplier_name,
+  P.product_name
+FROM Suppliers AS S
+LEFT JOIN Products AS P
+  ON S.supplier_id = P.supplier_id;
+--------------------------------------------------------------------------------
+Question ID : 31
+Category    : LEFT JOIN
+Difficulty  : Hard
+Question    : List categories along with the number of products in each, including categories with zero products.
+Time : 11.18 sec
+Prompt Tokens : 624
+Completion Tokens : 71
+Generated SQL:
+SELECT
+  c.category_name,
+  COUNT(p.product_id) AS product_count
+FROM Categories AS c
+LEFT JOIN Products AS p
+  ON c.category_id = p.category_id
+GROUP BY
+  c.category_name
+ORDER BY
+  c.category_name;
+--------------------------------------------------------------------------------
+Question ID : 32
+Category    : GROUP BY
+Difficulty  : Medium
+Question    : Show the number of products in each category.
+Time : 8.78 sec
+Prompt Tokens : 616
+Completion Tokens : 60
+Generated SQL:
+SELECT
+  c.category_name,
+  COUNT(p.product_id) AS product_count
+FROM Categories AS c
+JOIN Products AS p
+  ON c.category_id = p.category_id
+GROUP BY
+  c.category_name;
+--------------------------------------------------------------------------------
+Question ID : 33
+Category    : GROUP BY
+Difficulty  : Medium
+Question    : Show total quantity sold for each product.
+Time : 10.41 sec
+Prompt Tokens : 615
+Completion Tokens : 73
+Generated SQL:
+SELECT
+  p.product_name,
+  SUM(oi.quantity) AS total_quantity_sold
+FROM Products AS p
+JOIN Order_Items AS oi
+  ON p.product_id = oi.product_id
+GROUP BY
+  p.product_name
+ORDER BY
+  total_quantity_sold DESC;
+--------------------------------------------------------------------------------
+Question ID : 34
+Category    : GROUP BY
+Difficulty  : Medium
+Question    : Show the number of orders placed through each shipper.
+Time : 10.39 sec
+Prompt Tokens : 617
+Completion Tokens : 71
+Generated SQL:
+SELECT
+  S.company_name,
+  COUNT(O.order_id) AS NumberOfOrders
+FROM Shippers AS S
+JOIN Orders AS O
+  ON S.shipper_id = O.shipper_id
+GROUP BY
+  S.company_name
+ORDER BY
+  NumberOfOrders DESC;
+--------------------------------------------------------------------------------
+Question ID : 35
+Category    : GROUP BY
+Difficulty  : Hard
+Question    : Show the average rating for each product.
+Time : 9.96 sec
+Prompt Tokens : 615
+Completion Tokens : 62
+Generated SQL:
+SELECT
+  p.product_name,
+  AVG(r.rating) AS average_rating
+FROM Products AS p
+JOIN Reviews AS r
+  ON p.product_id = r.product_id
+GROUP BY
+  p.product_name;
+--------------------------------------------------------------------------------
+Question ID : 36
+Category    : GROUP BY
+Difficulty  : Medium
+Question    : Show the number of customers in each country.
+Time : 5.61 sec
+Prompt Tokens : 616
+Completion Tokens : 29
+Generated SQL:
+SELECT
+  country,
+  COUNT(customer_id) AS num_customers
+FROM Customers
+GROUP BY
+  country;
+--------------------------------------------------------------------------------
+Question ID : 37
+Category    : HAVING
+Difficulty  : Hard
+Question    : Show products that have been ordered more than ten units in total.
+Time : 9.89 sec
+Prompt Tokens : 620
+Completion Tokens : 66
+Generated SQL:
+SELECT
+  p.product_name
+FROM Products AS p
+JOIN Order_Items AS oi
+  ON p.product_id = oi.product_id
+GROUP BY
+  p.product_id
+HAVING
+  SUM(oi.quantity) > 10;
+--------------------------------------------------------------------------------
+Question ID : 38
+Category    : HAVING
+Difficulty  : Hard
+Question    : Show categories that contain more than three products.
+Time : 8.43 sec
+Prompt Tokens : 616
+Completion Tokens : 51
+Generated SQL:
+SELECT c.category_name
+FROM Categories c
+JOIN Products p ON c.category_id = p.category_id
+GROUP BY c.category_name
+HAVING COUNT(p.product_id) > 3;
+--------------------------------------------------------------------------------
+Question ID : 39
+Category    : HAVING
+Difficulty  : Medium
+Question    : Show suppliers who supply more than two products.
+Time : 11.6 sec
+Prompt Tokens : 616
+Completion Tokens : 73
+Generated SQL:
+SELECT
+  T1.supplier_name
+FROM Suppliers AS T1
+INNER JOIN Products AS T2
+  ON T1.supplier_id = T2.supplier_id
+GROUP BY
+  T1.supplier_name
+HAVING
+  COUNT(T2.product_id) > 2;
+--------------------------------------------------------------------------------
+Question ID : 40
+Category    : HAVING
+Difficulty  : Hard
+Question    : Show products with an average review rating below 3.
+Time : 9.69 sec
+Prompt Tokens : 618
+Completion Tokens : 63
+Generated SQL:
+SELECT
+  P.product_name
+FROM Products AS P
+JOIN Reviews AS R
+  ON P.product_id = R.product_id
+GROUP BY
+  P.product_name
+HAVING
+  AVG(R.rating) < 3;
+--------------------------------------------------------------------------------
+Question ID : 41
+Category    : COUNT
+Difficulty  : Easy
+Question    : How many products are there?
+Time : 3.5 sec
+Prompt Tokens : 613
+Completion Tokens : 11
+Generated SQL:
+SELECT
+  COUNT(*)
+FROM Products;
+--------------------------------------------------------------------------------
+Question ID : 42
+Category    : COUNT
+Difficulty  : Easy
+Question    : How many orders has each customer placed?
+Time : 10.26 sec
+Prompt Tokens : 615
+Completion Tokens : 69
+Generated SQL:
+SELECT
+  c.customer_name,
+  COUNT(o.order_id) AS total_orders
+FROM Customers AS c
+JOIN Orders AS o
+  ON c.customer_id = o.customer_id
+GROUP BY
+  c.customer_name
+ORDER BY
+  total_orders DESC;
+--------------------------------------------------------------------------------
+Question ID : 43
+Category    : COUNT
+Difficulty  : Medium
+Question    : How many products are discontinued?
+Time : 4.58 sec
+Prompt Tokens : 613
+Completion Tokens : 19
+Generated SQL:
+SELECT
+  COUNT(*)
+FROM Products
+WHERE
+  discontinued = TRUE;
+--------------------------------------------------------------------------------
+Question ID : 44
+Category    : COUNT
+Difficulty  : Medium
+Question    : How many reviews does each product have?
+Time : 9.96 sec
+Prompt Tokens : 615
+Completion Tokens : 61
+Generated SQL:
+SELECT
+  p.product_name,
+  COUNT(r.review_id) AS review_count
+FROM Products AS p
+LEFT JOIN Reviews AS r
+  ON p.product_id = r.product_id
+GROUP BY
+  p.product_name;
+--------------------------------------------------------------------------------
+Question ID : 45
+Category    : SUM
+Difficulty  : Medium
+Question    : Calculate total quantity in stock across all products.
+Time : 3.58 sec
+Prompt Tokens : 616
+Completion Tokens : 11
+Generated SQL:
+SELECT SUM(stock_quantity) FROM Products
+--------------------------------------------------------------------------------
+Question ID : 46
+Category    : SUM
+Difficulty  : Medium
+Question    : Calculate total revenue for each shipper.
+Time : 18.29 sec
+Prompt Tokens : 614
+Completion Tokens : 114
+Generated SQL:
+SELECT
+  S.company_name,
+  SUM(OI.quantity * O.total_amount / 100.0) AS TotalRevenue
+FROM Suppliers AS S
+JOIN Products AS P
+  ON S.supplier_id = P.supplier_id
+JOIN Order_Items AS OI
+  ON P.product_id = OI.product_id
+JOIN Orders AS O
+  ON OI.order_id = O.order_id
+GROUP BY
+  S.company_name;
+--------------------------------------------------------------------------------
+Question ID : 47
+Category    : SUM
+Difficulty  : Medium
+Question    : Calculate total inventory quantity per warehouse.
+Time : 6.11 sec
+Prompt Tokens : 614
+Completion Tokens : 29
+Generated SQL:
+SELECT
+  warehouse,
+  SUM(quantity) AS total_inventory_quantity
+FROM Inventory
+GROUP BY
+  warehouse;
+--------------------------------------------------------------------------------
+Question ID : 48
+Category    : SUM
+Difficulty  : Hard
+Question    : Calculate total sales for each employee.
+Time : 16.34 sec
+Prompt Tokens : 614
+Completion Tokens : 112
+Generated SQL:
+SELECT
+  e.first_name,
+  e.last_name,
+  SUM(oi.quantity * oi.unit_price * (1 - oi.discount)) AS total_sales
+FROM Employees AS e
+JOIN Orders AS o
+  ON e.employee_id = o.employee_id
+JOIN Order_Items AS oi
+  ON o.order_id = oi.order_id
+GROUP BY
+  e.first_name,
+  e.last_name;
+--------------------------------------------------------------------------------
+Question ID : 49
+Category    : AVG
+Difficulty  : Medium
+Question    : Calculate the average product price.
+Time : 3.44 sec
+Prompt Tokens : 613
+Completion Tokens : 11
+Generated SQL:
+SELECT AVG(unit_price) FROM Products
+--------------------------------------------------------------------------------
+Question ID : 50
+Category    : AVG
+Difficulty  : Medium
+Question    : Calculate the average rating for each product, rounded to one decimal place.
+Time : 10.13 sec
+Prompt Tokens : 621
+Completion Tokens : 67
+Generated SQL:
+SELECT
+  p.product_name,
+  ROUND(AVG(r.rating), 1) AS average_rating
+FROM Products AS p
+JOIN Reviews AS r
+  ON p.product_id = r.product_id
+GROUP BY
+  p.product_name;
+--------------------------------------------------------------------------------
+Question ID : 51
+Category    : AVG
+Difficulty  : Hard
+Question    : Calculate the average number of items per order.
+Time : 10.8 sec
+Prompt Tokens : 616
+Completion Tokens : 66
+Generated SQL:
+SELECT
+  CAST(SUM(oi.quantity) AS REAL) / COUNT(DISTINCT o.order_id) AS avg_items_per_order
+FROM Order_Items AS oi
+JOIN Orders AS o
+  ON oi.order_id = o.order_id;
+--------------------------------------------------------------------------------
+Question ID : 52
+Category    : MAX
+Difficulty  : Easy
+Question    : Show the highest order total amount.
+Time : 3.91 sec
+Prompt Tokens : 614
+Completion Tokens : 11
+Generated SQL:
+SELECT MAX(total_amount) FROM Orders
+--------------------------------------------------------------------------------
+Question ID : 53
+Category    : MIN
+Difficulty  : Easy
+Question    : Show the cheapest product.
+Time : 4.22 sec
+Prompt Tokens : 612
+Completion Tokens : 17
+Generated SQL:
+SELECT product_name FROM Products ORDER BY unit_price ASC LIMIT 1
+--------------------------------------------------------------------------------
+Question ID : 54
+Category    : MAX
+Difficulty  : Medium
+Question    : Show the most recent order date for each customer.
+Time : 9.14 sec
+Prompt Tokens : 617
+Completion Tokens : 58
+Generated SQL:
+SELECT
+  c.customer_name,
+  o.order_date
+FROM Customers AS c
+JOIN Orders AS o
+  ON c.customer_id = o.customer_id
+ORDER BY
+  o.order_date DESC;
+--------------------------------------------------------------------------------
+Question ID : 55
+Category    : MIN
+Difficulty  : Medium
+Question    : Show the earliest hire date among employees.
+Time : 5.14 sec
+Prompt Tokens : 615
+Completion Tokens : 25
+Generated SQL:
+SELECT
+  hire_date
+FROM Employees
+ORDER BY
+  hire_date ASC
+LIMIT 1;
+--------------------------------------------------------------------------------
+Question ID : 56
+Category    : CASE
+Difficulty  : Medium
+Question    : Label each product as 'Expensive' if its price is above 500, otherwise 'Affordable'.
+Time : 5.64 sec
+Prompt Tokens : 629
+Completion Tokens : 24
+Generated SQL:
+SELECT
+  product_name
+FROM Products
+WHERE
+  unit_price > 500;
+--------------------------------------------------------------------------------
+Question ID : 57
+Category    : CASE
+Difficulty  : Hard
+Question    : Label each order as 'Large' if its total is above 1000, 'Medium' if between 200 and 1000, otherwise 'Small'.
+Time : 9.6 sec
+Prompt Tokens : 645
+Completion Tokens : 50
+Generated SQL:
+SELECT
+  order_id,
+  total_amount
+FROM Orders
+WHERE
+  total_amount > 1000 OR total_amount BETWEEN 200 AND 1000;
+--------------------------------------------------------------------------------
+Question ID : 58
+Category    : CASE
+Difficulty  : Medium
+Question    : Show each product with a stock status of 'In Stock' or 'Out of Stock'.
+Time : 4.38 sec
+Prompt Tokens : 625
+Completion Tokens : 15
+Generated SQL:
+SELECT product_name FROM Products WHERE stock_quantity > 0
+--------------------------------------------------------------------------------
+Question ID : 59
+Category    : SUBQUERY
+Difficulty  : Hard
+Question    : Show products priced above the average product price.
+Time : 7.8 sec
+Prompt Tokens : 616
+Completion Tokens : 44
+Generated SQL:
+SELECT
+  p.product_name
+FROM Products AS p
+WHERE
+  p.unit_price > (
+    SELECT
+      AVG(unit_price)
+    FROM Products
+  );
+--------------------------------------------------------------------------------
+Question ID : 60
+Category    : SUBQUERY
+Difficulty  : Hard
+Question    : Show the customer who placed the largest single order.
+Time : 8.36 sec
+Prompt Tokens : 617
+Completion Tokens : 47
+Generated SQL:
+SELECT c.customer_name
+FROM Customers c
+JOIN Orders o ON c.customer_id = o.customer_id
+WHERE o.total_amount = (SELECT MAX(total_amount) FROM Orders);
+--------------------------------------------------------------------------------
+Question ID : 61
+Category    : SUBQUERY
+Difficulty  : Hard
+Question    : Show products that have never been ordered.
+Time : 6.62 sec
+Prompt Tokens : 615
+Completion Tokens : 37
+Generated SQL:
+SELECT p.product_name
+FROM Products p
+WHERE p.product_id NOT IN (SELECT product_id FROM Order_Items oi GROUP BY product_id);
+--------------------------------------------------------------------------------
+Question ID : 62
+Category    : SUBQUERY
+Difficulty  : Expert
+Question    : Show suppliers whose average product price is higher than the overall average product price.
+Time : 11.64 sec
+Prompt Tokens : 622
+Completion Tokens : 73
+Generated SQL:
+SELECT
+  supplier_name
+FROM Suppliers AS s
+JOIN Products AS p
+  ON s.supplier_id = p.supplier_id
+GROUP BY
+  supplier_name
+HAVING
+  AVG(p.unit_price) > (
+    SELECT
+      AVG(unit_price)
+    FROM Products
+  );
+--------------------------------------------------------------------------------
+Question ID : 63
+Category    : SUBQUERY
+Difficulty  : Hard
+Question    : Show the second most expensive product.
+Time : 9.11 sec
+Prompt Tokens : 614
+Completion Tokens : 52
+Generated SQL:
+SELECT product_name
+FROM Products
+WHERE unit_price = (SELECT unit_price FROM Products WHERE unit_price >= (SELECT DISTINCT unit_price FROM Products ORDER BY unit_price DESC LIMIT 2 OFFSET 1))
+--------------------------------------------------------------------------------
+Question ID : 64
+Category    : EXISTS
+Difficulty  : Hard
+Question    : Show customers who have placed at least one order.
+Time : 6.21 sec
+Prompt Tokens : 617
+Completion Tokens : 32
+Generated SQL:
+SELECT DISTINCT C.customer_name
+FROM Customers AS C
+JOIN Orders AS O ON C.customer_id = O.customer_id;
+--------------------------------------------------------------------------------
+Question ID : 65
+Category    : EXISTS
+Difficulty  : Hard
+Question    : Show products that have at least one review.
+Time : 6.01 sec
+Prompt Tokens : 616
+Completion Tokens : 30
+Generated SQL:
+SELECT DISTINCT p.product_name
+FROM Products p
+JOIN Reviews r ON p.product_id = r.product_id;
+--------------------------------------------------------------------------------
+Question ID : 66
+Category    : EXISTS
+Difficulty  : Expert
+Question    : Show suppliers that have at least one discontinued product.
+Time : 8.23 sec
+Prompt Tokens : 617
+Completion Tokens : 46
+Generated SQL:
+SELECT DISTINCT
+  S.supplier_name
+FROM Suppliers AS S
+JOIN Products AS P
+  ON S.supplier_id = P.supplier_id
+WHERE
+  P.discontinued = TRUE;
+--------------------------------------------------------------------------------
+Question ID : 67
+Category    : NOT EXISTS
+Difficulty  : Hard
+Question    : Show products that have never received a review.
+Time : 8.14 sec
+Prompt Tokens : 616
+Completion Tokens : 47
+Generated SQL:
+SELECT
+  p.product_name
+FROM Products AS p
+LEFT JOIN Reviews AS r
+  ON p.product_id = r.product_id
+WHERE
+  r.review_id IS NULL;
+--------------------------------------------------------------------------------
+Question ID : 68
+Category    : NOT EXISTS
+Difficulty  : Expert
+Question    : Show suppliers who have no discontinued products.
+Time : 8.83 sec
+Prompt Tokens : 615
+Completion Tokens : 46
+Generated SQL:
+SELECT DISTINCT
+  s.supplier_name
+FROM Suppliers AS s
+JOIN Products AS p
+  ON s.supplier_id = p.supplier_id
+WHERE
+  p.discontinued = FALSE;
+--------------------------------------------------------------------------------
+Question ID : 69
+Category    : IN
+Difficulty  : Medium
+Question    : Show orders that were shipped by 'Nile Express' or 'Speedy Logistics'.
+Time : 9.55 sec
+Prompt Tokens : 624
+Completion Tokens : 57
+Generated SQL:
+SELECT
+  O.order_id
+FROM Orders AS O
+JOIN Shippers AS S
+  ON O.shipper_id = S.shipper_id
+WHERE
+  S.company_name IN ('Nile Express', 'Speedy Logistics');
+--------------------------------------------------------------------------------
+Question ID : 70
+Category    : IN
+Difficulty  : Medium
+Question    : Show customers who live in Egypt, UAE, or Saudi Arabia.
+Time : 8.93 sec
+Prompt Tokens : 620
+Completion Tokens : 54
+Generated SQL:
+SELECT DISTINCT
+  C.*
+FROM Customers AS C
+JOIN Addresses AS A
+  ON C.customer_id = A.customer_id
+WHERE
+  A.country IN ('Egypt', 'UAE', 'Saudi Arabia');
+--------------------------------------------------------------------------------
+Question ID : 71
+Category    : IN
+Difficulty  : Medium
+Question    : Show products that belong to the 'Electronics' or 'Books' categories.
+Time : 8.98 sec
+Prompt Tokens : 622
+Completion Tokens : 54
+Generated SQL:
+SELECT
+  P.product_name
+FROM Products AS P
+JOIN Categories AS C
+  ON P.category_id = C.category_id
+WHERE
+  C.category_name IN ('Electronics', 'Books');
+--------------------------------------------------------------------------------
+Question ID : 72
+Category    : UNION
+Difficulty  : Hard
+Question    : List all cities that appear in either the Customers table or the Addresses table.
+Time : 4.48 sec
+Prompt Tokens : 622
+Completion Tokens : 18
+Generated SQL:
+SELECT DISTINCT city
+FROM Customers
+UNION
+SELECT DISTINCT city
+FROM Addresses;
+--------------------------------------------------------------------------------
+Question ID : 73
+Category    : UNION
+Difficulty  : Expert
+Question    : List all distinct country names that appear among customers, suppliers, or addresses.
+Time : 5.56 sec
+Prompt Tokens : 622
+Completion Tokens : 27
+Generated SQL:
+SELECT DISTINCT country
+FROM Customers
+UNION
+SELECT DISTINCT country
+FROM Suppliers
+UNION
+SELECT DISTINCT country
+FROM Addresses;
+--------------------------------------------------------------------------------
+Question ID : 74
+Category    : CTE
+Difficulty  : Expert
+Question    : Using a CTE, show each category's total revenue from order items.
+Time : 18.65 sec
+Prompt Tokens : 622
+Completion Tokens : 139
+Generated SQL:
+WITH OrderRevenue AS (
+    SELECT
+        oi.product_id,
+        SUM(oi.quantity * oi.unit_price * (1 - oi.discount)) AS revenue
+    FROM Order_Items AS oi
+    GROUP BY
+        oi.product_id
+)
+SELECT
+    c.category_name,
+    SUM(or.revenue) AS total_revenue
+FROM Categories AS c
+JOIN Products AS p
+    ON c.category_id = p.category_id
+JOIN OrderRevenue AS or
+    ON p.product_id = or.product_id
+GROUP BY
+    c.category_name;
+--------------------------------------------------------------------------------
+Question ID : 75
+Category    : CTE
+Difficulty  : Expert
+Question    : Using a CTE, find customers who spent more than 2000 in total.
+Time : 19.41 sec
+Prompt Tokens : 625
+Completion Tokens : 144
+Generated SQL:
+WITH CustomerOrderTotals AS (
+  SELECT
+    o.customer_id,
+    SUM(oi.quantity * oi.unit_price * (1 - oi.discount)) AS total_spent
+  FROM Orders AS o
+  JOIN Order_Items AS oi
+    ON o.order_id = oi.order_id
+  GROUP BY
+    o.customer_id
+)
+SELECT
+  c.customer_name,
+  ct.total_spent
+FROM Customers AS c
+JOIN CustomerOrderTotals AS ct
+  ON c.customer_id = ct.customer_id
+WHERE
+  ct.total_spent > 2000;
+--------------------------------------------------------------------------------
+Question ID : 76
+Category    : CTE
+Difficulty  : Expert
+Question    : Using a CTE, show the average order value per employee.
+Time : 22.83 sec
+Prompt Tokens : 619
+Completion Tokens : 157
+Generated SQL:
+WITH EmployeeOrderValues AS (
+    SELECT
+        o.employee_id,
+        SUM(o.total_amount) AS total_order_value
+    FROM Orders o
+    JOIN Employees e ON o.employee_id = e.employee_id
+    GROUP BY
+        o.employee_id
+)
+SELECT
+    e.first_name,
+    e.last_name,
+    AVG(elv.total_order_value) AS average_order_value
+FROM Employees e
+JOIN EmployeeOrderValues elv ON e.employee_id = elv.employee_id
+GROUP BY
+    e.employee_id,
+    e.first_name,
+    e.last_name;
+--------------------------------------------------------------------------------
+Question ID : 77
+Category    : WINDOW
+Difficulty  : Expert
+Question    : Show each customer's orders along with a running total of their spending, ordered by order date.
+Time : 15.75 sec
+Prompt Tokens : 627
+Completion Tokens : 115
+Generated SQL:
+SELECT
+  c.customer_name,
+  o.order_date,
+  SUM(oi.unit_price * oi.quantity) AS total_spent
+FROM Customers AS c
+JOIN Orders AS o
+  ON c.customer_id = o.customer_id
+JOIN Order_Items AS oi
+  ON o.order_id = oi.order_id
+GROUP BY
+  c.customer_name,
+  o.order_date
+ORDER BY
+  o.order_date;
+--------------------------------------------------------------------------------
+Question ID : 78
+Category    : WINDOW
+Difficulty  : Expert
+Question    : Show each product with its price rank within its own category.
+Time : 8.52 sec
+Prompt Tokens : 619
+Completion Tokens : 55
+Generated SQL:
+SELECT
+  p.product_name,
+  p.unit_price,
+  RANK() OVER (PARTITION BY p.category_id ORDER BY p.unit_price) AS price_rank
+FROM Products AS p;
+--------------------------------------------------------------------------------
+Question ID : 79
+Category    : WINDOW
+Difficulty  : Expert
+Question    : For each order, show its total amount alongside the average order amount of the same customer, using a window function.
+Time : 9.33 sec
+Prompt Tokens : 630
+Completion Tokens : 58
+Generated SQL:
+SELECT
+  O.order_id,
+  O.total_amount,
+  AVG(O.total_amount) OVER (PARTITION BY O.customer_id) AS avg_customer_order_amount
+FROM Orders AS O;
+--------------------------------------------------------------------------------
+Question ID : 80
+Category    : DATE
+Difficulty  : Medium
+Question    : Show orders that were shipped within 5 days of being placed.
+Time : 5.71 sec
+Prompt Tokens : 620
+Completion Tokens : 29
+Generated SQL:
+SELECT
+  *
+FROM Orders
+WHERE
+  shipped_date >= order_date + 5;
+--------------------------------------------------------------------------------
+Question ID : 81
+Category    : DATE
+Difficulty  : Medium
+Question    : Show employees hired in the last two years.
+Time : 4.85 sec
+Prompt Tokens : 616
+Completion Tokens : 21
+Generated SQL:
+SELECT *
+FROM Employees
+WHERE hire_date >= DATE('now', '-2 years');
+--------------------------------------------------------------------------------
+Question ID : 82
+Category    : DATE
+Difficulty  : Hard
+Question    : Show the number of orders placed each month.
+Time : 10.72 sec
+Prompt Tokens : 616
+Completion Tokens : 54
+Generated SQL:
+SELECT
+  strftime('%Y-%m', order_date) AS order_month,
+  COUNT(order_id) AS number_of_orders
+FROM Orders
+GROUP BY
+  order_month
+ORDER BY
+  order_month;
+--------------------------------------------------------------------------------
+Question ID : 83
+Category    : DATE
+Difficulty  : Medium
+Question    : Show orders placed in the last 30 days.
+Time : 6.04 sec
+Prompt Tokens : 618
+Completion Tokens : 22
+Generated SQL:
+SELECT *
+FROM Orders
+WHERE order_date >= DATE('now', '-30 days');
+--------------------------------------------------------------------------------
+Question ID : 84
+Category    : NULL
+Difficulty  : Medium
+Question    : Show orders where the shipped date is null.
+Time : 5.05 sec
+Prompt Tokens : 616
+Completion Tokens : 20
+Generated SQL:
+SELECT
+  *
+FROM Orders
+WHERE
+  shipped_date IS NULL;
+--------------------------------------------------------------------------------
+Question ID : 85
+Category    : NULL
+Difficulty  : Hard
+Question    : Show customers who don't have an email address on file.
+Time : 4.77 sec
+Prompt Tokens : 620
+Completion Tokens : 13
+Generated SQL:
+SELECT *
+FROM Customers
+WHERE email IS NULL;
+--------------------------------------------------------------------------------
+Question ID : 86
+Category    : NULL
+Difficulty  : Medium
+Question    : Show products with a missing category assignment.
+Time : 4.89 sec
+Prompt Tokens : 615
+Completion Tokens : 21
+Generated SQL:
+SELECT product_id, product_name
+FROM Products
+WHERE category_id IS NULL;
+--------------------------------------------------------------------------------
+Question ID : 87
+Category    : NULL
+Difficulty  : Hard
+Question    : Show each order's employee id, displaying 'Unassigned' instead of null when there is no employee assigned.
+Time : 7.68 sec
+Prompt Tokens : 630
+Completion Tokens : 41
+Generated SQL:
+SELECT
+  employee_id,
+  COALESCE(employee_id, 'Unassigned') AS employee_id
+FROM Orders
+WHERE
+  employee_id IS NOT NULL;
+--------------------------------------------------------------------------------
+Question ID : 88
+Category    : IMPOSSIBLE
+Difficulty  : Easy
+Question    : Show product manufacturing dates.
+Time : 8.29 sec
+Prompt Tokens : 612
+Completion Tokens : 47
+Generated SQL:
+SELECT
+  p.product_name,
+  c.category_name
+FROM Products AS p
+JOIN Categories AS c
+  ON p.category_id = c.category_id;
+--------------------------------------------------------------------------------
+Question ID : 89
+Category    : IMPOSSIBLE
+Difficulty  : Easy
+Question    : Show customer credit card numbers.
+Time : 3.53 sec
+Prompt Tokens : 613
+Completion Tokens : 9
+Generated SQL:
+CANNOT_GENERATE_SQL
+--------------------------------------------------------------------------------
+Question ID : 90
+Category    : IMPOSSIBLE
+Difficulty  : Medium
+Question    : Show the profit margin for each product.
+Time : 13.87 sec
+Prompt Tokens : 615
+Completion Tokens : 93
+Generated SQL:
+SELECT
+  p.product_name,
+  SUM(p.unit_price * i.quantity - (SELECT SUM(discount) FROM order_items WHERE order_items.product_id = p.product_id)) AS profit_margin
+FROM Products AS p
+JOIN Inventory AS i
+  ON p.product_id = i.product_id
+GROUP BY
+  p.product_name;
+--------------------------------------------------------------------------------
+Question ID : 91
+Category    : IMPOSSIBLE
+Difficulty  : Medium
+Question    : Show which employee restocked each inventory item.
+Time : 8.21 sec
+Prompt Tokens : 616
+Completion Tokens : 47
+Generated SQL:
+SELECT
+  E.first_name,
+  E.last_name
+FROM Employees AS E
+JOIN Inventory AS I
+  ON E.employee_id = I.product_id;
 --------------------------------------------------------------------------------
 
 STATUS: COMPLETE

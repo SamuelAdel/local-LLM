@@ -1,0 +1,3 @@
+SELECT DISTINCT p.product_name
+FROM Products p
+JOIN Reviews r ON p.product_id = r.product_id;

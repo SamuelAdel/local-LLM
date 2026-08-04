@@ -1,0 +1,3 @@
+SELECT DISTINCT C.customer_name
+FROM Customers AS C
+JOIN Orders AS O ON C.customer_id = O.customer_id;
