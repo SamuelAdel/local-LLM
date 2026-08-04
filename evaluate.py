@@ -5,6 +5,23 @@ Scores each model's generated SQL (results/<model>.txt) against the
 reference answers in expected_sql.py, and flags likely hallucinations
 (tables/columns referenced that don't exist in schema.py).
 
+Correctness is judged in this priority order (best available signal wins):
+  1. Execution match   -- gold and generated SQL both run against --db and
+                           their result sets compare equal. Most reliable;
+                           only available when a SQLite DB is configured.
+  2. Canonical match    -- when no DB is configured (or execution errors),
+                           both queries are structurally normalized with
+                           SQLGlot and compared. Optional: no-ops to "not
+                           available" if the `sqlglot` package isn't
+                           installed, so this never blocks scoring.
+  3. Exact text match   -- last-resort fallback, whitespace/case-normalized
+                           string equality. Weakest signal (rejects
+                           logically-identical queries written differently)
+                           and is NOT used to drive the composite score --
+                           it's reported for information only.
+Each scored row records which of these decided its verdict (`match_method`)
+so the report never claims more certainty than the evidence supports.
+
 v2 additions (see CHANGELOG at bottom of this docstring):
   - Execution Accuracy: if a SQLite DB is available, gold and generated SQL
     are both executed and their result sets compared, instead of relying
@@ -17,11 +34,28 @@ v2 additions (see CHANGELOG at bottom of this docstring):
   - Category / difficulty accuracy breakdown, weighted score, ranking.
   - Reports written as .txt (human-readable), .json, and .csv.
 
-This is still intentionally lightweight -- not a real SQL parser -- so
-treat "hallucination" flags, "syntax_valid", and any REVIEW/EXECUTION_MISMATCH
-status as strong hints for a human reviewer, not a final verdict. Exact-match,
-execution-match (when a DB is configured), and refusal checks are the most
-reliable signals here; everything else is best-effort static analysis.
+v3 additions:
+  - Added optional SQLGlot-based canonical-form matching as a fallback
+    signal when no DB is configured, so two structurally-equivalent
+    queries (different aliasing/qualification/formatting) aren't scored
+    as REVIEW just because their raw text differs. Requires
+    `pip install sqlglot`; entirely optional -- absence just means this
+    signal reports "not available" instead of true/false.
+  - Composite score simplified to four checkable signals (correctness,
+    syntax, no-hallucination/schema validity, safety) that sum to a fixed
+    1.0 weight, replacing the old presence-only "latency" score component
+    (which only rewarded *having* latency data, not being fast -- that
+    was misleading, and is why it's been removed from the score; speed is
+    still reported and ranked separately, see "Fastest Model").
+  - Exact match remains a reported metric but, as before, still does not
+    drive the composite score -- only execution/canonical/exact match is
+    used, in that priority order, purely to decide the correctness verdict.
+
+This is still intentionally lightweight -- not a real SQL parser for the
+syntax/hallucination checks -- so treat "hallucination" flags and
+"syntax_valid" as strong hints for a human reviewer, not a final verdict.
+Execution match, canonical match, and refusal checks are the most reliable
+signals here; everything else is best-effort static analysis.
 
 Usage:
     python evaluate.py [--db path/to/database.sqlite]
@@ -35,6 +69,16 @@ CHANGELOG (v1 -> v2):
   - Added category/difficulty accuracy tables.
   - Added weighted score + final ranking table.
   - Added JSON and CSV report export.
+
+CHANGELOG (v2 -> v3):
+  - Verdicts now fall back through execution match -> canonical match
+    (SQLGlot, optional) -> exact text match, instead of jumping straight
+    from execution match to exact text match.
+  - Added `canonical_match` and `match_method` fields per row.
+  - Reworked SCORE_WEIGHTS/composite_score: dropped the old presence-only
+    latency component, added an explicit safety (non-destructive) weight.
+  - Added canonical-match rate to the summary and to the objective
+    "Best Model by Metric" section.
 """
 
 import argparse
@@ -45,6 +89,13 @@ import sqlite3
 import statistics
 import difflib
 from pathlib import Path
+
+try:
+    import sqlglot
+    from sqlglot.optimizer.qualify import qualify as _sqlglot_qualify
+    _SQLGLOT_AVAILABLE = True
+except ImportError:
+    _SQLGLOT_AVAILABLE = False
 
 from models import MODELS
 from schema import DATABASE_SCHEMA
@@ -59,6 +110,10 @@ REPORT_CSV = RESULTS_DIR / "evaluation.csv"
 
 REFUSAL_TOKEN = "CANNOT_GENERATE_SQL"
 
+# Dialect used for SQLGlot parsing/canonicalization; matches execute_sql(),
+# which runs everything through sqlite3.
+SQL_DIALECT = "sqlite"
+
 # Statements that must never be executed against the DB during scoring, and
 # that automatically fail a question regardless of what else is true about it.
 _DESTRUCTIVE_STATEMENT = re.compile(
@@ -66,13 +121,16 @@ _DESTRUCTIVE_STATEMENT = re.compile(
     re.IGNORECASE,
 )
 
-# Weights for the composite per-question score (must sum to 1.0).
+# Weights for the composite per-question score (must sum to 1.0). Only
+# signals we can actually compute deterministically are weighted here --
+# see the module docstring for why latency isn't one of them.
 SCORE_WEIGHTS = {
-    "correctness": 0.5,   # execution/exact match (or correct refusal)
-    "syntax": 0.2,        # SQL parses / looks structurally valid
-    "no_hallucination": 0.2,
-    "latency": 0.1,       # only contributes if latency data is present
+    "correctness": 0.50,       # execution match > canonical match > exact match (or correct refusal)
+    "syntax": 0.15,            # SQL parses / looks structurally valid
+    "no_hallucination": 0.20,  # schema validity: no unknown tables/columns referenced
+    "safety": 0.15,            # no destructive statement generated
 }
+assert abs(sum(SCORE_WEIGHTS.values()) - 1.0) < 1e-9, "SCORE_WEIGHTS must sum to 1.0"
 
 
 # ---------------------------------------------------------------------
@@ -89,8 +147,18 @@ class Verdict:
     SCHEMA_HALLUCINATION = "SCHEMA_HALLUCINATION"
     EXECUTION_MISMATCH = "EXECUTION_MISMATCH"
     EXECUTION_ERROR = "EXECUTION_ERROR"    # ran but the DB raised an error
-    REVIEW = "REVIEW"                      # text differs, no DB to confirm
+    REVIEW = "REVIEW"                      # nothing above confirmed a match
     MISSING = "MISSING"
+
+
+class MatchMethod:
+    """Which signal actually decided a CORRECT/CORRECT_REFUSAL verdict, so
+    the report never implies more certainty than the evidence supports."""
+    EXECUTION = "execution"        # ran against --db, result sets matched
+    CANONICAL = "canonical"        # no DB (or it errored); SQLGlot structural match
+    EXACT_TEXT = "exact_text"      # no DB, no sqlglot match; raw text matched after normalization
+    REFUSAL = "refusal"            # question expected a refusal and got one
+    NONE = "none"                  # not marked correct by any method
 
 
 # ---------------------------------------------------------------------
@@ -118,6 +186,17 @@ def parse_schema(schema_text):
 
 
 TABLES = parse_schema(DATABASE_SCHEMA)
+
+# sqlglot's qualify() needs a {table: {column: type}} schema to resolve
+# unqualified/aliased column references (e.g. so "name" and "t.name" both
+# canonicalize to "employees"."name"). Types aren't tracked elsewhere in
+# this file's schema parsing, so every column is declared TEXT here --
+# qualify() only uses this to resolve *which* table a column belongs to,
+# not to validate types.
+_SQLGLOT_SCHEMA = (
+    {table: {col: "TEXT" for col in cols} for table, cols in TABLES.items()}
+    if _SQLGLOT_AVAILABLE else None
+)
 
 
 # Functions whose argument list can contain a "FROM" keyword that has
@@ -295,6 +374,69 @@ def try_execution_accuracy(conn, generated_sql, gold_variants):
 
 
 # ---------------------------------------------------------------------
+# Canonical-form matching (optional -- only runs if sqlglot is installed)
+#
+# Used as a fallback signal when execution match isn't available (no --db
+# configured, or the generated SQL errored against the DB). Two queries
+# that are logically equivalent but written differently (column
+# qualification, aliasing, formatting) normalize to the same canonical
+# string, so they aren't scored as REVIEW just because the raw text
+# differs. This is still a structural/textual comparison, not a proof of
+# semantic equivalence (e.g. it won't catch AVG vs SUM being swapped) --
+# it only tells you the two ASTs are the same shape.
+# ---------------------------------------------------------------------
+
+def canonicalize_sql(sql, dialect=SQL_DIALECT):
+    """Returns a normalized SQL string via SQLGlot, or None if SQLGlot
+    isn't installed or the SQL doesn't parse under this dialect.
+
+    Tries to fully qualify table/column references first (using the schema
+    parsed from schema.py), so e.g. "SELECT name FROM employees" and
+    "SELECT employees.name FROM employees" canonicalize to the same string.
+    Qualification is best-effort: if it fails (e.g. a construct qualify()
+    doesn't support), we still fall back to a plain normalize of the parsed
+    tree rather than giving up entirely.
+    """
+    if not _SQLGLOT_AVAILABLE:
+        return None
+    try:
+        tree = sqlglot.parse_one(sql, read=dialect)
+    except Exception:
+        return None
+    try:
+        tree = _sqlglot_qualify(
+            tree, schema=_SQLGLOT_SCHEMA, dialect=dialect,
+            validate_qualify_columns=False, quote_identifiers=False,
+        )
+    except Exception:
+        pass  # qualification is a best-effort upgrade, not required
+    try:
+        return tree.sql(dialect=dialect, normalize=True)
+    except Exception:
+        return None
+
+
+def try_canonical_match(generated_sql, gold_variants, dialect=SQL_DIALECT):
+    """
+    Returns one of:
+      True   -> generated SQL's canonical form matches at least one gold
+                variant's canonical form
+      False  -> both parsed, but no canonical form matched
+      None   -> not available (sqlglot not installed, or either side
+                failed to parse -- not evidence of a mismatch, just no
+                opinion)
+    """
+    gen_canon = canonicalize_sql(generated_sql, dialect)
+    if gen_canon is None:
+        return None
+    for gold in gold_variants:
+        gold_canon = canonicalize_sql(gold, dialect)
+        if gold_canon is not None and gen_canon == gold_canon:
+            return True
+    return False
+
+
+# ---------------------------------------------------------------------
 # Parsing results/<model>.txt back into structured records
 # ---------------------------------------------------------------------
 
@@ -382,16 +524,20 @@ def score_question(qid, generated_sql, conn):
             "similarity": 100.0 if refused else 0.0,
             "exact_match": refused,
             "execution_match": None,
+            "canonical_match": None,
             "syntax_valid": None,
             "destructive": is_destructive(generated_sql) if not refused else False,
             "hallucinations": [] if refused else find_hallucinations(generated_sql, TABLES),
         }
         if refused:
             result["verdict"] = Verdict.CORRECT_REFUSAL
+            result["match_method"] = MatchMethod.REFUSAL
         elif result["destructive"]:
             result["verdict"] = Verdict.UNSAFE_SQL
+            result["match_method"] = MatchMethod.NONE
         else:
             result["verdict"] = Verdict.MISSED_REFUSAL
+            result["match_method"] = MatchMethod.NONE
         return result
 
     # --- Question with a real expected SQL answer ---
@@ -411,43 +557,79 @@ def score_question(qid, generated_sql, conn):
     if conn is not None and not was_refusal and not destructive and syntax_valid:
         execution_match = try_execution_accuracy(conn, generated_sql, gold_variants)
 
+    # Canonical match is only consulted when execution match couldn't settle
+    # it (no DB configured, or the generated SQL errored against the DB) --
+    # execution against real data is strictly stronger evidence when it's
+    # available, so we never let a structural match override it.
+    canonical_match = None
+    if execution_match is not True and not was_refusal and not destructive and syntax_valid:
+        canonical_match = try_canonical_match(generated_sql, gold_variants)
+
     result = {
         "expected_refusal": False,
         "correctly_refused": None,
         "similarity": round(similarity, 1),
         "exact_match": exact_match,
         "execution_match": execution_match,
+        "canonical_match": canonical_match,
         "syntax_valid": syntax_valid,
         "syntax_reason": syntax_reason,
         "destructive": destructive,
         "hallucinations": hallucinations,
     }
 
-    # --- classify ---
+    # --- classify: execution match > canonical match > exact text match ---
     if was_refusal:
         result["verdict"] = Verdict.FALSE_REFUSAL
+        result["match_method"] = MatchMethod.NONE
     elif destructive:
         result["verdict"] = Verdict.UNSAFE_SQL
+        result["match_method"] = MatchMethod.NONE
     elif syntax_valid is False:
         result["verdict"] = Verdict.SYNTAX_ERROR
+        result["match_method"] = MatchMethod.NONE
     elif execution_match is True:
         result["verdict"] = Verdict.CORRECT
+        result["match_method"] = MatchMethod.EXECUTION
     elif execution_match is False:
         result["verdict"] = Verdict.EXECUTION_MISMATCH
+        result["match_method"] = MatchMethod.NONE
     elif execution_match is None and conn is not None:
-        result["verdict"] = Verdict.EXECUTION_ERROR
+        # A DB was configured but this particular query errored against it
+        # (couldn't compare result sets). Canonical/exact-text can still
+        # rescue a verdict here -- an execution error is not necessarily a
+        # wrong query (e.g. gold itself failed to run on this DB).
+        if canonical_match is True:
+            result["verdict"] = Verdict.CORRECT
+            result["match_method"] = MatchMethod.CANONICAL
+        elif exact_match:
+            result["verdict"] = Verdict.CORRECT
+            result["match_method"] = MatchMethod.EXACT_TEXT
+        else:
+            result["verdict"] = Verdict.EXECUTION_ERROR
+            result["match_method"] = MatchMethod.NONE
     elif hallucinations:
         result["verdict"] = Verdict.SCHEMA_HALLUCINATION
+        result["match_method"] = MatchMethod.NONE
+    elif canonical_match is True:
+        result["verdict"] = Verdict.CORRECT
+        result["match_method"] = MatchMethod.CANONICAL
     elif exact_match:
         result["verdict"] = Verdict.CORRECT
+        result["match_method"] = MatchMethod.EXACT_TEXT
     else:
         result["verdict"] = Verdict.REVIEW
+        result["match_method"] = MatchMethod.NONE
 
     return result
 
 
 def composite_score(row):
-    """0-100 weighted score for one scored (non-missing) question."""
+    """0-100 weighted score for one scored (non-missing) question. Uses only
+    signals we can compute deterministically -- see SCORE_WEIGHTS. Speed is
+    reported and ranked separately (see 'Fastest Model'), not folded in
+    here, since a presence-only latency bonus doesn't actually measure
+    being fast."""
     correctness = 1.0 if row["verdict"] in (Verdict.CORRECT, Verdict.CORRECT_REFUSAL) else 0.0
 
     if row["syntax_valid"] is None:
@@ -456,21 +638,15 @@ def composite_score(row):
         syntax_component = 1.0 if row["syntax_valid"] else 0.0
 
     no_halluc = 0.0 if row["hallucinations"] else 1.0
+    safety_component = 0.0 if row["destructive"] else 1.0
 
-    latency = row.get("latency")
-    latency_component = None if latency is None else 1.0  # presence-only signal by default
-
-    weight_sum = SCORE_WEIGHTS["correctness"] + SCORE_WEIGHTS["syntax"] + SCORE_WEIGHTS["no_hallucination"]
     score = (
         correctness * SCORE_WEIGHTS["correctness"]
         + syntax_component * SCORE_WEIGHTS["syntax"]
         + no_halluc * SCORE_WEIGHTS["no_hallucination"]
+        + safety_component * SCORE_WEIGHTS["safety"]
     )
-    if latency_component is not None:
-        score += latency_component * SCORE_WEIGHTS["latency"]
-        weight_sum += SCORE_WEIGHTS["latency"]
-
-    return round(100 * score / weight_sum, 1)
+    return round(100 * score, 1)
 
 
 # ---------------------------------------------------------------------
@@ -528,10 +704,17 @@ def summarize(rows):
     refusal_correct = sum(1 for r in refusal_qs if r["correctly_refused"])
     exec_scored = [r for r in scored if r["execution_match"] is not None]
     exec_correct = sum(1 for r in exec_scored if r["execution_match"])
+    canon_scored = [r for r in scored if r.get("canonical_match") is not None]
+    canon_correct = sum(1 for r in canon_scored if r["canonical_match"])
     unsafe = sum(1 for r in scored if r["destructive"])
     syntax_checked = [r for r in scored if r["syntax_valid"] is not None]
     syntax_ok = sum(1 for r in syntax_checked if r["syntax_valid"])
     avg_score = sum(r["score"] for r in scored) / n
+
+    match_method_counts = {}
+    for r in scored:
+        mm = r.get("match_method", MatchMethod.NONE)
+        match_method_counts[mm] = match_method_counts.get(mm, 0) + 1
 
     latencies = [r["latency"] for r in scored if r.get("latency") is not None]
     total_tokens = [r["total_tokens"] for r in scored if r.get("total_tokens") is not None]
@@ -573,6 +756,8 @@ def summarize(rows):
         "avg_similarity": round(avg_sim, 1),
         "execution_accuracy": _pct(exec_correct, len(exec_scored)) if exec_scored else None,
         "execution_scored_n": len(exec_scored),
+        "canonical_match_rate": _pct(canon_correct, len(canon_scored)) if canon_scored else None,
+        "canonical_scored_n": len(canon_scored),
         "syntax_valid_rate": _pct(syntax_ok, len(syntax_checked)) if syntax_checked else None,
         "hallucination_count": len(hallucinated_qs),
         "unsafe_sql_count": unsafe,
@@ -581,6 +766,7 @@ def summarize(rows):
         "avg_score": round(avg_score, 1),
         "latency": latency_stats,
         "tokens_per_sec": tokens_per_sec,
+        "match_method_counts": match_method_counts,
         "category_accuracy": {k: _pct(v[0], v[1]) for k, v in by_category.items()},
         "difficulty_accuracy": {k: _pct(v[0], v[1]) for k, v in by_difficulty.items()},
     }
@@ -629,6 +815,10 @@ def compute_best_by_metric(all_summaries):
         "highest_execution_accuracy": _best_of(
             scored, lambda s: s["execution_accuracy"],
             filter_fn=lambda s: s.get("execution_accuracy") is not None,
+        ),
+        "highest_canonical_match_rate": _best_of(
+            scored, lambda s: s["canonical_match_rate"],
+            filter_fn=lambda s: s.get("canonical_match_rate") is not None,
         ),
         "highest_syntax_valid_rate": _best_of(
             scored, lambda s: s["syntax_valid_rate"],
@@ -744,6 +934,10 @@ def write_txt_report(all_rows, all_summaries):
             lines.append(f"    exact_match  : {r['exact_match']}")
             if r["execution_match"] is not None:
                 lines.append(f"    execution_match : {r['execution_match']}")
+            if r.get("canonical_match") is not None:
+                lines.append(f"    canonical_match : {r['canonical_match']}")
+            if r["verdict"] in (Verdict.CORRECT, Verdict.CORRECT_REFUSAL):
+                lines.append(f"    matched_via  : {r.get('match_method', MatchMethod.NONE)}")
             if r["syntax_valid"] is False:
                 lines.append(f"    syntax_error : {r['syntax_reason']}")
             if r["expected_refusal"]:
@@ -806,6 +1000,23 @@ def write_txt_report(all_rows, all_summaries):
             f"min={lat['min']} max={lat['max']} p95={lat['p95']} | tokens/sec={tps}"
         )
 
+    lines.append("\nMATCH METHOD BREAKDOWN (which signal decided each CORRECT verdict)")
+    lines.append("  execution = ran against --db and result sets matched (strongest)")
+    lines.append("  canonical = no DB result, but SQLGlot structural form matched (needs `pip install sqlglot`)")
+    lines.append("  exact_text = no DB/canonical result, raw text matched after normalization (weakest)")
+    lines.append("  refusal = correctly refused a should-refuse question")
+    for model, s in all_summaries.items():
+        if s["n"] == 0:
+            continue
+        counts = s.get("match_method_counts", {})
+        parts = [f"{method}={counts[method]}" for method in
+                 (MatchMethod.EXECUTION, MatchMethod.CANONICAL, MatchMethod.EXACT_TEXT, MatchMethod.REFUSAL)
+                 if counts.get(method)]
+        canon_note = ""
+        if s.get("canonical_match_rate") is None and not _SQLGLOT_AVAILABLE:
+            canon_note = "  [sqlglot not installed -- canonical match unavailable]"
+        lines.append(f"  {model}: {', '.join(parts) if parts else 'no CORRECT verdicts'}{canon_note}")
+
     ranking = sorted(
         ((m, s) for m, s in all_summaries.items() if s["n"] > 0),
         key=lambda item: item[1]["avg_score"],
@@ -829,6 +1040,7 @@ def write_txt_report(all_rows, all_summaries):
         ("highest_avg_score", "Highest weighted score", ""),
         ("highest_exact_match", "Highest exact match", "%"),
         ("highest_execution_accuracy", "Highest execution accuracy", "%"),
+        ("highest_canonical_match_rate", "Highest canonical-match rate", "%"),
         ("highest_syntax_valid_rate", "Highest syntax-valid rate", "%"),
         ("lowest_hallucination_count", "Lowest hallucination count", " flags"),
         ("lowest_unsafe_sql_count", "Fewest unsafe/destructive statements", ""),
@@ -893,6 +1105,7 @@ def write_csv_report(all_rows):
     fieldnames = [
         "model", "question_id", "category", "difficulty", "verdict",
         "score", "similarity", "exact_match", "execution_match",
+        "canonical_match", "match_method",
         "syntax_valid", "destructive", "hallucination_count",
         "latency", "total_tokens", "missing",
     ]
@@ -916,6 +1129,8 @@ def write_csv_report(all_rows):
                     "similarity": r["similarity"],
                     "exact_match": r["exact_match"],
                     "execution_match": r["execution_match"],
+                    "canonical_match": r.get("canonical_match"),
+                    "match_method": r.get("match_method", MatchMethod.NONE),
                     "syntax_valid": r["syntax_valid"],
                     "destructive": r["destructive"],
                     "hallucination_count": len(r["hallucinations"]),
@@ -930,7 +1145,9 @@ def main():
     parser.add_argument(
         "--db", default=None,
         help="Path to a SQLite DB matching schema.py. If given, enables execution "
-             "accuracy scoring; otherwise falls back to text-match scoring only.",
+             "accuracy scoring (the strongest correctness signal). Without it, "
+             "scoring falls back to SQLGlot canonical-form matching if `sqlglot` "
+             "is installed, then plain exact-text matching.",
     )
     args = parser.parse_args()
 
@@ -941,6 +1158,13 @@ def main():
             conn = sqlite3.connect(str(db_path))
         else:
             print(f"WARNING: --db path '{db_path}' does not exist; skipping execution accuracy.")
+
+    if not _SQLGLOT_AVAILABLE:
+        print(
+            "NOTE: `sqlglot` isn't installed -- canonical-form matching is disabled "
+            "(run `pip install sqlglot` to enable it). Falling back to exact-text "
+            "matching wherever execution match isn't available."
+        )
 
     all_rows = {}
     all_summaries = {}

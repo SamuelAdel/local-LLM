@@ -8,127 +8,127 @@ MODEL : qwen2.5-coder:7b
 ================================================================================
 
 [Q1] (SELECT/Easy, SQL) -> REVIEW
-    score        : 44.4/100
+    score        : 50.0/100
     similarity   : 39.3%
     exact_match  : False
     total_tokens : 513
 
 [Q2] (SELECT/Easy, SQL) -> REVIEW
-    score        : 44.4/100
+    score        : 50.0/100
     similarity   : 76.4%
     exact_match  : False
     total_tokens : 499
 
 [Q3] (FILTER/Easy, SQL) -> REVIEW
-    score        : 44.4/100
+    score        : 50.0/100
     similarity   : 83.7%
     exact_match  : False
     total_tokens : 508
 
 [Q4] (ORDER BY/Easy, SQL) -> REVIEW
-    score        : 44.4/100
+    score        : 50.0/100
     similarity   : 47.9%
     exact_match  : False
     total_tokens : 532
 
 [Q5] (LIMIT/Easy, SQL) -> REVIEW
-    score        : 44.4/100
+    score        : 50.0/100
     similarity   : 81.2%
     exact_match  : False
     total_tokens : 512
 
 [Q6] (JOIN/Medium, SQL) -> REVIEW
-    score        : 44.4/100
+    score        : 50.0/100
     similarity   : 99.0%
     exact_match  : False
     total_tokens : 520
 
 [Q7] (JOIN/Medium, SQL) -> REVIEW
-    score        : 44.4/100
+    score        : 50.0/100
     similarity   : 99.0%
     exact_match  : False
     total_tokens : 521
 
 [Q8] (JOIN/Medium, SQL) -> REVIEW
-    score        : 44.4/100
+    score        : 50.0/100
     similarity   : 99.0%
     exact_match  : False
     total_tokens : 517
 
 [Q9] (JOIN/Medium, SQL) -> REVIEW
-    score        : 44.4/100
+    score        : 50.0/100
     similarity   : 98.7%
     exact_match  : False
     total_tokens : 529
 
 [Q10] (COUNT/Easy, SQL) -> REVIEW
-    score        : 44.4/100
+    score        : 50.0/100
     similarity   : 82.9%
     exact_match  : False
     total_tokens : 503
 
 [Q11] (SUM/Medium, SQL) -> REVIEW
-    score        : 44.4/100
+    score        : 50.0/100
     similarity   : 82.8%
     exact_match  : False
     total_tokens : 504
 
 [Q12] (AVG/Medium, SQL) -> REVIEW
-    score        : 44.4/100
+    score        : 50.0/100
     similarity   : 75.0%
     exact_match  : False
     total_tokens : 506
 
 [Q13] (GROUP BY/Medium, SQL) -> REVIEW
-    score        : 44.4/100
+    score        : 50.0/100
     similarity   : 19.8%
     exact_match  : False
     total_tokens : 569
 
 [Q14] (HAVING/Hard, SQL) -> REVIEW
-    score        : 44.4/100
+    score        : 50.0/100
     similarity   : 50.2%
     exact_match  : False
     total_tokens : 556
 
 [Q15] (SUBQUERY/Hard, SQL) -> REVIEW
-    score        : 44.4/100
+    score        : 50.0/100
     similarity   : 54.4%
     exact_match  : False
     total_tokens : 511
 
 [Q16] (SUBQUERY/Hard, SQL) -> REVIEW
-    score        : 44.4/100
+    score        : 50.0/100
     similarity   : 18.3%
     exact_match  : False
     total_tokens : 623
 
 [Q17] (DATE/Medium, SQL) -> REVIEW
-    score        : 44.4/100
+    score        : 50.0/100
     similarity   : 98.0%
     exact_match  : False
     total_tokens : 520
 
 [Q18] (DATE/Medium, SQL) -> REVIEW
-    score        : 44.4/100
+    score        : 50.0/100
     similarity   : 62.8%
     exact_match  : False
     total_tokens : 533
 
 [Q19] (NULL/Hard, SQL) -> REVIEW
-    score        : 44.4/100
+    score        : 50.0/100
     similarity   : 90.9%
     exact_match  : False
     total_tokens : 514
 
 [Q20] (CTE/Expert, SQL) -> REVIEW
-    score        : 44.4/100
+    score        : 50.0/100
     similarity   : 53.0%
     exact_match  : False
     total_tokens : 545
 
 [Q21] (WINDOW/Expert, SQL) -> REVIEW
-    score        : 44.4/100
+    score        : 50.0/100
     similarity   : 47.1%
     exact_match  : False
     total_tokens : 538
@@ -137,11 +137,12 @@ MODEL : qwen2.5-coder:7b
     score        : 100.0/100
     similarity   : 100.0%
     exact_match  : True
+    matched_via  : refusal
     correctly_refused : True
     total_tokens : 498
 
 [Q23] (IMPOSSIBLE/Easy, REFUSAL) -> MISSED_REFUSAL
-    score        : 22.2/100
+    score        : 35.0/100
     similarity   : 0.0%
     exact_match  : False
     correctly_refused : False
@@ -151,6 +152,7 @@ MODEL : qwen2.5-coder:7b
     score        : 100.0/100
     similarity   : 100.0%
     exact_match  : True
+    matched_via  : refusal
     correctly_refused : True
     total_tokens : 498
 
@@ -163,52 +165,53 @@ MODEL : gemma3:4b
     score        : 100.0/100
     similarity   : 100.0%
     exact_match  : True
+    matched_via  : exact_text
     total_tokens : 621
 
 [Q2] (SELECT/Easy, SQL) -> REVIEW
-    score        : 44.4/100
+    score        : 50.0/100
     similarity   : 31.1%
     exact_match  : False
     total_tokens : 641
 
 [Q3] (FILTER/Easy, SQL) -> REVIEW
-    score        : 44.4/100
+    score        : 50.0/100
     similarity   : 97.7%
     exact_match  : False
     total_tokens : 632
 
 [Q4] (ORDER BY/Easy, SQL) -> REVIEW
-    score        : 44.4/100
+    score        : 50.0/100
     similarity   : 71.3%
     exact_match  : False
     total_tokens : 639
 
 [Q5] (LIMIT/Easy, SQL) -> REVIEW
-    score        : 44.4/100
+    score        : 50.0/100
     similarity   : 81.2%
     exact_match  : False
     total_tokens : 639
 
 [Q6] (JOIN/Medium, SQL) -> REVIEW
-    score        : 44.4/100
+    score        : 50.0/100
     similarity   : 92.0%
     exact_match  : False
     total_tokens : 663
 
 [Q7] (JOIN/Medium, SQL) -> REVIEW
-    score        : 44.4/100
+    score        : 50.0/100
     similarity   : 96.2%
     exact_match  : False
     total_tokens : 657
 
 [Q8] (JOIN/Medium, SQL) -> REVIEW
-    score        : 44.4/100
+    score        : 50.0/100
     similarity   : 96.3%
     exact_match  : False
     total_tokens : 660
 
 [Q9] (JOIN/Medium, SQL) -> REVIEW
-    score        : 44.4/100
+    score        : 50.0/100
     similarity   : 93.0%
     exact_match  : False
     total_tokens : 681
@@ -217,76 +220,77 @@ MODEL : gemma3:4b
     score        : 100.0/100
     similarity   : 100.0%
     exact_match  : True
+    matched_via  : exact_text
     total_tokens : 624
 
 [Q11] (SUM/Medium, SQL) -> REVIEW
-    score        : 44.4/100
+    score        : 50.0/100
     similarity   : 36.9%
     exact_match  : False
     total_tokens : 662
 
 [Q12] (AVG/Medium, SQL) -> REVIEW
-    score        : 44.4/100
+    score        : 50.0/100
     similarity   : 57.1%
     exact_match  : False
     total_tokens : 640
 
 [Q13] (GROUP BY/Medium, SQL) -> REVIEW
-    score        : 44.4/100
+    score        : 50.0/100
     similarity   : 19.2%
     exact_match  : False
     total_tokens : 719
 
 [Q14] (HAVING/Hard, SQL) -> REVIEW
-    score        : 44.4/100
+    score        : 50.0/100
     similarity   : 40.2%
     exact_match  : False
     total_tokens : 676
 
 [Q15] (SUBQUERY/Hard, SQL) -> REVIEW
-    score        : 44.4/100
+    score        : 50.0/100
     similarity   : 58.9%
     exact_match  : False
     total_tokens : 630
 
 [Q16] (SUBQUERY/Hard, SQL) -> REVIEW
-    score        : 44.4/100
+    score        : 50.0/100
     similarity   : 50.8%
     exact_match  : False
     total_tokens : 688
 
 [Q17] (DATE/Medium, SQL) -> REVIEW
-    score        : 44.4/100
+    score        : 50.0/100
     similarity   : 81.8%
     exact_match  : False
     total_tokens : 642
 
 [Q18] (DATE/Medium, SQL) -> REVIEW
-    score        : 44.4/100
+    score        : 50.0/100
     similarity   : 62.8%
     exact_match  : False
     total_tokens : 655
 
 [Q19] (NULL/Hard, SQL) -> REVIEW
-    score        : 44.4/100
+    score        : 50.0/100
     similarity   : 95.3%
     exact_match  : False
     total_tokens : 641
 
 [Q20] (CTE/Expert, SQL) -> REVIEW
-    score        : 44.4/100
+    score        : 50.0/100
     similarity   : 39.8%
     exact_match  : False
     total_tokens : 725
 
 [Q21] (WINDOW/Expert, SQL) -> REVIEW
-    score        : 44.4/100
+    score        : 50.0/100
     similarity   : 43.0%
     exact_match  : False
     total_tokens : 692
 
 [Q22] (IMPOSSIBLE/Easy, REFUSAL) -> MISSED_REFUSAL
-    score        : 0.0/100
+    score        : 15.0/100
     similarity   : 0.0%
     exact_match  : False
     correctly_refused : False
@@ -295,14 +299,14 @@ MODEL : gemma3:4b
       - unknown column 'salary' on table 'employees' (bare reference in SELECT)
 
 [Q23] (IMPOSSIBLE/Easy, REFUSAL) -> MISSED_REFUSAL
-    score        : 22.2/100
+    score        : 35.0/100
     similarity   : 0.0%
     exact_match  : False
     correctly_refused : False
     total_tokens : 639
 
 [Q24] (IMPOSSIBLE/Easy, REFUSAL) -> MISSED_REFUSAL
-    score        : 22.2/100
+    score        : 35.0/100
     similarity   : 0.0%
     exact_match  : False
     correctly_refused : False
@@ -317,16 +321,18 @@ MODEL : llama3.1:8b
     score        : 100.0/100
     similarity   : 100.0%
     exact_match  : True
+    matched_via  : exact_text
     total_tokens : 479
 
 [Q2] (SELECT/Easy, SQL) -> CORRECT
     score        : 100.0/100
     similarity   : 100.0%
     exact_match  : True
+    matched_via  : exact_text
     total_tokens : 479
 
 [Q3] (FILTER/Easy, SQL) -> REVIEW
-    score        : 44.4/100
+    score        : 50.0/100
     similarity   : 97.7%
     exact_match  : False
     total_tokens : 488
@@ -335,46 +341,47 @@ MODEL : llama3.1:8b
     score        : 100.0/100
     similarity   : 100.0%
     exact_match  : True
+    matched_via  : exact_text
     total_tokens : 487
 
 [Q5] (LIMIT/Easy, SQL) -> REVIEW
-    score        : 44.4/100
+    score        : 50.0/100
     similarity   : 70.2%
     exact_match  : False
     total_tokens : 496
 
 [Q6] (JOIN/Medium, SQL) -> REVIEW
-    score        : 44.4/100
+    score        : 50.0/100
     similarity   : 99.0%
     exact_match  : False
     total_tokens : 503
 
 [Q7] (JOIN/Medium, SQL) -> REVIEW
-    score        : 44.4/100
+    score        : 50.0/100
     similarity   : 93.6%
     exact_match  : False
     total_tokens : 505
 
 [Q8] (JOIN/Medium, SQL) -> REVIEW
-    score        : 44.4/100
+    score        : 50.0/100
     similarity   : 99.0%
     exact_match  : False
     total_tokens : 501
 
 [Q9] (JOIN/Medium, SQL) -> REVIEW
-    score        : 44.4/100
+    score        : 50.0/100
     similarity   : 66.7%
     exact_match  : False
     total_tokens : 510
 
 [Q10] (COUNT/Easy, SQL) -> REVIEW
-    score        : 44.4/100
+    score        : 50.0/100
     similarity   : 82.9%
     exact_match  : False
     total_tokens : 484
 
 [Q11] (SUM/Medium, SQL) -> REVIEW
-    score        : 44.4/100
+    score        : 50.0/100
     similarity   : 48.0%
     exact_match  : False
     total_tokens : 492
@@ -383,64 +390,65 @@ MODEL : llama3.1:8b
     score        : 100.0/100
     similarity   : 100.0%
     exact_match  : True
+    matched_via  : exact_text
     total_tokens : 483
 
 [Q13] (GROUP BY/Medium, SQL) -> REVIEW
-    score        : 44.4/100
+    score        : 50.0/100
     similarity   : 23.0%
     exact_match  : False
     total_tokens : 541
 
 [Q14] (HAVING/Hard, SQL) -> REVIEW
-    score        : 44.4/100
+    score        : 50.0/100
     similarity   : 56.2%
     exact_match  : False
     total_tokens : 516
 
 [Q15] (SUBQUERY/Hard, SQL) -> REVIEW
-    score        : 44.4/100
+    score        : 50.0/100
     similarity   : 58.9%
     exact_match  : False
     total_tokens : 490
 
 [Q16] (SUBQUERY/Hard, SQL) -> REVIEW
-    score        : 44.4/100
+    score        : 50.0/100
     similarity   : 51.5%
     exact_match  : False
     total_tokens : 530
 
 [Q17] (DATE/Medium, SQL) -> REVIEW
-    score        : 44.4/100
+    score        : 50.0/100
     similarity   : 64.1%
     exact_match  : False
     total_tokens : 506
 
 [Q18] (DATE/Medium, SQL) -> REVIEW
-    score        : 44.4/100
+    score        : 50.0/100
     similarity   : 84.1%
     exact_match  : False
     total_tokens : 494
 
 [Q19] (NULL/Hard, SQL) -> REVIEW
-    score        : 44.4/100
+    score        : 50.0/100
     similarity   : 60.3%
     exact_match  : False
     total_tokens : 507
 
 [Q20] (CTE/Expert, SQL) -> REVIEW
-    score        : 44.4/100
+    score        : 50.0/100
     similarity   : 37.5%
     exact_match  : False
     total_tokens : 541
 
 [Q21] (WINDOW/Expert, SQL) -> REVIEW
-    score        : 44.4/100
+    score        : 50.0/100
     similarity   : 44.4%
     exact_match  : False
     total_tokens : 522
 
 [Q22] (IMPOSSIBLE/Easy, REFUSAL) -> MISSED_REFUSAL
-    score        : 0.0/100
+    score        : 15.0/100
     similarity   : 0.0%
     exact_match  : False
     correctly_refused : False
@@ -449,7 +457,7 @@ MODEL : llama3.1:8b
       - unknown column 'salary' on table 'employees' (bare reference in SELECT)
 
 [Q23] (IMPOSSIBLE/Easy, REFUSAL) -> MISSED_REFUSAL
-    score        : 22.2/100
+    score        : 35.0/100
     similarity   : 0.0%
     exact_match  : False
     correctly_refused : False
@@ -459,6 +467,7 @@ MODEL : llama3.1:8b
     score        : 100.0/100
     similarity   : 100.0%
     exact_match  : True
+    matched_via  : refusal
     correctly_refused : True
     total_tokens : 479
 
@@ -468,19 +477,19 @@ MODEL : deepseek-r1:7b
 ================================================================================
 
 [Q1] (SELECT/Easy, SQL) -> REVIEW
-    score        : 44.4/100
+    score        : 50.0/100
     similarity   : 62.0%
     exact_match  : False
     total_tokens : 655
 
 [Q2] (SELECT/Easy, SQL) -> REVIEW
-    score        : 44.4/100
+    score        : 50.0/100
     similarity   : 31.1%
     exact_match  : False
     total_tokens : 766
 
 [Q3] (FILTER/Easy, SQL) -> SYNTAX_ERROR
-    score        : 22.2/100
+    score        : 35.0/100
     similarity   : 56.8%
     exact_match  : False
     syntax_error : does not start with SELECT/WITH
@@ -490,10 +499,11 @@ MODEL : deepseek-r1:7b
     score        : 100.0/100
     similarity   : 100.0%
     exact_match  : True
+    matched_via  : exact_text
     total_tokens : 802
 
 [Q5] (LIMIT/Easy, SQL) -> SCHEMA_HALLUCINATION
-    score        : 22.2/100
+    score        : 30.0/100
     similarity   : 23.8%
     exact_match  : False
     total_tokens : 976
@@ -501,19 +511,19 @@ MODEL : deepseek-r1:7b
       - unknown table referenced: 'the'
 
 [Q6] (JOIN/Medium, SQL) -> REVIEW
-    score        : 44.4/100
+    score        : 50.0/100
     similarity   : 99.0%
     exact_match  : False
     total_tokens : 802
 
 [Q7] (JOIN/Medium, SQL) -> REVIEW
-    score        : 44.4/100
+    score        : 50.0/100
     similarity   : 99.0%
     exact_match  : False
     total_tokens : 770
 
 [Q8] (JOIN/Medium, SQL) -> REVIEW
-    score        : 44.4/100
+    score        : 50.0/100
     similarity   : 90.4%
     exact_match  : False
     total_tokens : 689
@@ -524,16 +534,17 @@ MODEL : deepseek-r1:7b
     score        : 100.0/100
     similarity   : 100.0%
     exact_match  : True
+    matched_via  : exact_text
     total_tokens : 757
 
 [Q11] (SUM/Medium, SQL) -> REVIEW
-    score        : 44.4/100
+    score        : 50.0/100
     similarity   : 76.6%
     exact_match  : False
     total_tokens : 818
 
 [Q12] (AVG/Medium, SQL) -> REVIEW
-    score        : 44.4/100
+    score        : 50.0/100
     similarity   : 35.1%
     exact_match  : False
     total_tokens : 980
@@ -543,13 +554,13 @@ MODEL : deepseek-r1:7b
 [Q14] MISSING RESULT
 
 [Q15] (SUBQUERY/Hard, SQL) -> REVIEW
-    score        : 44.4/100
+    score        : 50.0/100
     similarity   : 61.3%
     exact_match  : False
     total_tokens : 861
 
 [Q16] (SUBQUERY/Hard, SQL) -> SYNTAX_ERROR
-    score        : 0.0/100
+    score        : 15.0/100
     similarity   : 21.6%
     exact_match  : False
     syntax_error : unbalanced parentheses
@@ -558,13 +569,13 @@ MODEL : deepseek-r1:7b
       - unknown table referenced: 'Total_Spending_PER_Customer'
 
 [Q17] (DATE/Medium, SQL) -> REVIEW
-    score        : 44.4/100
+    score        : 50.0/100
     similarity   : 94.6%
     exact_match  : False
     total_tokens : 985
 
 [Q18] (DATE/Medium, SQL) -> SYNTAX_ERROR
-    score        : 22.2/100
+    score        : 35.0/100
     similarity   : 43.9%
     exact_match  : False
     syntax_error : unbalanced single quotes
@@ -580,11 +591,12 @@ MODEL : deepseek-r1:7b
     score        : 100.0/100
     similarity   : 100.0%
     exact_match  : True
+    matched_via  : refusal
     correctly_refused : True
     total_tokens : 751
 
 [Q23] (IMPOSSIBLE/Easy, REFUSAL) -> MISSED_REFUSAL
-    score        : 22.2/100
+    score        : 35.0/100
     similarity   : 0.0%
     exact_match  : False
     correctly_refused : False
@@ -594,6 +606,7 @@ MODEL : deepseek-r1:7b
     score        : 100.0/100
     similarity   : 100.0%
     exact_match  : True
+    matched_via  : refusal
     correctly_refused : True
     total_tokens : 962
 
@@ -603,10 +616,10 @@ SUMMARY
 ================================================================================
 
 Model               Scored  Score   Exact%   ExecAcc%  Syntax%  Halluc.  Unsafe  Refusals  
-qwen2.5-coder:7b    24      48.1    8.3      N/A       100.0    0        0       2/3      
-gemma3:4b           24      45.3    8.3      N/A       100.0    1        0       0/3      
-llama3.1:8b         24      53.2    20.8     N/A       100.0    1        0       1/3      
-deepseek-r1:7b      18      49.4    22.2     N/A       80.0     2        0       2/3      
+qwen2.5-coder:7b    24      53.5    8.3      N/A       100.0    0        0       2/3      
+gemma3:4b           24      51.5    8.3      N/A       100.0    1        0       0/3      
+llama3.1:8b         24      58.3    20.8     N/A       100.0    1        0       1/3      
+deepseek-r1:7b      18      55.6    22.2     N/A       80.0     2        0       2/3      
 
 CATEGORY ACCURACY (% correct)
   qwen2.5-coder:7b:
@@ -700,20 +713,31 @@ LATENCY (seconds, only where logged by main.py)
   llama3.1:8b: N/A (no latency data logged)
   deepseek-r1:7b: N/A (no latency data logged)
 
+MATCH METHOD BREAKDOWN (which signal decided each CORRECT verdict)
+  execution = ran against --db and result sets matched (strongest)
+  canonical = no DB result, but SQLGlot structural form matched (needs `pip install sqlglot`)
+  exact_text = no DB/canonical result, raw text matched after normalization (weakest)
+  refusal = correctly refused a should-refuse question
+  qwen2.5-coder:7b: refusal=2  [sqlglot not installed -- canonical match unavailable]
+  gemma3:4b: exact_text=2  [sqlglot not installed -- canonical match unavailable]
+  llama3.1:8b: exact_text=4, refusal=1  [sqlglot not installed -- canonical match unavailable]
+  deepseek-r1:7b: exact_text=2, refusal=2  [sqlglot not installed -- canonical match unavailable]
+
 ================================================================================
 RANKING (by weighted score)
 ================================================================================
-  1. llama3.1:8b -- 53.2/100
-  2. deepseek-r1:7b -- 49.4/100
-  3. qwen2.5-coder:7b -- 48.1/100
-  4. gemma3:4b -- 45.3/100
+  1. llama3.1:8b -- 58.3/100
+  2. deepseek-r1:7b -- 55.6/100
+  3. qwen2.5-coder:7b -- 53.5/100
+  4. gemma3:4b -- 51.5/100
 
 ================================================================================
 BEST MODEL BY METRIC (objective -- direct comparison, no interpretation)
 ================================================================================
-  Highest weighted score                : llama3.1:8b (53.2)
+  Highest weighted score                : llama3.1:8b (58.3)
   Highest exact match                   : deepseek-r1:7b (22.2%)
   Highest execution accuracy            : N/A (no data)
+  Highest canonical-match rate          : N/A (no data)
   Highest syntax-valid rate             : qwen2.5-coder:7b, gemma3:4b, llama3.1:8b (100.0%)
   Lowest hallucination count            : qwen2.5-coder:7b (0 flags)
   Fewest unsafe/destructive statements  : qwen2.5-coder:7b, gemma3:4b, llama3.1:8b, deepseek-r1:7b (0)
@@ -762,4 +786,4 @@ For safest SQL generation (fewest hallucinations + unsafe statements):
     qwen2.5-coder:7b (0 combined flags)
 
 For best overall balance (highest weighted score):
-    llama3.1:8b (53.2)
+    llama3.1:8b (58.3)
