@@ -1,0 +1,7 @@
+SELECT 
+  p.product_name, 
+  (p.unit_price - oi.unit_price) AS profit_margin
+FROM 
+  Products p
+JOIN 
+  Order_Items oi ON p.product_id = oi.product_id;

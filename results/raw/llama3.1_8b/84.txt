@@ -1,0 +1,1 @@
+SELECT * FROM Orders WHERE shipped_date IS NULL;

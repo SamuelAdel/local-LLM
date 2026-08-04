@@ -1,0 +1,1 @@
+SELECT DISTINCT city FROM Customers UNION SELECT DISTINCT city FROM Addresses

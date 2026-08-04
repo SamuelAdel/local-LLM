@@ -1,0 +1,1 @@
+SELECT SUM(quantity) AS total_quantity_sold, product_id FROM Order_Items GROUP BY product_id;

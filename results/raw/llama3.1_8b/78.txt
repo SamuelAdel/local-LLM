@@ -1,0 +1,4 @@
+SELECT p.product_name, c.category_name, 
+       DENSE_RANK() OVER (PARTITION BY p.category_id ORDER BY p.unit_price DESC) AS price_rank
+FROM Products p
+JOIN Categories c ON p.category_id = c.category_id;

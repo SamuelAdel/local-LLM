@@ -1,0 +1,5 @@
+SELECT 
+  COALESCE(e.employee_id, 'Unassigned') AS employee_id
+FROM 
+  Orders o
+  LEFT JOIN Employees e ON o.employee_id = e.employee_id;

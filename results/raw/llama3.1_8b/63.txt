@@ -1,0 +1,4 @@
+SELECT product_name 
+FROM Products 
+ORDER BY unit_price DESC 
+LIMIT 1 OFFSET 1;

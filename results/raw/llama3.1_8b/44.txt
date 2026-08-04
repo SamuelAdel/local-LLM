@@ -1,0 +1,1 @@
+SELECT product_id, COUNT(*) FROM Reviews GROUP BY product_id

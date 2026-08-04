@@ -1,0 +1,1 @@
+SELECT AVG(r.rating) AS avg_rating, p.product_name FROM Reviews r INNER JOIN Products p ON r.product_id = p.product_id GROUP BY p.product_name

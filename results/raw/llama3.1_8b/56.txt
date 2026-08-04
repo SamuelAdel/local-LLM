@@ -1,0 +1,8 @@
+SELECT 
+    CASE 
+        WHEN unit_price > 500 THEN 'Expensive'
+        ELSE 'Affordable'
+    END AS price_label,
+    product_name
+FROM 
+    Products;

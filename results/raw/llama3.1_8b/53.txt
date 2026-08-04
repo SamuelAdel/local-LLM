@@ -1,0 +1,1 @@
+SELECT product_name FROM Products WHERE unit_price = ( SELECT MIN(unit_price) FROM Products );

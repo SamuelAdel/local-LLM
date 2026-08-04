@@ -1,0 +1,4 @@
+SELECT o.order_id 
+FROM Orders o 
+JOIN Employees e ON o.employee_id = e.employee_id 
+WHERE DATEDIFF(o.shipped_date, o.order_date) <= 5;

@@ -1,0 +1,1 @@
+SELECT T1.product_name, T2.supplier_name AS manufacturer FROM Products AS T1 INNER JOIN Suppliers AS T2 ON T1.supplier_id = T2.supplier_id WHERE discontinued = 0

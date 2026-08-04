@@ -1,0 +1,1 @@
+SELECT SUM(oi.unit_price * oi.quantity) AS total_revenue, s.shipper_id FROM Order_Items oi INNER JOIN Orders o ON oi.order_id = o.order_id INNER JOIN Shippers s ON o.shipper_id = s.shipper_id GROUP BY s.shipper_id

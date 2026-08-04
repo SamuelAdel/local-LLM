@@ -1,0 +1,5 @@
+SELECT s.supplier_name 
+FROM Suppliers s 
+JOIN Products p ON s.supplier_id = p.supplier_id 
+GROUP BY s.supplier_id 
+HAVING AVG(p.unit_price) > ( SELECT AVG(unit_price) FROM Products );

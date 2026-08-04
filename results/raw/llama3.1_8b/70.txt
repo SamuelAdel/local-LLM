@@ -1,0 +1,1 @@
+SELECT * FROM Customers WHERE country IN ('Egypt', 'UAE', 'Saudi Arabia')

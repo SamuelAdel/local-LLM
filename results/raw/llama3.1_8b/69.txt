@@ -1,0 +1,4 @@
+SELECT o.* 
+FROM Orders o 
+JOIN Shippers s ON o.shipper_id = s.shipper_id 
+WHERE s.company_name IN ('Nile Express', 'Speedy Logistics');

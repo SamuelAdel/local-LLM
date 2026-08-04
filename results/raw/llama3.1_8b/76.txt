@@ -1,0 +1,20 @@
+WITH EmployeeOrders AS (
+  SELECT 
+    e.employee_id,
+    SUM(oi.unit_price * oi.quantity) AS total_order_value
+  FROM 
+    Employees e
+  JOIN 
+    Orders o ON e.employee_id = o.employee_id
+  JOIN 
+    Order_Items oi ON o.order_id = oi.order_id
+  GROUP BY 
+    e.employee_id
+)
+SELECT 
+  employee_id,
+  AVG(total_order_value) AS average_order_value
+FROM 
+  EmployeeOrders
+GROUP BY 
+  employee_id

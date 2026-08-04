@@ -1,0 +1,3 @@
+SELECT category_name 
+FROM Categories 
+WHERE category_id IN ( SELECT category_id FROM Products GROUP BY category_id HAVING COUNT(product_id) > 3 );

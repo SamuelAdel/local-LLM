@@ -1,0 +1,11 @@
+SELECT 
+  e.employee_id, 
+  SUM(oi.unit_price * oi.quantity) AS total_sales
+FROM 
+  Employees e
+JOIN 
+  Orders o ON e.employee_id = o.employee_id
+JOIN 
+  Order_Items oi ON o.order_id = oi.order_id
+GROUP BY 
+  e.employee_id

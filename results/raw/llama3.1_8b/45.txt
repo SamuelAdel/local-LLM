@@ -1,0 +1,1 @@
+SELECT SUM(stock_quantity) FROM Products;

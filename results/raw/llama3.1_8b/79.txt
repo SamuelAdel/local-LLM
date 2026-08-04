@@ -1,0 +1,6 @@
+SELECT 
+  o.order_id, 
+  SUM(o.total_amount) OVER (PARTITION BY o.customer_id) AS avg_order_amount,
+  o.total_amount
+FROM 
+  Orders o;

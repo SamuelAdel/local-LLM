@@ -1,0 +1,1 @@
+SELECT MIN(hire_date) FROM Employees

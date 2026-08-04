@@ -1,0 +1,5 @@
+SELECT 
+  product_id, 
+  ROUND(AVG(rating), 1) AS avg_rating
+FROM Reviews
+GROUP BY product_id;
