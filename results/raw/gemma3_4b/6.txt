@@ -1,0 +1,8 @@
+```sql
+SELECT DISTINCT
+  c.customer_name,
+  o.order_date
+FROM Customers AS c
+JOIN Orders AS o
+  ON c.customer_id = o.customer_id;
+```

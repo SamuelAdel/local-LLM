@@ -1,0 +1,11 @@
+```sql
+SELECT c.customer_id, c.customer_name, SUM(oi.quantity * oi.unit_price) AS total_spending
+FROM Customers c
+JOIN Orders o ON c.customer_id = o.customer_id
+JOIN Order_Items oi ON o.order_id = oi.order_id
+GROUP BY c.customer_id, c.customer_name
+HAVING total_spending > (SELECT AVG(total_spending) FROM (SELECT SUM(oi.quantity * oi.unit_price) AS total_spending
+FROM Orders o
+JOIN Order_Items oi ON o.order_id = oi.order_id
+GROUP BY o.customer_id) subquery);
+```

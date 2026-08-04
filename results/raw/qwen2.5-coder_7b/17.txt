@@ -1,0 +1,5 @@
+```sql
+SELECT *
+FROM Orders
+WHERE YEAR(order_date) = 2024;
+```

@@ -1,0 +1,8 @@
+```sql
+SELECT
+  first_name,
+  last_name,
+  title,
+  salary
+FROM Employees;
+```

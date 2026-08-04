@@ -1,0 +1,135 @@
+2026-08-04 17:58:18,202 [INFO] === Evaluation run started ===
+2026-08-04 17:58:19,154 [INFO] qwen2.5-coder:7b: skipped, already complete
+2026-08-04 17:58:19,391 [INFO] gemma3:4b: skipped, already complete
+2026-08-04 17:58:19,391 [INFO] llama3.1:8b: skipped, already complete
+2026-08-04 17:58:19,397 [INFO] deepseek-r1:7b: skipped, already complete
+2026-08-04 17:58:19,397 [INFO] === Evaluation run finished ===
+2026-08-04 17:59:41,185 [INFO] === Evaluation run started ===
+2026-08-04 17:59:41,185 [INFO] qwen2.5-coder:7b: run started
+2026-08-04 18:00:16,973 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:00:18,809 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:00:21,832 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:00:29,200 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:00:32,896 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:00:37,765 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:00:42,965 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:00:47,594 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:00:54,217 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:00:56,433 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:00:59,428 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:01:02,475 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:01:16,636 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:01:28,509 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:01:32,546 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:01:55,877 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:02:01,333 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:02:09,273 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:02:13,492 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:02:22,899 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:02:31,445 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:02:33,568 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:02:40,138 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:02:41,968 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:02:41,976 [INFO] qwen2.5-coder:7b: run finished, 24 questions this session, 180.8s elapsed, avg_latency=7.51
+2026-08-04 18:02:41,976 [INFO] gemma3:4b: run started
+2026-08-04 18:03:21,560 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:03:26,915 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:03:31,205 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:03:36,264 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:03:41,591 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:03:49,214 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:03:56,048 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:04:03,669 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:04:13,355 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:04:16,867 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:04:24,902 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:04:30,281 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:04:44,678 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:04:53,902 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:04:58,175 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:05:08,913 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:05:13,977 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:05:21,073 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:05:26,211 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:05:40,348 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:05:51,143 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:05:56,800 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:06:02,252 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:06:06,716 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-04 18:06:06,725 [INFO] gemma3:4b: run finished, 24 questions this session, 204.7s elapsed, avg_latency=8.51
+2026-08-04 18:06:06,780 [INFO] llama3.1:8b: skipped, already complete
+2026-08-04 18:06:06,780 [INFO] deepseek-r1:7b: run started
+2026-08-04 18:06:06,811 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 404 Not Found"
+2026-08-04 18:06:06,817 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 404 Not Found"
+2026-08-04 18:06:06,817 [ERROR] deepseek-r1:7b [1]: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
+2026-08-04 18:06:06,821 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 404 Not Found"
+2026-08-04 18:06:06,830 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 404 Not Found"
+2026-08-04 18:06:06,830 [ERROR] deepseek-r1:7b [2]: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
+2026-08-04 18:06:06,835 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 404 Not Found"
+2026-08-04 18:06:06,839 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 404 Not Found"
+2026-08-04 18:06:06,839 [ERROR] deepseek-r1:7b [3]: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
+2026-08-04 18:06:06,844 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 404 Not Found"
+2026-08-04 18:06:06,848 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 404 Not Found"
+2026-08-04 18:06:06,849 [ERROR] deepseek-r1:7b [4]: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
+2026-08-04 18:06:06,852 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 404 Not Found"
+2026-08-04 18:06:06,857 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 404 Not Found"
+2026-08-04 18:06:06,857 [ERROR] deepseek-r1:7b [5]: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
+2026-08-04 18:06:06,862 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 404 Not Found"
+2026-08-04 18:06:06,867 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 404 Not Found"
+2026-08-04 18:06:06,867 [ERROR] deepseek-r1:7b [6]: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
+2026-08-04 18:06:06,871 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 404 Not Found"
+2026-08-04 18:06:06,875 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 404 Not Found"
+2026-08-04 18:06:06,876 [ERROR] deepseek-r1:7b [7]: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
+2026-08-04 18:06:06,881 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 404 Not Found"
+2026-08-04 18:06:06,885 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 404 Not Found"
+2026-08-04 18:06:06,885 [ERROR] deepseek-r1:7b [8]: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
+2026-08-04 18:06:06,890 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 404 Not Found"
+2026-08-04 18:06:06,894 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 404 Not Found"
+2026-08-04 18:06:06,894 [ERROR] deepseek-r1:7b [9]: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
+2026-08-04 18:06:06,898 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 404 Not Found"
+2026-08-04 18:06:06,903 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 404 Not Found"
+2026-08-04 18:06:06,903 [ERROR] deepseek-r1:7b [10]: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
+2026-08-04 18:06:06,907 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 404 Not Found"
+2026-08-04 18:06:06,910 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 404 Not Found"
+2026-08-04 18:06:06,911 [ERROR] deepseek-r1:7b [11]: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
+2026-08-04 18:06:06,915 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 404 Not Found"
+2026-08-04 18:06:06,919 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 404 Not Found"
+2026-08-04 18:06:06,919 [ERROR] deepseek-r1:7b [12]: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
+2026-08-04 18:06:06,923 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 404 Not Found"
+2026-08-04 18:06:06,926 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 404 Not Found"
+2026-08-04 18:06:06,927 [ERROR] deepseek-r1:7b [13]: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
+2026-08-04 18:06:06,931 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 404 Not Found"
+2026-08-04 18:06:06,934 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 404 Not Found"
+2026-08-04 18:06:06,935 [ERROR] deepseek-r1:7b [14]: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
+2026-08-04 18:06:06,938 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 404 Not Found"
+2026-08-04 18:06:06,942 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 404 Not Found"
+2026-08-04 18:06:06,943 [ERROR] deepseek-r1:7b [15]: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
+2026-08-04 18:06:06,946 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 404 Not Found"
+2026-08-04 18:06:06,950 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 404 Not Found"
+2026-08-04 18:06:06,950 [ERROR] deepseek-r1:7b [16]: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
+2026-08-04 18:06:06,954 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 404 Not Found"
+2026-08-04 18:06:06,958 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 404 Not Found"
+2026-08-04 18:06:06,958 [ERROR] deepseek-r1:7b [17]: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
+2026-08-04 18:06:06,962 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 404 Not Found"
+2026-08-04 18:06:06,965 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 404 Not Found"
+2026-08-04 18:06:06,966 [ERROR] deepseek-r1:7b [18]: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
+2026-08-04 18:06:06,970 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 404 Not Found"
+2026-08-04 18:06:06,973 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 404 Not Found"
+2026-08-04 18:06:06,974 [ERROR] deepseek-r1:7b [19]: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
+2026-08-04 18:06:06,977 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 404 Not Found"
+2026-08-04 18:06:06,981 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 404 Not Found"
+2026-08-04 18:06:06,981 [ERROR] deepseek-r1:7b [20]: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
+2026-08-04 18:06:06,985 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 404 Not Found"
+2026-08-04 18:06:06,988 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 404 Not Found"
+2026-08-04 18:06:06,988 [ERROR] deepseek-r1:7b [21]: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
+2026-08-04 18:06:06,993 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 404 Not Found"
+2026-08-04 18:06:06,997 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 404 Not Found"
+2026-08-04 18:06:06,997 [ERROR] deepseek-r1:7b [22]: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
+2026-08-04 18:06:07,001 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 404 Not Found"
+2026-08-04 18:06:07,004 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 404 Not Found"
+2026-08-04 18:06:07,004 [ERROR] deepseek-r1:7b [23]: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
+2026-08-04 18:06:07,008 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 404 Not Found"
+2026-08-04 18:06:07,012 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 404 Not Found"
+2026-08-04 18:06:07,012 [ERROR] deepseek-r1:7b [24]: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
+2026-08-04 18:06:07,053 [INFO] deepseek-r1:7b: run finished, 24 questions this session, 0.3s elapsed, avg_latency=None
+2026-08-04 18:06:07,055 [INFO] === Evaluation run finished ===

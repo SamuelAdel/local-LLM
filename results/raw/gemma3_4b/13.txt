@@ -1,0 +1,14 @@
+```sql
+SELECT
+  c.customer_name,
+  SUM(oi.quantity * oi.unit_price * (1 - oi.discount)) AS total_sales
+FROM Customers AS c
+JOIN Orders AS o
+  ON c.customer_id = o.customer_id
+JOIN Order_Items AS oi
+  ON o.order_id = oi.order_id
+GROUP BY
+  c.customer_name
+ORDER BY
+  total_sales DESC;
+```

@@ -1,0 +1,1 @@
+SELECT customer_id, customer_name, email, phone, city, country, created_at FROM Customers;

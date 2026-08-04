@@ -1,0 +1,1 @@
+SELECT customer_name, email, created_at FROM Customers WHERE MONTH(created_at) = MONTH(CURDATE()) AND DAY(created_at) = DAY(CURDATE());

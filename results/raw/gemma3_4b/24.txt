@@ -1,0 +1,5 @@
+```sql
+SELECT DISTINCT
+  p.product_name
+FROM Products AS p;
+```

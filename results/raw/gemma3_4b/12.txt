@@ -1,0 +1,4 @@
+```sql
+SELECT CAST(total_amount AS DECIMAL) / COUNT(*) AS average_order_amount
+FROM Orders;
+```

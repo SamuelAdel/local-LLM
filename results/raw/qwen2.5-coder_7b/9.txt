@@ -1,0 +1,1 @@
+SELECT c.customer_name, p.payment_method FROM Customers c JOIN Orders o ON c.customer_id = o.customer_id JOIN Payments p ON o.payment_id = p.payment_id

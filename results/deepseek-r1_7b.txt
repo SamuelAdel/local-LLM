@@ -1,7 +1,7 @@
 ================================================================================
 LOCAL LLM EVALUATION
 MODEL : deepseek-r1:7b
-2026-08-04 17:27:58.986683
+2026-08-04 18:06:06.808082
 ================================================================================
 
 Question ID : 1
@@ -11,7 +11,7 @@ Question    : List all customers.
 Time        : N/A
 
 Generated SQL:
-ERROR: deepseek-r1:7b failed: model 'deepseek-r1:7b' not found (status code: 404)
+ERROR: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
 --------------------------------------------------------------------------------
 Question ID : 2
 Category    : SELECT
@@ -20,7 +20,7 @@ Question    : List all products.
 Time        : N/A
 
 Generated SQL:
-ERROR: deepseek-r1:7b failed: model 'deepseek-r1:7b' not found (status code: 404)
+ERROR: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
 --------------------------------------------------------------------------------
 Question ID : 3
 Category    : FILTER
@@ -29,7 +29,7 @@ Question    : Show customers who live in Cairo.
 Time        : N/A
 
 Generated SQL:
-ERROR: deepseek-r1:7b failed: model 'deepseek-r1:7b' not found (status code: 404)
+ERROR: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
 --------------------------------------------------------------------------------
 Question ID : 4
 Category    : ORDER BY
@@ -38,7 +38,7 @@ Question    : Show products ordered by price descending.
 Time        : N/A
 
 Generated SQL:
-ERROR: deepseek-r1:7b failed: model 'deepseek-r1:7b' not found (status code: 404)
+ERROR: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
 --------------------------------------------------------------------------------
 Question ID : 5
 Category    : LIMIT
@@ -47,7 +47,7 @@ Question    : Show the five most expensive products.
 Time        : N/A
 
 Generated SQL:
-ERROR: deepseek-r1:7b failed: model 'deepseek-r1:7b' not found (status code: 404)
+ERROR: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
 --------------------------------------------------------------------------------
 Question ID : 6
 Category    : JOIN
@@ -56,7 +56,7 @@ Question    : List customer names with their order dates.
 Time        : N/A
 
 Generated SQL:
-ERROR: deepseek-r1:7b failed: model 'deepseek-r1:7b' not found (status code: 404)
+ERROR: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
 --------------------------------------------------------------------------------
 Question ID : 7
 Category    : JOIN
@@ -65,7 +65,7 @@ Question    : List product names with supplier names.
 Time        : N/A
 
 Generated SQL:
-ERROR: deepseek-r1:7b failed: model 'deepseek-r1:7b' not found (status code: 404)
+ERROR: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
 --------------------------------------------------------------------------------
 Question ID : 8
 Category    : JOIN
@@ -74,7 +74,7 @@ Question    : Show products with category names.
 Time        : N/A
 
 Generated SQL:
-ERROR: deepseek-r1:7b failed: model 'deepseek-r1:7b' not found (status code: 404)
+ERROR: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
 --------------------------------------------------------------------------------
 Question ID : 9
 Category    : JOIN
@@ -83,7 +83,7 @@ Question    : List customer names and payment methods.
 Time        : N/A
 
 Generated SQL:
-ERROR: deepseek-r1:7b failed: model 'deepseek-r1:7b' not found (status code: 404)
+ERROR: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
 --------------------------------------------------------------------------------
 Question ID : 10
 Category    : COUNT
@@ -92,7 +92,7 @@ Question    : How many customers are there?
 Time        : N/A
 
 Generated SQL:
-ERROR: deepseek-r1:7b failed: model 'deepseek-r1:7b' not found (status code: 404)
+ERROR: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
 --------------------------------------------------------------------------------
 Question ID : 11
 Category    : SUM
@@ -101,7 +101,7 @@ Question    : Calculate total sales.
 Time        : N/A
 
 Generated SQL:
-ERROR: deepseek-r1:7b failed: model 'deepseek-r1:7b' not found (status code: 404)
+ERROR: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
 --------------------------------------------------------------------------------
 Question ID : 12
 Category    : AVG
@@ -110,7 +110,7 @@ Question    : Calculate average order amount.
 Time        : N/A
 
 Generated SQL:
-ERROR: deepseek-r1:7b failed: model 'deepseek-r1:7b' not found (status code: 404)
+ERROR: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
 --------------------------------------------------------------------------------
 Question ID : 13
 Category    : GROUP BY
@@ -119,7 +119,7 @@ Question    : Show total sales for each customer.
 Time        : N/A
 
 Generated SQL:
-ERROR: deepseek-r1:7b failed: model 'deepseek-r1:7b' not found (status code: 404)
+ERROR: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
 --------------------------------------------------------------------------------
 Question ID : 14
 Category    : HAVING
@@ -128,7 +128,7 @@ Question    : Show customers with more than five orders.
 Time        : N/A
 
 Generated SQL:
-ERROR: deepseek-r1:7b failed: model 'deepseek-r1:7b' not found (status code: 404)
+ERROR: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
 --------------------------------------------------------------------------------
 Question ID : 15
 Category    : SUBQUERY
@@ -137,7 +137,7 @@ Question    : Show the most expensive product.
 Time        : N/A
 
 Generated SQL:
-ERROR: deepseek-r1:7b failed: model 'deepseek-r1:7b' not found (status code: 404)
+ERROR: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
 --------------------------------------------------------------------------------
 Question ID : 16
 Category    : SUBQUERY
@@ -146,7 +146,7 @@ Question    : Show customers whose total spending is above the average customer 
 Time        : N/A
 
 Generated SQL:
-ERROR: deepseek-r1:7b failed: model 'deepseek-r1:7b' not found (status code: 404)
+ERROR: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
 --------------------------------------------------------------------------------
 Question ID : 17
 Category    : DATE
@@ -155,7 +155,7 @@ Question    : Show orders placed in 2024.
 Time        : N/A
 
 Generated SQL:
-ERROR: deepseek-r1:7b failed: model 'deepseek-r1:7b' not found (status code: 404)
+ERROR: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
 --------------------------------------------------------------------------------
 Question ID : 18
 Category    : DATE
@@ -164,7 +164,7 @@ Question    : Show orders placed during January.
 Time        : N/A
 
 Generated SQL:
-ERROR: deepseek-r1:7b failed: model 'deepseek-r1:7b' not found (status code: 404)
+ERROR: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
 --------------------------------------------------------------------------------
 Question ID : 19
 Category    : NULL
@@ -173,7 +173,7 @@ Question    : Show customers who never placed an order.
 Time        : N/A
 
 Generated SQL:
-ERROR: deepseek-r1:7b failed: model 'deepseek-r1:7b' not found (status code: 404)
+ERROR: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
 --------------------------------------------------------------------------------
 Question ID : 20
 Category    : CTE
@@ -182,7 +182,7 @@ Question    : Find the top five customers by total spending.
 Time        : N/A
 
 Generated SQL:
-ERROR: deepseek-r1:7b failed: model 'deepseek-r1:7b' not found (status code: 404)
+ERROR: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
 --------------------------------------------------------------------------------
 Question ID : 21
 Category    : WINDOW
@@ -191,7 +191,7 @@ Question    : Rank products by total sales.
 Time        : N/A
 
 Generated SQL:
-ERROR: deepseek-r1:7b failed: model 'deepseek-r1:7b' not found (status code: 404)
+ERROR: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
 --------------------------------------------------------------------------------
 Question ID : 22
 Category    : IMPOSSIBLE
@@ -200,7 +200,7 @@ Question    : Show employee salaries.
 Time        : N/A
 
 Generated SQL:
-ERROR: deepseek-r1:7b failed: model 'deepseek-r1:7b' not found (status code: 404)
+ERROR: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
 --------------------------------------------------------------------------------
 Question ID : 23
 Category    : IMPOSSIBLE
@@ -209,7 +209,7 @@ Question    : Show customer birthdays.
 Time        : N/A
 
 Generated SQL:
-ERROR: deepseek-r1:7b failed: model 'deepseek-r1:7b' not found (status code: 404)
+ERROR: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
 --------------------------------------------------------------------------------
 Question ID : 24
 Category    : IMPOSSIBLE
@@ -218,7 +218,7 @@ Question    : Show product colors.
 Time        : N/A
 
 Generated SQL:
-ERROR: deepseek-r1:7b failed: model 'deepseek-r1:7b' not found (status code: 404)
+ERROR: deepseek-r1:7b failed after 2 attempt(s): model 'deepseek-r1:7b' not found (status code: 404)
 --------------------------------------------------------------------------------
 
 STATUS: COMPLETE

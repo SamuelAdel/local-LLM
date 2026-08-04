@@ -1,0 +1,4 @@
+SELECT p.product_name, oi.quantity, oi.unit_price 
+FROM Products p 
+JOIN Order_Items oi ON p.product_id = oi.product_id 
+ORDER BY oi.unit_price DESC;

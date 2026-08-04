@@ -3,15 +3,15 @@
     "qwen2.5-coder:7b": {
       "n": 24,
       "exact_match_rate": 8.3,
-      "avg_similarity": 68.3,
+      "avg_similarity": 69.1,
       "execution_accuracy": null,
       "execution_scored_n": 0,
-      "syntax_valid_rate": 76.2,
+      "syntax_valid_rate": 100.0,
       "hallucination_count": 0,
       "unsafe_sql_count": 0,
       "refusal_total": 3,
       "refusal_correct": 2,
-      "avg_score": 43.5,
+      "avg_score": 48.1,
       "latency": null,
       "tokens_per_sec": null,
       "category_accuracy": {
@@ -42,15 +42,15 @@
     "gemma3:4b": {
       "n": 24,
       "exact_match_rate": 8.3,
-      "avg_similarity": 59.4,
+      "avg_similarity": 60.2,
       "execution_accuracy": null,
       "execution_scored_n": 0,
-      "syntax_valid_rate": 52.4,
+      "syntax_valid_rate": 100.0,
       "hallucination_count": 1,
       "unsafe_sql_count": 0,
       "refusal_total": 3,
       "refusal_correct": 0,
-      "avg_score": 36.1,
+      "avg_score": 45.3,
       "latency": null,
       "tokens_per_sec": null,
       "category_accuracy": {
@@ -120,7 +120,7 @@
     "deepseek-r1:7b": {
       "n": 24,
       "exact_match_rate": 0.0,
-      "avg_similarity": 15.0,
+      "avg_similarity": 13.9,
       "execution_accuracy": null,
       "execution_scored_n": 0,
       "syntax_valid_rate": 0.0,
@@ -175,9 +175,9 @@
         "category": "SELECT",
         "difficulty": "Easy",
         "latency": null,
-        "prompt_tokens": null,
-        "completion_tokens": null,
-        "total_tokens": null,
+        "prompt_tokens": 492,
+        "completion_tokens": 21,
+        "total_tokens": 513,
         "score": 44.4
       },
       {
@@ -196,9 +196,9 @@
         "category": "SELECT",
         "difficulty": "Easy",
         "latency": null,
-        "prompt_tokens": null,
-        "completion_tokens": null,
-        "total_tokens": null,
+        "prompt_tokens": 492,
+        "completion_tokens": 7,
+        "total_tokens": 499,
         "score": 44.4
       },
       {
@@ -217,9 +217,9 @@
         "category": "FILTER",
         "difficulty": "Easy",
         "latency": null,
-        "prompt_tokens": null,
-        "completion_tokens": null,
-        "total_tokens": null,
+        "prompt_tokens": 495,
+        "completion_tokens": 13,
+        "total_tokens": 508,
         "score": 44.4
       },
       {
@@ -238,9 +238,9 @@
         "category": "ORDER BY",
         "difficulty": "Easy",
         "latency": null,
-        "prompt_tokens": null,
-        "completion_tokens": null,
-        "total_tokens": null,
+        "prompt_tokens": 495,
+        "completion_tokens": 37,
+        "total_tokens": 532,
         "score": 44.4
       },
       {
@@ -259,9 +259,9 @@
         "category": "LIMIT",
         "difficulty": "Easy",
         "latency": null,
-        "prompt_tokens": null,
-        "completion_tokens": null,
-        "total_tokens": null,
+        "prompt_tokens": 495,
+        "completion_tokens": 17,
+        "total_tokens": 512,
         "score": 44.4
       },
       {
@@ -280,9 +280,9 @@
         "category": "JOIN",
         "difficulty": "Medium",
         "latency": null,
-        "prompt_tokens": null,
-        "completion_tokens": null,
-        "total_tokens": null,
+        "prompt_tokens": 496,
+        "completion_tokens": 24,
+        "total_tokens": 520,
         "score": 44.4
       },
       {
@@ -301,9 +301,9 @@
         "category": "JOIN",
         "difficulty": "Medium",
         "latency": null,
-        "prompt_tokens": null,
-        "completion_tokens": null,
-        "total_tokens": null,
+        "prompt_tokens": 495,
+        "completion_tokens": 26,
+        "total_tokens": 521,
         "score": 44.4
       },
       {
@@ -322,9 +322,9 @@
         "category": "JOIN",
         "difficulty": "Medium",
         "latency": null,
-        "prompt_tokens": null,
-        "completion_tokens": null,
-        "total_tokens": null,
+        "prompt_tokens": 494,
+        "completion_tokens": 23,
+        "total_tokens": 517,
         "score": 44.4
       },
       {
@@ -343,9 +343,9 @@
         "category": "JOIN",
         "difficulty": "Medium",
         "latency": null,
-        "prompt_tokens": null,
-        "completion_tokens": null,
-        "total_tokens": null,
+        "prompt_tokens": 495,
+        "completion_tokens": 34,
+        "total_tokens": 529,
         "score": 44.4
       },
       {
@@ -364,9 +364,9 @@
         "category": "COUNT",
         "difficulty": "Easy",
         "latency": null,
-        "prompt_tokens": null,
-        "completion_tokens": null,
-        "total_tokens": null,
+        "prompt_tokens": 494,
+        "completion_tokens": 9,
+        "total_tokens": 503,
         "score": 44.4
       },
       {
@@ -385,9 +385,9 @@
         "category": "SUM",
         "difficulty": "Medium",
         "latency": null,
-        "prompt_tokens": null,
-        "completion_tokens": null,
-        "total_tokens": null,
+        "prompt_tokens": 492,
+        "completion_tokens": 12,
+        "total_tokens": 504,
         "score": 44.4
       },
       {
@@ -406,52 +406,52 @@
         "category": "AVG",
         "difficulty": "Medium",
         "latency": null,
-        "prompt_tokens": null,
-        "completion_tokens": null,
-        "total_tokens": null,
+        "prompt_tokens": 493,
+        "completion_tokens": 13,
+        "total_tokens": 506,
         "score": 44.4
       },
       {
         "expected_refusal": false,
         "correctly_refused": null,
-        "similarity": 19.0,
+        "similarity": 19.8,
         "exact_match": false,
         "execution_match": null,
-        "syntax_valid": false,
-        "syntax_reason": "does not start with SELECT/WITH",
+        "syntax_valid": true,
+        "syntax_reason": null,
         "destructive": false,
         "hallucinations": [],
-        "verdict": "SYNTAX_ERROR",
+        "verdict": "REVIEW",
         "id": 13,
         "missing": false,
         "category": "GROUP BY",
         "difficulty": "Medium",
         "latency": null,
-        "prompt_tokens": null,
-        "completion_tokens": null,
-        "total_tokens": null,
-        "score": 22.2
+        "prompt_tokens": 495,
+        "completion_tokens": 74,
+        "total_tokens": 569,
+        "score": 44.4
       },
       {
         "expected_refusal": false,
         "correctly_refused": null,
-        "similarity": 48.1,
+        "similarity": 50.2,
         "exact_match": false,
         "execution_match": null,
-        "syntax_valid": false,
-        "syntax_reason": "does not start with SELECT/WITH",
+        "syntax_valid": true,
+        "syntax_reason": null,
         "destructive": false,
         "hallucinations": [],
-        "verdict": "SYNTAX_ERROR",
+        "verdict": "REVIEW",
         "id": 14,
         "missing": false,
         "category": "HAVING",
         "difficulty": "Hard",
         "latency": null,
-        "prompt_tokens": null,
-        "completion_tokens": null,
-        "total_tokens": null,
-        "score": 22.2
+        "prompt_tokens": 496,
+        "completion_tokens": 60,
+        "total_tokens": 556,
+        "score": 44.4
       },
       {
         "expected_refusal": false,
@@ -469,9 +469,9 @@
         "category": "SUBQUERY",
         "difficulty": "Hard",
         "latency": null,
-        "prompt_tokens": null,
-        "completion_tokens": null,
-        "total_tokens": null,
+        "prompt_tokens": 494,
+        "completion_tokens": 17,
+        "total_tokens": 511,
         "score": 44.4
       },
       {
@@ -480,62 +480,62 @@
         "similarity": 18.3,
         "exact_match": false,
         "execution_match": null,
-        "syntax_valid": false,
-        "syntax_reason": "does not start with SELECT/WITH",
+        "syntax_valid": true,
+        "syntax_reason": null,
         "destructive": false,
         "hallucinations": [],
-        "verdict": "SYNTAX_ERROR",
+        "verdict": "REVIEW",
         "id": 16,
         "missing": false,
         "category": "SUBQUERY",
         "difficulty": "Hard",
         "latency": null,
-        "prompt_tokens": null,
-        "completion_tokens": null,
-        "total_tokens": null,
-        "score": 22.2
+        "prompt_tokens": 500,
+        "completion_tokens": 123,
+        "total_tokens": 623,
+        "score": 44.4
       },
       {
         "expected_refusal": false,
         "correctly_refused": null,
-        "similarity": 87.3,
+        "similarity": 98.0,
         "exact_match": false,
         "execution_match": null,
-        "syntax_valid": false,
-        "syntax_reason": "does not start with SELECT/WITH",
+        "syntax_valid": true,
+        "syntax_reason": null,
         "destructive": false,
         "hallucinations": [],
-        "verdict": "SYNTAX_ERROR",
+        "verdict": "REVIEW",
         "id": 17,
         "missing": false,
         "category": "DATE",
         "difficulty": "Medium",
         "latency": null,
-        "prompt_tokens": null,
-        "completion_tokens": null,
-        "total_tokens": null,
-        "score": 22.2
+        "prompt_tokens": 498,
+        "completion_tokens": 22,
+        "total_tokens": 520,
+        "score": 44.4
       },
       {
         "expected_refusal": false,
         "correctly_refused": null,
-        "similarity": 57.1,
+        "similarity": 62.8,
         "exact_match": false,
         "execution_match": null,
-        "syntax_valid": false,
-        "syntax_reason": "does not start with SELECT/WITH",
+        "syntax_valid": true,
+        "syntax_reason": null,
         "destructive": false,
         "hallucinations": [],
-        "verdict": "SYNTAX_ERROR",
+        "verdict": "REVIEW",
         "id": 18,
         "missing": false,
         "category": "DATE",
         "difficulty": "Medium",
         "latency": null,
-        "prompt_tokens": null,
-        "completion_tokens": null,
-        "total_tokens": null,
-        "score": 22.2
+        "prompt_tokens": 494,
+        "completion_tokens": 39,
+        "total_tokens": 533,
+        "score": 44.4
       },
       {
         "expected_refusal": false,
@@ -553,9 +553,9 @@
         "category": "NULL",
         "difficulty": "Hard",
         "latency": null,
-        "prompt_tokens": null,
-        "completion_tokens": null,
-        "total_tokens": null,
+        "prompt_tokens": 496,
+        "completion_tokens": 18,
+        "total_tokens": 514,
         "score": 44.4
       },
       {
@@ -574,9 +574,9 @@
         "category": "CTE",
         "difficulty": "Expert",
         "latency": null,
-        "prompt_tokens": null,
-        "completion_tokens": null,
-        "total_tokens": null,
+        "prompt_tokens": 497,
+        "completion_tokens": 48,
+        "total_tokens": 545,
         "score": 44.4
       },
       {
@@ -595,9 +595,9 @@
         "category": "WINDOW",
         "difficulty": "Expert",
         "latency": null,
-        "prompt_tokens": null,
-        "completion_tokens": null,
-        "total_tokens": null,
+        "prompt_tokens": 494,
+        "completion_tokens": 44,
+        "total_tokens": 538,
         "score": 44.4
       },
       {
@@ -615,9 +615,9 @@
         "category": "IMPOSSIBLE",
         "difficulty": "Easy",
         "latency": null,
-        "prompt_tokens": null,
-        "completion_tokens": null,
-        "total_tokens": null,
+        "prompt_tokens": 492,
+        "completion_tokens": 6,
+        "total_tokens": 498,
         "score": 100.0
       },
       {
@@ -635,9 +635,9 @@
         "category": "IMPOSSIBLE",
         "difficulty": "Easy",
         "latency": null,
-        "prompt_tokens": null,
-        "completion_tokens": null,
-        "total_tokens": null,
+        "prompt_tokens": 492,
+        "completion_tokens": 33,
+        "total_tokens": 525,
         "score": 22.2
       },
       {
@@ -655,9 +655,9 @@
         "category": "IMPOSSIBLE",
         "difficulty": "Easy",
         "latency": null,
-        "prompt_tokens": null,
-        "completion_tokens": null,
-        "total_tokens": null,
+        "prompt_tokens": 492,
+        "completion_tokens": 6,
+        "total_tokens": 498,
         "score": 100.0
       }
     ],
@@ -678,9 +678,9 @@
         "category": "SELECT",
         "difficulty": "Easy",
         "latency": null,
-        "prompt_tokens": null,
-        "completion_tokens": null,
-        "total_tokens": null,
+        "prompt_tokens": 611,
+        "completion_tokens": 10,
+        "total_tokens": 621,
         "score": 100.0
       },
       {
@@ -699,9 +699,9 @@
         "category": "SELECT",
         "difficulty": "Easy",
         "latency": null,
-        "prompt_tokens": null,
-        "completion_tokens": null,
-        "total_tokens": null,
+        "prompt_tokens": 611,
+        "completion_tokens": 30,
+        "total_tokens": 641,
         "score": 44.4
       },
       {
@@ -720,15 +720,15 @@
         "category": "FILTER",
         "difficulty": "Easy",
         "latency": null,
-        "prompt_tokens": null,
-        "completion_tokens": null,
-        "total_tokens": null,
+        "prompt_tokens": 614,
+        "completion_tokens": 18,
+        "total_tokens": 632,
         "score": 44.4
       },
       {
         "expected_refusal": false,
         "correctly_refused": null,
-        "similarity": 87.6,
+        "similarity": 71.3,
         "exact_match": false,
         "execution_match": null,
         "syntax_valid": true,
@@ -741,9 +741,9 @@
         "category": "ORDER BY",
         "difficulty": "Easy",
         "latency": null,
-        "prompt_tokens": null,
-        "completion_tokens": null,
-        "total_tokens": null,
+        "prompt_tokens": 614,
+        "completion_tokens": 25,
+        "total_tokens": 639,
         "score": 44.4
       },
       {
@@ -762,94 +762,94 @@
         "category": "LIMIT",
         "difficulty": "Easy",
         "latency": null,
-        "prompt_tokens": null,
-        "completion_tokens": null,
-        "total_tokens": null,
+        "prompt_tokens": 614,
+        "completion_tokens": 25,
+        "total_tokens": 639,
         "score": 44.4
       },
       {
         "expected_refusal": false,
         "correctly_refused": null,
-        "similarity": 87.1,
+        "similarity": 92.0,
         "exact_match": false,
         "execution_match": null,
-        "syntax_valid": false,
-        "syntax_reason": "does not start with SELECT/WITH",
+        "syntax_valid": true,
+        "syntax_reason": null,
         "destructive": false,
         "hallucinations": [],
-        "verdict": "SYNTAX_ERROR",
+        "verdict": "REVIEW",
         "id": 6,
         "missing": false,
         "category": "JOIN",
         "difficulty": "Medium",
         "latency": null,
-        "prompt_tokens": null,
-        "completion_tokens": null,
-        "total_tokens": null,
-        "score": 22.2
+        "prompt_tokens": 615,
+        "completion_tokens": 48,
+        "total_tokens": 663,
+        "score": 44.4
       },
       {
         "expected_refusal": false,
         "correctly_refused": null,
-        "similarity": 91.1,
+        "similarity": 96.2,
         "exact_match": false,
         "execution_match": null,
-        "syntax_valid": false,
-        "syntax_reason": "does not start with SELECT/WITH",
+        "syntax_valid": true,
+        "syntax_reason": null,
         "destructive": false,
         "hallucinations": [],
-        "verdict": "SYNTAX_ERROR",
+        "verdict": "REVIEW",
         "id": 7,
         "missing": false,
         "category": "JOIN",
         "difficulty": "Medium",
         "latency": null,
-        "prompt_tokens": null,
-        "completion_tokens": null,
-        "total_tokens": null,
-        "score": 22.2
+        "prompt_tokens": 614,
+        "completion_tokens": 43,
+        "total_tokens": 657,
+        "score": 44.4
       },
       {
         "expected_refusal": false,
         "correctly_refused": null,
-        "similarity": 91.2,
+        "similarity": 96.3,
         "exact_match": false,
         "execution_match": null,
-        "syntax_valid": false,
-        "syntax_reason": "does not start with SELECT/WITH",
+        "syntax_valid": true,
+        "syntax_reason": null,
         "destructive": false,
         "hallucinations": [],
-        "verdict": "SYNTAX_ERROR",
+        "verdict": "REVIEW",
         "id": 8,
         "missing": false,
         "category": "JOIN",
         "difficulty": "Medium",
         "latency": null,
-        "prompt_tokens": null,
-        "completion_tokens": null,
-        "total_tokens": null,
-        "score": 22.2
+        "prompt_tokens": 613,
+        "completion_tokens": 47,
+        "total_tokens": 660,
+        "score": 44.4
       },
       {
         "expected_refusal": false,
         "correctly_refused": null,
-        "similarity": 89.6,
+        "similarity": 93.0,
         "exact_match": false,
         "execution_match": null,
-        "syntax_valid": false,
-        "syntax_reason": "does not start with SELECT/WITH",
+        "syntax_valid": true,
+        "syntax_reason": null,
         "destructive": false,
         "hallucinations": [],
-        "verdict": "SYNTAX_ERROR",
+        "verdict": "REVIEW",
         "id": 9,
         "missing": false,
         "category": "JOIN",
         "difficulty": "Medium",
         "latency": null,
-        "prompt_tokens": null,
-        "completion_tokens": null,
-        "total_tokens": null,
-        "score": 22.2
+        "prompt_tokens": 614,
+        "completion_tokens": 67,
+        "total_tokens": 681,
+        "score": 44.4
       },
       {
         "expected_refusal": false,
@@ -867,36 +867,36 @@
         "category": "COUNT",
         "difficulty": "Easy",
         "latency": null,
-        "prompt_tokens": null,
-        "completion_tokens": null,
-        "total_tokens": null,
+        "prompt_tokens": 613,
+        "completion_tokens": 11,
+        "total_tokens": 624,
         "score": 100.0
       },
       {
         "expected_refusal": false,
         "correctly_refused": null,
-        "similarity": 33.9,
+        "similarity": 36.9,
         "exact_match": false,
         "execution_match": null,
-        "syntax_valid": false,
-        "syntax_reason": "does not start with SELECT/WITH",
+        "syntax_valid": true,
+        "syntax_reason": null,
         "destructive": false,
         "hallucinations": [],
-        "verdict": "SYNTAX_ERROR",
+        "verdict": "REVIEW",
         "id": 11,
         "missing": false,
         "category": "SUM",
         "difficulty": "Medium",
         "latency": null,
-        "prompt_tokens": null,
-        "completion_tokens": null,
-        "total_tokens": null,
-        "score": 22.2
+        "prompt_tokens": 611,
+        "completion_tokens": 51,
+        "total_tokens": 662,
+        "score": 44.4
       },
       {
         "expected_refusal": false,
         "correctly_refused": null,
-        "similarity": 71.6,
+        "similarity": 57.1,
         "exact_match": false,
         "execution_match": null,
         "syntax_valid": true,
@@ -909,52 +909,52 @@
         "category": "AVG",
         "difficulty": "Medium",
         "latency": null,
-        "prompt_tokens": null,
-        "completion_tokens": null,
-        "total_tokens": null,
+        "prompt_tokens": 612,
+        "completion_tokens": 28,
+        "total_tokens": 640,
         "score": 44.4
       },
       {
         "expected_refusal": false,
         "correctly_refused": null,
-        "similarity": 18.6,
+        "similarity": 19.2,
         "exact_match": false,
         "execution_match": null,
-        "syntax_valid": false,
-        "syntax_reason": "does not start with SELECT/WITH",
+        "syntax_valid": true,
+        "syntax_reason": null,
         "destructive": false,
         "hallucinations": [],
-        "verdict": "SYNTAX_ERROR",
+        "verdict": "REVIEW",
         "id": 13,
         "missing": false,
         "category": "GROUP BY",
         "difficulty": "Medium",
         "latency": null,
-        "prompt_tokens": null,
-        "completion_tokens": null,
-        "total_tokens": null,
-        "score": 22.2
+        "prompt_tokens": 614,
+        "completion_tokens": 105,
+        "total_tokens": 719,
+        "score": 44.4
       },
       {
         "expected_refusal": false,
         "correctly_refused": null,
-        "similarity": 38.2,
+        "similarity": 40.2,
         "exact_match": false,
         "execution_match": null,
-        "syntax_valid": false,
-        "syntax_reason": "does not start with SELECT/WITH",
+        "syntax_valid": true,
+        "syntax_reason": null,
         "destructive": false,
         "hallucinations": [],
-        "verdict": "SYNTAX_ERROR",
+        "verdict": "REVIEW",
         "id": 14,
         "missing": false,
         "category": "HAVING",
         "difficulty": "Hard",
         "latency": null,
-        "prompt_tokens": null,
-        "completion_tokens": null,
-        "total_tokens": null,
-        "score": 22.2
+        "prompt_tokens": 615,
+        "completion_tokens": 61,
+        "total_tokens": 676,
+        "score": 44.4
       },
       {
         "expected_refusal": false,
@@ -972,36 +972,36 @@
         "category": "SUBQUERY",
         "difficulty": "Hard",
         "latency": null,
-        "prompt_tokens": null,
-        "completion_tokens": null,
-        "total_tokens": null,
+        "prompt_tokens": 613,
+        "completion_tokens": 17,
+        "total_tokens": 630,
         "score": 44.4
       },
       {
         "expected_refusal": false,
         "correctly_refused": null,
-        "similarity": 49.7,
+        "similarity": 50.8,
         "exact_match": false,
         "execution_match": null,
-        "syntax_valid": false,
-        "syntax_reason": "does not start with SELECT/WITH",
+        "syntax_valid": true,
+        "syntax_reason": null,
         "destructive": false,
         "hallucinations": [],
-        "verdict": "SYNTAX_ERROR",
+        "verdict": "REVIEW",
         "id": 16,
         "missing": false,
         "category": "SUBQUERY",
         "difficulty": "Hard",
         "latency": null,
-        "prompt_tokens": null,
-        "completion_tokens": null,
-        "total_tokens": null,
-        "score": 22.2
+        "prompt_tokens": 619,
+        "completion_tokens": 69,
+        "total_tokens": 688,
+        "score": 44.4
       },
       {
         "expected_refusal": false,
         "correctly_refused": null,
-        "similarity": 66.7,
+        "similarity": 81.8,
         "exact_match": false,
         "execution_match": null,
         "syntax_valid": true,
@@ -1014,9 +1014,9 @@
         "category": "DATE",
         "difficulty": "Medium",
         "latency": null,
-        "prompt_tokens": null,
-        "completion_tokens": null,
-        "total_tokens": null,
+        "prompt_tokens": 617,
+        "completion_tokens": 25,
+        "total_tokens": 642,
         "score": 44.4
       },
       {
@@ -1035,9 +1035,9 @@
         "category": "DATE",
         "difficulty": "Medium",
         "latency": null,
-        "prompt_tokens": null,
-        "completion_tokens": null,
-        "total_tokens": null,
+        "prompt_tokens": 613,
+        "completion_tokens": 42,
+        "total_tokens": 655,
         "score": 44.4
       },
       {
@@ -1056,52 +1056,52 @@
         "category": "NULL",
         "difficulty": "Hard",
         "latency": null,
-        "prompt_tokens": null,
-        "completion_tokens": null,
-        "total_tokens": null,
+        "prompt_tokens": 615,
+        "completion_tokens": 26,
+        "total_tokens": 641,
         "score": 44.4
       },
       {
         "expected_refusal": false,
         "correctly_refused": null,
-        "similarity": 31.8,
+        "similarity": 39.8,
         "exact_match": false,
         "execution_match": null,
-        "syntax_valid": false,
-        "syntax_reason": "does not start with SELECT/WITH",
+        "syntax_valid": true,
+        "syntax_reason": null,
         "destructive": false,
         "hallucinations": [],
-        "verdict": "SYNTAX_ERROR",
+        "verdict": "REVIEW",
         "id": 20,
         "missing": false,
         "category": "CTE",
         "difficulty": "Expert",
         "latency": null,
-        "prompt_tokens": null,
-        "completion_tokens": null,
-        "total_tokens": null,
-        "score": 22.2
+        "prompt_tokens": 616,
+        "completion_tokens": 109,
+        "total_tokens": 725,
+        "score": 44.4
       },
       {
         "expected_refusal": false,
         "correctly_refused": null,
-        "similarity": 41.5,
+        "similarity": 43.0,
         "exact_match": false,
         "execution_match": null,
-        "syntax_valid": false,
-        "syntax_reason": "does not start with SELECT/WITH",
+        "syntax_valid": true,
+        "syntax_reason": null,
         "destructive": false,
         "hallucinations": [],
-        "verdict": "SYNTAX_ERROR",
+        "verdict": "REVIEW",
         "id": 21,
         "missing": false,
         "category": "WINDOW",
         "difficulty": "Expert",
         "latency": null,
-        "prompt_tokens": null,
-        "completion_tokens": null,
-        "total_tokens": null,
-        "score": 22.2
+        "prompt_tokens": 613,
+        "completion_tokens": 79,
+        "total_tokens": 692,
+        "score": 44.4
       },
       {
         "expected_refusal": true,
@@ -1120,9 +1120,9 @@
         "category": "IMPOSSIBLE",
         "difficulty": "Easy",
         "latency": null,
-        "prompt_tokens": null,
-        "completion_tokens": null,
-        "total_tokens": null,
+        "prompt_tokens": 611,
+        "completion_tokens": 30,
+        "total_tokens": 641,
         "score": 0.0
       },
       {
@@ -1140,9 +1140,9 @@
         "category": "IMPOSSIBLE",
         "difficulty": "Easy",
         "latency": null,
-        "prompt_tokens": null,
-        "completion_tokens": null,
-        "total_tokens": null,
+        "prompt_tokens": 611,
+        "completion_tokens": 28,
+        "total_tokens": 639,
         "score": 22.2
       },
       {
@@ -1160,9 +1160,9 @@
         "category": "IMPOSSIBLE",
         "difficulty": "Easy",
         "latency": null,
-        "prompt_tokens": null,
-        "completion_tokens": null,
-        "total_tokens": null,
+        "prompt_tokens": 611,
+        "completion_tokens": 21,
+        "total_tokens": 632,
         "score": 22.2
       }
     ],
@@ -1675,7 +1675,7 @@
       {
         "expected_refusal": false,
         "correctly_refused": null,
-        "similarity": 5.8,
+        "similarity": 4.9,
         "exact_match": false,
         "execution_match": null,
         "syntax_valid": false,
@@ -1696,7 +1696,7 @@
       {
         "expected_refusal": false,
         "correctly_refused": null,
-        "similarity": 13.6,
+        "similarity": 11.5,
         "exact_match": false,
         "execution_match": null,
         "syntax_valid": false,
@@ -1717,7 +1717,7 @@
       {
         "expected_refusal": false,
         "correctly_refused": null,
-        "similarity": 8.1,
+        "similarity": 7.0,
         "exact_match": false,
         "execution_match": null,
         "syntax_valid": false,
@@ -1738,7 +1738,7 @@
       {
         "expected_refusal": false,
         "correctly_refused": null,
-        "similarity": 12.5,
+        "similarity": 10.9,
         "exact_match": false,
         "execution_match": null,
         "syntax_valid": false,
@@ -1759,7 +1759,7 @@
       {
         "expected_refusal": false,
         "correctly_refused": null,
-        "similarity": 17.6,
+        "similarity": 15.5,
         "exact_match": false,
         "execution_match": null,
         "syntax_valid": false,
@@ -1780,7 +1780,7 @@
       {
         "expected_refusal": false,
         "correctly_refused": null,
-        "similarity": 16.8,
+        "similarity": 16.2,
         "exact_match": false,
         "execution_match": null,
         "syntax_valid": false,
@@ -1801,7 +1801,7 @@
       {
         "expected_refusal": false,
         "correctly_refused": null,
-        "similarity": 14.2,
+        "similarity": 15.8,
         "exact_match": false,
         "execution_match": null,
         "syntax_valid": false,
@@ -1822,7 +1822,7 @@
       {
         "expected_refusal": false,
         "correctly_refused": null,
-        "similarity": 25.0,
+        "similarity": 17.7,
         "exact_match": false,
         "execution_match": null,
         "syntax_valid": false,
@@ -1843,7 +1843,7 @@
       {
         "expected_refusal": false,
         "correctly_refused": null,
-        "similarity": 13.2,
+        "similarity": 13.0,
         "exact_match": false,
         "execution_match": null,
         "syntax_valid": false,
@@ -1864,7 +1864,7 @@
       {
         "expected_refusal": false,
         "correctly_refused": null,
-        "similarity": 23.4,
+        "similarity": 20.0,
         "exact_match": false,
         "execution_match": null,
         "syntax_valid": false,
@@ -1885,7 +1885,7 @@
       {
         "expected_refusal": false,
         "correctly_refused": null,
-        "similarity": 27.4,
+        "similarity": 23.5,
         "exact_match": false,
         "execution_match": null,
         "syntax_valid": false,
@@ -1906,7 +1906,7 @@
       {
         "expected_refusal": false,
         "correctly_refused": null,
-        "similarity": 25.6,
+        "similarity": 25.0,
         "exact_match": false,
         "execution_match": null,
         "syntax_valid": false,
@@ -1927,7 +1927,7 @@
       {
         "expected_refusal": false,
         "correctly_refused": null,
-        "similarity": 21.2,
+        "similarity": 18.8,
         "exact_match": false,
         "execution_match": null,
         "syntax_valid": false,
@@ -1948,7 +1948,7 @@
       {
         "expected_refusal": false,
         "correctly_refused": null,
-        "similarity": 16.2,
+        "similarity": 14.5,
         "exact_match": false,
         "execution_match": null,
         "syntax_valid": false,
@@ -1969,7 +1969,7 @@
       {
         "expected_refusal": false,
         "correctly_refused": null,
-        "similarity": 13.7,
+        "similarity": 12.2,
         "exact_match": false,
         "execution_match": null,
         "syntax_valid": false,
@@ -1990,7 +1990,7 @@
       {
         "expected_refusal": false,
         "correctly_refused": null,
-        "similarity": 14.7,
+        "similarity": 16.4,
         "exact_match": false,
         "execution_match": null,
         "syntax_valid": false,
@@ -2011,7 +2011,7 @@
       {
         "expected_refusal": false,
         "correctly_refused": null,
-        "similarity": 20.2,
+        "similarity": 17.6,
         "exact_match": false,
         "execution_match": null,
         "syntax_valid": false,
@@ -2032,7 +2032,7 @@
       {
         "expected_refusal": false,
         "correctly_refused": null,
-        "similarity": 22.0,
+        "similarity": 21.9,
         "exact_match": false,
         "execution_match": null,
         "syntax_valid": false,
@@ -2053,7 +2053,7 @@
       {
         "expected_refusal": false,
         "correctly_refused": null,
-        "similarity": 20.7,
+        "similarity": 21.9,
         "exact_match": false,
         "execution_match": null,
         "syntax_valid": false,
@@ -2074,7 +2074,7 @@
       {
         "expected_refusal": false,
         "correctly_refused": null,
-        "similarity": 11.2,
+        "similarity": 10.4,
         "exact_match": false,
         "execution_match": null,
         "syntax_valid": false,
@@ -2095,7 +2095,7 @@
       {
         "expected_refusal": false,
         "correctly_refused": null,
-        "similarity": 15.7,
+        "similarity": 18.6,
         "exact_match": false,
         "execution_match": null,
         "syntax_valid": false,
@@ -2174,5 +2174,217 @@
         "score": 22.2
       }
     ]
+  },
+  "objective_highlights": {
+    "best_by_metric": {
+      "highest_avg_score": {
+        "value": 53.2,
+        "models": [
+          "llama3.1:8b"
+        ]
+      },
+      "highest_exact_match": {
+        "value": 20.8,
+        "models": [
+          "llama3.1:8b"
+        ]
+      },
+      "highest_execution_accuracy": null,
+      "highest_syntax_valid_rate": {
+        "value": 100.0,
+        "models": [
+          "qwen2.5-coder:7b",
+          "gemma3:4b",
+          "llama3.1:8b"
+        ]
+      },
+      "lowest_hallucination_count": {
+        "value": 0,
+        "models": [
+          "qwen2.5-coder:7b",
+          "deepseek-r1:7b"
+        ]
+      },
+      "lowest_unsafe_sql_count": {
+        "value": 0,
+        "models": [
+          "qwen2.5-coder:7b",
+          "gemma3:4b",
+          "llama3.1:8b",
+          "deepseek-r1:7b"
+        ]
+      },
+      "best_refusal_handling": {
+        "value": 66.7,
+        "models": [
+          "qwen2.5-coder:7b"
+        ]
+      },
+      "fastest_model": null
+    },
+    "category_winners": {
+      "AVG": {
+        "value": 100.0,
+        "models": [
+          "llama3.1:8b"
+        ]
+      },
+      "COUNT": {
+        "value": 100.0,
+        "models": [
+          "gemma3:4b"
+        ]
+      },
+      "CTE": {
+        "value": 0.0,
+        "models": [
+          "qwen2.5-coder:7b",
+          "gemma3:4b",
+          "llama3.1:8b",
+          "deepseek-r1:7b"
+        ]
+      },
+      "DATE": {
+        "value": 0.0,
+        "models": [
+          "qwen2.5-coder:7b",
+          "gemma3:4b",
+          "llama3.1:8b",
+          "deepseek-r1:7b"
+        ]
+      },
+      "FILTER": {
+        "value": 0.0,
+        "models": [
+          "qwen2.5-coder:7b",
+          "gemma3:4b",
+          "llama3.1:8b",
+          "deepseek-r1:7b"
+        ]
+      },
+      "GROUP BY": {
+        "value": 0.0,
+        "models": [
+          "qwen2.5-coder:7b",
+          "gemma3:4b",
+          "llama3.1:8b",
+          "deepseek-r1:7b"
+        ]
+      },
+      "HAVING": {
+        "value": 0.0,
+        "models": [
+          "qwen2.5-coder:7b",
+          "gemma3:4b",
+          "llama3.1:8b",
+          "deepseek-r1:7b"
+        ]
+      },
+      "IMPOSSIBLE": {
+        "value": 66.7,
+        "models": [
+          "qwen2.5-coder:7b"
+        ]
+      },
+      "JOIN": {
+        "value": 0.0,
+        "models": [
+          "qwen2.5-coder:7b",
+          "gemma3:4b",
+          "llama3.1:8b",
+          "deepseek-r1:7b"
+        ]
+      },
+      "LIMIT": {
+        "value": 0.0,
+        "models": [
+          "qwen2.5-coder:7b",
+          "gemma3:4b",
+          "llama3.1:8b",
+          "deepseek-r1:7b"
+        ]
+      },
+      "NULL": {
+        "value": 0.0,
+        "models": [
+          "qwen2.5-coder:7b",
+          "gemma3:4b",
+          "llama3.1:8b",
+          "deepseek-r1:7b"
+        ]
+      },
+      "ORDER BY": {
+        "value": 100.0,
+        "models": [
+          "llama3.1:8b"
+        ]
+      },
+      "SELECT": {
+        "value": 100.0,
+        "models": [
+          "llama3.1:8b"
+        ]
+      },
+      "SUBQUERY": {
+        "value": 0.0,
+        "models": [
+          "qwen2.5-coder:7b",
+          "gemma3:4b",
+          "llama3.1:8b",
+          "deepseek-r1:7b"
+        ]
+      },
+      "SUM": {
+        "value": 0.0,
+        "models": [
+          "qwen2.5-coder:7b",
+          "gemma3:4b",
+          "llama3.1:8b",
+          "deepseek-r1:7b"
+        ]
+      },
+      "WINDOW": {
+        "value": 0.0,
+        "models": [
+          "qwen2.5-coder:7b",
+          "gemma3:4b",
+          "llama3.1:8b",
+          "deepseek-r1:7b"
+        ]
+      }
+    },
+    "difficulty_winners": {
+      "Easy": {
+        "value": 44.4,
+        "models": [
+          "llama3.1:8b"
+        ]
+      },
+      "Expert": {
+        "value": 0.0,
+        "models": [
+          "qwen2.5-coder:7b",
+          "gemma3:4b",
+          "llama3.1:8b",
+          "deepseek-r1:7b"
+        ]
+      },
+      "Hard": {
+        "value": 0.0,
+        "models": [
+          "qwen2.5-coder:7b",
+          "gemma3:4b",
+          "llama3.1:8b",
+          "deepseek-r1:7b"
+        ]
+      },
+      "Medium": {
+        "value": 11.1,
+        "models": [
+          "llama3.1:8b"
+        ]
+      }
+    },
+    "recommendation": "For highest SQL accuracy (exact match):\n    llama3.1:8b (20.8%)\n\nFor lowest latency:\n    N/A (no data)\n\nFor safest SQL generation (fewest hallucinations + unsafe statements):\n    qwen2.5-coder:7b, deepseek-r1:7b (0 combined flags)\n\nFor best overall balance (highest weighted score):\n    llama3.1:8b (53.2)"
   }
 }

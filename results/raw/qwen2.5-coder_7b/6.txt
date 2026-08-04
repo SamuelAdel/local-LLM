@@ -1,0 +1,1 @@
+SELECT c.customer_name, o.order_date FROM Customers c JOIN Orders o ON c.customer_id = o.customer_id;

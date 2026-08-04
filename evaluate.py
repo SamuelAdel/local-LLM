@@ -586,6 +586,141 @@ def summarize(rows):
     }
 
 
+# ---------------------------------------------------------------------
+# Objective highlights (pure numbers, no interpretation)
+#
+# Everything in this section is a direct min/max lookup over the summary
+# stats already computed above -- no thresholds, no judgement calls. Ties
+# are reported as a shared win rather than picked arbitrarily. This is
+# deliberately kept separate from any free-text "strengths/weaknesses"
+# writeup, which belongs in the human-authored report, not here.
+# ---------------------------------------------------------------------
+
+def _scored_summaries(all_summaries):
+    return {m: s for m, s in all_summaries.items() if s.get("n", 0) > 0}
+
+
+def _best_of(scored, extractor, higher_is_better=True, filter_fn=None):
+    """Generic min/max-with-ties lookup over {model: summary}."""
+    candidates = []
+    for m, s in scored.items():
+        if filter_fn and not filter_fn(s):
+            continue
+        val = extractor(s)
+        if val is None:
+            continue
+        candidates.append((m, val))
+    if not candidates:
+        return None
+    best_val = (max if higher_is_better else min)(v for _, v in candidates)
+    winners = [m for m, v in candidates if v == best_val]
+    return {"value": best_val, "models": winners}
+
+
+def compute_best_by_metric(all_summaries):
+    """One winner (or tied winners) per individual objective metric."""
+    scored = _scored_summaries(all_summaries)
+    if not scored:
+        return {}
+
+    return {
+        "highest_avg_score": _best_of(scored, lambda s: s["avg_score"]),
+        "highest_exact_match": _best_of(scored, lambda s: s["exact_match_rate"]),
+        "highest_execution_accuracy": _best_of(
+            scored, lambda s: s["execution_accuracy"],
+            filter_fn=lambda s: s.get("execution_accuracy") is not None,
+        ),
+        "highest_syntax_valid_rate": _best_of(
+            scored, lambda s: s["syntax_valid_rate"],
+            filter_fn=lambda s: s.get("syntax_valid_rate") is not None,
+        ),
+        "lowest_hallucination_count": _best_of(
+            scored, lambda s: s["hallucination_count"], higher_is_better=False,
+        ),
+        "lowest_unsafe_sql_count": _best_of(
+            scored, lambda s: s["unsafe_sql_count"], higher_is_better=False,
+        ),
+        "best_refusal_handling": _best_of(
+            scored, lambda s: _pct(s["refusal_correct"], s["refusal_total"]),
+            filter_fn=lambda s: s.get("refusal_total", 0) > 0,
+        ),
+        "fastest_model": _best_of(
+            scored, lambda s: s["latency"]["avg"] if s.get("latency") else None,
+            higher_is_better=False, filter_fn=lambda s: s.get("latency") is not None,
+        ),
+    }
+
+
+def compute_group_winners(all_summaries, group_key):
+    """group_key is 'category_accuracy' or 'difficulty_accuracy'. Returns
+    {group_value: {"value": pct, "models": [...]}}, one entry per category
+    or difficulty level, picking whichever model(s) scored highest on it."""
+    scored = _scored_summaries(all_summaries)
+    groups = set()
+    for s in scored.values():
+        groups.update(s.get(group_key, {}).keys())
+
+    winners = {}
+    for g in sorted(groups):
+        candidates = [
+            (m, s[group_key][g]) for m, s in scored.items()
+            if s.get(group_key, {}).get(g) is not None
+        ]
+        if not candidates:
+            continue
+        best_val = max(v for _, v in candidates)
+        winners[g] = {"value": best_val, "models": [m for m, v in candidates if v == best_val]}
+    return winners
+
+
+def _safety_winner(all_summaries):
+    """Fewest combined hallucination flags + unsafe/destructive statements.
+    Used for the 'safest SQL generation' recommendation line."""
+    scored = _scored_summaries(all_summaries)
+    if not scored:
+        return None
+    candidates = [(m, s["hallucination_count"] + s["unsafe_sql_count"]) for m, s in scored.items()]
+    best_val = min(v for _, v in candidates)
+    return {"value": best_val, "models": [m for m, v in candidates if v == best_val]}
+
+
+def build_recommendation(all_summaries, best_by_metric):
+    """
+    Rule-based recommendation lines -- each is a direct pointer to whichever
+    model already won the corresponding metric above. No new judgement is
+    introduced here; this function only decides *which existing metric*
+    answers each practical question (accuracy / speed / safety / balance).
+    """
+    def fmt(entry, suffix=""):
+        if not entry or not entry["models"]:
+            return "N/A (no data)"
+        return f"{', '.join(entry['models'])} ({entry['value']}{suffix})"
+
+    exec_entry = best_by_metric.get("highest_execution_accuracy")
+    if exec_entry:
+        accuracy_label, accuracy_entry, accuracy_suffix = "highest SQL accuracy (execution match)", exec_entry, "%"
+    else:
+        accuracy_label = "highest SQL accuracy (exact match)"
+        accuracy_entry, accuracy_suffix = best_by_metric.get("highest_exact_match"), "%"
+
+    safety_entry = _safety_winner(all_summaries)
+
+    lines = [
+        f"For {accuracy_label}:",
+        f"    {fmt(accuracy_entry, accuracy_suffix)}",
+        "",
+        "For lowest latency:",
+        f"    {fmt(best_by_metric.get('fastest_model'), 's avg')}",
+        "",
+        "For safest SQL generation (fewest hallucinations + unsafe statements):",
+        f"    {fmt(safety_entry, ' combined flags')}",
+        "",
+        "For best overall balance (highest weighted score):",
+        f"    {fmt(best_by_metric.get('highest_avg_score'))}",
+    ]
+    return "\n".join(lines)
+
+
 def write_txt_report(all_rows, all_summaries):
     lines = []
     lines.append("=" * 80)
@@ -682,15 +817,74 @@ def write_txt_report(all_rows, all_summaries):
     for i, (model, s) in enumerate(ranking, start=1):
         lines.append(f"  {i}. {model} -- {s['avg_score']}/100")
 
+    # --- Objective highlights: direct min/max lookups, no interpretation ---
+    best_by_metric = compute_best_by_metric(all_summaries)
+    category_winners = compute_group_winners(all_summaries, "category_accuracy")
+    difficulty_winners = compute_group_winners(all_summaries, "difficulty_accuracy")
+
+    lines.append("\n" + "=" * 80)
+    lines.append("BEST MODEL BY METRIC (objective -- direct comparison, no interpretation)")
+    lines.append("=" * 80)
+    metric_labels = [
+        ("highest_avg_score", "Highest weighted score", ""),
+        ("highest_exact_match", "Highest exact match", "%"),
+        ("highest_execution_accuracy", "Highest execution accuracy", "%"),
+        ("highest_syntax_valid_rate", "Highest syntax-valid rate", "%"),
+        ("lowest_hallucination_count", "Lowest hallucination count", " flags"),
+        ("lowest_unsafe_sql_count", "Fewest unsafe/destructive statements", ""),
+        ("best_refusal_handling", "Best refusal handling", "%"),
+        ("fastest_model", "Fastest model (lowest avg latency)", "s"),
+    ]
+    for key, label, suffix in metric_labels:
+        entry = best_by_metric.get(key)
+        if not entry:
+            lines.append(f"  {label:<38}: N/A (no data)")
+            continue
+        lines.append(f"  {label:<38}: {', '.join(entry['models'])} ({entry['value']}{suffix})")
+
+    lines.append("\n" + "=" * 80)
+    lines.append("CATEGORY WINNERS (highest accuracy per category)")
+    lines.append("=" * 80)
+    if category_winners:
+        for cat, entry in category_winners.items():
+            lines.append(f"  {cat:<20}: {', '.join(entry['models'])} ({entry['value']}%)")
+    else:
+        lines.append("  N/A (no category data)")
+
+    lines.append("\n" + "=" * 80)
+    lines.append("DIFFICULTY WINNERS (highest accuracy per difficulty level)")
+    lines.append("=" * 80)
+    if difficulty_winners:
+        for diff, entry in difficulty_winners.items():
+            lines.append(f"  {diff:<20}: {', '.join(entry['models'])} ({entry['value']}%)")
+    else:
+        lines.append("  N/A (no difficulty data)")
+
+    lines.append("\n" + "=" * 80)
+    lines.append("RECOMMENDATION (rule-based -- each line points to the model that already")
+    lines.append("won the corresponding metric above; not a subjective judgement)")
+    lines.append("=" * 80)
+    lines.append(build_recommendation(all_summaries, best_by_metric))
+
     report = "\n".join(lines)
     REPORT_TXT.write_text(report, encoding="utf-8")
     return report
 
 
 def write_json_report(all_rows, all_summaries):
+    best_by_metric = compute_best_by_metric(all_summaries)
     payload = {
         "summary": all_summaries,
         "questions": all_rows,
+        # Same objective numbers shown in evaluation.txt's "BEST MODEL BY
+        # METRIC" / "CATEGORY WINNERS" / "DIFFICULTY WINNERS" / "RECOMMENDATION"
+        # sections, kept here for programmatic reuse (e.g. slides/reports).
+        "objective_highlights": {
+            "best_by_metric": best_by_metric,
+            "category_winners": compute_group_winners(all_summaries, "category_accuracy"),
+            "difficulty_winners": compute_group_winners(all_summaries, "difficulty_accuracy"),
+            "recommendation": build_recommendation(all_summaries, best_by_metric),
+        },
     }
     REPORT_JSON.write_text(json.dumps(payload, indent=2, default=str), encoding="utf-8")
 

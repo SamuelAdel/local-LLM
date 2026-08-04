@@ -1,0 +1,7 @@
+```sql
+SELECT
+  SUM(oi.quantity * oi.unit_price) AS TotalSales
+FROM Order_Items AS oi
+JOIN Orders AS o
+  ON oi.order_id = o.order_id;
+```

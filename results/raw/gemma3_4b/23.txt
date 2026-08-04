@@ -1,0 +1,6 @@
+```sql
+SELECT
+  c.customer_name,
+  c.created_at
+FROM Customers AS c;
+```

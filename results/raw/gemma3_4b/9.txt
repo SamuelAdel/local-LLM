@@ -1,0 +1,10 @@
+```sql
+SELECT DISTINCT
+  C.customer_name,
+  P.payment_method
+FROM Customers AS C
+JOIN Orders AS O
+  ON C.customer_id = O.customer_id
+JOIN Payments AS P
+  ON O.payment_id = P.payment_id;
+```

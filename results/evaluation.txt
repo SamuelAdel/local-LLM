@@ -11,129 +11,148 @@ MODEL : qwen2.5-coder:7b
     score        : 44.4/100
     similarity   : 39.3%
     exact_match  : False
+    total_tokens : 513
 
 [Q2] (SELECT/Easy, SQL) -> REVIEW
     score        : 44.4/100
     similarity   : 76.4%
     exact_match  : False
+    total_tokens : 499
 
 [Q3] (FILTER/Easy, SQL) -> REVIEW
     score        : 44.4/100
     similarity   : 83.7%
     exact_match  : False
+    total_tokens : 508
 
 [Q4] (ORDER BY/Easy, SQL) -> REVIEW
     score        : 44.4/100
     similarity   : 47.9%
     exact_match  : False
+    total_tokens : 532
 
 [Q5] (LIMIT/Easy, SQL) -> REVIEW
     score        : 44.4/100
     similarity   : 81.2%
     exact_match  : False
+    total_tokens : 512
 
 [Q6] (JOIN/Medium, SQL) -> REVIEW
     score        : 44.4/100
     similarity   : 99.0%
     exact_match  : False
+    total_tokens : 520
 
 [Q7] (JOIN/Medium, SQL) -> REVIEW
     score        : 44.4/100
     similarity   : 99.0%
     exact_match  : False
+    total_tokens : 521
 
 [Q8] (JOIN/Medium, SQL) -> REVIEW
     score        : 44.4/100
     similarity   : 99.0%
     exact_match  : False
+    total_tokens : 517
 
 [Q9] (JOIN/Medium, SQL) -> REVIEW
     score        : 44.4/100
     similarity   : 98.7%
     exact_match  : False
+    total_tokens : 529
 
 [Q10] (COUNT/Easy, SQL) -> REVIEW
     score        : 44.4/100
     similarity   : 82.9%
     exact_match  : False
+    total_tokens : 503
 
 [Q11] (SUM/Medium, SQL) -> REVIEW
     score        : 44.4/100
     similarity   : 82.8%
     exact_match  : False
+    total_tokens : 504
 
 [Q12] (AVG/Medium, SQL) -> REVIEW
     score        : 44.4/100
     similarity   : 75.0%
     exact_match  : False
+    total_tokens : 506
 
-[Q13] (GROUP BY/Medium, SQL) -> SYNTAX_ERROR
-    score        : 22.2/100
-    similarity   : 19.0%
+[Q13] (GROUP BY/Medium, SQL) -> REVIEW
+    score        : 44.4/100
+    similarity   : 19.8%
     exact_match  : False
-    syntax_error : does not start with SELECT/WITH
+    total_tokens : 569
 
-[Q14] (HAVING/Hard, SQL) -> SYNTAX_ERROR
-    score        : 22.2/100
-    similarity   : 48.1%
+[Q14] (HAVING/Hard, SQL) -> REVIEW
+    score        : 44.4/100
+    similarity   : 50.2%
     exact_match  : False
-    syntax_error : does not start with SELECT/WITH
+    total_tokens : 556
 
 [Q15] (SUBQUERY/Hard, SQL) -> REVIEW
     score        : 44.4/100
     similarity   : 54.4%
     exact_match  : False
+    total_tokens : 511
 
-[Q16] (SUBQUERY/Hard, SQL) -> SYNTAX_ERROR
-    score        : 22.2/100
+[Q16] (SUBQUERY/Hard, SQL) -> REVIEW
+    score        : 44.4/100
     similarity   : 18.3%
     exact_match  : False
-    syntax_error : does not start with SELECT/WITH
+    total_tokens : 623
 
-[Q17] (DATE/Medium, SQL) -> SYNTAX_ERROR
-    score        : 22.2/100
-    similarity   : 87.3%
+[Q17] (DATE/Medium, SQL) -> REVIEW
+    score        : 44.4/100
+    similarity   : 98.0%
     exact_match  : False
-    syntax_error : does not start with SELECT/WITH
+    total_tokens : 520
 
-[Q18] (DATE/Medium, SQL) -> SYNTAX_ERROR
-    score        : 22.2/100
-    similarity   : 57.1%
+[Q18] (DATE/Medium, SQL) -> REVIEW
+    score        : 44.4/100
+    similarity   : 62.8%
     exact_match  : False
-    syntax_error : does not start with SELECT/WITH
+    total_tokens : 533
 
 [Q19] (NULL/Hard, SQL) -> REVIEW
     score        : 44.4/100
     similarity   : 90.9%
     exact_match  : False
+    total_tokens : 514
 
 [Q20] (CTE/Expert, SQL) -> REVIEW
     score        : 44.4/100
     similarity   : 53.0%
     exact_match  : False
+    total_tokens : 545
 
 [Q21] (WINDOW/Expert, SQL) -> REVIEW
     score        : 44.4/100
     similarity   : 47.1%
     exact_match  : False
+    total_tokens : 538
 
 [Q22] (IMPOSSIBLE/Easy, REFUSAL) -> CORRECT_REFUSAL
     score        : 100.0/100
     similarity   : 100.0%
     exact_match  : True
     correctly_refused : True
+    total_tokens : 498
 
 [Q23] (IMPOSSIBLE/Easy, REFUSAL) -> MISSED_REFUSAL
     score        : 22.2/100
     similarity   : 0.0%
     exact_match  : False
     correctly_refused : False
+    total_tokens : 525
 
 [Q24] (IMPOSSIBLE/Easy, REFUSAL) -> CORRECT_REFUSAL
     score        : 100.0/100
     similarity   : 100.0%
     exact_match  : True
     correctly_refused : True
+    total_tokens : 498
 
 
 ================================================================================
@@ -144,122 +163,134 @@ MODEL : gemma3:4b
     score        : 100.0/100
     similarity   : 100.0%
     exact_match  : True
+    total_tokens : 621
 
 [Q2] (SELECT/Easy, SQL) -> REVIEW
     score        : 44.4/100
     similarity   : 31.1%
     exact_match  : False
+    total_tokens : 641
 
 [Q3] (FILTER/Easy, SQL) -> REVIEW
     score        : 44.4/100
     similarity   : 97.7%
     exact_match  : False
+    total_tokens : 632
 
 [Q4] (ORDER BY/Easy, SQL) -> REVIEW
     score        : 44.4/100
-    similarity   : 87.6%
+    similarity   : 71.3%
     exact_match  : False
+    total_tokens : 639
 
 [Q5] (LIMIT/Easy, SQL) -> REVIEW
     score        : 44.4/100
     similarity   : 81.2%
     exact_match  : False
+    total_tokens : 639
 
-[Q6] (JOIN/Medium, SQL) -> SYNTAX_ERROR
-    score        : 22.2/100
-    similarity   : 87.1%
+[Q6] (JOIN/Medium, SQL) -> REVIEW
+    score        : 44.4/100
+    similarity   : 92.0%
     exact_match  : False
-    syntax_error : does not start with SELECT/WITH
+    total_tokens : 663
 
-[Q7] (JOIN/Medium, SQL) -> SYNTAX_ERROR
-    score        : 22.2/100
-    similarity   : 91.1%
+[Q7] (JOIN/Medium, SQL) -> REVIEW
+    score        : 44.4/100
+    similarity   : 96.2%
     exact_match  : False
-    syntax_error : does not start with SELECT/WITH
+    total_tokens : 657
 
-[Q8] (JOIN/Medium, SQL) -> SYNTAX_ERROR
-    score        : 22.2/100
-    similarity   : 91.2%
+[Q8] (JOIN/Medium, SQL) -> REVIEW
+    score        : 44.4/100
+    similarity   : 96.3%
     exact_match  : False
-    syntax_error : does not start with SELECT/WITH
+    total_tokens : 660
 
-[Q9] (JOIN/Medium, SQL) -> SYNTAX_ERROR
-    score        : 22.2/100
-    similarity   : 89.6%
+[Q9] (JOIN/Medium, SQL) -> REVIEW
+    score        : 44.4/100
+    similarity   : 93.0%
     exact_match  : False
-    syntax_error : does not start with SELECT/WITH
+    total_tokens : 681
 
 [Q10] (COUNT/Easy, SQL) -> CORRECT
     score        : 100.0/100
     similarity   : 100.0%
     exact_match  : True
+    total_tokens : 624
 
-[Q11] (SUM/Medium, SQL) -> SYNTAX_ERROR
-    score        : 22.2/100
-    similarity   : 33.9%
+[Q11] (SUM/Medium, SQL) -> REVIEW
+    score        : 44.4/100
+    similarity   : 36.9%
     exact_match  : False
-    syntax_error : does not start with SELECT/WITH
+    total_tokens : 662
 
 [Q12] (AVG/Medium, SQL) -> REVIEW
     score        : 44.4/100
-    similarity   : 71.6%
+    similarity   : 57.1%
     exact_match  : False
+    total_tokens : 640
 
-[Q13] (GROUP BY/Medium, SQL) -> SYNTAX_ERROR
-    score        : 22.2/100
-    similarity   : 18.6%
+[Q13] (GROUP BY/Medium, SQL) -> REVIEW
+    score        : 44.4/100
+    similarity   : 19.2%
     exact_match  : False
-    syntax_error : does not start with SELECT/WITH
+    total_tokens : 719
 
-[Q14] (HAVING/Hard, SQL) -> SYNTAX_ERROR
-    score        : 22.2/100
-    similarity   : 38.2%
+[Q14] (HAVING/Hard, SQL) -> REVIEW
+    score        : 44.4/100
+    similarity   : 40.2%
     exact_match  : False
-    syntax_error : does not start with SELECT/WITH
+    total_tokens : 676
 
 [Q15] (SUBQUERY/Hard, SQL) -> REVIEW
     score        : 44.4/100
     similarity   : 58.9%
     exact_match  : False
+    total_tokens : 630
 
-[Q16] (SUBQUERY/Hard, SQL) -> SYNTAX_ERROR
-    score        : 22.2/100
-    similarity   : 49.7%
+[Q16] (SUBQUERY/Hard, SQL) -> REVIEW
+    score        : 44.4/100
+    similarity   : 50.8%
     exact_match  : False
-    syntax_error : does not start with SELECT/WITH
+    total_tokens : 688
 
 [Q17] (DATE/Medium, SQL) -> REVIEW
     score        : 44.4/100
-    similarity   : 66.7%
+    similarity   : 81.8%
     exact_match  : False
+    total_tokens : 642
 
 [Q18] (DATE/Medium, SQL) -> REVIEW
     score        : 44.4/100
     similarity   : 62.8%
     exact_match  : False
+    total_tokens : 655
 
 [Q19] (NULL/Hard, SQL) -> REVIEW
     score        : 44.4/100
     similarity   : 95.3%
     exact_match  : False
+    total_tokens : 641
 
-[Q20] (CTE/Expert, SQL) -> SYNTAX_ERROR
-    score        : 22.2/100
-    similarity   : 31.8%
+[Q20] (CTE/Expert, SQL) -> REVIEW
+    score        : 44.4/100
+    similarity   : 39.8%
     exact_match  : False
-    syntax_error : does not start with SELECT/WITH
+    total_tokens : 725
 
-[Q21] (WINDOW/Expert, SQL) -> SYNTAX_ERROR
-    score        : 22.2/100
-    similarity   : 41.5%
+[Q21] (WINDOW/Expert, SQL) -> REVIEW
+    score        : 44.4/100
+    similarity   : 43.0%
     exact_match  : False
-    syntax_error : does not start with SELECT/WITH
+    total_tokens : 692
 
 [Q22] (IMPOSSIBLE/Easy, REFUSAL) -> MISSED_REFUSAL
     score        : 0.0/100
     similarity   : 0.0%
     exact_match  : False
     correctly_refused : False
+    total_tokens : 641
     HALLUCINATION FLAGS:
       - unknown column 'salary' on table 'employees' (bare reference in SELECT)
 
@@ -268,12 +299,14 @@ MODEL : gemma3:4b
     similarity   : 0.0%
     exact_match  : False
     correctly_refused : False
+    total_tokens : 639
 
 [Q24] (IMPOSSIBLE/Easy, REFUSAL) -> MISSED_REFUSAL
     score        : 22.2/100
     similarity   : 0.0%
     exact_match  : False
     correctly_refused : False
+    total_tokens : 632
 
 
 ================================================================================
@@ -412,127 +445,127 @@ MODEL : deepseek-r1:7b
 
 [Q1] (SELECT/Easy, SQL) -> SYNTAX_ERROR
     score        : 22.2/100
-    similarity   : 5.8%
+    similarity   : 4.9%
     exact_match  : False
     syntax_error : does not start with SELECT/WITH
 
 [Q2] (SELECT/Easy, SQL) -> SYNTAX_ERROR
     score        : 22.2/100
-    similarity   : 13.6%
+    similarity   : 11.5%
     exact_match  : False
     syntax_error : does not start with SELECT/WITH
 
 [Q3] (FILTER/Easy, SQL) -> SYNTAX_ERROR
     score        : 22.2/100
-    similarity   : 8.1%
+    similarity   : 7.0%
     exact_match  : False
     syntax_error : does not start with SELECT/WITH
 
 [Q4] (ORDER BY/Easy, SQL) -> SYNTAX_ERROR
     score        : 22.2/100
-    similarity   : 12.5%
+    similarity   : 10.9%
     exact_match  : False
     syntax_error : does not start with SELECT/WITH
 
 [Q5] (LIMIT/Easy, SQL) -> SYNTAX_ERROR
     score        : 22.2/100
-    similarity   : 17.6%
+    similarity   : 15.5%
     exact_match  : False
     syntax_error : does not start with SELECT/WITH
 
 [Q6] (JOIN/Medium, SQL) -> SYNTAX_ERROR
     score        : 22.2/100
-    similarity   : 16.8%
+    similarity   : 16.2%
     exact_match  : False
     syntax_error : does not start with SELECT/WITH
 
 [Q7] (JOIN/Medium, SQL) -> SYNTAX_ERROR
     score        : 22.2/100
-    similarity   : 14.2%
+    similarity   : 15.8%
     exact_match  : False
     syntax_error : does not start with SELECT/WITH
 
 [Q8] (JOIN/Medium, SQL) -> SYNTAX_ERROR
     score        : 22.2/100
-    similarity   : 25.0%
+    similarity   : 17.7%
     exact_match  : False
     syntax_error : does not start with SELECT/WITH
 
 [Q9] (JOIN/Medium, SQL) -> SYNTAX_ERROR
     score        : 22.2/100
-    similarity   : 13.2%
+    similarity   : 13.0%
     exact_match  : False
     syntax_error : does not start with SELECT/WITH
 
 [Q10] (COUNT/Easy, SQL) -> SYNTAX_ERROR
     score        : 22.2/100
-    similarity   : 23.4%
+    similarity   : 20.0%
     exact_match  : False
     syntax_error : does not start with SELECT/WITH
 
 [Q11] (SUM/Medium, SQL) -> SYNTAX_ERROR
     score        : 22.2/100
-    similarity   : 27.4%
+    similarity   : 23.5%
     exact_match  : False
     syntax_error : does not start with SELECT/WITH
 
 [Q12] (AVG/Medium, SQL) -> SYNTAX_ERROR
     score        : 22.2/100
-    similarity   : 25.6%
+    similarity   : 25.0%
     exact_match  : False
     syntax_error : does not start with SELECT/WITH
 
 [Q13] (GROUP BY/Medium, SQL) -> SYNTAX_ERROR
     score        : 22.2/100
-    similarity   : 21.2%
+    similarity   : 18.8%
     exact_match  : False
     syntax_error : does not start with SELECT/WITH
 
 [Q14] (HAVING/Hard, SQL) -> SYNTAX_ERROR
     score        : 22.2/100
-    similarity   : 16.2%
+    similarity   : 14.5%
     exact_match  : False
     syntax_error : does not start with SELECT/WITH
 
 [Q15] (SUBQUERY/Hard, SQL) -> SYNTAX_ERROR
     score        : 22.2/100
-    similarity   : 13.7%
+    similarity   : 12.2%
     exact_match  : False
     syntax_error : does not start with SELECT/WITH
 
 [Q16] (SUBQUERY/Hard, SQL) -> SYNTAX_ERROR
     score        : 22.2/100
-    similarity   : 14.7%
+    similarity   : 16.4%
     exact_match  : False
     syntax_error : does not start with SELECT/WITH
 
 [Q17] (DATE/Medium, SQL) -> SYNTAX_ERROR
     score        : 22.2/100
-    similarity   : 20.2%
+    similarity   : 17.6%
     exact_match  : False
     syntax_error : does not start with SELECT/WITH
 
 [Q18] (DATE/Medium, SQL) -> SYNTAX_ERROR
     score        : 22.2/100
-    similarity   : 22.0%
+    similarity   : 21.9%
     exact_match  : False
     syntax_error : does not start with SELECT/WITH
 
 [Q19] (NULL/Hard, SQL) -> SYNTAX_ERROR
     score        : 22.2/100
-    similarity   : 20.7%
+    similarity   : 21.9%
     exact_match  : False
     syntax_error : does not start with SELECT/WITH
 
 [Q20] (CTE/Expert, SQL) -> SYNTAX_ERROR
     score        : 22.2/100
-    similarity   : 11.2%
+    similarity   : 10.4%
     exact_match  : False
     syntax_error : does not start with SELECT/WITH
 
 [Q21] (WINDOW/Expert, SQL) -> SYNTAX_ERROR
     score        : 22.2/100
-    similarity   : 15.7%
+    similarity   : 18.6%
     exact_match  : False
     syntax_error : does not start with SELECT/WITH
 
@@ -560,8 +593,8 @@ SUMMARY
 ================================================================================
 
 Model               Scored  Score   Exact%   ExecAcc%  Syntax%  Halluc.  Unsafe  Refusals  
-qwen2.5-coder:7b    24      43.5    8.3      N/A       76.2     0        0       2/3      
-gemma3:4b           24      36.1    8.3      N/A       52.4     1        0       0/3      
+qwen2.5-coder:7b    24      48.1    8.3      N/A       100.0    0        0       2/3      
+gemma3:4b           24      45.3    8.3      N/A       100.0    1        0       0/3      
 llama3.1:8b         24      53.2    20.8     N/A       100.0    1        0       1/3      
 deepseek-r1:7b      24      22.2    0.0      N/A       0.0      0        0       0/3      
 
@@ -667,6 +700,62 @@ LATENCY (seconds, only where logged by main.py)
 RANKING (by weighted score)
 ================================================================================
   1. llama3.1:8b -- 53.2/100
-  2. qwen2.5-coder:7b -- 43.5/100
-  3. gemma3:4b -- 36.1/100
+  2. qwen2.5-coder:7b -- 48.1/100
+  3. gemma3:4b -- 45.3/100
   4. deepseek-r1:7b -- 22.2/100
+
+================================================================================
+BEST MODEL BY METRIC (objective -- direct comparison, no interpretation)
+================================================================================
+  Highest weighted score                : llama3.1:8b (53.2)
+  Highest exact match                   : llama3.1:8b (20.8%)
+  Highest execution accuracy            : N/A (no data)
+  Highest syntax-valid rate             : qwen2.5-coder:7b, gemma3:4b, llama3.1:8b (100.0%)
+  Lowest hallucination count            : qwen2.5-coder:7b, deepseek-r1:7b (0 flags)
+  Fewest unsafe/destructive statements  : qwen2.5-coder:7b, gemma3:4b, llama3.1:8b, deepseek-r1:7b (0)
+  Best refusal handling                 : qwen2.5-coder:7b (66.7%)
+  Fastest model (lowest avg latency)    : N/A (no data)
+
+================================================================================
+CATEGORY WINNERS (highest accuracy per category)
+================================================================================
+  AVG                 : llama3.1:8b (100.0%)
+  COUNT               : gemma3:4b (100.0%)
+  CTE                 : qwen2.5-coder:7b, gemma3:4b, llama3.1:8b, deepseek-r1:7b (0.0%)
+  DATE                : qwen2.5-coder:7b, gemma3:4b, llama3.1:8b, deepseek-r1:7b (0.0%)
+  FILTER              : qwen2.5-coder:7b, gemma3:4b, llama3.1:8b, deepseek-r1:7b (0.0%)
+  GROUP BY            : qwen2.5-coder:7b, gemma3:4b, llama3.1:8b, deepseek-r1:7b (0.0%)
+  HAVING              : qwen2.5-coder:7b, gemma3:4b, llama3.1:8b, deepseek-r1:7b (0.0%)
+  IMPOSSIBLE          : qwen2.5-coder:7b (66.7%)
+  JOIN                : qwen2.5-coder:7b, gemma3:4b, llama3.1:8b, deepseek-r1:7b (0.0%)
+  LIMIT               : qwen2.5-coder:7b, gemma3:4b, llama3.1:8b, deepseek-r1:7b (0.0%)
+  NULL                : qwen2.5-coder:7b, gemma3:4b, llama3.1:8b, deepseek-r1:7b (0.0%)
+  ORDER BY            : llama3.1:8b (100.0%)
+  SELECT              : llama3.1:8b (100.0%)
+  SUBQUERY            : qwen2.5-coder:7b, gemma3:4b, llama3.1:8b, deepseek-r1:7b (0.0%)
+  SUM                 : qwen2.5-coder:7b, gemma3:4b, llama3.1:8b, deepseek-r1:7b (0.0%)
+  WINDOW              : qwen2.5-coder:7b, gemma3:4b, llama3.1:8b, deepseek-r1:7b (0.0%)
+
+================================================================================
+DIFFICULTY WINNERS (highest accuracy per difficulty level)
+================================================================================
+  Easy                : llama3.1:8b (44.4%)
+  Expert              : qwen2.5-coder:7b, gemma3:4b, llama3.1:8b, deepseek-r1:7b (0.0%)
+  Hard                : qwen2.5-coder:7b, gemma3:4b, llama3.1:8b, deepseek-r1:7b (0.0%)
+  Medium              : llama3.1:8b (11.1%)
+
+================================================================================
+RECOMMENDATION (rule-based -- each line points to the model that already
+won the corresponding metric above; not a subjective judgement)
+================================================================================
+For highest SQL accuracy (exact match):
+    llama3.1:8b (20.8%)
+
+For lowest latency:
+    N/A (no data)
+
+For safest SQL generation (fewest hallucinations + unsafe statements):
+    qwen2.5-coder:7b, deepseek-r1:7b (0 combined flags)
+
+For best overall balance (highest weighted score):
+    llama3.1:8b (53.2)
