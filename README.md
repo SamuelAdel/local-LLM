@@ -2,23 +2,19 @@
 
 ## Project Overview
 
-This project evaluates multiple open-source Local Large Language Models (LLMs) to select the best model for a Text-to-SQL system.
+This repository provides a complete evaluation framework for selecting the most suitable **Local Large Language Model (LLM)** for a **Text-to-SQL** system.
 
-The evaluation focuses on running models locally using Ollama and comparing them based on:
+The framework runs multiple open-source models locally using **Ollama** and compares them under identical conditions using:
 
-- SQL generation quality
-- Schema understanding
-- Reasoning ability
-- Response quality
-- Inference speed
-- Resource usage
-- Overall suitability for our project
+- A unified benchmark of Text-to-SQL evaluation questions
+- A shared prompt template
+- The same database schema
+- Identical runtime configuration
+- Standardized evaluation metrics
 
-The selected model will be integrated into our final Text-to-SQL pipeline.
+The evaluation focuses on SQL generation quality, schema understanding, reasoning ability, response quality, inference speed, and resource usage. The selected model is integrated into the final Text-to-SQL pipeline.
 
----
-
-# Goal
+## Goal
 
 Choose the best Local LLM that provides the best balance between:
 
@@ -27,16 +23,14 @@ Choose the best Local LLM that provides the best balance between:
 - Resource Consumption
 - Ease of Deployment
 
-instead of selecting a model based only on popularity.
+...instead of selecting a model based only on popularity.
 
----
-
-# Candidate Models
+## Candidate Models
 
 Current evaluation candidates:
 
 | Model | Ollama Tag |
-|-------|-----------|
+|---|---|
 | Qwen2.5-Coder 7B | `qwen2.5-coder:7b` |
 | Gemma 3 4B | `gemma3:4b` |
 | Llama 3.1 8B | `llama3.1:8b` |
@@ -46,89 +40,133 @@ These tags are kept in sync with `MODELS` in `models.py`. If you change one, cha
 
 Additional models may be added later if necessary.
 
----
+## Evaluation Criteria
 
-# Evaluation Criteria
-
-Each model will be evaluated using the following metrics.
+Each model is evaluated using the following metrics:
 
 | Metric | Description |
-|---------|-------------|
+|---|---|
 | SQL Accuracy | Ability to generate correct SQL queries |
-| Schema Understanding | Correct understanding of database schema |
+| Schema Understanding | Correct understanding of the database schema |
 | Instruction Following | Ability to follow prompt instructions |
 | Hallucination | Generates nonexistent tables or columns |
 | Reasoning | Logical thinking capability |
 | Response Time | Time required to generate the answer |
-| Memory Usage | RAM / GPU Memory consumption |
+| Memory Usage | RAM / GPU memory consumption |
 | Ease of Use | Easy to run locally |
 | Overall Performance | Final evaluation score |
 
----
-
-# Project Structure
+## Project Structure
 
 ```
 Local-LLM-Evaluation/
-
 │
 ├── README.md
-├── config.py            # generation settings (temperature, ctx, timeout, ...)
-├── models.py            # candidate model list (Ollama tags)
-├── schema.py            # database schema given to every model
-├── prompt.py            # shared prompt template
-├── questions.py         # benchmark question set (24 questions)
-├── expected_sql.py       # reference / expected SQL per question
-├── run_model.py         # sends one question to one model via Ollama
-├── evaluate.py          # scores generated SQL against expected_sql.py
-├── main.py              # runs the full pipeline, saves results/results.txt
+│   Project documentation, setup instructions, and evaluation workflow.
+│
 ├── requirements.txt
+│   Python dependencies required to run the evaluation framework.
+│
+├── .gitignore
+│   Files and folders excluded from version control (e.g. logs, caches).
+│
+├── config.py
+│   Generation settings shared by every model run: temperature, context
+│   length, timeout, and other Ollama request parameters.
+│
+├── models.py
+│   Candidate model list — Ollama tags for every model included in the
+│   evaluation (kept in sync with the table above).
+│
+├── schema.py
+│   Database schema (tables, columns, relationships) provided to every
+│   model as part of the prompt, so all models reason over the same context.
+│
+├── prompt.py
+│   Shared prompt template applied identically to every model, to keep
+│   the comparison fair.
+│
+├── questions.py
+│   Benchmark question set used for evaluation, covering schema
+│   understanding, filtering, joins, aggregation, grouping, nested
+│   queries, and reasoning.
+│
+├── expected_sql.py
+│   Reference ("gold") SQL query for each benchmark question, used to
+│   score execution accuracy and correctness.
+│
+├── create_database.py
+│   Creates the SQLite database (enterprise.db) and its schema, used as
+│   the execution target for generated SQL queries.
+│
+├── seed_database.py
+│   Populates enterprise.db with sample data, so generated SQL queries
+│   can be executed and validated, not just checked syntactically.
+│
+├── enterprise.db
+│   SQLite database file generated by create_database.py / seed_database.py,
+│   representing the enterprise schema used throughout the evaluation.
+│
+├── run_model.py
+│   Sends a single benchmark question to a single model through Ollama
+│   and returns the generated response.
+│
+├── evaluate.py
+│   Scores each model's generated SQL against expected_sql.py: execution
+│   accuracy, syntax validity, hallucinations, unsafe SQL, and refusal
+│   handling.
+│
+├── leaderboard.py
+│   Aggregates evaluation results across all models, computes the
+│   weighted score, and produces the final model ranking.
+│
+├── main.py
+│   Entry point that runs the full pipeline end-to-end — loads the
+│   schema and questions, queries every model, evaluates the results,
+│   and saves them to results/.
+│
 └── results/
-    ├── results.txt       # raw generated SQL per model/question
-    └── evaluation.txt    # scored comparison report (from evaluate.py)
+    ├── results.txt
+    │   Raw generated SQL and responses per model/question.
+    └── evaluation.txt
+        Scored comparison report produced by evaluate.py / leaderboard.py.
 ```
 
----
+> Note: `questions.py` is the single source of truth for the benchmark size — check the file for the current question count, as it may be extended over time.
 
-# Evaluation Workflow
+## Repository Overview
 
-Research
-↓
+This framework ensures that every candidate model is evaluated under identical conditions by using:
 
-Select Candidate Models
-↓
+- A unified benchmark of Text-to-SQL questions
+- A common prompt template
+- The same database schema (`schema.py`, executed against `enterprise.db`)
+- Identical runtime configuration (`config.py`)
+- Standardized evaluation metrics (`evaluate.py`)
+- Automated result aggregation and ranking (`leaderboard.py`)
 
-Download Models using Ollama
-↓
+The generated reports allow direct comparison between candidate models in terms of SQL generation quality, reasoning capability, latency, hardware efficiency, and overall deployment suitability.
 
-Run Standard Prompt Set
-↓
+## Evaluation Workflow
 
-Collect Responses
+The evaluation process follows these stages:
 
-↓
+1. Create and seed the evaluation database (`create_database.py`, `seed_database.py`).
+2. Load the database schema (`schema.py`).
+3. Load the benchmark questions (`questions.py`).
+4. Generate prompts using the shared prompt template (`prompt.py`).
+5. Send each prompt to the selected local model through Ollama (`run_model.py`).
+6. Receive and record the generated SQL query.
+7. Compare the generated SQL with the reference SQL (`expected_sql.py`).
+8. Execute the SQL against `enterprise.db`, where applicable, to measure execution accuracy.
+9. Evaluate syntax validity, hallucinations, refusal handling, and unsafe SQL (`evaluate.py`).
+10. Collect runtime statistics such as latency and memory usage.
+11. Compute the weighted score and final ranking (`leaderboard.py`).
+12. Store all outputs in `results/` and generate the final evaluation report (`main.py`).
 
-Evaluate Responses
+## Model Testing Procedure
 
-↓
-
-Compare Results
-
-↓
-
-Select Best Model
-
-↓
-
-Integrate into Final Project
-
----
-
-# Model Testing Procedure
-
-Each model will receive exactly the same prompts.
-
-The prompts are divided into several categories:
+Each model receives exactly the same prompts. The prompts are divided into several categories:
 
 - General reasoning
 - SQL generation
@@ -137,24 +175,24 @@ The prompts are divided into several categories:
 - Complex SQL reasoning
 - Edge cases
 
-This guarantees a fair comparison.
+This guarantees a fair comparison across all candidate models.
 
----
+## Output
 
-# Output
+After the evaluation completes, the framework automatically generates:
 
-Each model will produce:
+- Generated SQL per model and question
+- Execution accuracy results
+- SQL syntax validation
+- Hallucination statistics
+- Unsafe SQL detection
+- Refusal handling analysis
+- Latency measurements
+- Memory (RAM) usage monitoring
+- Weighted scores
+- Final model ranking (`results/evaluation.txt`)
 
-- Generated SQL
-- Execution time
-- Notes
-- Evaluation score
-
-All outputs will be documented inside the evaluation sheet.
-
----
-
-# Tools
+## Tools
 
 - Python
 - VS Code
@@ -162,25 +200,18 @@ All outputs will be documented inside the evaluation sheet.
 - Git
 - Google Sheets (for collaboration)
 
----
+## Team Workflow
 
-# Team Workflow
+- Each team member is responsible for evaluating assigned models.
+- The evaluation process is identical for all members.
+- Results are merged into one shared evaluation sheet.
 
-Each team member is responsible for evaluating assigned models.
+## Final Deliverable
 
-The evaluation process is identical for all members.
-
-Results are merged into one shared evaluation sheet.
-
----
-
-# Final Deliverable
-
-The final report will include:
+The final report includes:
 
 - Model comparison table
 - Evaluation scores
 - Strengths and weaknesses
 - Final selected model
 - Justification for selection
-
