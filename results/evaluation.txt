@@ -1677,6 +1677,7 @@ MODEL : llama3.1:8b
     exact_match  : True
     execution_match : True
     matched_via  : execution
+    latency      : 31.5s
     total_tokens : 479
 
 [Q2] (SELECT/Easy, SQL) -> CORRECT
@@ -1685,6 +1686,7 @@ MODEL : llama3.1:8b
     exact_match  : True
     execution_match : True
     matched_via  : execution
+    latency      : 2.68s
     total_tokens : 479
 
 [Q3] (FILTER/Easy, SQL) -> CORRECT
@@ -1693,6 +1695,7 @@ MODEL : llama3.1:8b
     exact_match  : True
     execution_match : True
     matched_via  : execution
+    latency      : 4.85s
     total_tokens : 488
 
 [Q4] (ORDER BY/Easy, SQL) -> CORRECT
@@ -1701,12 +1704,14 @@ MODEL : llama3.1:8b
     exact_match  : True
     execution_match : True
     matched_via  : execution
+    latency      : 4.85s
     total_tokens : 487
 
 [Q5] (LIMIT/Easy, SQL) -> EXECUTION_ERROR
     score        : 50.0/100
     similarity   : 70.2%
     exact_match  : False
+    latency      : 7.37s
     total_tokens : 496
 
 [Q6] (JOIN/Medium, SQL) -> CORRECT
@@ -1715,6 +1720,7 @@ MODEL : llama3.1:8b
     exact_match  : True
     execution_match : True
     matched_via  : execution
+    latency      : 9.55s
     total_tokens : 503
 
 [Q7] (JOIN/Medium, SQL) -> CORRECT
@@ -1723,6 +1729,7 @@ MODEL : llama3.1:8b
     exact_match  : False
     execution_match : True
     matched_via  : execution
+    latency      : 10.55s
     total_tokens : 505
 
 [Q8] (JOIN/Medium, SQL) -> CORRECT
@@ -1731,6 +1738,7 @@ MODEL : llama3.1:8b
     exact_match  : True
     execution_match : True
     matched_via  : execution
+    latency      : 9.55s
     total_tokens : 501
 
 [Q9] (JOIN/Medium, SQL) -> EXECUTION_MISMATCH
@@ -1739,6 +1747,7 @@ MODEL : llama3.1:8b
     exact_match  : False
     execution_match : False
     canonical_match : False
+    latency      : 12.57s
     total_tokens : 510
 
 [Q10] (COUNT/Easy, SQL) -> CORRECT
@@ -1747,6 +1756,7 @@ MODEL : llama3.1:8b
     exact_match  : False
     execution_match : True
     matched_via  : execution
+    latency      : 3.86s
     total_tokens : 484
 
 [Q11] (SUM/Medium, SQL) -> EXECUTION_MISMATCH
@@ -1755,6 +1765,7 @@ MODEL : llama3.1:8b
     exact_match  : False
     execution_match : False
     canonical_match : False
+    latency      : 7.36s
     total_tokens : 492
 
 [Q12] (AVG/Medium, SQL) -> CORRECT
@@ -1763,6 +1774,7 @@ MODEL : llama3.1:8b
     exact_match  : True
     execution_match : True
     matched_via  : execution
+    latency      : 3.86s
     total_tokens : 483
 
 [Q13] (GROUP BY/Medium, SQL) -> EXECUTION_MISMATCH
@@ -1771,6 +1783,7 @@ MODEL : llama3.1:8b
     exact_match  : False
     execution_match : False
     canonical_match : False
+    latency      : 22.96s
     total_tokens : 541
 
 [Q14] (HAVING/Hard, SQL) -> EXECUTION_MISMATCH
@@ -1779,6 +1792,7 @@ MODEL : llama3.1:8b
     exact_match  : False
     execution_match : False
     canonical_match : False
+    latency      : 14.06s
     total_tokens : 516
 
 [Q15] (SUBQUERY/Hard, SQL) -> EXECUTION_MISMATCH
@@ -1787,6 +1801,7 @@ MODEL : llama3.1:8b
     exact_match  : False
     execution_match : False
     canonical_match : False
+    latency      : 5.7s
     total_tokens : 490
 
 [Q16] (SUBQUERY/Hard, SQL) -> EXECUTION_MISMATCH
@@ -1795,6 +1810,7 @@ MODEL : llama3.1:8b
     exact_match  : False
     execution_match : False
     canonical_match : False
+    latency      : 17.56s
     total_tokens : 530
 
 [Q17] (DATE/Medium, SQL) -> CORRECT
@@ -1803,6 +1819,7 @@ MODEL : llama3.1:8b
     exact_match  : False
     execution_match : True
     matched_via  : execution
+    latency      : 10.73s
     total_tokens : 506
 
 [Q18] (DATE/Medium, SQL) -> EXECUTION_ERROR
@@ -1810,6 +1827,7 @@ MODEL : llama3.1:8b
     similarity   : 79.3%
     exact_match  : False
     canonical_match : False
+    latency      : 7.2s
     total_tokens : 494
 
 [Q19] (NULL/Hard, SQL) -> EXECUTION_MISMATCH
@@ -1818,12 +1836,14 @@ MODEL : llama3.1:8b
     exact_match  : False
     execution_match : False
     canonical_match : False
+    latency      : 10.89s
     total_tokens : 507
 
 [Q20] (CTE/Expert, SQL) -> EXECUTION_ERROR
     score        : 50.0/100
     similarity   : 18.9%
     exact_match  : False
+    latency      : 22.09s
     total_tokens : 541
 
 [Q21] (WINDOW/Expert, SQL) -> EXECUTION_MISMATCH
@@ -1832,6 +1852,7 @@ MODEL : llama3.1:8b
     exact_match  : False
     execution_match : False
     canonical_match : False
+    latency      : 16.59s
     total_tokens : 522
 
 [Q22] (IMPOSSIBLE/Easy, REFUSAL) -> MISSED_REFUSAL
@@ -1839,6 +1860,7 @@ MODEL : llama3.1:8b
     similarity   : 0.0%
     exact_match  : False
     correctly_refused : False
+    latency      : 2.68s
     total_tokens : 479
     HALLUCINATION FLAGS:
       - unknown column 'salary' on table 'employees' (bare reference in SELECT)
@@ -1848,6 +1870,7 @@ MODEL : llama3.1:8b
     similarity   : 0.0%
     exact_match  : False
     correctly_refused : False
+    latency      : 6.51s
     total_tokens : 490
 
 [Q24] (IMPOSSIBLE/Easy, REFUSAL) -> CORRECT_REFUSAL
@@ -1856,6 +1879,7 @@ MODEL : llama3.1:8b
     exact_match  : True
     matched_via  : refusal
     correctly_refused : True
+    latency      : 2.85s
     total_tokens : 479
 
 [Q25] (DISTINCT/Easy, SQL) -> CORRECT
@@ -1864,6 +1888,7 @@ MODEL : llama3.1:8b
     exact_match  : True
     execution_match : True
     matched_via  : execution
+    latency      : 3.35s
     total_tokens : 484
 
 [Q26] (DISTINCT/Medium, SQL) -> CORRECT
@@ -1872,6 +1897,7 @@ MODEL : llama3.1:8b
     exact_match  : True
     execution_match : True
     matched_via  : execution
+    latency      : 3.02s
     total_tokens : 484
 
 [Q27] (DISTINCT/Medium, SQL) -> CORRECT
@@ -1880,6 +1906,7 @@ MODEL : llama3.1:8b
     exact_match  : True
     execution_match : True
     matched_via  : execution
+    latency      : 3.68s
     total_tokens : 488
 
 [Q28] (LEFT JOIN/Medium, SQL) -> CORRECT
@@ -1888,6 +1915,7 @@ MODEL : llama3.1:8b
     exact_match  : True
     execution_match : True
     matched_via  : execution
+    latency      : 9.71s
     total_tokens : 508
 
 [Q29] (LEFT JOIN/Medium, SQL) -> CORRECT
@@ -1896,6 +1924,7 @@ MODEL : llama3.1:8b
     exact_match  : True
     execution_match : True
     matched_via  : execution
+    latency      : 9.05s
     total_tokens : 506
 
 [Q30] (LEFT JOIN/Medium, SQL) -> CORRECT
@@ -1904,6 +1933,7 @@ MODEL : llama3.1:8b
     exact_match  : True
     execution_match : True
     matched_via  : execution
+    latency      : 10.72s
     total_tokens : 511
 
 [Q31] (LEFT JOIN/Hard, SQL) -> CORRECT
@@ -1912,6 +1942,7 @@ MODEL : llama3.1:8b
     exact_match  : False
     execution_match : True
     matched_via  : execution
+    latency      : 11.54s
     total_tokens : 516
 
 [Q32] (GROUP BY/Medium, SQL) -> EXECUTION_MISMATCH
@@ -1920,6 +1951,7 @@ MODEL : llama3.1:8b
     exact_match  : False
     execution_match : False
     canonical_match : False
+    latency      : 11.06s
     total_tokens : 508
 
 [Q33] (GROUP BY/Medium, SQL) -> EXECUTION_MISMATCH
@@ -1928,6 +1960,7 @@ MODEL : llama3.1:8b
     exact_match  : False
     execution_match : False
     canonical_match : False
+    latency      : 7.7s
     total_tokens : 497
 
 [Q34] (GROUP BY/Medium, SQL) -> CORRECT
@@ -1936,6 +1969,7 @@ MODEL : llama3.1:8b
     exact_match  : False
     execution_match : True
     matched_via  : execution
+    latency      : 17.42s
     total_tokens : 529
 
 [Q35] (GROUP BY/Hard, SQL) -> EXECUTION_MISMATCH
@@ -1944,6 +1978,7 @@ MODEL : llama3.1:8b
     exact_match  : False
     execution_match : False
     canonical_match : False
+    latency      : 11.87s
     total_tokens : 510
 
 [Q36] (GROUP BY/Medium, SQL) -> EXECUTION_MISMATCH
@@ -1952,6 +1987,7 @@ MODEL : llama3.1:8b
     exact_match  : False
     execution_match : False
     canonical_match : False
+    latency      : 5.53s
     total_tokens : 492
 
 [Q37] (HAVING/Hard, SQL) -> EXECUTION_MISMATCH
@@ -1960,6 +1996,7 @@ MODEL : llama3.1:8b
     exact_match  : False
     execution_match : False
     canonical_match : False
+    latency      : 14.58s
     total_tokens : 522
 
 [Q38] (HAVING/Hard, SQL) -> EXECUTION_MISMATCH
@@ -1968,6 +2005,7 @@ MODEL : llama3.1:8b
     exact_match  : False
     execution_match : False
     canonical_match : False
+    latency      : 11.73s
     total_tokens : 510
 
 [Q39] (HAVING/Medium, SQL) -> EXECUTION_MISMATCH
@@ -1976,6 +2014,7 @@ MODEL : llama3.1:8b
     exact_match  : False
     execution_match : False
     canonical_match : False
+    latency      : 11.03s
     total_tokens : 508
 
 [Q40] (HAVING/Hard, SQL) -> EXECUTION_MISMATCH
@@ -1984,6 +2023,7 @@ MODEL : llama3.1:8b
     exact_match  : False
     execution_match : False
     canonical_match : False
+    latency      : 13.92s
     total_tokens : 518
 
 [Q41] (COUNT/Easy, SQL) -> CORRECT
@@ -1992,6 +2032,7 @@ MODEL : llama3.1:8b
     exact_match  : True
     execution_match : True
     matched_via  : execution
+    latency      : 3.18s
     total_tokens : 481
 
 [Q42] (COUNT/Easy, SQL) -> EXECUTION_MISMATCH
@@ -2000,6 +2041,7 @@ MODEL : llama3.1:8b
     exact_match  : False
     execution_match : False
     canonical_match : False
+    latency      : 12.39s
     total_tokens : 511
 
 [Q43] (COUNT/Medium, SQL) -> CORRECT
@@ -2008,6 +2050,7 @@ MODEL : llama3.1:8b
     exact_match  : False
     execution_match : True
     matched_via  : execution
+    latency      : 5.0s
     total_tokens : 488
 
 [Q44] (COUNT/Medium, SQL) -> CORRECT
@@ -2016,6 +2059,7 @@ MODEL : llama3.1:8b
     exact_match  : False
     execution_match : True
     matched_via  : execution
+    latency      : 5.19s
     total_tokens : 490
 
 [Q45] (SUM/Medium, SQL) -> CORRECT
@@ -2024,6 +2068,7 @@ MODEL : llama3.1:8b
     exact_match  : True
     execution_match : True
     matched_via  : execution
+    latency      : 4.02s
     total_tokens : 487
 
 [Q46] (SUM/Medium, SQL) -> EXECUTION_MISMATCH
@@ -2032,6 +2077,7 @@ MODEL : llama3.1:8b
     exact_match  : False
     execution_match : False
     canonical_match : False
+    latency      : 19.94s
     total_tokens : 534
 
 [Q47] (SUM/Medium, SQL) -> CORRECT
@@ -2040,6 +2086,7 @@ MODEL : llama3.1:8b
     exact_match  : False
     execution_match : True
     matched_via  : execution
+    latency      : 6.18s
     total_tokens : 492
 
 [Q48] (SUM/Hard, SQL) -> EXECUTION_MISMATCH
@@ -2048,6 +2095,7 @@ MODEL : llama3.1:8b
     exact_match  : False
     execution_match : False
     canonical_match : False
+    latency      : 22.62s
     total_tokens : 541
 
 [Q49] (AVG/Medium, SQL) -> CORRECT
@@ -2056,6 +2104,7 @@ MODEL : llama3.1:8b
     exact_match  : True
     execution_match : True
     matched_via  : execution
+    latency      : 3.85s
     total_tokens : 484
 
 [Q50] (AVG/Medium, SQL) -> CORRECT
@@ -2064,6 +2113,7 @@ MODEL : llama3.1:8b
     exact_match  : True
     execution_match : True
     matched_via  : execution
+    latency      : 11.22s
     total_tokens : 513
 
 [Q51] (AVG/Hard, SQL) -> EXECUTION_MISMATCH
@@ -2072,6 +2122,7 @@ MODEL : llama3.1:8b
     exact_match  : False
     execution_match : False
     canonical_match : False
+    latency      : 3.82s
     total_tokens : 487
 
 [Q52] (MAX/Easy, SQL) -> CORRECT
@@ -2080,6 +2131,7 @@ MODEL : llama3.1:8b
     exact_match  : True
     execution_match : True
     matched_via  : execution
+    latency      : 3.85s
     total_tokens : 485
 
 [Q53] (MIN/Easy, SQL) -> EXECUTION_MISMATCH
@@ -2088,6 +2140,7 @@ MODEL : llama3.1:8b
     exact_match  : False
     execution_match : False
     canonical_match : False
+    latency      : 7.21s
     total_tokens : 493
 
 [Q54] (MAX/Medium, SQL) -> CORRECT
@@ -2096,6 +2149,7 @@ MODEL : llama3.1:8b
     exact_match  : False
     execution_match : True
     matched_via  : execution
+    latency      : 7.87s
     total_tokens : 500
 
 [Q55] (MIN/Medium, SQL) -> CORRECT
@@ -2104,6 +2158,7 @@ MODEL : llama3.1:8b
     exact_match  : True
     execution_match : True
     matched_via  : execution
+    latency      : 3.82s
     total_tokens : 486
 
 [Q56] (CASE/Medium, SQL) -> EXECUTION_MISMATCH
@@ -2112,6 +2167,7 @@ MODEL : llama3.1:8b
     exact_match  : False
     execution_match : False
     canonical_match : False
+    latency      : 15.08s
     total_tokens : 529
     HALLUCINATION FLAGS:
       - unknown column 'Expensive' on table 'products' (bare reference in SELECT)
@@ -2123,6 +2179,7 @@ MODEL : llama3.1:8b
     exact_match  : False
     execution_match : False
     canonical_match : False
+    latency      : 21.12s
     total_tokens : 557
 
 [Q58] (CASE/Medium, SQL) -> EXECUTION_MISMATCH
@@ -2131,6 +2188,7 @@ MODEL : llama3.1:8b
     exact_match  : False
     execution_match : False
     canonical_match : False
+    latency      : 21.44s
     total_tokens : 544
 
 [Q59] (SUBQUERY/Hard, SQL) -> EXECUTION_MISMATCH
@@ -2139,6 +2197,7 @@ MODEL : llama3.1:8b
     exact_match  : False
     execution_match : False
     canonical_match : False
+    latency      : 9.03s
     total_tokens : 502
 
 [Q60] (SUBQUERY/Hard, SQL) -> EXECUTION_MISMATCH
@@ -2147,6 +2206,7 @@ MODEL : llama3.1:8b
     exact_match  : False
     execution_match : False
     canonical_match : False
+    latency      : 16.42s
     total_tokens : 525
 
 [Q61] (SUBQUERY/Hard, SQL) -> CORRECT
@@ -2155,6 +2215,7 @@ MODEL : llama3.1:8b
     exact_match  : False
     execution_match : True
     matched_via  : execution
+    latency      : 12.06s
     total_tokens : 509
 
 [Q62] (SUBQUERY/Expert, SQL) -> CORRECT
@@ -2163,6 +2224,7 @@ MODEL : llama3.1:8b
     exact_match  : False
     execution_match : True
     matched_via  : execution
+    latency      : 17.94s
     total_tokens : 533
 
 [Q63] (SUBQUERY/Hard, SQL) -> EXECUTION_MISMATCH
@@ -2171,6 +2233,7 @@ MODEL : llama3.1:8b
     exact_match  : False
     execution_match : False
     canonical_match : False
+    latency      : 7.85s
     total_tokens : 497
 
 [Q64] (EXISTS/Hard, SQL) -> EXECUTION_MISMATCH
@@ -2179,6 +2242,7 @@ MODEL : llama3.1:8b
     exact_match  : False
     execution_match : False
     canonical_match : False
+    latency      : 8.38s
     total_tokens : 501
 
 [Q65] (EXISTS/Hard, SQL) -> EXECUTION_MISMATCH
@@ -2187,6 +2251,7 @@ MODEL : llama3.1:8b
     exact_match  : False
     execution_match : False
     canonical_match : False
+    latency      : 13.07s
     total_tokens : 514
 
 [Q66] (EXISTS/Expert, SQL) -> EXECUTION_MISMATCH
@@ -2195,6 +2260,7 @@ MODEL : llama3.1:8b
     exact_match  : False
     execution_match : False
     canonical_match : False
+    latency      : 13.57s
     total_tokens : 516
 
 [Q67] (NOT EXISTS/Hard, SQL) -> EXECUTION_MISMATCH
@@ -2203,6 +2269,7 @@ MODEL : llama3.1:8b
     exact_match  : False
     execution_match : False
     canonical_match : False
+    latency      : 11.06s
     total_tokens : 508
 
 [Q68] (NOT EXISTS/Expert, SQL) -> EXECUTION_MISMATCH
@@ -2211,6 +2278,7 @@ MODEL : llama3.1:8b
     exact_match  : False
     execution_match : False
     canonical_match : False
+    latency      : 11.73s
     total_tokens : 509
 
 [Q69] (IN/Medium, SQL) -> CORRECT
@@ -2219,6 +2287,7 @@ MODEL : llama3.1:8b
     exact_match  : False
     execution_match : True
     matched_via  : execution
+    latency      : 15.08s
     total_tokens : 525
 
 [Q70] (IN/Medium, SQL) -> CORRECT
@@ -2227,6 +2296,7 @@ MODEL : llama3.1:8b
     exact_match  : True
     execution_match : True
     matched_via  : execution
+    latency      : 7.7s
     total_tokens : 501
 
 [Q71] (IN/Medium, SQL) -> EXECUTION_MISMATCH
@@ -2235,6 +2305,7 @@ MODEL : llama3.1:8b
     exact_match  : False
     execution_match : False
     canonical_match : False
+    latency      : 13.07s
     total_tokens : 519
 
 [Q72] (UNION/Hard, SQL) -> CORRECT
@@ -2243,6 +2314,7 @@ MODEL : llama3.1:8b
     exact_match  : False
     execution_match : True
     matched_via  : execution
+    latency      : 5.53s
     total_tokens : 496
 
 [Q73] (UNION/Expert, SQL) -> CORRECT
@@ -2251,6 +2323,7 @@ MODEL : llama3.1:8b
     exact_match  : False
     execution_match : True
     matched_via  : execution
+    latency      : 6.87s
     total_tokens : 502
 
 [Q74] (CTE/Expert, SQL) -> EXECUTION_MISMATCH
@@ -2259,6 +2332,7 @@ MODEL : llama3.1:8b
     exact_match  : False
     execution_match : False
     canonical_match : False
+    latency      : 26.97s
     total_tokens : 566
     HALLUCINATION FLAGS:
       - unknown table referenced: 'CategoryRevenue'
@@ -2269,6 +2343,7 @@ MODEL : llama3.1:8b
     exact_match  : False
     execution_match : False
     canonical_match : False
+    latency      : 33.17s
     total_tokens : 581
     HALLUCINATION FLAGS:
       - unknown table referenced: 'TotalSpent'
@@ -2279,6 +2354,7 @@ MODEL : llama3.1:8b
     exact_match  : False
     execution_match : False
     canonical_match : False
+    latency      : 36.37s
     total_tokens : 588
     HALLUCINATION FLAGS:
       - unknown table referenced: 'EmployeeOrders'
@@ -2289,6 +2365,7 @@ MODEL : llama3.1:8b
     exact_match  : False
     execution_match : False
     canonical_match : False
+    latency      : 29.83s
     total_tokens : 572
 
 [Q78] (WINDOW/Expert, SQL) -> EXECUTION_MISMATCH
@@ -2297,6 +2374,7 @@ MODEL : llama3.1:8b
     exact_match  : False
     execution_match : False
     canonical_match : False
+    latency      : 18.09s
     total_tokens : 532
 
 [Q79] (WINDOW/Expert, SQL) -> EXECUTION_MISMATCH
@@ -2305,6 +2383,7 @@ MODEL : llama3.1:8b
     exact_match  : False
     execution_match : False
     canonical_match : False
+    latency      : 15.56s
     total_tokens : 532
 
 [Q80] (DATE/Medium, SQL) -> EXECUTION_ERROR
@@ -2312,6 +2391,7 @@ MODEL : llama3.1:8b
     similarity   : 46.9%
     exact_match  : False
     canonical_match : False
+    latency      : 14.58s
     total_tokens : 521
 
 [Q81] (DATE/Medium, SQL) -> EXECUTION_ERROR
@@ -2319,6 +2399,7 @@ MODEL : llama3.1:8b
     similarity   : 81.1%
     exact_match  : False
     canonical_match : False
+    latency      : 7.03s
     total_tokens : 496
 
 [Q82] (DATE/Hard, SQL) -> EXECUTION_ERROR
@@ -2326,6 +2407,7 @@ MODEL : llama3.1:8b
     similarity   : 54.7%
     exact_match  : False
     canonical_match : False
+    latency      : 21.79s
     total_tokens : 539
 
 [Q83] (DATE/Medium, SQL) -> EXECUTION_ERROR
@@ -2333,6 +2415,7 @@ MODEL : llama3.1:8b
     similarity   : 78.8%
     exact_match  : False
     canonical_match : False
+    latency      : 7.2s
     total_tokens : 497
 
 [Q84] (NULL/Medium, SQL) -> CORRECT
@@ -2341,6 +2424,7 @@ MODEL : llama3.1:8b
     exact_match  : True
     execution_match : True
     matched_via  : execution
+    latency      : 4.69s
     total_tokens : 489
 
 [Q85] (NULL/Hard, SQL) -> CORRECT
@@ -2349,6 +2433,7 @@ MODEL : llama3.1:8b
     exact_match  : True
     execution_match : True
     matched_via  : execution
+    latency      : 4.53s
     total_tokens : 491
 
 [Q86] (NULL/Medium, SQL) -> CORRECT
@@ -2357,6 +2442,7 @@ MODEL : llama3.1:8b
     exact_match  : False
     execution_match : True
     matched_via  : execution
+    latency      : 6.69s
     total_tokens : 494
 
 [Q87] (NULL/Hard, SQL) -> EXECUTION_MISMATCH
@@ -2365,6 +2451,7 @@ MODEL : llama3.1:8b
     exact_match  : False
     execution_match : False
     canonical_match : False
+    latency      : 15.25s
     total_tokens : 530
 
 [Q88] (IMPOSSIBLE/Easy, REFUSAL) -> MISSED_REFUSAL
@@ -2372,6 +2459,7 @@ MODEL : llama3.1:8b
     similarity   : 0.0%
     exact_match  : False
     correctly_refused : False
+    latency      : 15.08s
     total_tokens : 516
 
 [Q89] (IMPOSSIBLE/Easy, REFUSAL) -> CORRECT_REFUSAL
@@ -2380,6 +2468,7 @@ MODEL : llama3.1:8b
     exact_match  : True
     matched_via  : refusal
     correctly_refused : True
+    latency      : 3.17s
     total_tokens : 481
 
 [Q90] (IMPOSSIBLE/Medium, REFUSAL) -> MISSED_REFUSAL
@@ -2387,6 +2476,7 @@ MODEL : llama3.1:8b
     similarity   : 0.0%
     exact_match  : False
     correctly_refused : False
+    latency      : 15.75s
     total_tokens : 521
 
 [Q91] (IMPOSSIBLE/Medium, REFUSAL) -> MISSED_REFUSAL
@@ -2394,6 +2484,7 @@ MODEL : llama3.1:8b
     similarity   : 0.0%
     exact_match  : False
     correctly_refused : False
+    latency      : 10.05s
     total_tokens : 505
     HALLUCINATION FLAGS:
       - unknown column 'employee_id' on table 'inventory' (via 'i.employee_id')
@@ -2901,13 +2992,13 @@ DIFFICULTY ACCURACY (% correct)
 LATENCY (seconds, only where logged by main.py)
   qwen2.5-coder:7b: avg=7.638 median=6.63 min=1.82 max=42.54 p95=18.1 | tokens/sec=69.7
   gemma3:4b: avg=8.455 median=7.64 min=3.31 max=43.55 p95=17.65 | tokens/sec=78.6
-  llama3.1:8b: N/A (no latency data logged)
+  llama3.1:8b: avg=11.398 median=10.55 min=2.68 max=36.37 p95=26.97 | tokens/sec=44.6
   deepseek-r1:7b: avg=145.381 median=127.75 min=72.03 max=262.7 p95=235.74 | tokens/sec=5.8
 
 RESOURCE USAGE (RAM/VRAM in MB, only where logged by main.py)
   qwen2.5-coder:7b: RAM (avg=212.8 peak=213.9) | VRAM (N/A)
   gemma3:4b: RAM (avg=212.3 peak=212.3) | VRAM (N/A)
-  llama3.1:8b: RAM (N/A) | VRAM (N/A)
+  llama3.1:8b: RAM (avg=208.3 peak=209.6) | VRAM (N/A)
   deepseek-r1:7b: RAM (avg=101.7 peak=208.7) | VRAM (N/A)
 
 MATCH METHOD BREAKDOWN (which signal decided each CORRECT verdict)

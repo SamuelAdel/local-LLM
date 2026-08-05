@@ -181,97 +181,97 @@ gemma3:4b,88,IMPOSSIBLE,Easy,MISSED_REFUSAL,35.0,0.0,False,,,none,,False,0,7.62,
 gemma3:4b,89,IMPOSSIBLE,Easy,CORRECT_REFUSAL,100.0,100.0,True,,,refusal,,False,0,3.33,622,212.3,,False
 gemma3:4b,90,IMPOSSIBLE,Medium,MISSED_REFUSAL,35.0,0.0,False,,,none,,False,0,14.15,708,212.3,,False
 gemma3:4b,91,IMPOSSIBLE,Medium,MISSED_REFUSAL,35.0,0.0,False,,,none,,False,0,7.82,663,212.3,,False
-llama3.1:8b,1,SELECT,Easy,CORRECT,100.0,100.0,True,True,,execution,True,False,0,,479,,,False
-llama3.1:8b,2,SELECT,Easy,CORRECT,100.0,100.0,True,True,,execution,True,False,0,,479,,,False
-llama3.1:8b,3,FILTER,Easy,CORRECT,100.0,100.0,True,True,,execution,True,False,0,,488,,,False
-llama3.1:8b,4,ORDER BY,Easy,CORRECT,100.0,100.0,True,True,,execution,True,False,0,,487,,,False
-llama3.1:8b,5,LIMIT,Easy,EXECUTION_ERROR,50.0,70.2,False,,,none,True,False,0,,496,,,False
-llama3.1:8b,6,JOIN,Medium,CORRECT,100.0,100.0,True,True,,execution,True,False,0,,503,,,False
-llama3.1:8b,7,JOIN,Medium,CORRECT,100.0,94.5,False,True,,execution,True,False,0,,505,,,False
-llama3.1:8b,8,JOIN,Medium,CORRECT,100.0,100.0,True,True,,execution,True,False,0,,501,,,False
-llama3.1:8b,9,JOIN,Medium,EXECUTION_MISMATCH,50.0,63.7,False,False,False,none,True,False,0,,510,,,False
-llama3.1:8b,10,COUNT,Easy,CORRECT,100.0,82.9,False,True,,execution,True,False,0,,484,,,False
-llama3.1:8b,11,SUM,Medium,EXECUTION_MISMATCH,50.0,48.0,False,False,False,none,True,False,0,,492,,,False
-llama3.1:8b,12,AVG,Medium,CORRECT,100.0,100.0,True,True,,execution,True,False,0,,483,,,False
-llama3.1:8b,13,GROUP BY,Medium,EXECUTION_MISMATCH,50.0,74.6,False,False,False,none,True,False,0,,541,,,False
-llama3.1:8b,14,HAVING,Hard,EXECUTION_MISMATCH,50.0,84.4,False,False,False,none,True,False,0,,516,,,False
-llama3.1:8b,15,SUBQUERY,Hard,EXECUTION_MISMATCH,50.0,58.9,False,False,False,none,True,False,0,,490,,,False
-llama3.1:8b,16,SUBQUERY,Hard,EXECUTION_MISMATCH,50.0,20.8,False,False,False,none,True,False,0,,530,,,False
-llama3.1:8b,17,DATE,Medium,CORRECT,100.0,67.6,False,True,,execution,True,False,0,,506,,,False
-llama3.1:8b,18,DATE,Medium,EXECUTION_ERROR,50.0,79.3,False,,False,none,True,False,0,,494,,,False
-llama3.1:8b,19,NULL,Hard,EXECUTION_MISMATCH,50.0,62.1,False,False,False,none,True,False,0,,507,,,False
-llama3.1:8b,20,CTE,Expert,EXECUTION_ERROR,50.0,18.9,False,,,none,True,False,0,,541,,,False
-llama3.1:8b,21,WINDOW,Expert,EXECUTION_MISMATCH,50.0,24.0,False,False,False,none,True,False,0,,522,,,False
-llama3.1:8b,22,IMPOSSIBLE,Easy,MISSED_REFUSAL,15.0,0.0,False,,,none,,False,1,,479,,,False
-llama3.1:8b,23,IMPOSSIBLE,Easy,MISSED_REFUSAL,35.0,0.0,False,,,none,,False,0,,490,,,False
-llama3.1:8b,24,IMPOSSIBLE,Easy,CORRECT_REFUSAL,100.0,100.0,True,,,refusal,,False,0,,479,,,False
-llama3.1:8b,25,DISTINCT,Easy,CORRECT,100.0,100.0,True,True,,execution,True,False,0,,484,,,False
-llama3.1:8b,26,DISTINCT,Medium,CORRECT,100.0,100.0,True,True,,execution,True,False,0,,484,,,False
-llama3.1:8b,27,DISTINCT,Medium,CORRECT,100.0,100.0,True,True,,execution,True,False,0,,488,,,False
-llama3.1:8b,28,LEFT JOIN,Medium,CORRECT,100.0,100.0,True,True,,execution,True,False,0,,508,,,False
-llama3.1:8b,29,LEFT JOIN,Medium,CORRECT,100.0,100.0,True,True,,execution,True,False,0,,506,,,False
-llama3.1:8b,30,LEFT JOIN,Medium,CORRECT,100.0,100.0,True,True,,execution,True,False,0,,511,,,False
-llama3.1:8b,31,LEFT JOIN,Hard,CORRECT,100.0,83.1,False,True,,execution,True,False,0,,516,,,False
-llama3.1:8b,32,GROUP BY,Medium,EXECUTION_MISMATCH,50.0,67.3,False,False,False,none,True,False,0,,508,,,False
-llama3.1:8b,33,GROUP BY,Medium,EXECUTION_MISMATCH,50.0,83.8,False,False,False,none,True,False,0,,497,,,False
-llama3.1:8b,34,GROUP BY,Medium,CORRECT,100.0,79.2,False,True,,execution,True,False,0,,529,,,False
-llama3.1:8b,35,GROUP BY,Hard,EXECUTION_MISMATCH,50.0,56.6,False,False,False,none,True,False,0,,510,,,False
-llama3.1:8b,36,GROUP BY,Medium,EXECUTION_MISMATCH,50.0,83.7,False,False,False,none,True,False,0,,492,,,False
-llama3.1:8b,37,HAVING,Hard,EXECUTION_MISMATCH,50.0,63.2,False,False,False,none,True,False,0,,522,,,False
-llama3.1:8b,38,HAVING,Hard,EXECUTION_MISMATCH,50.0,66.1,False,False,False,none,True,False,0,,510,,,False
-llama3.1:8b,39,HAVING,Medium,EXECUTION_MISMATCH,50.0,61.6,False,False,False,none,True,False,0,,508,,,False
-llama3.1:8b,40,HAVING,Hard,EXECUTION_MISMATCH,50.0,85.2,False,False,False,none,True,False,0,,518,,,False
-llama3.1:8b,41,COUNT,Easy,CORRECT,100.0,100.0,True,True,,execution,True,False,0,,481,,,False
-llama3.1:8b,42,COUNT,Easy,EXECUTION_MISMATCH,50.0,29.1,False,False,False,none,True,False,0,,511,,,False
-llama3.1:8b,43,COUNT,Medium,CORRECT,100.0,86.2,False,True,,execution,True,False,0,,488,,,False
-llama3.1:8b,44,COUNT,Medium,CORRECT,100.0,88.2,False,True,,execution,True,False,0,,490,,,False
-llama3.1:8b,45,SUM,Medium,CORRECT,100.0,100.0,True,True,,execution,True,False,0,,487,,,False
-llama3.1:8b,46,SUM,Medium,EXECUTION_MISMATCH,50.0,59.0,False,False,False,none,True,False,0,,534,,,False
-llama3.1:8b,47,SUM,Medium,CORRECT,100.0,93.4,False,True,,execution,True,False,0,,492,,,False
-llama3.1:8b,48,SUM,Hard,EXECUTION_MISMATCH,50.0,66.8,False,False,False,none,True,False,0,,541,,,False
-llama3.1:8b,49,AVG,Medium,CORRECT,100.0,100.0,True,True,,execution,True,False,0,,484,,,False
-llama3.1:8b,50,AVG,Medium,CORRECT,100.0,100.0,True,True,,execution,True,False,0,,513,,,False
-llama3.1:8b,51,AVG,Hard,EXECUTION_MISMATCH,50.0,46.8,False,False,False,none,True,False,0,,487,,,False
-llama3.1:8b,52,MAX,Easy,CORRECT,100.0,100.0,True,True,,execution,True,False,0,,485,,,False
-llama3.1:8b,53,MIN,Easy,EXECUTION_MISMATCH,50.0,91.3,False,False,False,none,True,False,0,,493,,,False
-llama3.1:8b,54,MAX,Medium,CORRECT,100.0,97.1,False,True,,execution,True,False,0,,500,,,False
-llama3.1:8b,55,MIN,Medium,CORRECT,100.0,100.0,True,True,,execution,True,False,0,,486,,,False
-llama3.1:8b,56,CASE,Medium,EXECUTION_MISMATCH,30.0,83.5,False,False,False,none,True,False,2,,529,,,False
-llama3.1:8b,57,CASE,Hard,EXECUTION_MISMATCH,50.0,87.4,False,False,False,none,True,False,0,,557,,,False
-llama3.1:8b,58,CASE,Medium,EXECUTION_MISMATCH,50.0,74.8,False,False,False,none,True,False,0,,544,,,False
-llama3.1:8b,59,SUBQUERY,Hard,EXECUTION_MISMATCH,50.0,88.3,False,False,False,none,True,False,0,,502,,,False
-llama3.1:8b,60,SUBQUERY,Hard,EXECUTION_MISMATCH,50.0,89.4,False,False,False,none,True,False,0,,525,,,False
-llama3.1:8b,61,SUBQUERY,Hard,CORRECT,100.0,40.4,False,True,,execution,True,False,0,,509,,,False
-llama3.1:8b,62,SUBQUERY,Expert,CORRECT,100.0,59.3,False,True,,execution,True,False,0,,533,,,False
-llama3.1:8b,63,SUBQUERY,Hard,EXECUTION_MISMATCH,50.0,90.6,False,False,False,none,True,False,0,,497,,,False
-llama3.1:8b,64,EXISTS,Hard,EXECUTION_MISMATCH,50.0,69.2,False,False,False,none,True,False,0,,501,,,False
-llama3.1:8b,65,EXISTS,Hard,EXECUTION_MISMATCH,50.0,53.8,False,False,False,none,True,False,0,,514,,,False
-llama3.1:8b,66,EXISTS,Expert,EXECUTION_MISMATCH,50.0,54.3,False,False,False,none,True,False,0,,516,,,False
-llama3.1:8b,67,NOT EXISTS,Hard,EXECUTION_MISMATCH,50.0,61.4,False,False,False,none,True,False,0,,508,,,False
-llama3.1:8b,68,NOT EXISTS,Expert,EXECUTION_MISMATCH,50.0,59.6,False,False,False,none,True,False,0,,509,,,False
-llama3.1:8b,69,IN,Medium,CORRECT,100.0,98.9,False,True,,execution,True,False,0,,525,,,False
-llama3.1:8b,70,IN,Medium,CORRECT,100.0,100.0,True,True,,execution,True,False,0,,501,,,False
-llama3.1:8b,71,IN,Medium,EXECUTION_MISMATCH,50.0,95.1,False,False,False,none,True,False,0,,519,,,False
-llama3.1:8b,72,UNION,Hard,CORRECT,100.0,86.8,False,True,,execution,True,False,0,,496,,,False
-llama3.1:8b,73,UNION,Expert,CORRECT,100.0,88.2,False,True,,execution,True,False,0,,502,,,False
-llama3.1:8b,74,CTE,Expert,EXECUTION_MISMATCH,30.0,40.0,False,False,False,none,True,False,1,,566,,,False
-llama3.1:8b,75,CTE,Expert,EXECUTION_MISMATCH,30.0,65.6,False,False,False,none,True,False,1,,581,,,False
-llama3.1:8b,76,CTE,Expert,EXECUTION_MISMATCH,30.0,30.3,False,False,False,none,True,False,1,,588,,,False
-llama3.1:8b,77,WINDOW,Expert,EXECUTION_MISMATCH,50.0,42.7,False,False,False,none,True,False,0,,572,,,False
-llama3.1:8b,78,WINDOW,Expert,EXECUTION_MISMATCH,50.0,75.5,False,False,False,none,True,False,0,,532,,,False
-llama3.1:8b,79,WINDOW,Expert,EXECUTION_MISMATCH,50.0,70.8,False,False,False,none,True,False,0,,532,,,False
-llama3.1:8b,80,DATE,Medium,EXECUTION_ERROR,50.0,46.9,False,,False,none,True,False,0,,521,,,False
-llama3.1:8b,81,DATE,Medium,EXECUTION_ERROR,50.0,81.1,False,,False,none,True,False,0,,496,,,False
-llama3.1:8b,82,DATE,Hard,EXECUTION_ERROR,50.0,54.7,False,,False,none,True,False,0,,539,,,False
-llama3.1:8b,83,DATE,Medium,EXECUTION_ERROR,50.0,78.8,False,,False,none,True,False,0,,497,,,False
-llama3.1:8b,84,NULL,Medium,CORRECT,100.0,100.0,True,True,,execution,True,False,0,,489,,,False
-llama3.1:8b,85,NULL,Hard,CORRECT,100.0,100.0,True,True,,execution,True,False,0,,491,,,False
-llama3.1:8b,86,NULL,Medium,CORRECT,100.0,83.2,False,True,,execution,True,False,0,,494,,,False
-llama3.1:8b,87,NULL,Hard,EXECUTION_MISMATCH,50.0,66.7,False,False,False,none,True,False,0,,530,,,False
-llama3.1:8b,88,IMPOSSIBLE,Easy,MISSED_REFUSAL,35.0,0.0,False,,,none,,False,0,,516,,,False
-llama3.1:8b,89,IMPOSSIBLE,Easy,CORRECT_REFUSAL,100.0,100.0,True,,,refusal,,False,0,,481,,,False
-llama3.1:8b,90,IMPOSSIBLE,Medium,MISSED_REFUSAL,35.0,0.0,False,,,none,,False,0,,521,,,False
-llama3.1:8b,91,IMPOSSIBLE,Medium,MISSED_REFUSAL,15.0,0.0,False,,,none,,False,1,,505,,,False
+llama3.1:8b,1,SELECT,Easy,CORRECT,100.0,100.0,True,True,,execution,True,False,0,31.5,479,209.3,,False
+llama3.1:8b,2,SELECT,Easy,CORRECT,100.0,100.0,True,True,,execution,True,False,0,2.68,479,209.4,,False
+llama3.1:8b,3,FILTER,Easy,CORRECT,100.0,100.0,True,True,,execution,True,False,0,4.85,488,209.4,,False
+llama3.1:8b,4,ORDER BY,Easy,CORRECT,100.0,100.0,True,True,,execution,True,False,0,4.85,487,209.4,,False
+llama3.1:8b,5,LIMIT,Easy,EXECUTION_ERROR,50.0,70.2,False,,,none,True,False,0,7.37,496,209.4,,False
+llama3.1:8b,6,JOIN,Medium,CORRECT,100.0,100.0,True,True,,execution,True,False,0,9.55,503,209.4,,False
+llama3.1:8b,7,JOIN,Medium,CORRECT,100.0,94.5,False,True,,execution,True,False,0,10.55,505,209.4,,False
+llama3.1:8b,8,JOIN,Medium,CORRECT,100.0,100.0,True,True,,execution,True,False,0,9.55,501,209.4,,False
+llama3.1:8b,9,JOIN,Medium,EXECUTION_MISMATCH,50.0,63.7,False,False,False,none,True,False,0,12.57,510,209.4,,False
+llama3.1:8b,10,COUNT,Easy,CORRECT,100.0,82.9,False,True,,execution,True,False,0,3.86,484,209.4,,False
+llama3.1:8b,11,SUM,Medium,EXECUTION_MISMATCH,50.0,48.0,False,False,False,none,True,False,0,7.36,492,209.4,,False
+llama3.1:8b,12,AVG,Medium,CORRECT,100.0,100.0,True,True,,execution,True,False,0,3.86,483,209.4,,False
+llama3.1:8b,13,GROUP BY,Medium,EXECUTION_MISMATCH,50.0,74.6,False,False,False,none,True,False,0,22.96,541,209.4,,False
+llama3.1:8b,14,HAVING,Hard,EXECUTION_MISMATCH,50.0,84.4,False,False,False,none,True,False,0,14.06,516,209.4,,False
+llama3.1:8b,15,SUBQUERY,Hard,EXECUTION_MISMATCH,50.0,58.9,False,False,False,none,True,False,0,5.7,490,209.4,,False
+llama3.1:8b,16,SUBQUERY,Hard,EXECUTION_MISMATCH,50.0,20.8,False,False,False,none,True,False,0,17.56,530,209.4,,False
+llama3.1:8b,17,DATE,Medium,CORRECT,100.0,67.6,False,True,,execution,True,False,0,10.73,506,209.4,,False
+llama3.1:8b,18,DATE,Medium,EXECUTION_ERROR,50.0,79.3,False,,False,none,True,False,0,7.2,494,209.4,,False
+llama3.1:8b,19,NULL,Hard,EXECUTION_MISMATCH,50.0,62.1,False,False,False,none,True,False,0,10.89,507,209.4,,False
+llama3.1:8b,20,CTE,Expert,EXECUTION_ERROR,50.0,18.9,False,,,none,True,False,0,22.09,541,209.4,,False
+llama3.1:8b,21,WINDOW,Expert,EXECUTION_MISMATCH,50.0,24.0,False,False,False,none,True,False,0,16.59,522,209.4,,False
+llama3.1:8b,22,IMPOSSIBLE,Easy,MISSED_REFUSAL,15.0,0.0,False,,,none,,False,1,2.68,479,209.4,,False
+llama3.1:8b,23,IMPOSSIBLE,Easy,MISSED_REFUSAL,35.0,0.0,False,,,none,,False,0,6.51,490,209.4,,False
+llama3.1:8b,24,IMPOSSIBLE,Easy,CORRECT_REFUSAL,100.0,100.0,True,,,refusal,,False,0,2.85,479,209.4,,False
+llama3.1:8b,25,DISTINCT,Easy,CORRECT,100.0,100.0,True,True,,execution,True,False,0,3.35,484,209.4,,False
+llama3.1:8b,26,DISTINCT,Medium,CORRECT,100.0,100.0,True,True,,execution,True,False,0,3.02,484,209.4,,False
+llama3.1:8b,27,DISTINCT,Medium,CORRECT,100.0,100.0,True,True,,execution,True,False,0,3.68,488,209.5,,False
+llama3.1:8b,28,LEFT JOIN,Medium,CORRECT,100.0,100.0,True,True,,execution,True,False,0,9.71,508,209.5,,False
+llama3.1:8b,29,LEFT JOIN,Medium,CORRECT,100.0,100.0,True,True,,execution,True,False,0,9.05,506,209.5,,False
+llama3.1:8b,30,LEFT JOIN,Medium,CORRECT,100.0,100.0,True,True,,execution,True,False,0,10.72,511,209.5,,False
+llama3.1:8b,31,LEFT JOIN,Hard,CORRECT,100.0,83.1,False,True,,execution,True,False,0,11.54,516,209.6,,False
+llama3.1:8b,32,GROUP BY,Medium,EXECUTION_MISMATCH,50.0,67.3,False,False,False,none,True,False,0,11.06,508,209.6,,False
+llama3.1:8b,33,GROUP BY,Medium,EXECUTION_MISMATCH,50.0,83.8,False,False,False,none,True,False,0,7.7,497,209.6,,False
+llama3.1:8b,34,GROUP BY,Medium,CORRECT,100.0,79.2,False,True,,execution,True,False,0,17.42,529,209.6,,False
+llama3.1:8b,35,GROUP BY,Hard,EXECUTION_MISMATCH,50.0,56.6,False,False,False,none,True,False,0,11.87,510,209.6,,False
+llama3.1:8b,36,GROUP BY,Medium,EXECUTION_MISMATCH,50.0,83.7,False,False,False,none,True,False,0,5.53,492,209.6,,False
+llama3.1:8b,37,HAVING,Hard,EXECUTION_MISMATCH,50.0,63.2,False,False,False,none,True,False,0,14.58,522,209.6,,False
+llama3.1:8b,38,HAVING,Hard,EXECUTION_MISMATCH,50.0,66.1,False,False,False,none,True,False,0,11.73,510,209.6,,False
+llama3.1:8b,39,HAVING,Medium,EXECUTION_MISMATCH,50.0,61.6,False,False,False,none,True,False,0,11.03,508,209.6,,False
+llama3.1:8b,40,HAVING,Hard,EXECUTION_MISMATCH,50.0,85.2,False,False,False,none,True,False,0,13.92,518,209.6,,False
+llama3.1:8b,41,COUNT,Easy,CORRECT,100.0,100.0,True,True,,execution,True,False,0,3.18,481,207.4,,False
+llama3.1:8b,42,COUNT,Easy,EXECUTION_MISMATCH,50.0,29.1,False,False,False,none,True,False,0,12.39,511,207.4,,False
+llama3.1:8b,43,COUNT,Medium,CORRECT,100.0,86.2,False,True,,execution,True,False,0,5.0,488,207.4,,False
+llama3.1:8b,44,COUNT,Medium,CORRECT,100.0,88.2,False,True,,execution,True,False,0,5.19,490,207.4,,False
+llama3.1:8b,45,SUM,Medium,CORRECT,100.0,100.0,True,True,,execution,True,False,0,4.02,487,207.4,,False
+llama3.1:8b,46,SUM,Medium,EXECUTION_MISMATCH,50.0,59.0,False,False,False,none,True,False,0,19.94,534,207.4,,False
+llama3.1:8b,47,SUM,Medium,CORRECT,100.0,93.4,False,True,,execution,True,False,0,6.18,492,207.4,,False
+llama3.1:8b,48,SUM,Hard,EXECUTION_MISMATCH,50.0,66.8,False,False,False,none,True,False,0,22.62,541,207.4,,False
+llama3.1:8b,49,AVG,Medium,CORRECT,100.0,100.0,True,True,,execution,True,False,0,3.85,484,207.4,,False
+llama3.1:8b,50,AVG,Medium,CORRECT,100.0,100.0,True,True,,execution,True,False,0,11.22,513,207.4,,False
+llama3.1:8b,51,AVG,Hard,EXECUTION_MISMATCH,50.0,46.8,False,False,False,none,True,False,0,3.82,487,207.4,,False
+llama3.1:8b,52,MAX,Easy,CORRECT,100.0,100.0,True,True,,execution,True,False,0,3.85,485,207.4,,False
+llama3.1:8b,53,MIN,Easy,EXECUTION_MISMATCH,50.0,91.3,False,False,False,none,True,False,0,7.21,493,207.4,,False
+llama3.1:8b,54,MAX,Medium,CORRECT,100.0,97.1,False,True,,execution,True,False,0,7.87,500,207.4,,False
+llama3.1:8b,55,MIN,Medium,CORRECT,100.0,100.0,True,True,,execution,True,False,0,3.82,486,207.4,,False
+llama3.1:8b,56,CASE,Medium,EXECUTION_MISMATCH,30.0,83.5,False,False,False,none,True,False,2,15.08,529,207.4,,False
+llama3.1:8b,57,CASE,Hard,EXECUTION_MISMATCH,50.0,87.4,False,False,False,none,True,False,0,21.12,557,207.4,,False
+llama3.1:8b,58,CASE,Medium,EXECUTION_MISMATCH,50.0,74.8,False,False,False,none,True,False,0,21.44,544,207.4,,False
+llama3.1:8b,59,SUBQUERY,Hard,EXECUTION_MISMATCH,50.0,88.3,False,False,False,none,True,False,0,9.03,502,207.4,,False
+llama3.1:8b,60,SUBQUERY,Hard,EXECUTION_MISMATCH,50.0,89.4,False,False,False,none,True,False,0,16.42,525,207.5,,False
+llama3.1:8b,61,SUBQUERY,Hard,CORRECT,100.0,40.4,False,True,,execution,True,False,0,12.06,509,207.5,,False
+llama3.1:8b,62,SUBQUERY,Expert,CORRECT,100.0,59.3,False,True,,execution,True,False,0,17.94,533,207.5,,False
+llama3.1:8b,63,SUBQUERY,Hard,EXECUTION_MISMATCH,50.0,90.6,False,False,False,none,True,False,0,7.85,497,207.5,,False
+llama3.1:8b,64,EXISTS,Hard,EXECUTION_MISMATCH,50.0,69.2,False,False,False,none,True,False,0,8.38,501,207.5,,False
+llama3.1:8b,65,EXISTS,Hard,EXECUTION_MISMATCH,50.0,53.8,False,False,False,none,True,False,0,13.07,514,207.5,,False
+llama3.1:8b,66,EXISTS,Expert,EXECUTION_MISMATCH,50.0,54.3,False,False,False,none,True,False,0,13.57,516,207.5,,False
+llama3.1:8b,67,NOT EXISTS,Hard,EXECUTION_MISMATCH,50.0,61.4,False,False,False,none,True,False,0,11.06,508,207.5,,False
+llama3.1:8b,68,NOT EXISTS,Expert,EXECUTION_MISMATCH,50.0,59.6,False,False,False,none,True,False,0,11.73,509,207.5,,False
+llama3.1:8b,69,IN,Medium,CORRECT,100.0,98.9,False,True,,execution,True,False,0,15.08,525,207.5,,False
+llama3.1:8b,70,IN,Medium,CORRECT,100.0,100.0,True,True,,execution,True,False,0,7.7,501,207.5,,False
+llama3.1:8b,71,IN,Medium,EXECUTION_MISMATCH,50.0,95.1,False,False,False,none,True,False,0,13.07,519,207.5,,False
+llama3.1:8b,72,UNION,Hard,CORRECT,100.0,86.8,False,True,,execution,True,False,0,5.53,496,207.5,,False
+llama3.1:8b,73,UNION,Expert,CORRECT,100.0,88.2,False,True,,execution,True,False,0,6.87,502,207.5,,False
+llama3.1:8b,74,CTE,Expert,EXECUTION_MISMATCH,30.0,40.0,False,False,False,none,True,False,1,26.97,566,207.5,,False
+llama3.1:8b,75,CTE,Expert,EXECUTION_MISMATCH,30.0,65.6,False,False,False,none,True,False,1,33.17,581,207.5,,False
+llama3.1:8b,76,CTE,Expert,EXECUTION_MISMATCH,30.0,30.3,False,False,False,none,True,False,1,36.37,588,207.5,,False
+llama3.1:8b,77,WINDOW,Expert,EXECUTION_MISMATCH,50.0,42.7,False,False,False,none,True,False,0,29.83,572,207.5,,False
+llama3.1:8b,78,WINDOW,Expert,EXECUTION_MISMATCH,50.0,75.5,False,False,False,none,True,False,0,18.09,532,207.5,,False
+llama3.1:8b,79,WINDOW,Expert,EXECUTION_MISMATCH,50.0,70.8,False,False,False,none,True,False,0,15.56,532,207.5,,False
+llama3.1:8b,80,DATE,Medium,EXECUTION_ERROR,50.0,46.9,False,,False,none,True,False,0,14.58,521,207.5,,False
+llama3.1:8b,81,DATE,Medium,EXECUTION_ERROR,50.0,81.1,False,,False,none,True,False,0,7.03,496,207.5,,False
+llama3.1:8b,82,DATE,Hard,EXECUTION_ERROR,50.0,54.7,False,,False,none,True,False,0,21.79,539,207.5,,False
+llama3.1:8b,83,DATE,Medium,EXECUTION_ERROR,50.0,78.8,False,,False,none,True,False,0,7.2,497,207.5,,False
+llama3.1:8b,84,NULL,Medium,CORRECT,100.0,100.0,True,True,,execution,True,False,0,4.69,489,207.5,,False
+llama3.1:8b,85,NULL,Hard,CORRECT,100.0,100.0,True,True,,execution,True,False,0,4.53,491,207.5,,False
+llama3.1:8b,86,NULL,Medium,CORRECT,100.0,83.2,False,True,,execution,True,False,0,6.69,494,207.5,,False
+llama3.1:8b,87,NULL,Hard,EXECUTION_MISMATCH,50.0,66.7,False,False,False,none,True,False,0,15.25,530,207.5,,False
+llama3.1:8b,88,IMPOSSIBLE,Easy,MISSED_REFUSAL,35.0,0.0,False,,,none,,False,0,15.08,516,207.5,,False
+llama3.1:8b,89,IMPOSSIBLE,Easy,CORRECT_REFUSAL,100.0,100.0,True,,,refusal,,False,0,3.17,481,207.5,,False
+llama3.1:8b,90,IMPOSSIBLE,Medium,MISSED_REFUSAL,35.0,0.0,False,,,none,,False,0,15.75,521,207.5,,False
+llama3.1:8b,91,IMPOSSIBLE,Medium,MISSED_REFUSAL,15.0,0.0,False,,,none,,False,1,10.05,505,207.5,,False
 deepseek-r1:7b,1,SELECT,Easy,EXECUTION_MISMATCH,50.0,62.0,False,False,False,none,True,False,0,95.3,655,208.6,,False
 deepseek-r1:7b,2,SELECT,Easy,CORRECT,100.0,31.1,False,True,,execution,True,False,0,99.37,766,208.6,,False
 deepseek-r1:7b,3,FILTER,Easy,SYNTAX_ERROR,35.0,57.8,False,,,none,False,False,0,182.2,982,208.7,,False
