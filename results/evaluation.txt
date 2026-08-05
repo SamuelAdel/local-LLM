@@ -4,34 +4,2420 @@ SQL ACCURACY / HALLUCINATION REPORT
 
 DIAGNOSTICS (read this before the results below)
 --------------------------------------------------------------------------------
-  Execution matching : DISABLED -- no --db was passed this run, so execution_match
-    is blank for all 21 eligible question(s). Run with
-    `python evaluate.py --db path/to/database.sqlite` to enable it -- this is the
-    strongest correctness signal and the one most REVIEW verdicts need.
-  Canonical matching  : DISABLED -- `sqlglot` is not installed, so canonical_match is
-    blank for all 21 eligible question(s). Run `pip install sqlglot` to
-    enable it.
+  Execution matching : ACTIVE (--db was provided) -- 252/273 eligible questions got an execution_match verdict.
+  Canonical matching  : ACTIVE (sqlglot installed) -- 151/273 eligible questions got a canonical_match verdict.
 
-  => Neither signal is active this run. Every non-exact-match question below
-     will show as REVIEW/blank regardless of whether the SQL is actually correct.
-     The verdicts and score below are NOT yet the execution-based evaluation.
+
+================================================================================
+MODEL : qwen2.5-coder:7b
+================================================================================
+
+[Q1] (SELECT/Easy, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 39.3%
+    exact_match  : False
+    execution_match : True
+    matched_via  : execution
+    latency      : 42.54s
+    total_tokens : 513
+
+[Q2] (SELECT/Easy, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 76.4%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 4.01s
+    total_tokens : 499
+
+[Q3] (FILTER/Easy, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 86.0%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 3.1s
+    total_tokens : 508
+
+[Q4] (ORDER BY/Easy, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 47.9%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 7.04s
+    total_tokens : 532
+
+[Q5] (LIMIT/Easy, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 81.2%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 3.69s
+    total_tokens : 512
+
+[Q6] (JOIN/Medium, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 100.0%
+    exact_match  : True
+    execution_match : True
+    matched_via  : execution
+    latency      : 4.86s
+    total_tokens : 520
+
+[Q7] (JOIN/Medium, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 100.0%
+    exact_match  : True
+    execution_match : True
+    matched_via  : execution
+    latency      : 5.24s
+    total_tokens : 521
+
+[Q8] (JOIN/Medium, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 100.0%
+    exact_match  : True
+    execution_match : True
+    matched_via  : execution
+    latency      : 4.97s
+    total_tokens : 517
+
+[Q9] (JOIN/Medium, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 95.3%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 7.12s
+    total_tokens : 529
+
+[Q10] (COUNT/Easy, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 82.9%
+    exact_match  : False
+    execution_match : True
+    matched_via  : execution
+    latency      : 2.47s
+    total_tokens : 503
+
+[Q11] (SUM/Medium, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 82.8%
+    exact_match  : False
+    execution_match : True
+    matched_via  : execution
+    latency      : 2.65s
+    total_tokens : 504
+
+[Q12] (AVG/Medium, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 75.0%
+    exact_match  : False
+    execution_match : True
+    matched_via  : execution
+    latency      : 2.86s
+    total_tokens : 506
+
+[Q13] (GROUP BY/Medium, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 79.5%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 13.72s
+    total_tokens : 569
+
+[Q14] (HAVING/Hard, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 96.2%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 11.53s
+    total_tokens : 556
+
+[Q15] (SUBQUERY/Hard, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 54.4%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 3.59s
+    total_tokens : 511
+
+[Q16] (SUBQUERY/Hard, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 17.6%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 22.57s
+    total_tokens : 623
+
+[Q17] (DATE/Medium, SQL) -> EXECUTION_ERROR
+    score        : 50.0/100
+    similarity   : 82.1%
+    exact_match  : False
+    canonical_match : False
+    latency      : 4.9s
+    total_tokens : 520
+
+[Q18] (DATE/Medium, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 63.7%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 7.87s
+    total_tokens : 533
+
+[Q19] (NULL/Hard, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 56.1%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 4.65s
+    total_tokens : 514
+
+[Q20] (CTE/Expert, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 38.0%
+    exact_match  : False
+    execution_match : True
+    matched_via  : execution
+    latency      : 10.36s
+    total_tokens : 545
+
+[Q21] (WINDOW/Expert, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 23.6%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 8.73s
+    total_tokens : 538
+
+[Q22] (IMPOSSIBLE/Easy, REFUSAL) -> CORRECT_REFUSAL
+    score        : 100.0/100
+    similarity   : 100.0%
+    exact_match  : True
+    matched_via  : refusal
+    correctly_refused : True
+    latency      : 1.97s
+    total_tokens : 498
+
+[Q23] (IMPOSSIBLE/Easy, REFUSAL) -> MISSED_REFUSAL
+    score        : 35.0/100
+    similarity   : 0.0%
+    exact_match  : False
+    correctly_refused : False
+    latency      : 6.63s
+    total_tokens : 525
+
+[Q24] (IMPOSSIBLE/Easy, REFUSAL) -> CORRECT_REFUSAL
+    score        : 100.0/100
+    similarity   : 100.0%
+    exact_match  : True
+    matched_via  : refusal
+    correctly_refused : True
+    latency      : 1.82s
+    total_tokens : 498
+
+[Q25] (DISTINCT/Easy, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 100.0%
+    exact_match  : True
+    execution_match : True
+    matched_via  : execution
+    latency      : 2.35s
+    total_tokens : 503
+
+[Q26] (DISTINCT/Medium, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 100.0%
+    exact_match  : True
+    execution_match : True
+    matched_via  : execution
+    latency      : 2.03s
+    total_tokens : 503
+
+[Q27] (DISTINCT/Medium, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 100.0%
+    exact_match  : True
+    execution_match : True
+    matched_via  : execution
+    latency      : 2.59s
+    total_tokens : 507
+
+[Q28] (LEFT JOIN/Medium, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 82.1%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 11.37s
+    total_tokens : 559
+
+[Q29] (LEFT JOIN/Medium, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 92.9%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 8.95s
+    total_tokens : 543
+
+[Q30] (LEFT JOIN/Medium, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 88.3%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 11.03s
+    total_tokens : 554
+
+[Q31] (LEFT JOIN/Hard, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 92.6%
+    exact_match  : False
+    execution_match : True
+    matched_via  : execution
+    latency      : 9.48s
+    total_tokens : 547
+
+[Q32] (GROUP BY/Medium, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 95.3%
+    exact_match  : False
+    execution_match : True
+    matched_via  : execution
+    latency      : 7.06s
+    total_tokens : 531
+
+[Q33] (GROUP BY/Medium, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 66.1%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 7.34s
+    total_tokens : 532
+
+[Q34] (GROUP BY/Medium, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 93.6%
+    exact_match  : False
+    execution_match : True
+    matched_via  : execution
+    latency      : 9.4s
+    total_tokens : 543
+
+[Q35] (GROUP BY/Hard, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 69.8%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 7.33s
+    total_tokens : 529
+
+[Q36] (GROUP BY/Medium, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 92.4%
+    exact_match  : False
+    execution_match : True
+    matched_via  : execution
+    latency      : 5.41s
+    total_tokens : 520
+
+[Q37] (HAVING/Hard, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 57.1%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 11.24s
+    total_tokens : 552
+
+[Q38] (HAVING/Hard, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 83.9%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 7.43s
+    total_tokens : 531
+
+[Q39] (HAVING/Medium, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 83.8%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 7.79s
+    total_tokens : 535
+
+[Q40] (HAVING/Hard, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 95.2%
+    exact_match  : False
+    execution_match : True
+    matched_via  : execution
+    latency      : 8.8s
+    total_tokens : 540
+
+[Q41] (COUNT/Easy, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 100.0%
+    exact_match  : True
+    execution_match : True
+    matched_via  : execution
+    latency      : 2.22s
+    total_tokens : 501
+
+[Q42] (COUNT/Easy, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 61.2%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 6.93s
+    total_tokens : 530
+
+[Q43] (COUNT/Medium, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 95.3%
+    exact_match  : False
+    execution_match : True
+    matched_via  : execution
+    latency      : 2.68s
+    total_tokens : 505
+
+[Q44] (COUNT/Medium, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 93.8%
+    exact_match  : False
+    execution_match : True
+    matched_via  : execution
+    latency      : 4.18s
+    total_tokens : 515
+
+[Q45] (SUM/Medium, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 84.2%
+    exact_match  : False
+    execution_match : True
+    matched_via  : execution
+    latency      : 3.22s
+    total_tokens : 509
+
+[Q46] (SUM/Medium, SQL) -> EXECUTION_ERROR
+    score        : 30.0/100
+    similarity   : 76.9%
+    exact_match  : False
+    canonical_match : False
+    latency      : 11.12s
+    total_tokens : 554
+    HALLUCINATION FLAGS:
+      - unknown column 'shipVia' on table 'orders' (via 'o.shipVia')
+
+[Q47] (SUM/Medium, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 94.3%
+    exact_match  : False
+    execution_match : True
+    matched_via  : execution
+    latency      : 4.77s
+    total_tokens : 518
+
+[Q48] (SUM/Hard, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 100.0%
+    exact_match  : True
+    execution_match : True
+    matched_via  : execution
+    latency      : 10.14s
+    total_tokens : 548
+
+[Q49] (AVG/Medium, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 74.2%
+    exact_match  : False
+    execution_match : True
+    matched_via  : execution
+    latency      : 3.23s
+    total_tokens : 507
+
+[Q50] (AVG/Medium, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 55.6%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 8.71s
+    total_tokens : 544
+
+[Q51] (AVG/Hard, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 52.4%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 3.43s
+    total_tokens : 511
+
+[Q52] (MAX/Easy, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 75.8%
+    exact_match  : False
+    execution_match : True
+    matched_via  : execution
+    latency      : 3.18s
+    total_tokens : 508
+
+[Q53] (MIN/Easy, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 80.9%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 3.75s
+    total_tokens : 510
+
+[Q54] (MAX/Medium, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 63.9%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 7.5s
+    total_tokens : 534
+
+[Q55] (MIN/Medium, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 76.6%
+    exact_match  : False
+    execution_match : True
+    matched_via  : execution
+    latency      : 3.52s
+    total_tokens : 511
+
+[Q56] (CASE/Medium, SQL) -> EXECUTION_MISMATCH
+    score        : 30.0/100
+    similarity   : 95.0%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 8.69s
+    total_tokens : 549
+    HALLUCINATION FLAGS:
+      - unknown column 'Expensive' on table 'products' (bare reference in SELECT)
+      - unknown column 'Affordable' on table 'products' (bare reference in SELECT)
+
+[Q57] (CASE/Hard, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 87.4%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 13.44s
+    total_tokens : 593
+
+[Q58] (CASE/Medium, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 74.8%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 10.89s
+    total_tokens : 557
+
+[Q59] (SUBQUERY/Hard, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 92.4%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 4.41s
+    total_tokens : 516
+
+[Q60] (SUBQUERY/Hard, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 45.3%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 13.95s
+    total_tokens : 571
+
+[Q61] (SUBQUERY/Hard, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 92.7%
+    exact_match  : False
+    execution_match : True
+    matched_via  : execution
+    latency      : 4.37s
+    total_tokens : 515
+
+[Q62] (SUBQUERY/Expert, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 64.2%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 14.35s
+    total_tokens : 571
+
+[Q63] (SUBQUERY/Hard, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 84.2%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 4.12s
+    total_tokens : 512
+
+[Q64] (EXISTS/Hard, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 52.5%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 6.65s
+    total_tokens : 530
+
+[Q65] (EXISTS/Hard, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 54.9%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 6.89s
+    total_tokens : 531
+
+[Q66] (EXISTS/Expert, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 57.8%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 6.32s
+    total_tokens : 527
+
+[Q67] (NOT EXISTS/Hard, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 58.6%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 4.16s
+    total_tokens : 515
+
+[Q68] (NOT EXISTS/Expert, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 64.3%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 4.87s
+    total_tokens : 518
+
+[Q69] (IN/Medium, SQL) -> EXECUTION_ERROR
+    score        : 30.0/100
+    similarity   : 57.9%
+    exact_match  : False
+    canonical_match : False
+    latency      : 17.41s
+    total_tokens : 588
+    HALLUCINATION FLAGS:
+      - unknown column 'ship_via' on table 'orders' (via 'o.ship_via')
+
+[Q70] (IN/Medium, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 91.1%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 5.06s
+    total_tokens : 521
+
+[Q71] (IN/Medium, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 95.1%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 7.23s
+    total_tokens : 535
+
+[Q72] (UNION/Hard, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 86.8%
+    exact_match  : False
+    execution_match : True
+    matched_via  : execution
+    latency      : 3.58s
+    total_tokens : 515
+
+[Q73] (UNION/Expert, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 88.2%
+    exact_match  : False
+    execution_match : True
+    matched_via  : execution
+    latency      : 4.49s
+    total_tokens : 521
+
+[Q74] (CTE/Expert, SQL) -> EXECUTION_MISMATCH
+    score        : 30.0/100
+    similarity   : 40.2%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 17.14s
+    total_tokens : 592
+    HALLUCINATION FLAGS:
+      - unknown table referenced: 'Category_Revenue'
+
+[Q75] (CTE/Expert, SQL) -> EXECUTION_MISMATCH
+    score        : 30.0/100
+    similarity   : 55.2%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 28.08s
+    total_tokens : 643
+    HALLUCINATION FLAGS:
+      - unknown table referenced: 'Customer_Spend'
+
+[Q76] (CTE/Expert, SQL) -> EXECUTION_MISMATCH
+    score        : 30.0/100
+    similarity   : 39.7%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 18.1s
+    total_tokens : 597
+    HALLUCINATION FLAGS:
+      - unknown table referenced: 'Order_Amounts'
+
+[Q77] (WINDOW/Expert, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 44.5%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 19.85s
+    total_tokens : 603
+
+[Q78] (WINDOW/Expert, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 79.6%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 10.77s
+    total_tokens : 553
+
+[Q79] (WINDOW/Expert, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 84.9%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 9.28s
+    total_tokens : 551
+
+[Q80] (DATE/Medium, SQL) -> EXECUTION_ERROR
+    score        : 50.0/100
+    similarity   : 62.1%
+    exact_match  : False
+    canonical_match : False
+    latency      : 7.74s
+    total_tokens : 537
+
+[Q81] (DATE/Medium, SQL) -> EXECUTION_ERROR
+    score        : 50.0/100
+    similarity   : 67.9%
+    exact_match  : False
+    canonical_match : False
+    latency      : 5.4s
+    total_tokens : 521
+
+[Q82] (DATE/Hard, SQL) -> EXECUTION_ERROR
+    score        : 50.0/100
+    similarity   : 54.8%
+    exact_match  : False
+    canonical_match : False
+    latency      : 12.9s
+    total_tokens : 565
+
+[Q83] (DATE/Medium, SQL) -> EXECUTION_ERROR
+    score        : 50.0/100
+    similarity   : 78.8%
+    exact_match  : False
+    canonical_match : False
+    latency      : 4.45s
+    total_tokens : 518
+
+[Q84] (NULL/Medium, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 100.0%
+    exact_match  : True
+    execution_match : True
+    matched_via  : execution
+    latency      : 2.85s
+    total_tokens : 508
+
+[Q85] (NULL/Hard, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 85.7%
+    exact_match  : False
+    execution_match : True
+    matched_via  : execution
+    latency      : 3.09s
+    total_tokens : 511
+
+[Q86] (NULL/Medium, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 87.9%
+    exact_match  : False
+    execution_match : True
+    matched_via  : execution
+    latency      : 3.13s
+    total_tokens : 508
+
+[Q87] (NULL/Hard, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 72.1%
+    exact_match  : False
+    execution_match : True
+    matched_via  : execution
+    latency      : 10.01s
+    total_tokens : 556
+
+[Q88] (IMPOSSIBLE/Easy, REFUSAL) -> CORRECT_REFUSAL
+    score        : 100.0/100
+    similarity   : 100.0%
+    exact_match  : True
+    matched_via  : refusal
+    correctly_refused : True
+    latency      : 1.84s
+    total_tokens : 499
+
+[Q89] (IMPOSSIBLE/Easy, REFUSAL) -> CORRECT_REFUSAL
+    score        : 100.0/100
+    similarity   : 100.0%
+    exact_match  : True
+    matched_via  : refusal
+    correctly_refused : True
+    latency      : 1.92s
+    total_tokens : 500
+
+[Q90] (IMPOSSIBLE/Medium, REFUSAL) -> MISSED_REFUSAL
+    score        : 35.0/100
+    similarity   : 0.0%
+    exact_match  : False
+    correctly_refused : False
+    latency      : 8.32s
+    total_tokens : 536
+
+[Q91] (IMPOSSIBLE/Medium, REFUSAL) -> CORRECT_REFUSAL
+    score        : 100.0/100
+    similarity   : 100.0%
+    exact_match  : True
+    matched_via  : refusal
+    correctly_refused : True
+    latency      : 2.28s
+    total_tokens : 503
+
+
+================================================================================
+MODEL : gemma3:4b
+================================================================================
+
+[Q1] (SELECT/Easy, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 100.0%
+    exact_match  : True
+    execution_match : True
+    matched_via  : execution
+    latency      : 43.55s
+    total_tokens : 621
+
+[Q2] (SELECT/Easy, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 31.1%
+    exact_match  : False
+    execution_match : True
+    matched_via  : execution
+    latency      : 5.56s
+    total_tokens : 641
+
+[Q3] (FILTER/Easy, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 100.0%
+    exact_match  : True
+    execution_match : True
+    matched_via  : execution
+    latency      : 5.16s
+    total_tokens : 632
+
+[Q4] (ORDER BY/Easy, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 71.3%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 5.12s
+    total_tokens : 639
+
+[Q5] (LIMIT/Easy, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 81.2%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 5.3s
+    total_tokens : 639
+
+[Q6] (JOIN/Medium, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 93.0%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 7.64s
+    total_tokens : 663
+
+[Q7] (JOIN/Medium, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 97.2%
+    exact_match  : False
+    execution_match : True
+    matched_via  : execution
+    latency      : 7.01s
+    total_tokens : 657
+
+[Q8] (JOIN/Medium, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 97.2%
+    exact_match  : False
+    execution_match : True
+    matched_via  : execution
+    latency      : 7.31s
+    total_tokens : 660
+
+[Q9] (JOIN/Medium, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 95.5%
+    exact_match  : False
+    execution_match : True
+    matched_via  : execution
+    latency      : 9.53s
+    total_tokens : 681
+
+[Q10] (COUNT/Easy, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 100.0%
+    exact_match  : True
+    execution_match : True
+    matched_via  : execution
+    latency      : 3.48s
+    total_tokens : 624
+
+[Q11] (SUM/Medium, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 36.9%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 7.94s
+    total_tokens : 662
+
+[Q12] (AVG/Medium, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 57.1%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 5.47s
+    total_tokens : 640
+
+[Q13] (GROUP BY/Medium, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 66.4%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 15.5s
+    total_tokens : 719
+
+[Q14] (HAVING/Hard, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 90.1%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 9.13s
+    total_tokens : 676
+
+[Q15] (SUBQUERY/Hard, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 58.9%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 4.14s
+    total_tokens : 630
+
+[Q16] (SUBQUERY/Hard, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 20.9%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 10.13s
+    total_tokens : 688
+
+[Q17] (DATE/Medium, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 100.0%
+    exact_match  : True
+    execution_match : True
+    matched_via  : execution
+    latency      : 4.97s
+    total_tokens : 642
+
+[Q18] (DATE/Medium, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 63.7%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 6.68s
+    total_tokens : 655
+
+[Q19] (NULL/Hard, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 48.4%
+    exact_match  : False
+    execution_match : True
+    matched_via  : execution
+    latency      : 5.03s
+    total_tokens : 641
+
+[Q20] (CTE/Expert, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 18.9%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 14.2s
+    total_tokens : 725
+
+[Q21] (WINDOW/Expert, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 23.7%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 10.78s
+    total_tokens : 692
+
+[Q22] (IMPOSSIBLE/Easy, REFUSAL) -> MISSED_REFUSAL
+    score        : 15.0/100
+    similarity   : 0.0%
+    exact_match  : False
+    correctly_refused : False
+    latency      : 5.68s
+    total_tokens : 641
+    HALLUCINATION FLAGS:
+      - unknown column 'salary' on table 'employees' (bare reference in SELECT)
+
+[Q23] (IMPOSSIBLE/Easy, REFUSAL) -> MISSED_REFUSAL
+    score        : 35.0/100
+    similarity   : 0.0%
+    exact_match  : False
+    correctly_refused : False
+    latency      : 5.28s
+    total_tokens : 639
+
+[Q24] (IMPOSSIBLE/Easy, REFUSAL) -> MISSED_REFUSAL
+    score        : 35.0/100
+    similarity   : 0.0%
+    exact_match  : False
+    correctly_refused : False
+    latency      : 4.56s
+    total_tokens : 632
+
+[Q25] (DISTINCT/Easy, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 100.0%
+    exact_match  : True
+    execution_match : True
+    matched_via  : execution
+    latency      : 3.31s
+    total_tokens : 622
+
+[Q26] (DISTINCT/Medium, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 100.0%
+    exact_match  : True
+    execution_match : True
+    matched_via  : execution
+    latency      : 3.52s
+    total_tokens : 626
+
+[Q27] (DISTINCT/Medium, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 100.0%
+    exact_match  : True
+    execution_match : True
+    matched_via  : execution
+    latency      : 3.51s
+    total_tokens : 627
+
+[Q28] (LEFT JOIN/Medium, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 77.1%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 6.56s
+    total_tokens : 658
+
+[Q29] (LEFT JOIN/Medium, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 90.3%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 7.98s
+    total_tokens : 674
+
+[Q30] (LEFT JOIN/Medium, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 97.3%
+    exact_match  : False
+    execution_match : True
+    matched_via  : execution
+    latency      : 7.24s
+    total_tokens : 665
+
+[Q31] (LEFT JOIN/Hard, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 84.9%
+    exact_match  : False
+    execution_match : True
+    matched_via  : execution
+    latency      : 10.16s
+    total_tokens : 695
+
+[Q32] (GROUP BY/Medium, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 93.5%
+    exact_match  : False
+    execution_match : True
+    matched_via  : execution
+    latency      : 8.81s
+    total_tokens : 676
+
+[Q33] (GROUP BY/Medium, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 55.5%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 10.35s
+    total_tokens : 688
+
+[Q34] (GROUP BY/Medium, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 79.5%
+    exact_match  : False
+    execution_match : True
+    matched_via  : execution
+    latency      : 10.16s
+    total_tokens : 688
+
+[Q35] (GROUP BY/Hard, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 65.5%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 8.97s
+    total_tokens : 677
+
+[Q36] (GROUP BY/Medium, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 82.8%
+    exact_match  : False
+    execution_match : True
+    matched_via  : execution
+    latency      : 5.38s
+    total_tokens : 645
+
+[Q37] (HAVING/Hard, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 61.8%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 9.64s
+    total_tokens : 686
+
+[Q38] (HAVING/Hard, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 84.5%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 9.01s
+    total_tokens : 667
+
+[Q39] (HAVING/Medium, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 76.7%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 12.38s
+    total_tokens : 689
+
+[Q40] (HAVING/Hard, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 84.3%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 10.48s
+    total_tokens : 681
+
+[Q41] (COUNT/Easy, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 100.0%
+    exact_match  : True
+    execution_match : True
+    matched_via  : execution
+    latency      : 3.67s
+    total_tokens : 624
+
+[Q42] (COUNT/Easy, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 25.1%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 10.99s
+    total_tokens : 684
+
+[Q43] (COUNT/Medium, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 95.3%
+    exact_match  : False
+    execution_match : True
+    matched_via  : execution
+    latency      : 4.25s
+    total_tokens : 632
+
+[Q44] (COUNT/Medium, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 61.7%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 10.15s
+    total_tokens : 676
+
+[Q45] (SUM/Medium, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 100.0%
+    exact_match  : True
+    execution_match : True
+    matched_via  : execution
+    latency      : 4.0s
+    total_tokens : 627
+
+[Q46] (SUM/Medium, SQL) -> EXECUTION_ERROR
+    score        : 30.0/100
+    similarity   : 59.2%
+    exact_match  : False
+    canonical_match : False
+    latency      : 17.65s
+    total_tokens : 728
+    HALLUCINATION FLAGS:
+      - unknown column 'company_name' on table 'suppliers' (via 'S.company_name')
+
+[Q47] (SUM/Medium, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 94.3%
+    exact_match  : False
+    execution_match : True
+    matched_via  : execution
+    latency      : 5.95s
+    total_tokens : 643
+
+[Q48] (SUM/Hard, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 70.9%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 16.67s
+    total_tokens : 726
+
+[Q49] (AVG/Medium, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 100.0%
+    exact_match  : True
+    execution_match : True
+    matched_via  : execution
+    latency      : 4.01s
+    total_tokens : 624
+
+[Q50] (AVG/Medium, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 68.3%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 11.01s
+    total_tokens : 688
+
+[Q51] (AVG/Hard, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 52.9%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 9.96s
+    total_tokens : 682
+
+[Q52] (MAX/Easy, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 100.0%
+    exact_match  : True
+    execution_match : True
+    matched_via  : execution
+    latency      : 3.61s
+    total_tokens : 625
+
+[Q53] (MIN/Easy, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 89.1%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 4.29s
+    total_tokens : 629
+
+[Q54] (MAX/Medium, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 50.0%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 9.58s
+    total_tokens : 675
+
+[Q55] (MIN/Medium, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 63.3%
+    exact_match  : False
+    execution_match : True
+    matched_via  : execution
+    latency      : 5.44s
+    total_tokens : 640
+
+[Q56] (CASE/Medium, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 49.2%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 6.23s
+    total_tokens : 653
+
+[Q57] (CASE/Hard, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 61.8%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 9.51s
+    total_tokens : 695
+
+[Q58] (CASE/Medium, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 48.7%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 4.21s
+    total_tokens : 640
+
+[Q59] (SUBQUERY/Hard, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 86.8%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 7.7s
+    total_tokens : 660
+
+[Q60] (SUBQUERY/Hard, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 100.0%
+    exact_match  : True
+    execution_match : True
+    matched_via  : execution
+    latency      : 8.04s
+    total_tokens : 664
+
+[Q61] (SUBQUERY/Hard, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 79.6%
+    exact_match  : False
+    execution_match : True
+    matched_via  : execution
+    latency      : 6.88s
+    total_tokens : 652
+
+[Q62] (SUBQUERY/Expert, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 57.5%
+    exact_match  : False
+    execution_match : True
+    matched_via  : execution
+    latency      : 11.8s
+    total_tokens : 695
+
+[Q63] (SUBQUERY/Hard, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 48.6%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 9.61s
+    total_tokens : 666
+
+[Q64] (EXISTS/Hard, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 65.0%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 6.71s
+    total_tokens : 649
+
+[Q65] (EXISTS/Hard, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 65.6%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 6.03s
+    total_tokens : 646
+
+[Q66] (EXISTS/Expert, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 58.8%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 8.49s
+    total_tokens : 663
+
+[Q67] (NOT EXISTS/Hard, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 58.8%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 8.08s
+    total_tokens : 663
+
+[Q68] (NOT EXISTS/Expert, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 57.7%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 8.03s
+    total_tokens : 661
+
+[Q69] (IN/Medium, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 93.6%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 9.57s
+    total_tokens : 681
+
+[Q70] (IN/Medium, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 67.3%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 9.69s
+    total_tokens : 674
+
+[Q71] (IN/Medium, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 93.0%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 9.54s
+    total_tokens : 676
+
+[Q72] (UNION/Hard, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 86.8%
+    exact_match  : False
+    execution_match : True
+    matched_via  : execution
+    latency      : 4.79s
+    total_tokens : 640
+
+[Q73] (UNION/Expert, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 88.2%
+    exact_match  : False
+    execution_match : True
+    matched_via  : execution
+    latency      : 6.16s
+    total_tokens : 649
+
+[Q74] (CTE/Expert, SQL) -> EXECUTION_ERROR
+    score        : 30.0/100
+    similarity   : 54.0%
+    exact_match  : False
+    latency      : 19.11s
+    total_tokens : 761
+    HALLUCINATION FLAGS:
+      - unknown table referenced: 'OrderRevenue'
+
+[Q75] (CTE/Expert, SQL) -> EXECUTION_MISMATCH
+    score        : 30.0/100
+    similarity   : 71.3%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 20.2s
+    total_tokens : 769
+    HALLUCINATION FLAGS:
+      - unknown table referenced: 'CustomerOrderTotals'
+
+[Q76] (CTE/Expert, SQL) -> EXECUTION_MISMATCH
+    score        : 30.0/100
+    similarity   : 35.1%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 21.39s
+    total_tokens : 776
+    HALLUCINATION FLAGS:
+      - unknown table referenced: 'EmployeeOrderValues'
+
+[Q77] (WINDOW/Expert, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 42.3%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 15.22s
+    total_tokens : 742
+
+[Q78] (WINDOW/Expert, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 88.5%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 8.98s
+    total_tokens : 674
+
+[Q79] (WINDOW/Expert, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 83.9%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 8.82s
+    total_tokens : 688
+
+[Q80] (DATE/Medium, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 65.5%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 5.49s
+    total_tokens : 649
+
+[Q81] (DATE/Medium, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 100.0%
+    exact_match  : True
+    execution_match : True
+    matched_via  : execution
+    latency      : 4.79s
+    total_tokens : 637
+
+[Q82] (DATE/Hard, SQL) -> CORRECT
+    score        : 80.0/100
+    similarity   : 80.3%
+    exact_match  : False
+    execution_match : True
+    matched_via  : execution
+    latency      : 8.21s
+    total_tokens : 670
+    HALLUCINATION FLAGS:
+      - unknown column 'strftime' on table 'orders' (bare reference in SELECT)
+      - unknown column 'Y' on table 'orders' (bare reference in SELECT)
+      - unknown column 'm' on table 'orders' (bare reference in SELECT)
+
+[Q83] (DATE/Medium, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 100.0%
+    exact_match  : True
+    execution_match : True
+    matched_via  : execution
+    latency      : 4.82s
+    total_tokens : 640
+
+[Q84] (NULL/Medium, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 100.0%
+    exact_match  : True
+    execution_match : True
+    matched_via  : execution
+    latency      : 4.8s
+    total_tokens : 636
+
+[Q85] (NULL/Hard, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 100.0%
+    exact_match  : True
+    execution_match : True
+    matched_via  : execution
+    latency      : 3.81s
+    total_tokens : 633
+
+[Q86] (NULL/Medium, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 79.0%
+    exact_match  : False
+    execution_match : True
+    matched_via  : execution
+    latency      : 4.71s
+    total_tokens : 636
+
+[Q87] (NULL/Hard, SQL) -> EXECUTION_MISMATCH
+    score        : 30.0/100
+    similarity   : 78.5%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    latency      : 7.19s
+    total_tokens : 671
+    HALLUCINATION FLAGS:
+      - unknown column 'Unassigned' on table 'orders' (bare reference in SELECT)
+
+[Q88] (IMPOSSIBLE/Easy, REFUSAL) -> MISSED_REFUSAL
+    score        : 35.0/100
+    similarity   : 0.0%
+    exact_match  : False
+    correctly_refused : False
+    latency      : 7.62s
+    total_tokens : 659
+
+[Q89] (IMPOSSIBLE/Easy, REFUSAL) -> CORRECT_REFUSAL
+    score        : 100.0/100
+    similarity   : 100.0%
+    exact_match  : True
+    matched_via  : refusal
+    correctly_refused : True
+    latency      : 3.33s
+    total_tokens : 622
+
+[Q90] (IMPOSSIBLE/Medium, REFUSAL) -> MISSED_REFUSAL
+    score        : 35.0/100
+    similarity   : 0.0%
+    exact_match  : False
+    correctly_refused : False
+    latency      : 14.15s
+    total_tokens : 708
+
+[Q91] (IMPOSSIBLE/Medium, REFUSAL) -> MISSED_REFUSAL
+    score        : 35.0/100
+    similarity   : 0.0%
+    exact_match  : False
+    correctly_refused : False
+    latency      : 7.82s
+    total_tokens : 663
+
+
+================================================================================
+MODEL : llama3.1:8b
+================================================================================
+
+[Q1] (SELECT/Easy, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 100.0%
+    exact_match  : True
+    execution_match : True
+    matched_via  : execution
+    total_tokens : 479
+
+[Q2] (SELECT/Easy, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 100.0%
+    exact_match  : True
+    execution_match : True
+    matched_via  : execution
+    total_tokens : 479
+
+[Q3] (FILTER/Easy, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 100.0%
+    exact_match  : True
+    execution_match : True
+    matched_via  : execution
+    total_tokens : 488
+
+[Q4] (ORDER BY/Easy, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 100.0%
+    exact_match  : True
+    execution_match : True
+    matched_via  : execution
+    total_tokens : 487
+
+[Q5] (LIMIT/Easy, SQL) -> EXECUTION_ERROR
+    score        : 50.0/100
+    similarity   : 70.2%
+    exact_match  : False
+    total_tokens : 496
+
+[Q6] (JOIN/Medium, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 100.0%
+    exact_match  : True
+    execution_match : True
+    matched_via  : execution
+    total_tokens : 503
+
+[Q7] (JOIN/Medium, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 94.5%
+    exact_match  : False
+    execution_match : True
+    matched_via  : execution
+    total_tokens : 505
+
+[Q8] (JOIN/Medium, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 100.0%
+    exact_match  : True
+    execution_match : True
+    matched_via  : execution
+    total_tokens : 501
+
+[Q9] (JOIN/Medium, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 63.7%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    total_tokens : 510
+
+[Q10] (COUNT/Easy, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 82.9%
+    exact_match  : False
+    execution_match : True
+    matched_via  : execution
+    total_tokens : 484
+
+[Q11] (SUM/Medium, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 48.0%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    total_tokens : 492
+
+[Q12] (AVG/Medium, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 100.0%
+    exact_match  : True
+    execution_match : True
+    matched_via  : execution
+    total_tokens : 483
+
+[Q13] (GROUP BY/Medium, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 74.6%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    total_tokens : 541
+
+[Q14] (HAVING/Hard, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 84.4%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    total_tokens : 516
+
+[Q15] (SUBQUERY/Hard, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 58.9%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    total_tokens : 490
+
+[Q16] (SUBQUERY/Hard, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 20.8%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    total_tokens : 530
+
+[Q17] (DATE/Medium, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 67.6%
+    exact_match  : False
+    execution_match : True
+    matched_via  : execution
+    total_tokens : 506
+
+[Q18] (DATE/Medium, SQL) -> EXECUTION_ERROR
+    score        : 50.0/100
+    similarity   : 79.3%
+    exact_match  : False
+    canonical_match : False
+    total_tokens : 494
+
+[Q19] (NULL/Hard, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 62.1%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    total_tokens : 507
+
+[Q20] (CTE/Expert, SQL) -> EXECUTION_ERROR
+    score        : 50.0/100
+    similarity   : 18.9%
+    exact_match  : False
+    total_tokens : 541
+
+[Q21] (WINDOW/Expert, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 24.0%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    total_tokens : 522
+
+[Q22] (IMPOSSIBLE/Easy, REFUSAL) -> MISSED_REFUSAL
+    score        : 15.0/100
+    similarity   : 0.0%
+    exact_match  : False
+    correctly_refused : False
+    total_tokens : 479
+    HALLUCINATION FLAGS:
+      - unknown column 'salary' on table 'employees' (bare reference in SELECT)
+
+[Q23] (IMPOSSIBLE/Easy, REFUSAL) -> MISSED_REFUSAL
+    score        : 35.0/100
+    similarity   : 0.0%
+    exact_match  : False
+    correctly_refused : False
+    total_tokens : 490
+
+[Q24] (IMPOSSIBLE/Easy, REFUSAL) -> CORRECT_REFUSAL
+    score        : 100.0/100
+    similarity   : 100.0%
+    exact_match  : True
+    matched_via  : refusal
+    correctly_refused : True
+    total_tokens : 479
+
+[Q25] (DISTINCT/Easy, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 100.0%
+    exact_match  : True
+    execution_match : True
+    matched_via  : execution
+    total_tokens : 484
+
+[Q26] (DISTINCT/Medium, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 100.0%
+    exact_match  : True
+    execution_match : True
+    matched_via  : execution
+    total_tokens : 484
+
+[Q27] (DISTINCT/Medium, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 100.0%
+    exact_match  : True
+    execution_match : True
+    matched_via  : execution
+    total_tokens : 488
+
+[Q28] (LEFT JOIN/Medium, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 100.0%
+    exact_match  : True
+    execution_match : True
+    matched_via  : execution
+    total_tokens : 508
+
+[Q29] (LEFT JOIN/Medium, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 100.0%
+    exact_match  : True
+    execution_match : True
+    matched_via  : execution
+    total_tokens : 506
+
+[Q30] (LEFT JOIN/Medium, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 100.0%
+    exact_match  : True
+    execution_match : True
+    matched_via  : execution
+    total_tokens : 511
+
+[Q31] (LEFT JOIN/Hard, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 83.1%
+    exact_match  : False
+    execution_match : True
+    matched_via  : execution
+    total_tokens : 516
+
+[Q32] (GROUP BY/Medium, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 67.3%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    total_tokens : 508
+
+[Q33] (GROUP BY/Medium, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 83.8%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    total_tokens : 497
+
+[Q34] (GROUP BY/Medium, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 79.2%
+    exact_match  : False
+    execution_match : True
+    matched_via  : execution
+    total_tokens : 529
+
+[Q35] (GROUP BY/Hard, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 56.6%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    total_tokens : 510
+
+[Q36] (GROUP BY/Medium, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 83.7%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    total_tokens : 492
+
+[Q37] (HAVING/Hard, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 63.2%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    total_tokens : 522
+
+[Q38] (HAVING/Hard, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 66.1%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    total_tokens : 510
+
+[Q39] (HAVING/Medium, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 61.6%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    total_tokens : 508
+
+[Q40] (HAVING/Hard, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 85.2%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    total_tokens : 518
+
+[Q41] (COUNT/Easy, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 100.0%
+    exact_match  : True
+    execution_match : True
+    matched_via  : execution
+    total_tokens : 481
+
+[Q42] (COUNT/Easy, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 29.1%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    total_tokens : 511
+
+[Q43] (COUNT/Medium, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 86.2%
+    exact_match  : False
+    execution_match : True
+    matched_via  : execution
+    total_tokens : 488
+
+[Q44] (COUNT/Medium, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 88.2%
+    exact_match  : False
+    execution_match : True
+    matched_via  : execution
+    total_tokens : 490
+
+[Q45] (SUM/Medium, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 100.0%
+    exact_match  : True
+    execution_match : True
+    matched_via  : execution
+    total_tokens : 487
+
+[Q46] (SUM/Medium, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 59.0%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    total_tokens : 534
+
+[Q47] (SUM/Medium, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 93.4%
+    exact_match  : False
+    execution_match : True
+    matched_via  : execution
+    total_tokens : 492
+
+[Q48] (SUM/Hard, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 66.8%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    total_tokens : 541
+
+[Q49] (AVG/Medium, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 100.0%
+    exact_match  : True
+    execution_match : True
+    matched_via  : execution
+    total_tokens : 484
+
+[Q50] (AVG/Medium, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 100.0%
+    exact_match  : True
+    execution_match : True
+    matched_via  : execution
+    total_tokens : 513
+
+[Q51] (AVG/Hard, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 46.8%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    total_tokens : 487
+
+[Q52] (MAX/Easy, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 100.0%
+    exact_match  : True
+    execution_match : True
+    matched_via  : execution
+    total_tokens : 485
+
+[Q53] (MIN/Easy, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 91.3%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    total_tokens : 493
+
+[Q54] (MAX/Medium, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 97.1%
+    exact_match  : False
+    execution_match : True
+    matched_via  : execution
+    total_tokens : 500
+
+[Q55] (MIN/Medium, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 100.0%
+    exact_match  : True
+    execution_match : True
+    matched_via  : execution
+    total_tokens : 486
+
+[Q56] (CASE/Medium, SQL) -> EXECUTION_MISMATCH
+    score        : 30.0/100
+    similarity   : 83.5%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    total_tokens : 529
+    HALLUCINATION FLAGS:
+      - unknown column 'Expensive' on table 'products' (bare reference in SELECT)
+      - unknown column 'Affordable' on table 'products' (bare reference in SELECT)
+
+[Q57] (CASE/Hard, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 87.4%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    total_tokens : 557
+
+[Q58] (CASE/Medium, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 74.8%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    total_tokens : 544
+
+[Q59] (SUBQUERY/Hard, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 88.3%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    total_tokens : 502
+
+[Q60] (SUBQUERY/Hard, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 89.4%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    total_tokens : 525
+
+[Q61] (SUBQUERY/Hard, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 40.4%
+    exact_match  : False
+    execution_match : True
+    matched_via  : execution
+    total_tokens : 509
+
+[Q62] (SUBQUERY/Expert, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 59.3%
+    exact_match  : False
+    execution_match : True
+    matched_via  : execution
+    total_tokens : 533
+
+[Q63] (SUBQUERY/Hard, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 90.6%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    total_tokens : 497
+
+[Q64] (EXISTS/Hard, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 69.2%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    total_tokens : 501
+
+[Q65] (EXISTS/Hard, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 53.8%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    total_tokens : 514
+
+[Q66] (EXISTS/Expert, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 54.3%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    total_tokens : 516
+
+[Q67] (NOT EXISTS/Hard, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 61.4%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    total_tokens : 508
+
+[Q68] (NOT EXISTS/Expert, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 59.6%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    total_tokens : 509
+
+[Q69] (IN/Medium, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 98.9%
+    exact_match  : False
+    execution_match : True
+    matched_via  : execution
+    total_tokens : 525
+
+[Q70] (IN/Medium, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 100.0%
+    exact_match  : True
+    execution_match : True
+    matched_via  : execution
+    total_tokens : 501
+
+[Q71] (IN/Medium, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 95.1%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    total_tokens : 519
+
+[Q72] (UNION/Hard, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 86.8%
+    exact_match  : False
+    execution_match : True
+    matched_via  : execution
+    total_tokens : 496
+
+[Q73] (UNION/Expert, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 88.2%
+    exact_match  : False
+    execution_match : True
+    matched_via  : execution
+    total_tokens : 502
+
+[Q74] (CTE/Expert, SQL) -> EXECUTION_MISMATCH
+    score        : 30.0/100
+    similarity   : 40.0%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    total_tokens : 566
+    HALLUCINATION FLAGS:
+      - unknown table referenced: 'CategoryRevenue'
+
+[Q75] (CTE/Expert, SQL) -> EXECUTION_MISMATCH
+    score        : 30.0/100
+    similarity   : 65.6%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    total_tokens : 581
+    HALLUCINATION FLAGS:
+      - unknown table referenced: 'TotalSpent'
+
+[Q76] (CTE/Expert, SQL) -> EXECUTION_MISMATCH
+    score        : 30.0/100
+    similarity   : 30.3%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    total_tokens : 588
+    HALLUCINATION FLAGS:
+      - unknown table referenced: 'EmployeeOrders'
+
+[Q77] (WINDOW/Expert, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 42.7%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    total_tokens : 572
+
+[Q78] (WINDOW/Expert, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 75.5%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    total_tokens : 532
+
+[Q79] (WINDOW/Expert, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 70.8%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    total_tokens : 532
+
+[Q80] (DATE/Medium, SQL) -> EXECUTION_ERROR
+    score        : 50.0/100
+    similarity   : 46.9%
+    exact_match  : False
+    canonical_match : False
+    total_tokens : 521
+
+[Q81] (DATE/Medium, SQL) -> EXECUTION_ERROR
+    score        : 50.0/100
+    similarity   : 81.1%
+    exact_match  : False
+    canonical_match : False
+    total_tokens : 496
+
+[Q82] (DATE/Hard, SQL) -> EXECUTION_ERROR
+    score        : 50.0/100
+    similarity   : 54.7%
+    exact_match  : False
+    canonical_match : False
+    total_tokens : 539
+
+[Q83] (DATE/Medium, SQL) -> EXECUTION_ERROR
+    score        : 50.0/100
+    similarity   : 78.8%
+    exact_match  : False
+    canonical_match : False
+    total_tokens : 497
+
+[Q84] (NULL/Medium, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 100.0%
+    exact_match  : True
+    execution_match : True
+    matched_via  : execution
+    total_tokens : 489
+
+[Q85] (NULL/Hard, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 100.0%
+    exact_match  : True
+    execution_match : True
+    matched_via  : execution
+    total_tokens : 491
+
+[Q86] (NULL/Medium, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 83.2%
+    exact_match  : False
+    execution_match : True
+    matched_via  : execution
+    total_tokens : 494
+
+[Q87] (NULL/Hard, SQL) -> EXECUTION_MISMATCH
+    score        : 50.0/100
+    similarity   : 66.7%
+    exact_match  : False
+    execution_match : False
+    canonical_match : False
+    total_tokens : 530
+
+[Q88] (IMPOSSIBLE/Easy, REFUSAL) -> MISSED_REFUSAL
+    score        : 35.0/100
+    similarity   : 0.0%
+    exact_match  : False
+    correctly_refused : False
+    total_tokens : 516
+
+[Q89] (IMPOSSIBLE/Easy, REFUSAL) -> CORRECT_REFUSAL
+    score        : 100.0/100
+    similarity   : 100.0%
+    exact_match  : True
+    matched_via  : refusal
+    correctly_refused : True
+    total_tokens : 481
+
+[Q90] (IMPOSSIBLE/Medium, REFUSAL) -> MISSED_REFUSAL
+    score        : 35.0/100
+    similarity   : 0.0%
+    exact_match  : False
+    correctly_refused : False
+    total_tokens : 521
+
+[Q91] (IMPOSSIBLE/Medium, REFUSAL) -> MISSED_REFUSAL
+    score        : 15.0/100
+    similarity   : 0.0%
+    exact_match  : False
+    correctly_refused : False
+    total_tokens : 505
+    HALLUCINATION FLAGS:
+      - unknown column 'employee_id' on table 'inventory' (via 'i.employee_id')
 
 
 ================================================================================
 MODEL : deepseek-r1:7b
 ================================================================================
 
-[Q1] (SELECT/Easy, SQL) -> REVIEW
+[Q1] (SELECT/Easy, SQL) -> EXECUTION_MISMATCH
     score        : 50.0/100
     similarity   : 62.0%
     exact_match  : False
+    execution_match : False
+    canonical_match : False
     latency      : 95.3s
     total_tokens : 655
 
-[Q2] (SELECT/Easy, SQL) -> REVIEW
-    score        : 50.0/100
+[Q2] (SELECT/Easy, SQL) -> CORRECT
+    score        : 100.0/100
     similarity   : 31.1%
     exact_match  : False
+    execution_match : True
+    matched_via  : execution
     latency      : 99.37s
     total_tokens : 766
 
@@ -47,11 +2433,12 @@ MODEL : deepseek-r1:7b
     score        : 100.0/100
     similarity   : 100.0%
     exact_match  : True
-    matched_via  : exact_text
+    execution_match : True
+    matched_via  : execution
     latency      : 113.42s
     total_tokens : 802
 
-[Q5] (LIMIT/Easy, SQL) -> SCHEMA_HALLUCINATION
+[Q5] (LIMIT/Easy, SQL) -> EXECUTION_ERROR
     score        : 30.0/100
     similarity   : 23.8%
     exact_match  : False
@@ -64,7 +2451,8 @@ MODEL : deepseek-r1:7b
     score        : 100.0/100
     similarity   : 100.0%
     exact_match  : True
-    matched_via  : exact_text
+    execution_match : True
+    matched_via  : execution
     latency      : 114.45s
     total_tokens : 802
 
@@ -72,14 +2460,17 @@ MODEL : deepseek-r1:7b
     score        : 100.0/100
     similarity   : 100.0%
     exact_match  : True
-    matched_via  : exact_text
+    execution_match : True
+    matched_via  : execution
     latency      : 127.37s
     total_tokens : 770
 
-[Q8] (JOIN/Medium, SQL) -> REVIEW
+[Q8] (JOIN/Medium, SQL) -> EXECUTION_MISMATCH
     score        : 50.0/100
     similarity   : 91.3%
     exact_match  : False
+    execution_match : False
+    canonical_match : False
     latency      : 75.75s
     total_tokens : 689
 
@@ -89,18 +2480,21 @@ MODEL : deepseek-r1:7b
     score        : 100.0/100
     similarity   : 100.0%
     exact_match  : True
-    matched_via  : exact_text
+    execution_match : True
+    matched_via  : execution
     latency      : 109.4s
     total_tokens : 757
 
-[Q11] (SUM/Medium, SQL) -> REVIEW
-    score        : 50.0/100
+[Q11] (SUM/Medium, SQL) -> CORRECT
+    score        : 100.0/100
     similarity   : 76.6%
     exact_match  : False
+    execution_match : True
+    matched_via  : execution
     latency      : 164.18s
     total_tokens : 818
 
-[Q12] (AVG/Medium, SQL) -> REVIEW
+[Q12] (AVG/Medium, SQL) -> EXECUTION_ERROR
     score        : 50.0/100
     similarity   : 35.1%
     exact_match  : False
@@ -111,10 +2505,12 @@ MODEL : deepseek-r1:7b
 
 [Q14] MISSING RESULT
 
-[Q15] (SUBQUERY/Hard, SQL) -> REVIEW
+[Q15] (SUBQUERY/Hard, SQL) -> EXECUTION_MISMATCH
     score        : 50.0/100
     similarity   : 61.3%
     exact_match  : False
+    execution_match : False
+    canonical_match : False
     latency      : 161.05s
     total_tokens : 861
 
@@ -128,7 +2524,7 @@ MODEL : deepseek-r1:7b
     HALLUCINATION FLAGS:
       - unknown table referenced: 'Total_Spending_PER_Customer'
 
-[Q17] (DATE/Medium, SQL) -> REVIEW
+[Q17] (DATE/Medium, SQL) -> EXECUTION_ERROR
     score        : 50.0/100
     similarity   : 76.6%
     exact_match  : False
@@ -179,7 +2575,8 @@ MODEL : deepseek-r1:7b
     score        : 100.0/100
     similarity   : 100.0%
     exact_match  : True
-    matched_via  : exact_text
+    execution_match : True
+    matched_via  : execution
     latency      : 108.11s
     total_tokens : 772
 
@@ -187,14 +2584,17 @@ MODEL : deepseek-r1:7b
     score        : 100.0/100
     similarity   : 100.0%
     exact_match  : True
-    matched_via  : exact_text
+    execution_match : True
+    matched_via  : execution
     latency      : 72.03s
     total_tokens : 666
 
-[Q27] (DISTINCT/Medium, SQL) -> REVIEW
-    score        : 50.0/100
+[Q27] (DISTINCT/Medium, SQL) -> CORRECT
+    score        : 100.0/100
     similarity   : 95.2%
     exact_match  : False
+    execution_match : True
+    matched_via  : execution
     latency      : 127.75s
     total_tokens : 828
 
@@ -202,10 +2602,11 @@ MODEL : deepseek-r1:7b
 
 [Q29] MISSING RESULT
 
-[Q30] (LEFT JOIN/Medium, SQL) -> SCHEMA_HALLUCINATION
+[Q30] (LEFT JOIN/Medium, SQL) -> EXECUTION_ERROR
     score        : 30.0/100
     similarity   : 88.1%
     exact_match  : False
+    canonical_match : False
     latency      : 235.74s
     total_tokens : 956
     HALLUCINATION FLAGS:
@@ -213,42 +2614,51 @@ MODEL : deepseek-r1:7b
 
 [Q31] MISSING RESULT
 
-[Q32] (GROUP BY/Medium, SQL) -> SCHEMA_HALLUCINATION
+[Q32] (GROUP BY/Medium, SQL) -> EXECUTION_ERROR
     score        : 30.0/100
     similarity   : 70.5%
     exact_match  : False
+    canonical_match : False
     latency      : 103.59s
     total_tokens : 759
     HALLUCINATION FLAGS:
       - unknown column 'category_name' on table 'products' (bare reference in SELECT)
 
-[Q33] (GROUP BY/Medium, SQL) -> REVIEW
-    score        : 50.0/100
+[Q33] (GROUP BY/Medium, SQL) -> CORRECT
+    score        : 100.0/100
     similarity   : 68.4%
     exact_match  : False
+    execution_match : True
+    matched_via  : execution
     latency      : 140.8s
     total_tokens : 827
 
-[Q34] (GROUP BY/Medium, SQL) -> REVIEW
-    score        : 50.0/100
+[Q34] (GROUP BY/Medium, SQL) -> CORRECT
+    score        : 100.0/100
     similarity   : 93.6%
     exact_match  : False
+    execution_match : True
+    matched_via  : execution
     latency      : 108.8s
     total_tokens : 765
 
-[Q35] (GROUP BY/Hard, SQL) -> REVIEW
-    score        : 50.0/100
+[Q35] (GROUP BY/Hard, SQL) -> CORRECT
+    score        : 100.0/100
     similarity   : 70.3%
     exact_match  : False
+    execution_match : True
+    matched_via  : execution
     latency      : 173.16s
     total_tokens : 876
 
 [Q36] MISSING RESULT
 
-[Q37] (HAVING/Hard, SQL) -> REVIEW
+[Q37] (HAVING/Hard, SQL) -> EXECUTION_MISMATCH
     score        : 50.0/100
     similarity   : 56.7%
     exact_match  : False
+    execution_match : False
+    canonical_match : False
     latency      : 102.38s
     total_tokens : 778
 
@@ -366,36 +2776,138 @@ SUMMARY
 ================================================================================
 
 Model               Scored  Score   Exact%   ExecAcc%  Syntax%  Halluc.  Unsafe  Refusals  
-deepseek-r1:7b      27      59.6    29.6     N/A       87.5     4        0       2/3      
+qwen2.5-coder:7b    91      68.7    15.4     41.6      100.0    6        0       5/7      
+gemma3:4b           91      67.3    18.7     42.7      100.0    7        0       1/7      
+llama3.1:8b         91      69.3    26.4     48.1      100.0    6        0       2/7      
+deepseek-r1:7b      27      70.7    29.6     75.0      87.5     4        0       2/3      
 
 CATEGORY ACCURACY (% correct)
+  qwen2.5-coder:7b:
+    SELECT              50.0%
+    FILTER              0.0%
+    ORDER BY            0.0%
+    LIMIT               0.0%
+    JOIN                75.0%
+    COUNT               80.0%
+    SUM                 80.0%
+    AVG                 50.0%
+    GROUP BY            50.0%
+    HAVING              20.0%
+    SUBQUERY            14.3%
+    DATE                0.0%
+    NULL                80.0%
+    CTE                 25.0%
+    WINDOW              0.0%
+    IMPOSSIBLE          71.4%
+    DISTINCT            100.0%
+    LEFT JOIN           25.0%
+    MAX                 50.0%
+    MIN                 50.0%
+    CASE                0.0%
+    EXISTS              0.0%
+    NOT EXISTS          0.0%
+    IN                  0.0%
+    UNION               100.0%
+  gemma3:4b:
+    SELECT              100.0%
+    FILTER              100.0%
+    ORDER BY            0.0%
+    LIMIT               0.0%
+    JOIN                75.0%
+    COUNT               60.0%
+    SUM                 40.0%
+    AVG                 25.0%
+    GROUP BY            50.0%
+    HAVING              0.0%
+    SUBQUERY            42.9%
+    DATE                66.7%
+    NULL                80.0%
+    CTE                 0.0%
+    WINDOW              0.0%
+    IMPOSSIBLE          14.3%
+    DISTINCT            100.0%
+    LEFT JOIN           50.0%
+    MAX                 50.0%
+    MIN                 50.0%
+    CASE                0.0%
+    EXISTS              0.0%
+    NOT EXISTS          0.0%
+    IN                  0.0%
+    UNION               100.0%
+  llama3.1:8b:
+    SELECT              100.0%
+    FILTER              100.0%
+    ORDER BY            100.0%
+    LIMIT               0.0%
+    JOIN                75.0%
+    COUNT               80.0%
+    SUM                 40.0%
+    AVG                 75.0%
+    GROUP BY            16.7%
+    HAVING              0.0%
+    SUBQUERY            28.6%
+    DATE                16.7%
+    NULL                60.0%
+    CTE                 0.0%
+    WINDOW              0.0%
+    IMPOSSIBLE          28.6%
+    DISTINCT            100.0%
+    LEFT JOIN           100.0%
+    MAX                 100.0%
+    MIN                 50.0%
+    CASE                0.0%
+    EXISTS              0.0%
+    NOT EXISTS          0.0%
+    IN                  66.7%
+    UNION               100.0%
   deepseek-r1:7b:
-    SELECT              0.0%
+    SELECT              50.0%
     FILTER              0.0%
     ORDER BY            100.0%
     LIMIT               0.0%
     JOIN                66.7%
     COUNT               100.0%
-    SUM                 0.0%
+    SUM                 100.0%
     AVG                 0.0%
     SUBQUERY            0.0%
     DATE                0.0%
     IMPOSSIBLE          66.7%
-    DISTINCT            66.7%
+    DISTINCT            100.0%
     LEFT JOIN           0.0%
-    GROUP BY            0.0%
+    GROUP BY            75.0%
     HAVING              0.0%
 
 DIFFICULTY ACCURACY (% correct)
-  deepseek-r1:7b:
+  qwen2.5-coder:7b:
+    Easy                56.2%
+    Medium              47.5%
+    Hard                30.4%
+    Expert              16.7%
+  gemma3:4b:
     Easy                50.0%
-    Medium              23.1%
-    Hard                0.0%
+    Medium              47.5%
+    Hard                30.4%
+    Expert              16.7%
+  llama3.1:8b:
+    Easy                62.5%
+    Medium              57.5%
+    Hard                17.4%
+    Expert              16.7%
+  deepseek-r1:7b:
+    Easy                60.0%
+    Medium              53.8%
+    Hard                25.0%
 
 LATENCY (seconds, only where logged by main.py)
+  qwen2.5-coder:7b: avg=7.638 median=6.63 min=1.82 max=42.54 p95=18.1 | tokens/sec=69.7
+  gemma3:4b: avg=8.455 median=7.64 min=3.31 max=43.55 p95=17.65 | tokens/sec=78.6
+  llama3.1:8b: N/A (no latency data logged)
   deepseek-r1:7b: avg=145.381 median=127.75 min=72.03 max=262.7 p95=235.74 | tokens/sec=5.8
 
 RESOURCE USAGE (RAM/VRAM in MB, only where logged by main.py)
+  qwen2.5-coder:7b: RAM (avg=212.8 peak=213.9) | VRAM (N/A)
+  gemma3:4b: RAM (avg=212.3 peak=212.3) | VRAM (N/A)
+  llama3.1:8b: RAM (N/A) | VRAM (N/A)
   deepseek-r1:7b: RAM (avg=101.7 peak=208.7) | VRAM (N/A)
 
 MATCH METHOD BREAKDOWN (which signal decided each CORRECT verdict)
@@ -403,64 +2915,81 @@ MATCH METHOD BREAKDOWN (which signal decided each CORRECT verdict)
   canonical = no DB result, but SQLGlot structural form matched (needs `pip install sqlglot`)
   exact_text = no DB/canonical result, raw text matched after normalization (weakest)
   refusal = correctly refused a should-refuse question
-  deepseek-r1:7b: exact_text=6, refusal=2  [sqlglot not installed -- canonical match unavailable]
+  qwen2.5-coder:7b: execution=32, refusal=5
+  gemma3:4b: execution=35, refusal=1
+  llama3.1:8b: execution=37, refusal=2
+  deepseek-r1:7b: execution=12, refusal=2
 
 ================================================================================
 RANKING (by weighted score)
 ================================================================================
-  1. deepseek-r1:7b -- 59.6/100
+  1. deepseek-r1:7b -- 70.7/100
+  2. llama3.1:8b -- 69.3/100
+  3. qwen2.5-coder:7b -- 68.7/100
+  4. gemma3:4b -- 67.3/100
 
 ================================================================================
 BEST MODEL BY METRIC (objective -- direct comparison, no interpretation)
 ================================================================================
-  Highest weighted score                : deepseek-r1:7b (59.6)
+  Highest weighted score                : deepseek-r1:7b (70.7)
   Highest exact match                   : deepseek-r1:7b (29.6%)
-  Highest execution accuracy            : N/A (no data)
-  Highest canonical-match rate          : N/A (no data)
-  Highest syntax-valid rate             : deepseek-r1:7b (87.5%)
+  Highest execution accuracy            : deepseek-r1:7b (75.0%)
+  Highest canonical-match rate          : qwen2.5-coder:7b, gemma3:4b, llama3.1:8b, deepseek-r1:7b (0.0%)
+  Highest syntax-valid rate             : qwen2.5-coder:7b, gemma3:4b, llama3.1:8b (100.0%)
   Lowest hallucination count            : deepseek-r1:7b (4 flags)
-  Fewest unsafe/destructive statements  : deepseek-r1:7b (0)
-  Best refusal handling                 : deepseek-r1:7b (66.7%)
-  Fastest model (lowest avg latency)    : deepseek-r1:7b (145.381s)
+  Fewest unsafe/destructive statements  : qwen2.5-coder:7b, gemma3:4b, llama3.1:8b, deepseek-r1:7b (0)
+  Best refusal handling                 : qwen2.5-coder:7b (71.4%)
+  Fastest model (lowest avg latency)    : qwen2.5-coder:7b (7.638s)
 
 ================================================================================
 CATEGORY WINNERS (highest accuracy per category)
 ================================================================================
-  AVG                 : deepseek-r1:7b (0.0%)
+  AVG                 : llama3.1:8b (75.0%)
+  CASE                : qwen2.5-coder:7b, gemma3:4b, llama3.1:8b (0.0%)
   COUNT               : deepseek-r1:7b (100.0%)
-  DATE                : deepseek-r1:7b (0.0%)
-  DISTINCT            : deepseek-r1:7b (66.7%)
-  FILTER              : deepseek-r1:7b (0.0%)
-  GROUP BY            : deepseek-r1:7b (0.0%)
-  HAVING              : deepseek-r1:7b (0.0%)
-  IMPOSSIBLE          : deepseek-r1:7b (66.7%)
-  JOIN                : deepseek-r1:7b (66.7%)
-  LEFT JOIN           : deepseek-r1:7b (0.0%)
-  LIMIT               : deepseek-r1:7b (0.0%)
-  ORDER BY            : deepseek-r1:7b (100.0%)
-  SELECT              : deepseek-r1:7b (0.0%)
-  SUBQUERY            : deepseek-r1:7b (0.0%)
-  SUM                 : deepseek-r1:7b (0.0%)
+  CTE                 : qwen2.5-coder:7b (25.0%)
+  DATE                : gemma3:4b (66.7%)
+  DISTINCT            : qwen2.5-coder:7b, gemma3:4b, llama3.1:8b, deepseek-r1:7b (100.0%)
+  EXISTS              : qwen2.5-coder:7b, gemma3:4b, llama3.1:8b (0.0%)
+  FILTER              : gemma3:4b, llama3.1:8b (100.0%)
+  GROUP BY            : deepseek-r1:7b (75.0%)
+  HAVING              : qwen2.5-coder:7b (20.0%)
+  IMPOSSIBLE          : qwen2.5-coder:7b (71.4%)
+  IN                  : llama3.1:8b (66.7%)
+  JOIN                : qwen2.5-coder:7b, gemma3:4b, llama3.1:8b (75.0%)
+  LEFT JOIN           : llama3.1:8b (100.0%)
+  LIMIT               : qwen2.5-coder:7b, gemma3:4b, llama3.1:8b, deepseek-r1:7b (0.0%)
+  MAX                 : llama3.1:8b (100.0%)
+  MIN                 : qwen2.5-coder:7b, gemma3:4b, llama3.1:8b (50.0%)
+  NOT EXISTS          : qwen2.5-coder:7b, gemma3:4b, llama3.1:8b (0.0%)
+  NULL                : qwen2.5-coder:7b, gemma3:4b (80.0%)
+  ORDER BY            : llama3.1:8b, deepseek-r1:7b (100.0%)
+  SELECT              : gemma3:4b, llama3.1:8b (100.0%)
+  SUBQUERY            : gemma3:4b (42.9%)
+  SUM                 : deepseek-r1:7b (100.0%)
+  UNION               : qwen2.5-coder:7b, gemma3:4b, llama3.1:8b (100.0%)
+  WINDOW              : qwen2.5-coder:7b, gemma3:4b, llama3.1:8b (0.0%)
 
 ================================================================================
 DIFFICULTY WINNERS (highest accuracy per difficulty level)
 ================================================================================
-  Easy                : deepseek-r1:7b (50.0%)
-  Hard                : deepseek-r1:7b (0.0%)
-  Medium              : deepseek-r1:7b (23.1%)
+  Easy                : llama3.1:8b (62.5%)
+  Expert              : qwen2.5-coder:7b, gemma3:4b, llama3.1:8b (16.7%)
+  Hard                : qwen2.5-coder:7b, gemma3:4b (30.4%)
+  Medium              : llama3.1:8b (57.5%)
 
 ================================================================================
 RECOMMENDATION (rule-based -- each line points to the model that already
 won the corresponding metric above; not a subjective judgement)
 ================================================================================
-For highest SQL accuracy (exact match):
-    deepseek-r1:7b (29.6%)
+For highest SQL accuracy (execution match):
+    deepseek-r1:7b (75.0%)
 
 For lowest latency:
-    deepseek-r1:7b (145.381s avg)
+    qwen2.5-coder:7b (7.638s avg)
 
 For safest SQL generation (fewest hallucinations + unsafe statements):
     deepseek-r1:7b (4 combined flags)
 
 For best overall balance (highest weighted score):
-    deepseek-r1:7b (59.6)
+    deepseek-r1:7b (70.7)
