@@ -1,0 +1,7 @@
+
+
+Here's the SQL query to show the number of products in each category:
+
+```sql
+SELECT category_name, COUNT(product_id) AS product_count FROM Products GROUP BY category_id;
+```

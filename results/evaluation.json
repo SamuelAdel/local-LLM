@@ -1,0 +1,1165 @@
+{
+  "diagnostics": {
+    "db_configured": false,
+    "sqlglot_available": false
+  },
+  "summary": {
+    "deepseek-r1:7b": {
+      "n": 27,
+      "exact_match_rate": 29.6,
+      "avg_similarity": 71.2,
+      "execution_accuracy": null,
+      "execution_scored_n": 0,
+      "canonical_match_rate": null,
+      "canonical_scored_n": 0,
+      "eligible_for_matching_n": 21,
+      "syntax_valid_rate": 87.5,
+      "hallucination_count": 4,
+      "unsafe_sql_count": 0,
+      "refusal_total": 3,
+      "refusal_correct": 2,
+      "avg_score": 59.6,
+      "latency": {
+        "avg": 145.381,
+        "median": 127.75,
+        "min": 72.03,
+        "max": 262.7,
+        "p95": 235.74
+      },
+      "tokens_per_sec": 5.8,
+      "ram_mb": {
+        "avg": 101.7,
+        "peak": 208.7
+      },
+      "vram_mb": null,
+      "match_method_counts": {
+        "none": 19,
+        "exact_text": 6,
+        "refusal": 2
+      },
+      "category_accuracy": {
+        "SELECT": 0.0,
+        "FILTER": 0.0,
+        "ORDER BY": 100.0,
+        "LIMIT": 0.0,
+        "JOIN": 66.7,
+        "COUNT": 100.0,
+        "SUM": 0.0,
+        "AVG": 0.0,
+        "SUBQUERY": 0.0,
+        "DATE": 0.0,
+        "IMPOSSIBLE": 66.7,
+        "DISTINCT": 66.7,
+        "LEFT JOIN": 0.0,
+        "GROUP BY": 0.0,
+        "HAVING": 0.0
+      },
+      "difficulty_accuracy": {
+        "Easy": 50.0,
+        "Medium": 23.1,
+        "Hard": 0.0
+      }
+    }
+  },
+  "questions": {
+    "deepseek-r1:7b": [
+      {
+        "expected_refusal": false,
+        "correctly_refused": null,
+        "similarity": 62.0,
+        "exact_match": false,
+        "execution_match": null,
+        "canonical_match": null,
+        "syntax_valid": true,
+        "syntax_reason": null,
+        "destructive": false,
+        "hallucinations": [],
+        "verdict": "REVIEW",
+        "match_method": "none",
+        "id": 1,
+        "missing": false,
+        "category": "SELECT",
+        "difficulty": "Easy",
+        "latency": 95.3,
+        "prompt_tokens": 467,
+        "completion_tokens": 188,
+        "total_tokens": 655,
+        "ram_mb": 208.6,
+        "vram_mb": null,
+        "score": 50.0
+      },
+      {
+        "expected_refusal": false,
+        "correctly_refused": null,
+        "similarity": 31.1,
+        "exact_match": false,
+        "execution_match": null,
+        "canonical_match": null,
+        "syntax_valid": true,
+        "syntax_reason": null,
+        "destructive": false,
+        "hallucinations": [],
+        "verdict": "REVIEW",
+        "match_method": "none",
+        "id": 2,
+        "missing": false,
+        "category": "SELECT",
+        "difficulty": "Easy",
+        "latency": 99.37,
+        "prompt_tokens": 467,
+        "completion_tokens": 299,
+        "total_tokens": 766,
+        "ram_mb": 208.6,
+        "vram_mb": null,
+        "score": 50.0
+      },
+      {
+        "expected_refusal": false,
+        "correctly_refused": null,
+        "similarity": 57.8,
+        "exact_match": false,
+        "execution_match": null,
+        "canonical_match": null,
+        "syntax_valid": false,
+        "syntax_reason": "does not start with SELECT/WITH",
+        "destructive": false,
+        "hallucinations": [],
+        "verdict": "SYNTAX_ERROR",
+        "match_method": "none",
+        "id": 3,
+        "missing": false,
+        "category": "FILTER",
+        "difficulty": "Easy",
+        "latency": 182.2,
+        "prompt_tokens": 470,
+        "completion_tokens": 512,
+        "total_tokens": 982,
+        "ram_mb": 208.7,
+        "vram_mb": null,
+        "score": 35.0
+      },
+      {
+        "expected_refusal": false,
+        "correctly_refused": null,
+        "similarity": 100.0,
+        "exact_match": true,
+        "execution_match": null,
+        "canonical_match": null,
+        "syntax_valid": true,
+        "syntax_reason": null,
+        "destructive": false,
+        "hallucinations": [],
+        "verdict": "CORRECT",
+        "match_method": "exact_text",
+        "id": 4,
+        "missing": false,
+        "category": "ORDER BY",
+        "difficulty": "Easy",
+        "latency": 113.42,
+        "prompt_tokens": 470,
+        "completion_tokens": 332,
+        "total_tokens": 802,
+        "ram_mb": 208.7,
+        "vram_mb": null,
+        "score": 100.0
+      },
+      {
+        "expected_refusal": false,
+        "correctly_refused": null,
+        "similarity": 23.8,
+        "exact_match": false,
+        "execution_match": null,
+        "canonical_match": null,
+        "syntax_valid": true,
+        "syntax_reason": null,
+        "destructive": false,
+        "hallucinations": [
+          "unknown table referenced: 'the'"
+        ],
+        "verdict": "SCHEMA_HALLUCINATION",
+        "match_method": "none",
+        "id": 5,
+        "missing": false,
+        "category": "LIMIT",
+        "difficulty": "Easy",
+        "latency": 180.34,
+        "prompt_tokens": 470,
+        "completion_tokens": 506,
+        "total_tokens": 976,
+        "ram_mb": 208.7,
+        "vram_mb": null,
+        "score": 30.0
+      },
+      {
+        "expected_refusal": false,
+        "correctly_refused": null,
+        "similarity": 100.0,
+        "exact_match": true,
+        "execution_match": null,
+        "canonical_match": null,
+        "syntax_valid": true,
+        "syntax_reason": null,
+        "destructive": false,
+        "hallucinations": [],
+        "verdict": "CORRECT",
+        "match_method": "exact_text",
+        "id": 6,
+        "missing": false,
+        "category": "JOIN",
+        "difficulty": "Medium",
+        "latency": 114.45,
+        "prompt_tokens": 471,
+        "completion_tokens": 331,
+        "total_tokens": 802,
+        "ram_mb": 208.7,
+        "vram_mb": null,
+        "score": 100.0
+      },
+      {
+        "expected_refusal": false,
+        "correctly_refused": null,
+        "similarity": 100.0,
+        "exact_match": true,
+        "execution_match": null,
+        "canonical_match": null,
+        "syntax_valid": true,
+        "syntax_reason": null,
+        "destructive": false,
+        "hallucinations": [],
+        "verdict": "CORRECT",
+        "match_method": "exact_text",
+        "id": 7,
+        "missing": false,
+        "category": "JOIN",
+        "difficulty": "Medium",
+        "latency": 127.37,
+        "prompt_tokens": 470,
+        "completion_tokens": 300,
+        "total_tokens": 770,
+        "ram_mb": 208.7,
+        "vram_mb": null,
+        "score": 100.0
+      },
+      {
+        "expected_refusal": false,
+        "correctly_refused": null,
+        "similarity": 91.3,
+        "exact_match": false,
+        "execution_match": null,
+        "canonical_match": null,
+        "syntax_valid": true,
+        "syntax_reason": null,
+        "destructive": false,
+        "hallucinations": [],
+        "verdict": "REVIEW",
+        "match_method": "none",
+        "id": 8,
+        "missing": false,
+        "category": "JOIN",
+        "difficulty": "Medium",
+        "latency": 75.75,
+        "prompt_tokens": 469,
+        "completion_tokens": 220,
+        "total_tokens": 689,
+        "ram_mb": 208.7,
+        "vram_mb": null,
+        "score": 50.0
+      },
+      {
+        "id": 9,
+        "missing": true
+      },
+      {
+        "expected_refusal": false,
+        "correctly_refused": null,
+        "similarity": 100.0,
+        "exact_match": true,
+        "execution_match": null,
+        "canonical_match": null,
+        "syntax_valid": true,
+        "syntax_reason": null,
+        "destructive": false,
+        "hallucinations": [],
+        "verdict": "CORRECT",
+        "match_method": "exact_text",
+        "id": 10,
+        "missing": false,
+        "category": "COUNT",
+        "difficulty": "Easy",
+        "latency": 109.4,
+        "prompt_tokens": 469,
+        "completion_tokens": 288,
+        "total_tokens": 757,
+        "ram_mb": 153.7,
+        "vram_mb": null,
+        "score": 100.0
+      },
+      {
+        "expected_refusal": false,
+        "correctly_refused": null,
+        "similarity": 76.6,
+        "exact_match": false,
+        "execution_match": null,
+        "canonical_match": null,
+        "syntax_valid": true,
+        "syntax_reason": null,
+        "destructive": false,
+        "hallucinations": [],
+        "verdict": "REVIEW",
+        "match_method": "none",
+        "id": 11,
+        "missing": false,
+        "category": "SUM",
+        "difficulty": "Medium",
+        "latency": 164.18,
+        "prompt_tokens": 467,
+        "completion_tokens": 351,
+        "total_tokens": 818,
+        "ram_mb": 153.7,
+        "vram_mb": null,
+        "score": 50.0
+      },
+      {
+        "expected_refusal": false,
+        "correctly_refused": null,
+        "similarity": 35.1,
+        "exact_match": false,
+        "execution_match": null,
+        "canonical_match": null,
+        "syntax_valid": true,
+        "syntax_reason": null,
+        "destructive": false,
+        "hallucinations": [],
+        "verdict": "REVIEW",
+        "match_method": "none",
+        "id": 12,
+        "missing": false,
+        "category": "AVG",
+        "difficulty": "Medium",
+        "latency": 262.7,
+        "prompt_tokens": 468,
+        "completion_tokens": 512,
+        "total_tokens": 980,
+        "ram_mb": 82.7,
+        "vram_mb": null,
+        "score": 50.0
+      },
+      {
+        "id": 13,
+        "missing": true
+      },
+      {
+        "id": 14,
+        "missing": true
+      },
+      {
+        "expected_refusal": false,
+        "correctly_refused": null,
+        "similarity": 61.3,
+        "exact_match": false,
+        "execution_match": null,
+        "canonical_match": null,
+        "syntax_valid": true,
+        "syntax_reason": null,
+        "destructive": false,
+        "hallucinations": [],
+        "verdict": "REVIEW",
+        "match_method": "none",
+        "id": 15,
+        "missing": false,
+        "category": "SUBQUERY",
+        "difficulty": "Hard",
+        "latency": 161.05,
+        "prompt_tokens": 469,
+        "completion_tokens": 392,
+        "total_tokens": 861,
+        "ram_mb": 47.2,
+        "vram_mb": null,
+        "score": 50.0
+      },
+      {
+        "expected_refusal": false,
+        "correctly_refused": null,
+        "similarity": 19.2,
+        "exact_match": false,
+        "execution_match": null,
+        "canonical_match": null,
+        "syntax_valid": false,
+        "syntax_reason": "unbalanced parentheses",
+        "destructive": false,
+        "hallucinations": [
+          "unknown table referenced: 'Total_Spending_PER_Customer'"
+        ],
+        "verdict": "SYNTAX_ERROR",
+        "match_method": "none",
+        "id": 16,
+        "missing": false,
+        "category": "SUBQUERY",
+        "difficulty": "Hard",
+        "latency": 222.33,
+        "prompt_tokens": 475,
+        "completion_tokens": 512,
+        "total_tokens": 987,
+        "ram_mb": 47.2,
+        "vram_mb": null,
+        "score": 15.0
+      },
+      {
+        "expected_refusal": false,
+        "correctly_refused": null,
+        "similarity": 76.6,
+        "exact_match": false,
+        "execution_match": null,
+        "canonical_match": null,
+        "syntax_valid": true,
+        "syntax_reason": null,
+        "destructive": false,
+        "hallucinations": [],
+        "verdict": "REVIEW",
+        "match_method": "none",
+        "id": 17,
+        "missing": false,
+        "category": "DATE",
+        "difficulty": "Medium",
+        "latency": 194.58,
+        "prompt_tokens": 473,
+        "completion_tokens": 512,
+        "total_tokens": 985,
+        "ram_mb": 46.9,
+        "vram_mb": null,
+        "score": 50.0
+      },
+      {
+        "expected_refusal": false,
+        "correctly_refused": null,
+        "similarity": 44.9,
+        "exact_match": false,
+        "execution_match": null,
+        "canonical_match": null,
+        "syntax_valid": false,
+        "syntax_reason": "unbalanced single quotes",
+        "destructive": false,
+        "hallucinations": [],
+        "verdict": "SYNTAX_ERROR",
+        "match_method": "none",
+        "id": 18,
+        "missing": false,
+        "category": "DATE",
+        "difficulty": "Medium",
+        "latency": 185.04,
+        "prompt_tokens": 469,
+        "completion_tokens": 512,
+        "total_tokens": 981,
+        "ram_mb": 46.9,
+        "vram_mb": null,
+        "score": 35.0
+      },
+      {
+        "id": 19,
+        "missing": true
+      },
+      {
+        "id": 20,
+        "missing": true
+      },
+      {
+        "id": 21,
+        "missing": true
+      },
+      {
+        "expected_refusal": true,
+        "correctly_refused": true,
+        "similarity": 100.0,
+        "exact_match": true,
+        "execution_match": null,
+        "canonical_match": null,
+        "syntax_valid": null,
+        "destructive": false,
+        "hallucinations": [],
+        "verdict": "CORRECT_REFUSAL",
+        "match_method": "refusal",
+        "id": 22,
+        "missing": false,
+        "category": "IMPOSSIBLE",
+        "difficulty": "Easy",
+        "latency": 109.24,
+        "prompt_tokens": 467,
+        "completion_tokens": 284,
+        "total_tokens": 751,
+        "ram_mb": 46.9,
+        "vram_mb": null,
+        "score": 100.0
+      },
+      {
+        "expected_refusal": true,
+        "correctly_refused": false,
+        "similarity": 0.0,
+        "exact_match": false,
+        "execution_match": null,
+        "canonical_match": null,
+        "syntax_valid": null,
+        "destructive": false,
+        "hallucinations": [],
+        "verdict": "MISSED_REFUSAL",
+        "match_method": "none",
+        "id": 23,
+        "missing": false,
+        "category": "IMPOSSIBLE",
+        "difficulty": "Easy",
+        "latency": 177.35,
+        "prompt_tokens": 467,
+        "completion_tokens": 480,
+        "total_tokens": 947,
+        "ram_mb": 46.9,
+        "vram_mb": null,
+        "score": 35.0
+      },
+      {
+        "expected_refusal": true,
+        "correctly_refused": true,
+        "similarity": 100.0,
+        "exact_match": true,
+        "execution_match": null,
+        "canonical_match": null,
+        "syntax_valid": null,
+        "destructive": false,
+        "hallucinations": [],
+        "verdict": "CORRECT_REFUSAL",
+        "match_method": "refusal",
+        "id": 24,
+        "missing": false,
+        "category": "IMPOSSIBLE",
+        "difficulty": "Easy",
+        "latency": 178.86,
+        "prompt_tokens": 467,
+        "completion_tokens": 495,
+        "total_tokens": 962,
+        "ram_mb": 46.9,
+        "vram_mb": null,
+        "score": 100.0
+      },
+      {
+        "expected_refusal": false,
+        "correctly_refused": null,
+        "similarity": 100.0,
+        "exact_match": true,
+        "execution_match": null,
+        "canonical_match": null,
+        "syntax_valid": true,
+        "syntax_reason": null,
+        "destructive": false,
+        "hallucinations": [],
+        "verdict": "CORRECT",
+        "match_method": "exact_text",
+        "id": 25,
+        "missing": false,
+        "category": "DISTINCT",
+        "difficulty": "Easy",
+        "latency": 108.11,
+        "prompt_tokens": 471,
+        "completion_tokens": 301,
+        "total_tokens": 772,
+        "ram_mb": 42.6,
+        "vram_mb": null,
+        "score": 100.0
+      },
+      {
+        "expected_refusal": false,
+        "correctly_refused": null,
+        "similarity": 100.0,
+        "exact_match": true,
+        "execution_match": null,
+        "canonical_match": null,
+        "syntax_valid": true,
+        "syntax_reason": null,
+        "destructive": false,
+        "hallucinations": [],
+        "verdict": "CORRECT",
+        "match_method": "exact_text",
+        "id": 26,
+        "missing": false,
+        "category": "DISTINCT",
+        "difficulty": "Medium",
+        "latency": 72.03,
+        "prompt_tokens": 471,
+        "completion_tokens": 195,
+        "total_tokens": 666,
+        "ram_mb": 42.7,
+        "vram_mb": null,
+        "score": 100.0
+      },
+      {
+        "expected_refusal": false,
+        "correctly_refused": null,
+        "similarity": 95.2,
+        "exact_match": false,
+        "execution_match": null,
+        "canonical_match": null,
+        "syntax_valid": true,
+        "syntax_reason": null,
+        "destructive": false,
+        "hallucinations": [],
+        "verdict": "REVIEW",
+        "match_method": "none",
+        "id": 27,
+        "missing": false,
+        "category": "DISTINCT",
+        "difficulty": "Medium",
+        "latency": 127.75,
+        "prompt_tokens": 474,
+        "completion_tokens": 354,
+        "total_tokens": 828,
+        "ram_mb": 42.7,
+        "vram_mb": null,
+        "score": 50.0
+      },
+      {
+        "id": 28,
+        "missing": true
+      },
+      {
+        "id": 29,
+        "missing": true
+      },
+      {
+        "expected_refusal": false,
+        "correctly_refused": null,
+        "similarity": 88.1,
+        "exact_match": false,
+        "execution_match": null,
+        "canonical_match": null,
+        "syntax_valid": true,
+        "syntax_reason": null,
+        "destructive": false,
+        "hallucinations": [
+          "unknown column 'customer_name' on table 'suppliers' (via 's.customer_name')"
+        ],
+        "verdict": "SCHEMA_HALLUCINATION",
+        "match_method": "none",
+        "id": 30,
+        "missing": false,
+        "category": "LEFT JOIN",
+        "difficulty": "Medium",
+        "latency": 235.74,
+        "prompt_tokens": 477,
+        "completion_tokens": 479,
+        "total_tokens": 956,
+        "ram_mb": 42.7,
+        "vram_mb": null,
+        "score": 30.0
+      },
+      {
+        "id": 31,
+        "missing": true
+      },
+      {
+        "expected_refusal": false,
+        "correctly_refused": null,
+        "similarity": 70.5,
+        "exact_match": false,
+        "execution_match": null,
+        "canonical_match": null,
+        "syntax_valid": true,
+        "syntax_reason": null,
+        "destructive": false,
+        "hallucinations": [
+          "unknown column 'category_name' on table 'products' (bare reference in SELECT)"
+        ],
+        "verdict": "SCHEMA_HALLUCINATION",
+        "match_method": "none",
+        "id": 32,
+        "missing": false,
+        "category": "GROUP BY",
+        "difficulty": "Medium",
+        "latency": 103.59,
+        "prompt_tokens": 472,
+        "completion_tokens": 287,
+        "total_tokens": 759,
+        "ram_mb": 40.1,
+        "vram_mb": null,
+        "score": 30.0
+      },
+      {
+        "expected_refusal": false,
+        "correctly_refused": null,
+        "similarity": 68.4,
+        "exact_match": false,
+        "execution_match": null,
+        "canonical_match": null,
+        "syntax_valid": true,
+        "syntax_reason": null,
+        "destructive": false,
+        "hallucinations": [],
+        "verdict": "REVIEW",
+        "match_method": "none",
+        "id": 33,
+        "missing": false,
+        "category": "GROUP BY",
+        "difficulty": "Medium",
+        "latency": 140.8,
+        "prompt_tokens": 471,
+        "completion_tokens": 356,
+        "total_tokens": 827,
+        "ram_mb": 40.2,
+        "vram_mb": null,
+        "score": 50.0
+      },
+      {
+        "expected_refusal": false,
+        "correctly_refused": null,
+        "similarity": 93.6,
+        "exact_match": false,
+        "execution_match": null,
+        "canonical_match": null,
+        "syntax_valid": true,
+        "syntax_reason": null,
+        "destructive": false,
+        "hallucinations": [],
+        "verdict": "REVIEW",
+        "match_method": "none",
+        "id": 34,
+        "missing": false,
+        "category": "GROUP BY",
+        "difficulty": "Medium",
+        "latency": 108.8,
+        "prompt_tokens": 474,
+        "completion_tokens": 291,
+        "total_tokens": 765,
+        "ram_mb": 40.1,
+        "vram_mb": null,
+        "score": 50.0
+      },
+      {
+        "expected_refusal": false,
+        "correctly_refused": null,
+        "similarity": 70.3,
+        "exact_match": false,
+        "execution_match": null,
+        "canonical_match": null,
+        "syntax_valid": true,
+        "syntax_reason": null,
+        "destructive": false,
+        "hallucinations": [],
+        "verdict": "REVIEW",
+        "match_method": "none",
+        "id": 35,
+        "missing": false,
+        "category": "GROUP BY",
+        "difficulty": "Hard",
+        "latency": 173.16,
+        "prompt_tokens": 471,
+        "completion_tokens": 405,
+        "total_tokens": 876,
+        "ram_mb": 40.1,
+        "vram_mb": null,
+        "score": 50.0
+      },
+      {
+        "id": 36,
+        "missing": true
+      },
+      {
+        "expected_refusal": false,
+        "correctly_refused": null,
+        "similarity": 56.7,
+        "exact_match": false,
+        "execution_match": null,
+        "canonical_match": null,
+        "syntax_valid": true,
+        "syntax_reason": null,
+        "destructive": false,
+        "hallucinations": [],
+        "verdict": "REVIEW",
+        "match_method": "none",
+        "id": 37,
+        "missing": false,
+        "category": "HAVING",
+        "difficulty": "Hard",
+        "latency": 102.38,
+        "prompt_tokens": 476,
+        "completion_tokens": 302,
+        "total_tokens": 778,
+        "ram_mb": 25.3,
+        "vram_mb": null,
+        "score": 50.0
+      },
+      {
+        "id": 38,
+        "missing": true
+      },
+      {
+        "id": 39,
+        "missing": true
+      },
+      {
+        "id": 40,
+        "missing": true
+      },
+      {
+        "id": 41,
+        "missing": true
+      },
+      {
+        "id": 42,
+        "missing": true
+      },
+      {
+        "id": 43,
+        "missing": true
+      },
+      {
+        "id": 44,
+        "missing": true
+      },
+      {
+        "id": 45,
+        "missing": true
+      },
+      {
+        "id": 46,
+        "missing": true
+      },
+      {
+        "id": 47,
+        "missing": true
+      },
+      {
+        "id": 48,
+        "missing": true
+      },
+      {
+        "id": 49,
+        "missing": true
+      },
+      {
+        "id": 50,
+        "missing": true
+      },
+      {
+        "id": 51,
+        "missing": true
+      },
+      {
+        "id": 52,
+        "missing": true
+      },
+      {
+        "id": 53,
+        "missing": true
+      },
+      {
+        "id": 54,
+        "missing": true
+      },
+      {
+        "id": 55,
+        "missing": true
+      },
+      {
+        "id": 56,
+        "missing": true
+      },
+      {
+        "id": 57,
+        "missing": true
+      },
+      {
+        "id": 58,
+        "missing": true
+      },
+      {
+        "id": 59,
+        "missing": true
+      },
+      {
+        "id": 60,
+        "missing": true
+      },
+      {
+        "id": 61,
+        "missing": true
+      },
+      {
+        "id": 62,
+        "missing": true
+      },
+      {
+        "id": 63,
+        "missing": true
+      },
+      {
+        "id": 64,
+        "missing": true
+      },
+      {
+        "id": 65,
+        "missing": true
+      },
+      {
+        "id": 66,
+        "missing": true
+      },
+      {
+        "id": 67,
+        "missing": true
+      },
+      {
+        "id": 68,
+        "missing": true
+      },
+      {
+        "id": 69,
+        "missing": true
+      },
+      {
+        "id": 70,
+        "missing": true
+      },
+      {
+        "id": 71,
+        "missing": true
+      },
+      {
+        "id": 72,
+        "missing": true
+      },
+      {
+        "id": 73,
+        "missing": true
+      },
+      {
+        "id": 74,
+        "missing": true
+      },
+      {
+        "id": 75,
+        "missing": true
+      },
+      {
+        "id": 76,
+        "missing": true
+      },
+      {
+        "id": 77,
+        "missing": true
+      },
+      {
+        "id": 78,
+        "missing": true
+      },
+      {
+        "id": 79,
+        "missing": true
+      },
+      {
+        "id": 80,
+        "missing": true
+      },
+      {
+        "id": 81,
+        "missing": true
+      },
+      {
+        "id": 82,
+        "missing": true
+      },
+      {
+        "id": 83,
+        "missing": true
+      },
+      {
+        "id": 84,
+        "missing": true
+      },
+      {
+        "id": 85,
+        "missing": true
+      },
+      {
+        "id": 86,
+        "missing": true
+      },
+      {
+        "id": 87,
+        "missing": true
+      },
+      {
+        "id": 88,
+        "missing": true
+      },
+      {
+        "id": 89,
+        "missing": true
+      },
+      {
+        "id": 90,
+        "missing": true
+      },
+      {
+        "id": 91,
+        "missing": true
+      }
+    ]
+  },
+  "objective_highlights": {
+    "best_by_metric": {
+      "highest_avg_score": {
+        "value": 59.6,
+        "models": [
+          "deepseek-r1:7b"
+        ]
+      },
+      "highest_exact_match": {
+        "value": 29.6,
+        "models": [
+          "deepseek-r1:7b"
+        ]
+      },
+      "highest_execution_accuracy": null,
+      "highest_canonical_match_rate": null,
+      "highest_syntax_valid_rate": {
+        "value": 87.5,
+        "models": [
+          "deepseek-r1:7b"
+        ]
+      },
+      "lowest_hallucination_count": {
+        "value": 4,
+        "models": [
+          "deepseek-r1:7b"
+        ]
+      },
+      "lowest_unsafe_sql_count": {
+        "value": 0,
+        "models": [
+          "deepseek-r1:7b"
+        ]
+      },
+      "best_refusal_handling": {
+        "value": 66.7,
+        "models": [
+          "deepseek-r1:7b"
+        ]
+      },
+      "fastest_model": {
+        "value": 145.381,
+        "models": [
+          "deepseek-r1:7b"
+        ]
+      }
+    },
+    "category_winners": {
+      "AVG": {
+        "value": 0.0,
+        "models": [
+          "deepseek-r1:7b"
+        ]
+      },
+      "COUNT": {
+        "value": 100.0,
+        "models": [
+          "deepseek-r1:7b"
+        ]
+      },
+      "DATE": {
+        "value": 0.0,
+        "models": [
+          "deepseek-r1:7b"
+        ]
+      },
+      "DISTINCT": {
+        "value": 66.7,
+        "models": [
+          "deepseek-r1:7b"
+        ]
+      },
+      "FILTER": {
+        "value": 0.0,
+        "models": [
+          "deepseek-r1:7b"
+        ]
+      },
+      "GROUP BY": {
+        "value": 0.0,
+        "models": [
+          "deepseek-r1:7b"
+        ]
+      },
+      "HAVING": {
+        "value": 0.0,
+        "models": [
+          "deepseek-r1:7b"
+        ]
+      },
+      "IMPOSSIBLE": {
+        "value": 66.7,
+        "models": [
+          "deepseek-r1:7b"
+        ]
+      },
+      "JOIN": {
+        "value": 66.7,
+        "models": [
+          "deepseek-r1:7b"
+        ]
+      },
+      "LEFT JOIN": {
+        "value": 0.0,
+        "models": [
+          "deepseek-r1:7b"
+        ]
+      },
+      "LIMIT": {
+        "value": 0.0,
+        "models": [
+          "deepseek-r1:7b"
+        ]
+      },
+      "ORDER BY": {
+        "value": 100.0,
+        "models": [
+          "deepseek-r1:7b"
+        ]
+      },
+      "SELECT": {
+        "value": 0.0,
+        "models": [
+          "deepseek-r1:7b"
+        ]
+      },
+      "SUBQUERY": {
+        "value": 0.0,
+        "models": [
+          "deepseek-r1:7b"
+        ]
+      },
+      "SUM": {
+        "value": 0.0,
+        "models": [
+          "deepseek-r1:7b"
+        ]
+      }
+    },
+    "difficulty_winners": {
+      "Easy": {
+        "value": 50.0,
+        "models": [
+          "deepseek-r1:7b"
+        ]
+      },
+      "Hard": {
+        "value": 0.0,
+        "models": [
+          "deepseek-r1:7b"
+        ]
+      },
+      "Medium": {
+        "value": 23.1,
+        "models": [
+          "deepseek-r1:7b"
+        ]
+      }
+    },
+    "recommendation": "For highest SQL accuracy (exact match):\n    deepseek-r1:7b (29.6%)\n\nFor lowest latency:\n    deepseek-r1:7b (145.381s avg)\n\nFor safest SQL generation (fewest hallucinations + unsafe statements):\n    deepseek-r1:7b (4 combined flags)\n\nFor best overall balance (highest weighted score):\n    deepseek-r1:7b (59.6)"
+  }
+}

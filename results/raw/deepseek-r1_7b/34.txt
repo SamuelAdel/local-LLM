@@ -1,0 +1,8 @@
+
+
+```sql
+SELECT s.company_name, COUNT(o.order_id) AS order_count 
+FROM Shippers s 
+JOIN Orders o ON s.shipper_id = o.shipper_id 
+GROUP BY s.company_name;
+```

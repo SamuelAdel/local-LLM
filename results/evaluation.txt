@@ -1,0 +1,466 @@
+================================================================================
+SQL ACCURACY / HALLUCINATION REPORT
+================================================================================
+
+DIAGNOSTICS (read this before the results below)
+--------------------------------------------------------------------------------
+  Execution matching : DISABLED -- no --db was passed this run, so execution_match
+    is blank for all 21 eligible question(s). Run with
+    `python evaluate.py --db path/to/database.sqlite` to enable it -- this is the
+    strongest correctness signal and the one most REVIEW verdicts need.
+  Canonical matching  : DISABLED -- `sqlglot` is not installed, so canonical_match is
+    blank for all 21 eligible question(s). Run `pip install sqlglot` to
+    enable it.
+
+  => Neither signal is active this run. Every non-exact-match question below
+     will show as REVIEW/blank regardless of whether the SQL is actually correct.
+     The verdicts and score below are NOT yet the execution-based evaluation.
+
+
+================================================================================
+MODEL : deepseek-r1:7b
+================================================================================
+
+[Q1] (SELECT/Easy, SQL) -> REVIEW
+    score        : 50.0/100
+    similarity   : 62.0%
+    exact_match  : False
+    latency      : 95.3s
+    total_tokens : 655
+
+[Q2] (SELECT/Easy, SQL) -> REVIEW
+    score        : 50.0/100
+    similarity   : 31.1%
+    exact_match  : False
+    latency      : 99.37s
+    total_tokens : 766
+
+[Q3] (FILTER/Easy, SQL) -> SYNTAX_ERROR
+    score        : 35.0/100
+    similarity   : 57.8%
+    exact_match  : False
+    syntax_error : does not start with SELECT/WITH
+    latency      : 182.2s
+    total_tokens : 982
+
+[Q4] (ORDER BY/Easy, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 100.0%
+    exact_match  : True
+    matched_via  : exact_text
+    latency      : 113.42s
+    total_tokens : 802
+
+[Q5] (LIMIT/Easy, SQL) -> SCHEMA_HALLUCINATION
+    score        : 30.0/100
+    similarity   : 23.8%
+    exact_match  : False
+    latency      : 180.34s
+    total_tokens : 976
+    HALLUCINATION FLAGS:
+      - unknown table referenced: 'the'
+
+[Q6] (JOIN/Medium, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 100.0%
+    exact_match  : True
+    matched_via  : exact_text
+    latency      : 114.45s
+    total_tokens : 802
+
+[Q7] (JOIN/Medium, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 100.0%
+    exact_match  : True
+    matched_via  : exact_text
+    latency      : 127.37s
+    total_tokens : 770
+
+[Q8] (JOIN/Medium, SQL) -> REVIEW
+    score        : 50.0/100
+    similarity   : 91.3%
+    exact_match  : False
+    latency      : 75.75s
+    total_tokens : 689
+
+[Q9] MISSING RESULT
+
+[Q10] (COUNT/Easy, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 100.0%
+    exact_match  : True
+    matched_via  : exact_text
+    latency      : 109.4s
+    total_tokens : 757
+
+[Q11] (SUM/Medium, SQL) -> REVIEW
+    score        : 50.0/100
+    similarity   : 76.6%
+    exact_match  : False
+    latency      : 164.18s
+    total_tokens : 818
+
+[Q12] (AVG/Medium, SQL) -> REVIEW
+    score        : 50.0/100
+    similarity   : 35.1%
+    exact_match  : False
+    latency      : 262.7s
+    total_tokens : 980
+
+[Q13] MISSING RESULT
+
+[Q14] MISSING RESULT
+
+[Q15] (SUBQUERY/Hard, SQL) -> REVIEW
+    score        : 50.0/100
+    similarity   : 61.3%
+    exact_match  : False
+    latency      : 161.05s
+    total_tokens : 861
+
+[Q16] (SUBQUERY/Hard, SQL) -> SYNTAX_ERROR
+    score        : 15.0/100
+    similarity   : 19.2%
+    exact_match  : False
+    syntax_error : unbalanced parentheses
+    latency      : 222.33s
+    total_tokens : 987
+    HALLUCINATION FLAGS:
+      - unknown table referenced: 'Total_Spending_PER_Customer'
+
+[Q17] (DATE/Medium, SQL) -> REVIEW
+    score        : 50.0/100
+    similarity   : 76.6%
+    exact_match  : False
+    latency      : 194.58s
+    total_tokens : 985
+
+[Q18] (DATE/Medium, SQL) -> SYNTAX_ERROR
+    score        : 35.0/100
+    similarity   : 44.9%
+    exact_match  : False
+    syntax_error : unbalanced single quotes
+    latency      : 185.04s
+    total_tokens : 981
+
+[Q19] MISSING RESULT
+
+[Q20] MISSING RESULT
+
+[Q21] MISSING RESULT
+
+[Q22] (IMPOSSIBLE/Easy, REFUSAL) -> CORRECT_REFUSAL
+    score        : 100.0/100
+    similarity   : 100.0%
+    exact_match  : True
+    matched_via  : refusal
+    correctly_refused : True
+    latency      : 109.24s
+    total_tokens : 751
+
+[Q23] (IMPOSSIBLE/Easy, REFUSAL) -> MISSED_REFUSAL
+    score        : 35.0/100
+    similarity   : 0.0%
+    exact_match  : False
+    correctly_refused : False
+    latency      : 177.35s
+    total_tokens : 947
+
+[Q24] (IMPOSSIBLE/Easy, REFUSAL) -> CORRECT_REFUSAL
+    score        : 100.0/100
+    similarity   : 100.0%
+    exact_match  : True
+    matched_via  : refusal
+    correctly_refused : True
+    latency      : 178.86s
+    total_tokens : 962
+
+[Q25] (DISTINCT/Easy, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 100.0%
+    exact_match  : True
+    matched_via  : exact_text
+    latency      : 108.11s
+    total_tokens : 772
+
+[Q26] (DISTINCT/Medium, SQL) -> CORRECT
+    score        : 100.0/100
+    similarity   : 100.0%
+    exact_match  : True
+    matched_via  : exact_text
+    latency      : 72.03s
+    total_tokens : 666
+
+[Q27] (DISTINCT/Medium, SQL) -> REVIEW
+    score        : 50.0/100
+    similarity   : 95.2%
+    exact_match  : False
+    latency      : 127.75s
+    total_tokens : 828
+
+[Q28] MISSING RESULT
+
+[Q29] MISSING RESULT
+
+[Q30] (LEFT JOIN/Medium, SQL) -> SCHEMA_HALLUCINATION
+    score        : 30.0/100
+    similarity   : 88.1%
+    exact_match  : False
+    latency      : 235.74s
+    total_tokens : 956
+    HALLUCINATION FLAGS:
+      - unknown column 'customer_name' on table 'suppliers' (via 's.customer_name')
+
+[Q31] MISSING RESULT
+
+[Q32] (GROUP BY/Medium, SQL) -> SCHEMA_HALLUCINATION
+    score        : 30.0/100
+    similarity   : 70.5%
+    exact_match  : False
+    latency      : 103.59s
+    total_tokens : 759
+    HALLUCINATION FLAGS:
+      - unknown column 'category_name' on table 'products' (bare reference in SELECT)
+
+[Q33] (GROUP BY/Medium, SQL) -> REVIEW
+    score        : 50.0/100
+    similarity   : 68.4%
+    exact_match  : False
+    latency      : 140.8s
+    total_tokens : 827
+
+[Q34] (GROUP BY/Medium, SQL) -> REVIEW
+    score        : 50.0/100
+    similarity   : 93.6%
+    exact_match  : False
+    latency      : 108.8s
+    total_tokens : 765
+
+[Q35] (GROUP BY/Hard, SQL) -> REVIEW
+    score        : 50.0/100
+    similarity   : 70.3%
+    exact_match  : False
+    latency      : 173.16s
+    total_tokens : 876
+
+[Q36] MISSING RESULT
+
+[Q37] (HAVING/Hard, SQL) -> REVIEW
+    score        : 50.0/100
+    similarity   : 56.7%
+    exact_match  : False
+    latency      : 102.38s
+    total_tokens : 778
+
+[Q38] MISSING RESULT
+
+[Q39] MISSING RESULT
+
+[Q40] MISSING RESULT
+
+[Q41] MISSING RESULT
+
+[Q42] MISSING RESULT
+
+[Q43] MISSING RESULT
+
+[Q44] MISSING RESULT
+
+[Q45] MISSING RESULT
+
+[Q46] MISSING RESULT
+
+[Q47] MISSING RESULT
+
+[Q48] MISSING RESULT
+
+[Q49] MISSING RESULT
+
+[Q50] MISSING RESULT
+
+[Q51] MISSING RESULT
+
+[Q52] MISSING RESULT
+
+[Q53] MISSING RESULT
+
+[Q54] MISSING RESULT
+
+[Q55] MISSING RESULT
+
+[Q56] MISSING RESULT
+
+[Q57] MISSING RESULT
+
+[Q58] MISSING RESULT
+
+[Q59] MISSING RESULT
+
+[Q60] MISSING RESULT
+
+[Q61] MISSING RESULT
+
+[Q62] MISSING RESULT
+
+[Q63] MISSING RESULT
+
+[Q64] MISSING RESULT
+
+[Q65] MISSING RESULT
+
+[Q66] MISSING RESULT
+
+[Q67] MISSING RESULT
+
+[Q68] MISSING RESULT
+
+[Q69] MISSING RESULT
+
+[Q70] MISSING RESULT
+
+[Q71] MISSING RESULT
+
+[Q72] MISSING RESULT
+
+[Q73] MISSING RESULT
+
+[Q74] MISSING RESULT
+
+[Q75] MISSING RESULT
+
+[Q76] MISSING RESULT
+
+[Q77] MISSING RESULT
+
+[Q78] MISSING RESULT
+
+[Q79] MISSING RESULT
+
+[Q80] MISSING RESULT
+
+[Q81] MISSING RESULT
+
+[Q82] MISSING RESULT
+
+[Q83] MISSING RESULT
+
+[Q84] MISSING RESULT
+
+[Q85] MISSING RESULT
+
+[Q86] MISSING RESULT
+
+[Q87] MISSING RESULT
+
+[Q88] MISSING RESULT
+
+[Q89] MISSING RESULT
+
+[Q90] MISSING RESULT
+
+[Q91] MISSING RESULT
+
+
+================================================================================
+SUMMARY
+================================================================================
+
+Model               Scored  Score   Exact%   ExecAcc%  Syntax%  Halluc.  Unsafe  Refusals  
+deepseek-r1:7b      27      59.6    29.6     N/A       87.5     4        0       2/3      
+
+CATEGORY ACCURACY (% correct)
+  deepseek-r1:7b:
+    SELECT              0.0%
+    FILTER              0.0%
+    ORDER BY            100.0%
+    LIMIT               0.0%
+    JOIN                66.7%
+    COUNT               100.0%
+    SUM                 0.0%
+    AVG                 0.0%
+    SUBQUERY            0.0%
+    DATE                0.0%
+    IMPOSSIBLE          66.7%
+    DISTINCT            66.7%
+    LEFT JOIN           0.0%
+    GROUP BY            0.0%
+    HAVING              0.0%
+
+DIFFICULTY ACCURACY (% correct)
+  deepseek-r1:7b:
+    Easy                50.0%
+    Medium              23.1%
+    Hard                0.0%
+
+LATENCY (seconds, only where logged by main.py)
+  deepseek-r1:7b: avg=145.381 median=127.75 min=72.03 max=262.7 p95=235.74 | tokens/sec=5.8
+
+RESOURCE USAGE (RAM/VRAM in MB, only where logged by main.py)
+  deepseek-r1:7b: RAM (avg=101.7 peak=208.7) | VRAM (N/A)
+
+MATCH METHOD BREAKDOWN (which signal decided each CORRECT verdict)
+  execution = ran against --db and result sets matched (strongest)
+  canonical = no DB result, but SQLGlot structural form matched (needs `pip install sqlglot`)
+  exact_text = no DB/canonical result, raw text matched after normalization (weakest)
+  refusal = correctly refused a should-refuse question
+  deepseek-r1:7b: exact_text=6, refusal=2  [sqlglot not installed -- canonical match unavailable]
+
+================================================================================
+RANKING (by weighted score)
+================================================================================
+  1. deepseek-r1:7b -- 59.6/100
+
+================================================================================
+BEST MODEL BY METRIC (objective -- direct comparison, no interpretation)
+================================================================================
+  Highest weighted score                : deepseek-r1:7b (59.6)
+  Highest exact match                   : deepseek-r1:7b (29.6%)
+  Highest execution accuracy            : N/A (no data)
+  Highest canonical-match rate          : N/A (no data)
+  Highest syntax-valid rate             : deepseek-r1:7b (87.5%)
+  Lowest hallucination count            : deepseek-r1:7b (4 flags)
+  Fewest unsafe/destructive statements  : deepseek-r1:7b (0)
+  Best refusal handling                 : deepseek-r1:7b (66.7%)
+  Fastest model (lowest avg latency)    : deepseek-r1:7b (145.381s)
+
+================================================================================
+CATEGORY WINNERS (highest accuracy per category)
+================================================================================
+  AVG                 : deepseek-r1:7b (0.0%)
+  COUNT               : deepseek-r1:7b (100.0%)
+  DATE                : deepseek-r1:7b (0.0%)
+  DISTINCT            : deepseek-r1:7b (66.7%)
+  FILTER              : deepseek-r1:7b (0.0%)
+  GROUP BY            : deepseek-r1:7b (0.0%)
+  HAVING              : deepseek-r1:7b (0.0%)
+  IMPOSSIBLE          : deepseek-r1:7b (66.7%)
+  JOIN                : deepseek-r1:7b (66.7%)
+  LEFT JOIN           : deepseek-r1:7b (0.0%)
+  LIMIT               : deepseek-r1:7b (0.0%)
+  ORDER BY            : deepseek-r1:7b (100.0%)
+  SELECT              : deepseek-r1:7b (0.0%)
+  SUBQUERY            : deepseek-r1:7b (0.0%)
+  SUM                 : deepseek-r1:7b (0.0%)
+
+================================================================================
+DIFFICULTY WINNERS (highest accuracy per difficulty level)
+================================================================================
+  Easy                : deepseek-r1:7b (50.0%)
+  Hard                : deepseek-r1:7b (0.0%)
+  Medium              : deepseek-r1:7b (23.1%)
+
+================================================================================
+RECOMMENDATION (rule-based -- each line points to the model that already
+won the corresponding metric above; not a subjective judgement)
+================================================================================
+For highest SQL accuracy (exact match):
+    deepseek-r1:7b (29.6%)
+
+For lowest latency:
+    deepseek-r1:7b (145.381s avg)
+
+For safest SQL generation (fewest hallucinations + unsafe statements):
+    deepseek-r1:7b (4 combined flags)
+
+For best overall balance (highest weighted score):
+    deepseek-r1:7b (59.6)

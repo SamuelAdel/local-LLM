@@ -1,0 +1,3 @@
+
+
+SELECT DISTINCT `order_status` FROM `Orders`;

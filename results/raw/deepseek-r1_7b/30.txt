@@ -1,0 +1,5 @@
+
+
+```sql
+SELECT s.customer_name FROM Suppliers s LEFT JOIN Products p ON s.supplier_id = p.supplier_id;
+```

@@ -1,16 +1,19 @@
 ================================================================================
 LOCAL LLM EVALUATION
 MODEL : deepseek-r1:7b
-2026-08-04 18:43:59.809819
+2026-08-05 16:44:08.607399
 ================================================================================
 
 Question ID : 1
 Category    : SELECT
 Difficulty  : Easy
 Question    : List all customers.
-Time : 137.46 sec
+Latency : 95.3
 Prompt Tokens : 467
 Completion Tokens : 188
+Total Tokens : 655
+RAM : 208.6
+VRAM : N/A
 Generated SQL:
 SELECT customer_id, customer_name FROM Customers;
 --------------------------------------------------------------------------------
@@ -18,9 +21,12 @@ Question ID : 2
 Category    : SELECT
 Difficulty  : Easy
 Question    : List all products.
-Time : 152.81 sec
+Latency : 99.37
 Prompt Tokens : 467
 Completion Tokens : 299
+Total Tokens : 766
+RAM : 208.6
+VRAM : N/A
 Generated SQL:
 SELECT product_id, product_name, category_id, supplier_id, unit_price, stock_quantity, discontinued FROM Products;
 --------------------------------------------------------------------------------
@@ -28,9 +34,12 @@ Question ID : 3
 Category    : FILTER
 Difficulty  : Easy
 Question    : Show customers who live in Cairo.
-Time : 207.77 sec
+Latency : 182.2
 Prompt Tokens : 470
 Completion Tokens : 512
+Total Tokens : 982
+RAM : 208.7
+VRAM : N/A
 Generated SQL:
 To retrieve customers who live in Cairo
 --------------------------------------------------------------------------------
@@ -38,9 +47,12 @@ Question ID : 4
 Category    : ORDER BY
 Difficulty  : Easy
 Question    : Show products ordered by price descending.
-Time : 111.99 sec
+Latency : 113.42
 Prompt Tokens : 470
 Completion Tokens : 332
+Total Tokens : 802
+RAM : 208.7
+VRAM : N/A
 Generated SQL:
 SELECT * FROM Products ORDER BY unit_price DESC;
 --------------------------------------------------------------------------------
@@ -48,9 +60,12 @@ Question ID : 5
 Category    : LIMIT
 Difficulty  : Easy
 Question    : Show the five most expensive products.
-Time : 170.48 sec
+Latency : 180.34
 Prompt Tokens : 470
 Completion Tokens : 506
+Total Tokens : 976
+RAM : 208.7
+VRAM : N/A
 Generated SQL:
 SELECT product_name, unit_price FROM Products ORDER BY unit_price DESC LIMIT 5;
 
@@ -65,9 +80,12 @@ Question ID : 6
 Category    : JOIN
 Difficulty  : Medium
 Question    : List customer names with their order dates.
-Time : 112.11 sec
+Latency : 114.45
 Prompt Tokens : 471
 Completion Tokens : 331
+Total Tokens : 802
+RAM : 208.7
+VRAM : N/A
 Generated SQL:
 SELECT c.customer_name, o.order_date FROM Customers c JOIN Orders o ON c.customer_id = o.customer_id;
 --------------------------------------------------------------------------------
@@ -75,9 +93,12 @@ Question ID : 7
 Category    : JOIN
 Difficulty  : Medium
 Question    : List product names with supplier names.
-Time : 101.56 sec
+Latency : 127.37
 Prompt Tokens : 470
 Completion Tokens : 300
+Total Tokens : 770
+RAM : 208.7
+VRAM : N/A
 Generated SQL:
 SELECT p.product_name, s.supplier_name FROM Products p JOIN Suppliers s ON p.supplier_id = s.supplier_id;
 --------------------------------------------------------------------------------
@@ -85,9 +106,12 @@ Question ID : 8
 Category    : JOIN
 Difficulty  : Medium
 Question    : Show products with category names.
-Time : 74.44 sec
+Latency : 75.75
 Prompt Tokens : 469
 Completion Tokens : 220
+Total Tokens : 689
+RAM : 208.7
+VRAM : N/A
 Generated SQL:
 SELECT p.product_id, p.product_name, c.category_name FROM Products p INNER JOIN Categories c ON p.category_id = c.category_id;
 --------------------------------------------------------------------------------
@@ -95,9 +119,12 @@ Question ID : 9
 Category    : JOIN
 Difficulty  : Medium
 Question    : List customer names and payment methods.
-Time : 172.51 sec
+Latency : 279.78
 Prompt Tokens : 470
 Completion Tokens : 512
+Total Tokens : 982
+RAM : 208.7
+VRAM : N/A
 Generated SQL:
 
 --------------------------------------------------------------------------------
@@ -105,9 +132,12 @@ Question ID : 10
 Category    : COUNT
 Difficulty  : Easy
 Question    : How many customers are there?
-Time : 97.56 sec
+Latency : 109.4
 Prompt Tokens : 469
 Completion Tokens : 288
+Total Tokens : 757
+RAM : 153.7
+VRAM : N/A
 Generated SQL:
 SELECT COUNT(*) FROM Customers;
 --------------------------------------------------------------------------------
@@ -115,9 +145,12 @@ Question ID : 11
 Category    : SUM
 Difficulty  : Medium
 Question    : Calculate total sales.
-Time : 118.03 sec
+Latency : 164.18
 Prompt Tokens : 467
 Completion Tokens : 351
+Total Tokens : 818
+RAM : 153.7
+VRAM : N/A
 Generated SQL:
 SELECT SUM(orders.total_amount) AS total_sales FROM orders;
 --------------------------------------------------------------------------------
@@ -125,9 +158,12 @@ Question ID : 12
 Category    : AVG
 Difficulty  : Medium
 Question    : Calculate average order amount.
-Time : 172.34 sec
+Latency : 262.7
 Prompt Tokens : 468
 Completion Tokens : 512
+Total Tokens : 980
+RAM : 82.7
+VRAM : N/A
 Generated SQL:
 SELECT AVG(total_amount) AS average_order_amount FROM Orders;
 
@@ -138,9 +174,12 @@ Question ID : 13
 Category    : GROUP BY
 Difficulty  : Medium
 Question    : Show total sales for each customer.
-Time : 172.66 sec
+Latency : 191.26
 Prompt Tokens : 470
 Completion Tokens : 512
+Total Tokens : 982
+RAM : 59.2
+VRAM : N/A
 Generated SQL:
 
 --------------------------------------------------------------------------------
@@ -148,9 +187,12 @@ Question ID : 14
 Category    : HAVING
 Difficulty  : Hard
 Question    : Show customers with more than five orders.
-Time : 172.33 sec
+Latency : 195.93
 Prompt Tokens : 471
 Completion Tokens : 512
+Total Tokens : 983
+RAM : 59.2
+VRAM : N/A
 Generated SQL:
 
 --------------------------------------------------------------------------------
@@ -158,9 +200,12 @@ Question ID : 15
 Category    : SUBQUERY
 Difficulty  : Hard
 Question    : Show the most expensive product.
-Time : 132.45 sec
+Latency : 161.05
 Prompt Tokens : 469
 Completion Tokens : 392
+Total Tokens : 861
+RAM : 47.2
+VRAM : N/A
 Generated SQL:
 SELECT product_id, product_name, MAX(unit_price) AS most_expensive FROM Products;
 --------------------------------------------------------------------------------
@@ -168,9 +213,12 @@ Question ID : 16
 Category    : SUBQUERY
 Difficulty  : Hard
 Question    : Show customers whose total spending is above the average customer spending.
-Time : 170.65 sec
+Latency : 222.33
 Prompt Tokens : 475
 Completion Tokens : 512
+Total Tokens : 987
+RAM : 47.2
+VRAM : N/A
 Generated SQL:
 WITH Total_Spending_PER_Customer AS (
     SELECT 
@@ -193,9 +241,12 @@ Question ID : 17
 Category    : DATE
 Difficulty  : Medium
 Question    : Show orders placed in 2024.
-Time : 172.49 sec
+Latency : 194.58
 Prompt Tokens : 473
 Completion Tokens : 512
+Total Tokens : 985
+RAM : 46.9
+VRAM : N/A
 Generated SQL:
 SELECT * FROM Orders WHERE YEAR(order_date) =
 --------------------------------------------------------------------------------
@@ -203,9 +254,12 @@ Question ID : 18
 Category    : DATE
 Difficulty  : Medium
 Question    : Show orders placed during January.
-Time : 172.16 sec
+Latency : 185.04
 Prompt Tokens : 469
 Completion Tokens : 512
+Total Tokens : 981
+RAM : 46.9
+VRAM : N/A
 Generated SQL:
 SELECT 
     order_id,
@@ -223,9 +277,12 @@ Question ID : 19
 Category    : NULL
 Difficulty  : Hard
 Question    : Show customers who never placed an order.
-Time : 172.48 sec
+Latency : 183.16
 Prompt Tokens : 471
 Completion Tokens : 512
+Total Tokens : 983
+RAM : 46.9
+VRAM : N/A
 Generated SQL:
 
 --------------------------------------------------------------------------------
@@ -233,9 +290,12 @@ Question ID : 20
 Category    : CTE
 Difficulty  : Expert
 Question    : Find the top five customers by total spending.
-Time : 172.65 sec
+Latency : 193.96
 Prompt Tokens : 472
 Completion Tokens : 512
+Total Tokens : 984
+RAM : 47.0
+VRAM : N/A
 Generated SQL:
 
 --------------------------------------------------------------------------------
@@ -243,9 +303,12 @@ Question ID : 21
 Category    : WINDOW
 Difficulty  : Expert
 Question    : Rank products by total sales.
-Time : 172.84 sec
+Latency : 195.61
 Prompt Tokens : 469
 Completion Tokens : 512
+Total Tokens : 981
+RAM : 46.9
+VRAM : N/A
 Generated SQL:
 
 --------------------------------------------------------------------------------
@@ -253,9 +316,12 @@ Question ID : 22
 Category    : IMPOSSIBLE
 Difficulty  : Easy
 Question    : Show employee salaries.
-Time : 95.69 sec
+Latency : 109.24
 Prompt Tokens : 467
 Completion Tokens : 284
+Total Tokens : 751
+RAM : 46.9
+VRAM : N/A
 Generated SQL:
 CANNOT_GENERATE_SQL
 --------------------------------------------------------------------------------
@@ -263,9 +329,12 @@ Question ID : 23
 Category    : IMPOSSIBLE
 Difficulty  : Easy
 Question    : Show customer birthdays.
-Time : 161.44 sec
+Latency : 177.35
 Prompt Tokens : 467
 Completion Tokens : 480
+Total Tokens : 947
+RAM : 46.9
+VRAM : N/A
 Generated SQL:
 SELECT customer_id, created_at FROM Customers WHERE created_at > '1980-01-01';
 --------------------------------------------------------------------------------
@@ -273,11 +342,195 @@ Question ID : 24
 Category    : IMPOSSIBLE
 Difficulty  : Easy
 Question    : Show product colors.
-Time : 166.92 sec
+Latency : 178.86
 Prompt Tokens : 467
 Completion Tokens : 495
+Total Tokens : 962
+RAM : 46.9
+VRAM : N/A
 Generated SQL:
 CANNOT_GENERATE_SQL
 --------------------------------------------------------------------------------
+Question ID : 25
+Category    : DISTINCT
+Difficulty  : Easy
+Question    : List all distinct cities where customers live.
+Latency : 108.11
+Prompt Tokens : 471
+Completion Tokens : 301
+Total Tokens : 772
+RAM : 42.6
+VRAM : N/A
+Generated SQL:
+SELECT DISTINCT city FROM Customers;
+--------------------------------------------------------------------------------
+Question ID : 26
+Category    : DISTINCT
+Difficulty  : Medium
+Question    : List all distinct countries suppliers come from.
+Latency : 72.03
+Prompt Tokens : 471
+Completion Tokens : 195
+Total Tokens : 666
+RAM : 42.7
+VRAM : N/A
+Generated SQL:
+SELECT DISTINCT country FROM Suppliers;
+--------------------------------------------------------------------------------
+Question ID : 27
+Category    : DISTINCT
+Difficulty  : Medium
+Question    : List the distinct order statuses used in the Orders table.
+Latency : 127.75
+Prompt Tokens : 474
+Completion Tokens : 354
+Total Tokens : 828
+RAM : 42.7
+VRAM : N/A
+Generated SQL:
+SELECT DISTINCT `order_status` FROM `Orders`;
+--------------------------------------------------------------------------------
+Question ID : 28
+Category    : LEFT JOIN
+Difficulty  : Medium
+Question    : List all customers with their orders, including customers who have no orders.
+Latency : 230.39
+Prompt Tokens : 477
+Completion Tokens : 512
+Total Tokens : 989
+RAM : 42.7
+VRAM : N/A
+Generated SQL:
 
-STATUS: COMPLETE
+--------------------------------------------------------------------------------
+Question ID : 29
+Category    : LEFT JOIN
+Difficulty  : Medium
+Question    : List all products with their reviews, including products with no reviews.
+Latency : 245.71
+Prompt Tokens : 476
+Completion Tokens : 512
+Total Tokens : 988
+RAM : 42.7
+VRAM : N/A
+Generated SQL:
+
+--------------------------------------------------------------------------------
+Question ID : 30
+Category    : LEFT JOIN
+Difficulty  : Medium
+Question    : Show all suppliers along with their products, including suppliers with no products.
+Latency : 235.74
+Prompt Tokens : 477
+Completion Tokens : 479
+Total Tokens : 956
+RAM : 42.7
+VRAM : N/A
+Generated SQL:
+SELECT s.customer_name FROM Suppliers s LEFT JOIN Products p ON s.supplier_id = p.supplier_id;
+--------------------------------------------------------------------------------
+Question ID : 31
+Category    : LEFT JOIN
+Difficulty  : Hard
+Question    : List categories along with the number of products in each, including categories with zero products.
+Latency : 278.5
+Prompt Tokens : 480
+Completion Tokens : 512
+Total Tokens : 992
+RAM : 40.0
+VRAM : N/A
+Generated SQL:
+
+--------------------------------------------------------------------------------
+Question ID : 32
+Category    : GROUP BY
+Difficulty  : Medium
+Question    : Show the number of products in each category.
+Latency : 103.59
+Prompt Tokens : 472
+Completion Tokens : 287
+Total Tokens : 759
+RAM : 40.1
+VRAM : N/A
+Generated SQL:
+SELECT category_name, COUNT(product_id) AS product_count FROM Products GROUP BY category_id;
+--------------------------------------------------------------------------------
+Question ID : 33
+Category    : GROUP BY
+Difficulty  : Medium
+Question    : Show total quantity sold for each product.
+Latency : 140.8
+Prompt Tokens : 471
+Completion Tokens : 356
+Total Tokens : 827
+RAM : 40.2
+VRAM : N/A
+Generated SQL:
+SELECT p.product_id, SUM(oq.quantity) AS total_quantity_sold
+FROM Products p
+JOIN Order_Items oq ON p.product_id = oq.product_id
+GROUP BY p.product_id;
+--------------------------------------------------------------------------------
+Question ID : 34
+Category    : GROUP BY
+Difficulty  : Medium
+Question    : Show the number of orders placed through each shipper.
+Latency : 108.8
+Prompt Tokens : 474
+Completion Tokens : 291
+Total Tokens : 765
+RAM : 40.1
+VRAM : N/A
+Generated SQL:
+SELECT s.company_name, COUNT(o.order_id) AS order_count 
+FROM Shippers s 
+JOIN Orders o ON s.shipper_id = o.shipper_id 
+GROUP BY s.company_name;
+--------------------------------------------------------------------------------
+Question ID : 35
+Category    : GROUP BY
+Difficulty  : Hard
+Question    : Show the average rating for each product.
+Latency : 173.16
+Prompt Tokens : 471
+Completion Tokens : 405
+Total Tokens : 876
+RAM : 40.1
+VRAM : N/A
+Generated SQL:
+SELECT p.product_id, AVG(r.rating) AS average_rating 
+FROM Products p 
+INNER JOIN Reviews r ON p.product_id = r.product_id 
+GROUP BY p.product_id;
+--------------------------------------------------------------------------------
+Question ID : 36
+Category    : GROUP BY
+Difficulty  : Medium
+Question    : Show the number of customers in each country.
+Latency : 223.58
+Prompt Tokens : 472
+Completion Tokens : 512
+Total Tokens : 984
+RAM : 40.1
+VRAM : N/A
+Generated SQL:
+
+--------------------------------------------------------------------------------
+Question ID : 37
+Category    : HAVING
+Difficulty  : Hard
+Question    : Show products that have been ordered more than ten units in total.
+Latency : 102.38
+Prompt Tokens : 476
+Completion Tokens : 302
+Total Tokens : 778
+RAM : 25.3
+VRAM : N/A
+Generated SQL:
+SELECT p.product_id, p.product_name, SUM(oi.quantity) AS total_units_sold
+FROM Products p
+JOIN Order_Items oi ON p.product_id = oi.product_id
+JOIN Orders o ON oi.order_id = o.order_id
+GROUP BY p.product_id, p.product_name
+HAVING SUM(oi.quantity) > 10;
+--------------------------------------------------------------------------------

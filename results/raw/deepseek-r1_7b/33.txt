@@ -1,0 +1,8 @@
+
+
+```sql
+SELECT p.product_id, SUM(oq.quantity) AS total_quantity_sold
+FROM Products p
+JOIN Order_Items oq ON p.product_id = oq.product_id
+GROUP BY p.product_id;
+```

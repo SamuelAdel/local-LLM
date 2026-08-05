@@ -1,0 +1,8 @@
+
+
+```sql
+SELECT p.product_id, AVG(r.rating) AS average_rating 
+FROM Products p 
+INNER JOIN Reviews r ON p.product_id = r.product_id 
+GROUP BY p.product_id;
+```
