@@ -444,6 +444,8 @@ _LATENCY_RE = re.compile(r"Latency\s*:\s*([\d.]+)", re.IGNORECASE)
 _PROMPT_TOK_RE = re.compile(r"Prompt Tokens\s*:\s*(\d+)", re.IGNORECASE)
 _COMPLETION_TOK_RE = re.compile(r"Completion Tokens\s*:\s*(\d+)", re.IGNORECASE)
 _TOTAL_TOK_RE = re.compile(r"Total Tokens\s*:\s*(\d+)", re.IGNORECASE)
+_RAM_RE = re.compile(r"RAM\s*:\s*([\d.]+)", re.IGNORECASE)
+_VRAM_RE = re.compile(r"VRAM\s*:\s*([\d.]+)", re.IGNORECASE)
 
 
 def parse_result_file(path):
@@ -451,12 +453,15 @@ def parse_result_file(path):
     Returns {question_id: {"sql": str, "latency": float|None,
                             "prompt_tokens": int|None,
                             "completion_tokens": int|None,
-                            "total_tokens": int|None}}
+                            "total_tokens": int|None,
+                            "ram_mb": float|None,
+                            "vram_mb": float|None}}
 
-    Latency/token fields are optional: if main.py isn't logging a line like
-    "Latency: 1.23" / "Prompt Tokens: 120" / "Completion Tokens: 45" /
-    "Total Tokens: 165" inside a question's block, those fields are simply
-    None and downstream stats report "N/A" for them.
+    All of latency/token/RAM/VRAM fields are optional: if main.py isn't
+    logging a line like "Latency: 1.23" / "Prompt Tokens: 120" /
+    "Completion Tokens: 45" / "Total Tokens: 165" / "RAM: 512.3" /
+    "VRAM: 2048.1" inside a question's block, those fields are simply None
+    and downstream stats report "N/A" for them.
     """
     text = path.read_text(encoding="utf-8")
     records = {}
@@ -487,6 +492,8 @@ def parse_result_file(path):
             "prompt_tokens": prompt_tok,
             "completion_tokens": completion_tok,
             "total_tokens": total_tok,
+            "ram_mb": _num(_RAM_RE, float),
+            "vram_mb": _num(_VRAM_RE, float),
         }
 
     return records
@@ -681,6 +688,8 @@ def evaluate_model(model, conn):
         result["prompt_tokens"] = record["prompt_tokens"]
         result["completion_tokens"] = record["completion_tokens"]
         result["total_tokens"] = record["total_tokens"]
+        result["ram_mb"] = record["ram_mb"]
+        result["vram_mb"] = record["vram_mb"]
         result["score"] = composite_score(result)
         rows.append(result)
 
@@ -743,6 +752,21 @@ def summarize(rows):
         if total_time > 0:
             tokens_per_sec = round(sum(total_tokens) / total_time, 1)
 
+    ram_values = [r["ram_mb"] for r in scored if r.get("ram_mb") is not None]
+    vram_values = [r["vram_mb"] for r in scored if r.get("vram_mb") is not None]
+    ram_stats = None
+    if ram_values:
+        ram_stats = {
+            "avg": round(sum(ram_values) / len(ram_values), 1),
+            "peak": round(max(ram_values), 1),
+        }
+    vram_stats = None
+    if vram_values:
+        vram_stats = {
+            "avg": round(sum(vram_values) / len(vram_values), 1),
+            "peak": round(max(vram_values), 1),
+        }
+
     by_category = {}
     by_difficulty = {}
     for r in scored:
@@ -773,6 +797,8 @@ def summarize(rows):
         "avg_score": round(avg_score, 1),
         "latency": latency_stats,
         "tokens_per_sec": tokens_per_sec,
+        "ram_mb": ram_stats,
+        "vram_mb": vram_stats,
         "match_method_counts": match_method_counts,
         "category_accuracy": {k: _pct(v[0], v[1]) for k, v in by_category.items()},
         "difficulty_accuracy": {k: _pct(v[0], v[1]) for k, v in by_difficulty.items()},
@@ -1048,6 +1074,16 @@ def write_txt_report(all_rows, all_summaries, db_configured=False):
             f"min={lat['min']} max={lat['max']} p95={lat['p95']} | tokens/sec={tps}"
         )
 
+    lines.append("\nRESOURCE USAGE (RAM/VRAM in MB, only where logged by main.py)")
+    for model, s in all_summaries.items():
+        if s["n"] == 0:
+            continue
+        ram = s.get("ram_mb")
+        vram = s.get("vram_mb")
+        ram_str = f"avg={ram['avg']} peak={ram['peak']}" if ram else "N/A"
+        vram_str = f"avg={vram['avg']} peak={vram['peak']}" if vram else "N/A"
+        lines.append(f"  {model}: RAM ({ram_str}) | VRAM ({vram_str})")
+
     lines.append("\nMATCH METHOD BREAKDOWN (which signal decided each CORRECT verdict)")
     lines.append("  execution = ran against --db and result sets matched (strongest)")
     lines.append("  canonical = no DB result, but SQLGlot structural form matched (needs `pip install sqlglot`)")
@@ -1159,7 +1195,7 @@ def write_csv_report(all_rows):
         "score", "similarity", "exact_match", "execution_match",
         "canonical_match", "match_method",
         "syntax_valid", "destructive", "hallucination_count",
-        "latency", "total_tokens", "missing",
+        "latency", "total_tokens", "ram_mb", "vram_mb", "missing",
     ]
     with REPORT_CSV.open("w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames)
@@ -1188,6 +1224,8 @@ def write_csv_report(all_rows):
                     "hallucination_count": len(r["hallucinations"]),
                     "latency": r.get("latency"),
                     "total_tokens": r.get("total_tokens"),
+                    "ram_mb": r.get("ram_mb"),
+                    "vram_mb": r.get("vram_mb"),
                     "missing": False,
                 })
 

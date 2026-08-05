@@ -29,14 +29,26 @@ and failures, useful when running many models unattended.
 """
 
 import logging
+import os
 import re
 from pathlib import Path
 from datetime import datetime
+
+import psutil
+
+try:
+    import torch
+    _TORCH_AVAILABLE = torch.cuda.is_available()
+except ImportError:
+    torch = None
+    _TORCH_AVAILABLE = False
 
 from models import MODELS
 from schema import DATABASE_SCHEMA
 from questions import QUESTIONS
 from run_model import run_model, ModelRunError
+
+_PROCESS = psutil.Process(os.getpid())
 
 
 RESULTS_DIR = Path("results")
@@ -158,19 +170,36 @@ def run_one_model(model):
             f.write(f"Question    : {q['question']}\n")
 
             try:
+                if _TORCH_AVAILABLE:
+                    torch.cuda.reset_peak_memory_stats()
+                ram_before = _PROCESS.memory_info().rss
+
                 result = run_model(
                     model,
                     DATABASE_SCHEMA,
                     q["question"],
                 )
+
+                ram_after = _PROCESS.memory_info().rss
+                ram_mb = round(max(ram_before, ram_after) / (1024 ** 2), 1)
+                vram_mb = (
+                    round(torch.cuda.max_memory_allocated() / (1024 ** 2), 1)
+                    if _TORCH_AVAILABLE else None
+                )
+
                 sql = result["sql"]
 
                 response_time = result["latency"]
                 latencies.append(response_time)
-                f.write(f"Time : {response_time} sec\n")
+                # NOTE: evaluate.py parses this via a "Latency:" regex --
+                # keep the label in sync if you ever rename it here.
+                f.write(f"Latency : {response_time}\n")
 
                 f.write(f"Prompt Tokens : {result['prompt_tokens']}\n")
                 f.write(f"Completion Tokens : {result['completion_tokens']}\n")
+                f.write(f"Total Tokens : {result['prompt_tokens'] + result['completion_tokens']}\n")
+                f.write(f"RAM : {ram_mb}\n")
+                f.write(f"VRAM : {vram_mb if vram_mb is not None else 'N/A'}\n")
                 f.write("Generated SQL:\n")
                 f.write(sql)
                 f.write("\n")
@@ -184,7 +213,7 @@ def run_one_model(model):
             except ModelRunError as exc:
                 print(f"  ERROR: {exc}")
                 log.error(f"{model} [{q['id']}]: {exc}")
-                f.write("Time        : N/A\n\n")
+                f.write("Latency : N/A\n\n")
                 f.write("Generated SQL:\n")
                 f.write(f"ERROR: {exc}\n")
 
